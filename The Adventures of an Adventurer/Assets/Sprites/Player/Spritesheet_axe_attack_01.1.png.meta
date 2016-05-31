@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 35c0a912f9f556d40969b0d83dbf1941
+timeCreated: 1462265180
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Spritesheet_axe_attack_01.1_0
+    21300002: Spritesheet_axe_attack_01.1_1
+    21300004: Spritesheet_axe_attack_01.1_2
+    21300006: Spritesheet_axe_attack_01.1_3
+    21300008: Spritesheet_axe_attack_01.1_4
+    21300010: Spritesheet_axe_attack_01.1_5
+    21300012: Spritesheet_axe_attack_01.1_6
+    21300014: Spritesheet_axe_attack_01.1_7
+    21300016: Spritesheet_axe_attack_01.1_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 148
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Spritesheet_axe_attack_01.1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 91.5}
+        - {x: -49, y: 69.5}
+        - {x: -54, y: 2.5}
+        - {x: -54, y: -104.5}
+        - {x: 45, y: -104.5}
+        - {x: 45, y: -0.5}
+        - {x: 31, y: 91.5}
+    - name: Spritesheet_axe_attack_01.1_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.655182, y: 91.5}
+        - {x: -52.65518, y: 72.5}
+        - {x: -52.65518, y: -104.5}
+        - {x: 46.34482, y: -104.5}
+        - {x: 46.34482, y: 60.5}
+        - {x: 33.34482, y: 91.5}
+    - name: Spritesheet_axe_attack_01.1_2
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.189636, y: 94.5}
+        - {x: -40.810364, y: 94.5}
+        - {x: -55.810364, y: 71.5}
+        - {x: -55.810364, y: -104.5}
+        - {x: 46.189636, y: -104.5}
+        - {x: 46.189636, y: 66.5}
+        - {x: 40.189636, y: 88.5}
+    - name: Spritesheet_axe_attack_01.1_3
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.965515, y: 104.5}
+        - {x: -22.965515, y: 102.5}
+        - {x: -44.965515, y: 2.5}
+        - {x: -52.965515, y: -90.5}
+        - {x: -52.965515, y: -104.5}
+        - {x: 46.034485, y: -104.5}
+        - {x: 46.034485, y: 49.5}
+        - {x: 28.034485, y: 104.5}
+    - name: Spritesheet_axe_attack_01.1_4
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.620728, y: 91.5}
+        - {x: -52.620728, y: 47.5}
+        - {x: -52.620728, y: -104.5}
+        - {x: 51.379272, y: -104.5}
+        - {x: 86.37927, y: 14.5}
+        - {x: 86.37927, y: 91.5}
+    - name: Spritesheet_axe_attack_01.1_5
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 108.22412, y: 48.5}
+        - {x: 88.22412, y: 54.5}
+        - {x: 27.224121, y: 91.5}
+        - {x: -23.775879, y: 91.5}
+        - {x: -48.77588, y: 23.5}
+        - {x: -51.77588, y: -66.5}
+        - {x: -51.77588, y: -104.5}
+        - {x: 47.22412, y: -104.5}
+        - {x: 49.22412, y: -93.5}
+        - {x: 115.22412, y: -3.5}
+        - {x: 115.22412, y: 31.5}
+    - name: Spritesheet_axe_attack_01.1_6
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47.06897, y: -61.5}
+        - {x: 87.06897, y: -74.5}
+        - {x: 87.06897, y: 53.5}
+        - {x: 76.06897, y: 91.5}
+        - {x: -37.93103, y: 91.5}
+        - {x: -52.93103, y: 15.5}
+        - {x: -52.93103, y: -104.5}
+        - {x: 46.06897, y: -104.5}
+        - {x: 49.06897, y: -92.5}
+        - {x: 36.06897, y: -45.5}
+        - {x: 37.06897, y: -47.5}
+      - - {x: -113.93103, y: 22.5}
+        - {x: -113.93103, y: 10.5}
+        - {x: -110.93103, y: 11.5}
+        - {x: -109.93103, y: 15.5}
+        - {x: -109.93103, y: 20.5}
+        - {x: -112.93103, y: 22.5}
+    - name: Spritesheet_axe_attack_01.1_7
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.586182, y: 91.5}
+        - {x: -51.58618, y: 66.5}
+        - {x: -51.58618, y: -104.5}
+        - {x: 56.41382, y: -104.5}
+        - {x: 95.41382, y: -4.5}
+        - {x: 95.41382, y: 69.5}
+        - {x: 78.41382, y: 91.5}
+    - name: Spritesheet_axe_attack_01.1_8
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 0
+        width: 347
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35.258545, y: 24.5}
+        - {x: 46.258545, y: 22.5}
+        - {x: 56.258545, y: 43.5}
+        - {x: 56.258545, y: 66.5}
+        - {x: 45.258545, y: 85.5}
+        - {x: 28.258545, y: 91.5}
+        - {x: -29.741455, y: 91.5}
+        - {x: -50.741455, y: 22.5}
+        - {x: -51.741455, y: 3.5}
+        - {x: -51.741455, y: -104.5}
+        - {x: 52.258545, y: -104.5}
+        - {x: 52.258545, y: 18.5}
+        - {x: 41.258545, y: 18.5}
+        - {x: 34.258545, y: 24.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
