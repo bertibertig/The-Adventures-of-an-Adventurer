@@ -14,14 +14,16 @@ public class Inventory_Database : MonoBehaviour {
     private bool slotsLoaded;
     private List<Item> itemList = new List<Item>();
     private ItemInfo[] itemInfo;
+    private bool itemInfoLoaded;
 
     public List<Item> GetItemDatabase { get { return this.itemList; } }
     public ItemInfo[] GetItemInfo { get { return this.itemInfo; } }
+    public bool GetItemInfoLoaded { get { return this.itemInfoLoaded; } }
 
     public class Item
     {
         private int ID;
-        private string Name;
+        private string name;
         private Sprite itemSymbol;
         private string whatToDo;
         private int price;
@@ -37,11 +39,13 @@ public class Inventory_Database : MonoBehaviour {
         public float Y { get { return this.y; } }
         public string GetEngDescription { get { return this.descriptionEng; } }
         public string GetGerDescription { get { return this.descriptionGer; } }
+        public string GetName { get { return this.name; } }
 
-        public Item(int ID, string Name, Sprite itemSymbol, string whatToDo, int price, string itemType, float x, float y, string descriptionEng, string descriptionGer)
+
+        public Item(int ID, string name, Sprite itemSymbol, string whatToDo, int price, string itemType, float x, float y, string descriptionEng, string descriptionGer)
         {
             this.ID = ID;
-            this.Name = Name;
+            this.name = name;
             this.itemSymbol = itemSymbol;
             this.whatToDo = whatToDo;
             this.price = price;
@@ -73,12 +77,14 @@ public class Inventory_Database : MonoBehaviour {
     {
         if (NUMBER_OF_SLOTS <= 0)
             NUMBER_OF_SLOTS = 50;
+        itemInfoLoaded = false;
         slotsLoaded = false;
         itemInfo = new ItemInfo[NUMBER_OF_SLOTS];
         FillInventoryList();
         GetSlotArray();
         emptyBrown = itemInfo[0].Slot.GetComponent<Image>().color;
-        //FillInventoryTemporarely();
+        FillInventoryTemporarely();
+        itemInfoLoaded = true;
 	}
 
     private void FillInventoryList()
@@ -87,25 +93,30 @@ public class Inventory_Database : MonoBehaviour {
         itemSymbols = GameObject.FindGameObjectsWithTag("ItemSymbol").OrderBy(go => go.name).ToArray();
         itemList.Add(new Item(0, "Empty", null, "Nothing", 0, "Null", 0, 0, "", ""));
         itemList.Add(new Item(1, "Axe", itemSymbols[0].GetComponent<SpriteRenderer>().sprite, "Nothing", 1, "Weapon", 19, 35, "A Basic Wodden Axe.", "Eine normale Holzaxt."));
-        itemList.Add(new Item(1, "Battle Axe", itemSymbols[1].GetComponent<SpriteRenderer>().sprite, "Shockwave", 100, "Weapon", 30, 43, "A enchanted steelaxe which can cast a shokwave.", "Eine verzauberte Stahlaxt welche eine Schockwelle beschwören kann."));
+        itemList.Add(new Item(2, "Battle Axe", itemSymbols[1].GetComponent<SpriteRenderer>().sprite, "Shockwave", 100, "Weapon", 30, 43, "A enchanted steelaxe which can cast a shokwave.", "Eine verzauberte Stahlaxt welche eine Schockwelle beschwören kann."));
     }
 	
     private void FillInventoryTemporarely()
     {
-        ChangeItem(itemInfo[0].Slot, itemList[1]);
-        ChangeItem(itemInfo[1].Slot, itemList[2]);
-        //print(itemInfo[0].Slot.ToString());
+        //ChangeItem(itemInfo[SlotID+1], itemList[ItemID]);
+        ChangeItem(itemInfo[0], itemList[1]);
+        ChangeItem(itemInfo[1], itemList[2]);
+        //print(itemInfo[1].Item.GetName);
     }
 
-    private void ChangeItem(GameObject slot, Item item)
+    private void ChangeItem(ItemInfo iInfo, Item item)
     {
         if (item.GetID == 0)
-            slot.GetComponent<Image>().color = emptyBrown;
+        {
+            iInfo.Slot.GetComponent<Image>().color = emptyBrown;
+            iInfo.Item = item;
+        }
         else
         {
-            slot.GetComponent<Image>().color = UnityEngine.Color.white;
-            slot.transform.localScale = new Vector3(item.X/40, item.Y/40);
-            slot.GetComponent<Image>().sprite = item.GetSprite;
+            iInfo.Slot.GetComponent<Image>().color = UnityEngine.Color.white;
+            iInfo.Slot.transform.localScale = new Vector3(item.X / 40, item.Y / 40);
+            iInfo.Slot.GetComponent<Image>().sprite = item.GetSprite;
+            iInfo.Item = item;
         }
     }
 
