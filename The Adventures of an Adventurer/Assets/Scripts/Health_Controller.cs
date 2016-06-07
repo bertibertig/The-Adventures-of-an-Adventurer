@@ -78,8 +78,7 @@ public class Health_Controller : MonoBehaviour {
         //Invoke("Respawn", 1);
         Invoke("Respawn", 5);
     }
-
-    /*
+		
     void Respawn()
     {
         deathText.enabled = false;
@@ -87,14 +86,17 @@ public class Health_Controller : MonoBehaviour {
         isDead = false;
         anim.SetBool("isDying", false);
         player.enabled = true;
+		UpdateGUI();
+		Application.LoadLevel(0);
         //generate world and reset player
     }
-    */
 
+	/*
     void Respawn()
     {
         Application.LoadLevel(0);
     }
+	*/
 
     void Damage()
     {
