@@ -4,6 +4,7 @@ using System.Collections;
 public class Inventory_Main : MonoBehaviour {
 
     public GameObject inventarUI;
+    public GameObject infoBox;
 
     private bool inventoryOpen;
 
@@ -21,6 +22,10 @@ public class Inventory_Main : MonoBehaviour {
     { 
         if(Input.GetButtonDown("Tab"))
         {
+            if(infoBox.activeSelf)
+            {
+                infoBox.SetActive(false);
+            }
             inventoryOpen = !inventoryOpen;
             inventarUI.SetActive(inventoryOpen);
         }

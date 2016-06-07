@@ -30,7 +30,7 @@ public class Main_Menu_Buttons : MonoBehaviour {
 	public void New_Game()
 	{
         Menu_Music.Stop();
-        Destroy(Menu_Music);
+        Destroy(tempMusic);
 		foreach (GameObject go in UIElements)
 			go.SetActive (true);
 		Application.LoadLevel(levelToLoad);
@@ -44,7 +44,7 @@ public class Main_Menu_Buttons : MonoBehaviour {
 	public void Quit()
 	{
         Menu_Music.Stop();
-        Destroy(Menu_Music);
+        Destroy(tempMusic);
 		Application.Quit();
 	}
 

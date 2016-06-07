@@ -87,6 +87,7 @@ public class Health_Controller : MonoBehaviour {
         anim.SetBool("isDying", false);
         player.enabled = true;
 		UpdateGUI();
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
 		Application.LoadLevel(0);
         //generate world and reset player
     }
