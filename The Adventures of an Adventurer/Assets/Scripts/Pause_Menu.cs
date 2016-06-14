@@ -9,6 +9,7 @@ public class Pause_Menu : MonoBehaviour {
 
     void Start()
     {
+        PauseUI = GameObject.FindGameObjectWithTag("PauseUI");
         PauseUI.SetActive(false);
     }
 
@@ -16,7 +17,6 @@ public class Pause_Menu : MonoBehaviour {
     {
         if (Input.GetButtonDown("Cancel"))
         {
-
             paused = !paused;
         }
 

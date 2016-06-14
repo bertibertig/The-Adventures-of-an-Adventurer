@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Main_Menu_Buttons : MonoBehaviour {
@@ -21,8 +22,15 @@ public class Main_Menu_Buttons : MonoBehaviour {
 		}
         if (!Music_is_playing)
         {
-            Menu_Music.Play();
-            Music_is_playing = true;
+            if (tempMusic == null)
+            {
+                print("ERROR, Music Missing (Game wasn't started from the Main Menu)");
+            }
+            else
+            {
+                Menu_Music.Play();
+                Music_is_playing = true;
+            }
         }
         DontDestroyOnLoad(Menu_Music);
     }
@@ -30,15 +38,16 @@ public class Main_Menu_Buttons : MonoBehaviour {
 	public void New_Game()
 	{
         Menu_Music.Stop();
-        Destroy(tempMusic);
-		foreach (GameObject go in UIElements)
-			go.SetActive (true);
-		Application.LoadLevel(levelToLoad);
+        Music_is_playing = false;
+        foreach (GameObject go in UIElements)
+            //go.SetActive (true);
+            Destroy(go);
+		SceneManager.LoadScene(levelToLoad);
 	}
 
     public void Options()
     {
-        Application.LoadLevel("Main_Menu_Options");
+        SceneManager.LoadScene("Main_Menu_Options");
     }
 	
 	public void Quit()
