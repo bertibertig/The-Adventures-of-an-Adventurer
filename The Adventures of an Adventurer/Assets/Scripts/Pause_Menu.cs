@@ -9,7 +9,8 @@ public class Pause_Menu : MonoBehaviour {
 
     void Start()
     {
-        PauseUI = GameObject.FindGameObjectWithTag("PauseUI");
+        if(PauseUI == null)
+            PauseUI = GameObject.FindGameObjectWithTag("PauseUI");
         PauseUI.SetActive(false);
     }
 

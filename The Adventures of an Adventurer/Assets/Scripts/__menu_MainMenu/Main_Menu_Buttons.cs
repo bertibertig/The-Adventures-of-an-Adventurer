@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Main_Menu_Buttons : MonoBehaviour {
@@ -42,12 +41,12 @@ public class Main_Menu_Buttons : MonoBehaviour {
         foreach (GameObject go in UIElements)
             //go.SetActive (true);
             Destroy(go);
-		SceneManager.LoadScene(levelToLoad);
+		Application.LoadLevel(levelToLoad);
 	}
 
     public void Options()
     {
-        SceneManager.LoadScene("Main_Menu_Options");
+        Application.LoadLevel("Main_Menu_Options");
     }
 	
 	public void Quit()
