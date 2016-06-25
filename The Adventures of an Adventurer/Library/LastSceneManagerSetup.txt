@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/0_Level_Tutorial_01_Cave.unity
+- path: Assets/Scenes/0_Level_Tutorial.unity
   isLoaded: 1
   isActive: 1

@@ -4,7 +4,7 @@ using System.Collections;
 public class Stoney_Interaction : MonoBehaviour {
 
     public GameObject keyInfo;
-    public GameObject StartFight;
+    public GameObject Stoney_Awake;
     public GameObject Stoney;
     public GameObject Stoney_without_Axe;
 
@@ -31,7 +31,7 @@ public class Stoney_Interaction : MonoBehaviour {
             if (Input.GetButtonDown("Interact"))
             {
                 Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_without_Axe.GetComponent<SpriteRenderer>().sprite;
-                StartFight.GetComponent<Stoney_Awake>().SetAxRemovedTrue();
+                Stoney_Awake.GetComponent<Stoney_Awake>().SetAxRemovedTrue();
             }
 
             FollowPlayer();

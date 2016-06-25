@@ -104,7 +104,7 @@ public class Inventory_Database : MonoBehaviour {
         //print(itemInfo[1].Item.GetName);
     }
 
-    private void ChangeItem(ItemInfo iInfo, Item item)
+    public void ChangeItem(ItemInfo iInfo, Item item)
     {
         if (item.GetID == 0)
         {
@@ -118,6 +118,16 @@ public class Inventory_Database : MonoBehaviour {
             iInfo.Slot.GetComponent<Image>().sprite = item.GetSprite;
             iInfo.Item = item;
         }
+    }
+
+    public Item GetItemWithID(int id)
+    {
+        return itemList[id];
+    }
+
+    public ItemInfo GetItemInfoWithID(int id)
+    {
+        return itemInfo[id];
     }
 
 
