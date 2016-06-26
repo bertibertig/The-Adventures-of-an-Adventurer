@@ -6,11 +6,13 @@ public class Stoney_Interaction : MonoBehaviour {
     public GameObject keyInfo;
     public GameObject Stoney_Awake;
     public GameObject Stoney;
-    public GameObject Stoney_without_Axe;
 
     private GameObject player;
     private bool displayKeyInfo;
     private bool axeRemovedOnce;
+    private Animator anim;
+    private EventList eventList;
+    private Inventory_Database inventory;
 
 
     // Use this for initialization
@@ -18,11 +20,22 @@ public class Stoney_Interaction : MonoBehaviour {
     {
         axeRemovedOnce = false;
         displayKeyInfo = false;
+        eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
         keyInfo.SetActive(false);
+        anim = gameObject.GetComponentInParent<Animator>();
+        if (eventList.GetEvent("StoneyTriggered") != null)
+        {
+            if (eventList.GetEvent("StoneyTriggered").HasHappened)
+            {
+                axeRemovedOnce = true;
+                Stoney_Awake.GetComponent<Stoney_Awake>().ConversatonHappened();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -32,10 +45,15 @@ public class Stoney_Interaction : MonoBehaviour {
         {
             if (Input.GetButtonDown("Interact") && !axeRemovedOnce)
             {
-                Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_without_Axe.GetComponent<SpriteRenderer>().sprite;
+                //Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_without_Axe.GetComponent<SpriteRenderer>().sprite;
+                anim.SetBool("axeRemoved", true);
+                inventory.AddItem(1);
                 Stoney_Awake.GetComponent<Stoney_Awake>().SetAxRemovedTrue();
+                Stoney.GetComponents<PolygonCollider2D>()[0].enabled = false;
+                Stoney.GetComponents<PolygonCollider2D>()[1].enabled = true;
                 keyInfo.SetActive(false);
                 axeRemovedOnce = true;
+                eventList.AddEvent("StoneyTriggered", true);
             }
 
             FollowPlayer();

@@ -101,8 +101,8 @@ public class Inventory_Database : MonoBehaviour {
     private void FillInventoryTemporarely()
     {
         //ChangeItem(itemInfo[SlotID+1], itemList[ItemID]);
-        ChangeItem(itemInfo[0], itemList[1]);
-        ChangeItem(itemInfo[1], itemList[2]);
+        //ChangeItem(itemInfo[0], itemList[1]);
+        //ChangeItem(itemInfo[1], itemList[2]);
         //print(itemInfo[1].Item.GetName);
     }
 
@@ -130,6 +130,40 @@ public class Inventory_Database : MonoBehaviour {
     public ItemInfo GetItemInfoWithID(int id)
     {
         return itemInfo[id];
+    }
+
+    public void AddItem(int id)
+    {
+        bool itemAdded = false;
+        foreach (ItemInfo i in itemInfo)
+        {
+            if (i.Item.GetID == 0 && !itemAdded)
+            {
+                ChangeItem(i, itemList[id]);
+                itemAdded = true;
+            }
+        }
+    }
+
+    public void AddItem(string name)
+    {
+        bool itemAdded = false;
+        Item item = new Item(0, "Empty", null, "Nothing", 0, "Null", 0, 0, "", "");
+        foreach (Item i in itemList)
+        {
+            if (i.GetName == "name")
+            {
+                item = i;
+            }
+        }
+        foreach (ItemInfo i in itemInfo)
+        {
+            if (i.Item.GetID == 0 && !itemAdded)
+            {
+                ChangeItem(i, item);
+                itemAdded = true;
+            }
+        }
     }
 
 

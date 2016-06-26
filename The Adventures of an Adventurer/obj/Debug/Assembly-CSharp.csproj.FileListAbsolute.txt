@@ -39,3 +39,4 @@ D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\b
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEngine.Networking.xml
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.dll
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.pdb
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

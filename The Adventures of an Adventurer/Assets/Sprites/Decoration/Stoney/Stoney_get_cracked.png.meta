@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 8bdaf567902a40d459d969ae6bc85a15
+timeCreated: 1466949164
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Stoney_get_cracked_0
+    21300002: Stoney_get_cracked_1
+    21300004: Stoney_get_cracked_2
+    21300006: Stoney_get_cracked_3
+    21300008: Stoney_get_cracked_4
+    21300010: Stoney_get_cracked_5
+    21300012: Stoney_get_cracked_6
+    21300014: Stoney_get_cracked_7
+    21300016: Stoney_get_cracked_8
+    21300018: Stoney_get_cracked_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 18
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Stoney_get_cracked_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_3
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_4
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_5
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_6
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_7
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_8
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    - name: Stoney_get_cracked_9
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 12}
+        - {x: -14.5, y: 12}
+        - {x: -30.5, y: -4}
+        - {x: -30.5, y: -17}
+        - {x: -27.5, y: -29}
+        - {x: 26.5, y: -29}
+        - {x: 29.5, y: -27}
+        - {x: 30.5, y: -24}
+        - {x: 30.5, y: 0}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
