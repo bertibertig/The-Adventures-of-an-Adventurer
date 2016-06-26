@@ -8,6 +8,7 @@ using System.Linq;
 public class Inventory_Database : MonoBehaviour {
 
     public int NUMBER_OF_SLOTS;
+    public GameObject inventiryUI;
 
     private UnityEngine.Color emptyBrown;
     private GameObject[] itemSymbols;
@@ -85,6 +86,7 @@ public class Inventory_Database : MonoBehaviour {
         emptyBrown = itemInfo[0].Slot.GetComponent<Image>().color;
         FillInventoryTemporarely();
         itemInfoLoaded = true;
+        inventiryUI.SetActive(false);
 	}
 
     private void FillInventoryList()

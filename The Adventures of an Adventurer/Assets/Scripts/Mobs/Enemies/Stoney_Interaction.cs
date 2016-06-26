@@ -10,11 +10,13 @@ public class Stoney_Interaction : MonoBehaviour {
 
     private GameObject player;
     private bool displayKeyInfo;
+    private bool axeRemovedOnce;
 
 
     // Use this for initialization
     void Start()
     {
+        axeRemovedOnce = false;
         displayKeyInfo = false;
         if (player == null)
         {
@@ -28,10 +30,12 @@ public class Stoney_Interaction : MonoBehaviour {
     {
         if (displayKeyInfo)
         {
-            if (Input.GetButtonDown("Interact"))
+            if (Input.GetButtonDown("Interact") && !axeRemovedOnce)
             {
                 Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_without_Axe.GetComponent<SpriteRenderer>().sprite;
                 Stoney_Awake.GetComponent<Stoney_Awake>().SetAxRemovedTrue();
+                keyInfo.SetActive(false);
+                axeRemovedOnce = true;
             }
 
             FollowPlayer();
@@ -40,7 +44,7 @@ public class Stoney_Interaction : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !axeRemovedOnce)
         {
             keyInfo.SetActive(true);
             displayKeyInfo = true;
@@ -49,7 +53,7 @@ public class Stoney_Interaction : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !axeRemovedOnce)
         {
             keyInfo.SetActive(false);
             displayKeyInfo = false;

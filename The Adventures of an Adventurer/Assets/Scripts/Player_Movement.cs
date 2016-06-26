@@ -17,6 +17,9 @@ public class Player_Movement : MonoBehaviour {
 	//References
 	private Rigidbody2D rb2d;
 	private Animator anim;
+    private bool movementDisabled;
+
+    public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
 	// Use this for initialization
 	void Start () {
@@ -35,16 +38,18 @@ public class Player_Movement : MonoBehaviour {
 		anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
 		
 		//Rotation of the Player
-		if (Input.GetAxis("Horizontal") < -0.1f)
-		{
-			transform.localScale = new Vector3(-1, 1, 1);
-		}
-		
-		if (Input.GetAxis("Horizontal") > 0.1f)
-		{
-			transform.localScale = new Vector3(1, 1, 1);
-		}
-		
+        if (!movementDisabled)
+        {
+            if (Input.GetAxis("Horizontal") < -0.1f)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            if (Input.GetAxis("Horizontal") > 0.1f)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
 		//Jumping /Dobble Jumping
 		if (Input.GetButtonDown("Jump") && isAbleToJump)
 		{
@@ -83,11 +88,14 @@ public class Player_Movement : MonoBehaviour {
         }
 
         //Movement of the player
-        rb2d.AddForce((Vector2.right * speed) * h);
-
-        if (rb2d.velocity.x > maxSpeed)
+        if (!movementDisabled)
         {
-            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+            rb2d.AddForce((Vector2.right * speed) * h);
+
+            if (rb2d.velocity.x > maxSpeed)
+            {
+                rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+            }
         }
 
         //MaxSpeed of the player

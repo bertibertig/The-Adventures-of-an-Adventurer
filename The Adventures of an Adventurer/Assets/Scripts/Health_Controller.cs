@@ -11,14 +11,19 @@ public class Health_Controller : MonoBehaviour {
     public Image healthGUI;
     public Text deathText;
 
+    private bool knockbackEnabled;
     private Animator anim;
     private Player_Movement player;
     private bool isDead = false;
     private bool isInvincible = false;
 
+    public bool KnockbackEnabled { get { return this.knockbackEnabled; } set { this.knockbackEnabled = value; } }
+    public float Health { get { return this.health; } }
+
 	void Start () {
         anim = GetComponent<Animator>();
         player = GetComponent<Player_Movement>();
+        knockbackEnabled = true;
 
         if (Application.loadedLevel == 2)
         {
@@ -40,7 +45,7 @@ public class Health_Controller : MonoBehaviour {
         UpdateGUI();
 	}
 
-    void ApplyDamage(float damage)
+    public void ApplyDamage(float damage)
     {
         if (isInvincible == false)
         {
@@ -101,7 +106,8 @@ public class Health_Controller : MonoBehaviour {
 
     void Damage()
     {
-        StartCoroutine(player.Knockback(0.03f, 150, player.transform.position));
+        if (knockbackEnabled)
+            StartCoroutine(player.Knockback(0.03f, 150, player.transform.position));
         UpdateGUI();
     }
 
@@ -114,10 +120,5 @@ public class Health_Controller : MonoBehaviour {
     void UpdateGUI()
     {
         healthGUI.fillAmount = health / maxHealth;
-    }
-
-    public float GetHealth()
-    {
-        return health;
     }
 }
