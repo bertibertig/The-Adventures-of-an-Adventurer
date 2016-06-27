@@ -46,10 +46,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Appear_After_Event.cs" />
+     <Compile Include="Assets\Scripts\Attack_Trigger.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Damage_On_Collision.cs" />
      <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Enemy_CheckForPlayer.cs" />
+     <Compile Include="Assets\Scripts\Enemy_Health_Controller.cs" />
      <Compile Include="Assets\Scripts\Enemy_Movement_AI.cs" />
      <Compile Include="Assets\Scripts\Enemy_Slime_AI.cs" />
      <Compile Include="Assets\Scripts\Entrance.cs" />
@@ -67,6 +69,7 @@
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Interaction.cs" />
      <Compile Include="Assets\Scripts\Pause_Menu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Player_Attack.cs" />
      <Compile Include="Assets\Scripts\Player_Movement.cs" />
      <Compile Include="Assets\Scripts\SignOnTrigger.cs" />
      <Compile Include="Assets\Scripts\Sound_Play.cs" />
