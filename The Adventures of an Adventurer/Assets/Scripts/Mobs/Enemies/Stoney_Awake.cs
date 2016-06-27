@@ -120,7 +120,7 @@ public class Stoney_Awake : MonoBehaviour {
         //Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_Cracked.GetComponent<SpriteRenderer>().sprite;
         anim.SetBool("awake", true);
         textfield.GetComponent<Textfield>().StopPrintText();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.3f);
         textfield.GetComponent<Textfield>().Enable();
         textfield.GetComponent<Textfield>().ChangeTalkerName("Exklalibul");
         textfield.GetComponent<Textfield>().PrintText(usedDialoge[3], textSpeed);

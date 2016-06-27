@@ -625,9 +625,9 @@ MonoBehaviour:
   Stoney_Silhouette: {fileID: 1185178057}
   Stoney_HitSound: {fileID: 1184108051}
   textSpeed: 0
-  language: german
+  language: english
   germanDialoge:
-  - Hey!, warte mal!
+  - Hey! Warte mal!
   - Wer war das?!
   - Hier hinten!
   - "Was f\xE4llt dir eigentlich ein den m\xE4chtigen Exklalibur zu bestehlen?!"
@@ -635,19 +635,37 @@ MonoBehaviour:
   - RUHE!
   - In unserer Familie wurde diese Axt von Generation zu Generation weitergegeben!
   - Und du willst sie mir einfach stehlen?!
-  - "Ich bring sie gleich wieder zur\xFCck."
-  - "Na gut du willst es wohl nicht anders, lass uns K\xE4mpfen."
-  - "\xC4hm... kanst du mal ein bisschen n\xE4her kommen?"
+  - "Ich bring sie gleich wieder zur\xFCck, versprochen."
+  - "Na gut du willst es wohl nicht anders, lass uns k\xE4mpfen!"
+  - "\xC4hm... kannst du mal ein bisschen n\xE4her kommen?"
   - "N\xE4her!"
   - "N\xE4her!!"
-  - Gleich hast dus!
+  - Gleich hast du's!
   - Haha, nimm das!
-  - Na gut, das ist jetzt etwas Peinlich.
-  - "\xC4h... Einigen wir uns auf Unentschieden."
-  - Ich spiel jetzt jedenfals wieder Stein und wir tun so als sei das nie passiert.
-  - "Wohin gehst du? komm zur\xFCck du Feigling!"
+  - Na gut, das ist jetzt etwas peinlich.
+  - "\xC4h... einigen wir uns f\xFCrs Erste auf Unentschieden."
+  - Ich spiel jetzt jedenfalls wieder Stein und wir tun so als sei das nie passiert.
+  - "Wohin gehst du? Komm zur\xFCck du Feigling!"
   englishDialoge:
-  - 
+  - Hey! Hold on there!
+  - Who's there?!
+  - Behind you!
+  - Who do you think you are to disturb the mighty Exklalibur?
+  - Wasn't it called Excalibur?
+  - SILENCE!
+  - This axe has been in possession of our family since generations.
+  - And you want to take it from me?!
+  - I swear I'll bring it back later.
+  - So you want it the hard way? Let's battle!
+  - Err... may you come a bit closer, please?
+  - Closer!
+  - Closer!!
+  - Just a little bit more.
+  - Haha, take this.
+  - Well, that's a little bit emberassing.
+  - Err... let's call it a draw for now.
+  - I'll just act like a stone again and we pretent that this never happened.
+  - Where are you going? Come back you Rascal!
 --- !u!61 &867648183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1392,7 +1410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12d7f4959700d534ab0a2532eb45f185, type: 3}
+  m_Sprite: {fileID: 21300008, guid: e281244b5a73cbf439b8ff6b8de791c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1468,7 +1486,6 @@ MonoBehaviour:
   keyInfo: {fileID: 952322898}
   Stoney_Awake: {fileID: 867648180}
   Stoney: {fileID: 1176956118}
-  eventList: {fileID: 0}
 --- !u!61 &1305238860
 BoxCollider2D:
   m_ObjectHideFlags: 0
