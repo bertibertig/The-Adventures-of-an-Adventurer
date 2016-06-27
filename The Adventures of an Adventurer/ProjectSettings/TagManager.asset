@@ -17,6 +17,7 @@ TagManager:
   - TextFieldUI
   - InventoryUI
   - EventList
+  - Ground
   layers:
   - Default
   - TransparentFX

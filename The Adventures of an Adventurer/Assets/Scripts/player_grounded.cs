@@ -19,18 +19,27 @@ public class player_grounded : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        player.grounded = true;
-        player.canDoubleJump = false;
+        if (col.CompareTag("Ground"))
+        {
+            player.grounded = true;
+            player.canDoubleJump = false;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        player.grounded = true;
-        player.canDoubleJump = false;
+        if (col.CompareTag("Ground"))
+        {
+            player.grounded = true;
+            player.canDoubleJump = false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        player.grounded = false;
+        if (col.CompareTag("Ground"))
+        {
+            player.grounded = false;
+        }
     }
 }
