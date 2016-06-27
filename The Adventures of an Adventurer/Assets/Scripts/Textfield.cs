@@ -11,6 +11,7 @@ public class Textfield : MonoBehaviour {
 
     private string usedText;
     private float textSpeed;
+    private AudioSource speachSFX;
 
     public void Enable()
     {
@@ -32,13 +33,24 @@ public class Textfield : MonoBehaviour {
     {
         usedText = text;
         textSpeed = speed;
-        print(usedText);
+        //print(usedText);
         StartCoroutine("PrintTextByChars");
+    }
+
+    public void PrintText(string text, float speed, AudioSource speSFX)
+    {
+        usedText = text;
+        textSpeed = speed;
+        speachSFX = speSFX;
+        //print(usedText);
+        StartCoroutine("PrintTextByCharsWithAudio");
     }
 
     public void StopPrintText()
     {
         StopCoroutine("PrintTextByChars");
+        StopCoroutine("PrintTextByCharsWithAudio");
+        speachSFX.Stop();
         text.text = "";
     }
 
@@ -59,6 +71,20 @@ public class Textfield : MonoBehaviour {
         text.text = "";
         for (int i = 0; i < usedText.Length; i++)
         {
+            text.text += letters[i];
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }
+
+    private IEnumerator PrintTextByCharsWithAudio()
+    {
+        char[] letters = usedText.ToCharArray();
+        text.text = "";
+        
+        for (int i = 0; i < usedText.Length; i++)
+        {
+            if(!speachSFX.isPlaying)
+                speachSFX.Play();
             text.text += letters[i];
             yield return new WaitForSeconds(textSpeed);
         }

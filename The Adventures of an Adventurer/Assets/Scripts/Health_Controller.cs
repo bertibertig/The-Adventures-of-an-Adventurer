@@ -107,7 +107,7 @@ public class Health_Controller : MonoBehaviour {
     void Damage()
     {
         if (knockbackEnabled)
-            StartCoroutine(player.Knockback(0.03f, 150, player.transform.position));
+            player.StartKnockback(0.02f, 350, player.transform.position);
         UpdateGUI();
     }
 

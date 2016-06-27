@@ -8,6 +8,7 @@ public class Stoney_Awake : MonoBehaviour {
     public GameObject Stoney_Cracked;
     public GameObject Stoney_Silhouette;
     public AudioSource Stoney_HitSound;
+    public AudioSource Stoney_Talking;
     public float textSpeed;
     public string language;
     public string[] germanDialoge;
@@ -21,6 +22,7 @@ public class Stoney_Awake : MonoBehaviour {
     private GameObject player;
     private Player_Movement movement;
     private Animator anim;
+    private AudioSource player_Talking;
 
     public bool GetAxeRemoved { get { return this.axeRemoved; } }
 
@@ -35,6 +37,7 @@ public class Stoney_Awake : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<Player_Movement>();
         anim = Stoney.GetComponent<Animator>();
+        player_Talking = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<AudioSource>();
 
         if (language == "german")
             usedDialoge = germanDialoge;
@@ -76,6 +79,7 @@ public class Stoney_Awake : MonoBehaviour {
     {
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         movement.MovementDisabled = true;
+        player.GetComponent<Player_Attack>().enabled = false;
         StartCoroutine("Conversation");
     }
 
@@ -84,7 +88,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().ChangeTalker(Stoney_Silhouette.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("???");
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[0], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[0], textSpeed, Stoney_Talking);
         while (!Input.GetButtonDown("Interact"))
         {
             yield return null;
@@ -98,7 +102,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().ChangeTalker(player.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Adventurer");
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[1], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[1], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -109,7 +113,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().ChangeTalker(Stoney_Cracked.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Stoney");
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[2], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[2], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -123,7 +127,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(2.3f);
         textfield.GetComponent<Textfield>().Enable();
         textfield.GetComponent<Textfield>().ChangeTalkerName("Exklalibul");
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[3], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[3], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -132,7 +136,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().ChangeTalker(player.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Adventurer");
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[4], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[4], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -143,7 +147,7 @@ public class Stoney_Awake : MonoBehaviour {
         Camera.main.gameObject.GetComponent<CameraShake>().StartToShake(0.7f, 0.7f, 0.5f);
         textfield.GetComponent<Textfield>().ChangeTalker(Stoney_Cracked.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Exklalibul");
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[5], textSpeed / 2);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[5], textSpeed / 2, Stoney_Talking);
         yield return new WaitForSeconds(0.7f);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
@@ -151,14 +155,14 @@ public class Stoney_Awake : MonoBehaviour {
             yield return null;
         }
         textfield.GetComponent<Textfield>().StopPrintText();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[6], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[6], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
             yield return null;
         }
         textfield.GetComponent<Textfield>().StopPrintText();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[7], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[7], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -167,7 +171,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().ChangeTalker(player.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Adventurer");
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[8], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[8], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -176,7 +180,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().ChangeTalker(Stoney_Cracked.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Exklalibul");
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[9], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[9], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -192,7 +196,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(1);
         Destroy(Stoney.GetComponent<Rigidbody2D>());
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[10], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[10], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -207,7 +211,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[11], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[11], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -222,7 +226,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[12], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[12], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -237,7 +241,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[13], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[13], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -250,7 +254,7 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(2);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[14], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[14], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -270,28 +274,28 @@ public class Stoney_Awake : MonoBehaviour {
         player.GetComponent<Health_Controller>().KnockbackEnabled = true;
         yield return new WaitForSeconds(3);
         textfield.GetComponent<Textfield>().Enable();
-        textfield.GetComponent<Textfield>().PrintText("...", textSpeed*20);
+        textfield.GetComponent<Textfield>().PrintText("...", textSpeed * 20, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
             yield return null;
         }
         textfield.GetComponent<Textfield>().StopPrintText();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[15], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[15], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
             yield return null;
         }
         textfield.GetComponent<Textfield>().StopPrintText();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[16], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[16], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
             yield return null;
         }
         textfield.GetComponent<Textfield>().StopPrintText();
-        textfield.GetComponent<Textfield>().PrintText(usedDialoge[17], textSpeed);
+        textfield.GetComponent<Textfield>().PrintText(usedDialoge[17], textSpeed, Stoney_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
@@ -306,5 +310,6 @@ public class Stoney_Awake : MonoBehaviour {
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = false;
+        player.GetComponent<Player_Attack>().enabled = true;
     }
 }

@@ -18,6 +18,9 @@ public class Player_Movement : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	private Animator anim;
     private bool movementDisabled;
+    private float knockDur;
+    private float knockbackPowr;
+    private Vector3 knockbackDir;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
@@ -105,7 +108,15 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-        public IEnumerator Knockback(float knockDur, float knockbackPowr, Vector3 knockbackDir)
+    public void StartKnockback(float knockDur, float knockbackPowr, Vector3 knockbackDir)
+    {
+        this.knockDur = knockDur;
+        this.knockbackPowr = knockbackPowr;
+        this.knockbackDir = knockbackDir;
+        StartCoroutine("Knockback");
+    }
+
+    public IEnumerator Knockback()
     {
         float timer = 0;
 

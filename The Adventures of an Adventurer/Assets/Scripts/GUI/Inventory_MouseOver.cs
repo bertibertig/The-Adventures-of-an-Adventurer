@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.EventSystems;
 
-public class Inventory_MouseOver : MonoBehaviour {
+public class Inventory_MouseOver : MonoBehaviour{
 
     public GameObject inventoryDatabase;
 
@@ -13,6 +13,7 @@ public class Inventory_MouseOver : MonoBehaviour {
     private Inventory_Database.ItemInfo[] itemInfo;
     private bool mouseOverObject;
     private bool informationLoaded;
+    private string mousebutton;
 
     public GameObject infoBox;
     //public GameObject infoBoxBackground;
@@ -44,13 +45,15 @@ public class Inventory_MouseOver : MonoBehaviour {
             itemList = inventoryDatabase.GetComponent<Inventory_Database>().GetItemDatabase;
             itemInfo = inventoryDatabase.GetComponent<Inventory_Database>().GetItemInfo;
             informationLoaded = true;
-            print(itemInfo[1].Item.GetName);
             //infoBox.GetComponentInChildren<Text>().text = "Test";
         }
         if (mouseOverObject)
         {
             infoBox.transform.position = new Vector3(Input.mousePosition.x+20, Input.mousePosition.y, 0);
         }
+        if (Input.GetMouseButtonDown(0)) mousebutton = "Pressed left click.";
+        if (Input.GetMouseButtonDown(1)) mousebutton = "Pressed right click.";
+        if (Input.GetMouseButtonDown(2)) mousebutton = "Pressed middle click.";
     }
 
     public IEnumerator GetItemName()
@@ -68,9 +71,13 @@ public class Inventory_MouseOver : MonoBehaviour {
     {
         if (mouseOverObject)
         {
-            print("Exit");
             mouseOverObject = false;
             infoBox.SetActive(false);
         }
+    }
+
+    public void MouseClick()
+    {
+        print(mousebutton);
     }
 }
