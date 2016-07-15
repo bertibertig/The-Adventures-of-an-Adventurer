@@ -58,19 +58,29 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Appear_After_Event.cs" />
+    <Compile Include="Assets\Scripts\Attack_Trigger.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Damage_On_Collision.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\Enemy_CheckForPlayer.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Health_Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy_Movement_AI.cs" />
     <Compile Include="Assets\Scripts\Enemy_Slime_AI.cs" />
     <Compile Include="Assets\Scripts\Entrance.cs" />
     <Compile Include="Assets\Scripts\Entrance_SetPlayer.cs" />
+    <Compile Include="Assets\Scripts\EventList.cs" />
     <Compile Include="Assets\Scripts\GUI\Inventory_Database.cs" />
     <Compile Include="Assets\Scripts\GUI\Inventory_Main.cs" />
     <Compile Include="Assets\Scripts\GUI\Inventory_MouseOver.cs" />
@@ -83,9 +93,11 @@
     <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Interaction.cs" />
     <Compile Include="Assets\Scripts\Pause_Menu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Player_Attack.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
     <Compile Include="Assets\Scripts\SignOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Sound_Play.cs" />
+    <Compile Include="Assets\Scripts\Textfield.cs" />
     <Compile Include="Assets\Scripts\Troll_Slime_Fly_Away.cs" />
     <Compile Include="Assets\Scripts\Tutorial_Show_Controll.cs" />
     <Compile Include="Assets\Scripts\__menu_MainMenu\Main_Menu_Buttons.cs" />
