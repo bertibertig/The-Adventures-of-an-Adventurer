@@ -40,3 +40,5 @@ D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\Temp\bin\Debug\U
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.dll
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.pdb
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp.dll

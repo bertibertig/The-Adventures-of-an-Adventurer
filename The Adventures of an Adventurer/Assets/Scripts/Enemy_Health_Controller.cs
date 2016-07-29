@@ -8,6 +8,9 @@ using System.Collections.Generic;
 public class Enemy_Health_Controller : MonoBehaviour
 {
     public float maxHealth;
+    public float minGoldDrop;
+    public float maxGoldDrop;
+    public float xp;
     private float health;
     private int lastDamageTaken;
     private bool healthIsVisible = false;
@@ -16,8 +19,11 @@ public class Enemy_Health_Controller : MonoBehaviour
     public Image healthTransitionLayer;
     public GameObject DamageNumberPrefab;
     public GameObject healthBar;
+
     private Animator anim;
     private Canvas healthCanvas;
+    private DropLoot dropLoot;
+    private DropLoot loot;
 
     void Start()
     {
@@ -25,6 +31,13 @@ public class Enemy_Health_Controller : MonoBehaviour
         {
             maxHealth = 100f;
         }
+        if (minGoldDrop <= 0)
+            minGoldDrop = 2;
+        if (maxGoldDrop <= 0)
+            maxGoldDrop = 3;
+        if (xp <= 0)
+            xp = 10;
+        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
         healthCanvas = transform.GetComponentInChildren<Canvas>();
         healthCanvas.enabled = false;
         health = maxHealth;
@@ -50,6 +63,7 @@ public class Enemy_Health_Controller : MonoBehaviour
 
         if (health == 0)
         {
+            loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
             Destroy(healthBar);
             Destroy(this.gameObject);
         }

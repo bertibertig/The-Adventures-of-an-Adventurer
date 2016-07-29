@@ -4,9 +4,6 @@ using System.Collections;
 public class Enemy_Movement_AI : MonoBehaviour {
 
     public float health;
-    public float minGoldDrop;
-    public float maxGoldDrop;
-    public float xp;
     public float maxSpeed;
     public float speed;
     public float maxWayX;
@@ -25,14 +22,6 @@ public class Enemy_Movement_AI : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        if(minGoldDrop <= 0)
-            minGoldDrop = 2;
-        if(maxGoldDrop <= 0)
-            maxGoldDrop = 3;
-        if(health <= 0)
-            health = 50;
-        if(xp <= 0)
-            xp = 10;
         if(speed <= 0)
             speed = 70f;
         if(maxSpeed <= 0)

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Damage_On_Collision.cs" />
      <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />
+     <Compile Include="Assets\Scripts\DropLoot.cs" />
      <Compile Include="Assets\Scripts\Enemy_CheckForPlayer.cs" />
      <Compile Include="Assets\Scripts\Enemy_Health_Controller.cs" />
      <Compile Include="Assets\Scripts\Enemy_Movement_AI.cs" />
@@ -62,9 +63,12 @@
      <Compile Include="Assets\Scripts\GUI\Inventory_MouseOver.cs" />
      <Compile Include="Assets\Scripts\Gameobject_Checker.cs" />
      <Compile Include="Assets\Scripts\Generate_Random_Coins.cs" />
+     <Compile Include="Assets\Scripts\GetItem.cs" />
      <Compile Include="Assets\Scripts\Ground_Check.cs" />
      <Compile Include="Assets\Scripts\Health_Controller.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Items\Other\GoldCoin.cs" />
+     <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeStart.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Awake.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Interaction.cs" />
      <Compile Include="Assets\Scripts\Pause_Menu.cs" />

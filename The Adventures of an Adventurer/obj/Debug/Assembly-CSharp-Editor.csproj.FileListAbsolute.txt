@@ -80,3 +80,6 @@ D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assemb
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp-Editor.pdb
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\Temp\bin\Debug\Assembly-CSharp.pdb
 D:\Cedric\Schule\SYP\Repository\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp-Editor.dll
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\obj\Debug\Assembly-CSharp-Editor.pdb
