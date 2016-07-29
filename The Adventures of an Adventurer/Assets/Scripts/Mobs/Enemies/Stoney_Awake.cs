@@ -77,7 +77,7 @@ public class Stoney_Awake : MonoBehaviour {
 
     private void StartConversation()
     {
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = true;
         player.GetComponent<Player_Attack>().enabled = false;
         StartCoroutine("Conversation");
