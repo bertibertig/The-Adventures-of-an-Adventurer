@@ -42,11 +42,15 @@ public class Enemy_Health_Controller : MonoBehaviour
         healthCanvas.enabled = false;
         health = maxHealth;
         anim = GetComponent<Animator>();
+		if(anim != null)
+			anim.SetFloat ("Health", health);
+		print (anim.ToString ());
         UpdateGUI();
     }
 
     void ApplyDamage(object[] attackData)
     {
+		anim.SetFloat ("Health", health);
         int damage = Convert.ToInt32(attackData[0]);
         bool isCrit = Convert.ToBoolean(attackData[1]);
 
