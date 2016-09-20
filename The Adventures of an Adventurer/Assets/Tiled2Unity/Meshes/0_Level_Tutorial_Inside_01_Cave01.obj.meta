@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4e44c59998ebc0a40920d3d226188f07
-timeCreated: 1474205713
+guid: d2999da563fe82c47a7d79ca4355cc3b
+timeCreated: 1473847636
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -17,14 +17,16 @@ ModelImporter:
     3300002: mesh_0002
     4300000: mesh_0001
     4300002: mesh_0002
+    11400000: mesh_0001
+    11400002: mesh_0002
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 4
+    legacyGenerateAnimations: 0
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -59,7 +61,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 2
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
