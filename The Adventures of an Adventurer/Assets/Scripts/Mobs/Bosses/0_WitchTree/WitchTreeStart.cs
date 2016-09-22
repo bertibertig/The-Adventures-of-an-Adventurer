@@ -12,6 +12,7 @@ public class WitchTreeStart : MonoBehaviour {
     private AudioSource player_Talking;
     private Textfield dialoge;
     private Sprite player_Sprite;
+    private Sprite enemy_Sprite;
     private GameObject player;
     private bool CoRoutineStarted;
     private string[] usedDialoge;
@@ -23,6 +24,7 @@ public class WitchTreeStart : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         player_Talking = player.GetComponentInChildren<AudioSource>();
         player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
+        enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
         movement = player.GetComponent<Player_Movement>();
         if (textSpeed <= 0)
             textSpeed = 0.05f;
@@ -56,6 +58,7 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+
         dialoge.PrintText(usedDialoge[1], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
@@ -63,6 +66,25 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
 
+        dialoge.ChangeTalker(enemy_Sprite);
+        dialoge.ChangeTalkerName("Legit Witch");
+        dialoge.PrintText(usedDialoge[2], textSpeed, player_Talking);
+        yield return new WaitForSeconds(0.1f);
+        while (!Input.GetButtonDown("Interact"))
+        {
+            yield return null;
+        }
+        dialoge.StopPrintText();
+
+        dialoge.ChangeTalker(player_Sprite);
+        dialoge.ChangeTalkerName("Adventurer");
+        dialoge.PrintText(usedDialoge[3], textSpeed, player_Talking);
+        yield return new WaitForSeconds(0.1f);
+        while (!Input.GetButtonDown("Interact"))
+        {
+            yield return null;
+        }
+        dialoge.StopPrintText();
 
 
         dialoge.StopPrintText();

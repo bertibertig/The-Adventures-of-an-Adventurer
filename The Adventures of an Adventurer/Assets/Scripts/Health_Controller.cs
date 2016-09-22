@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Health_Controller : MonoBehaviour {
 
+	Player_Attack pa = new Player_Attack();
+
     public float startHealth = 100f;
     private float health = 100f;
     private float maxHealth = 100f;
@@ -47,7 +49,7 @@ public class Health_Controller : MonoBehaviour {
 
     public void ApplyDamage(float damage)
     {
-        if (isInvincible == false)
+		if (isInvincible == false && pa.AttackTimer <= 0)
         {
             health = health - damage;
             health = Mathf.Max(health, 0);

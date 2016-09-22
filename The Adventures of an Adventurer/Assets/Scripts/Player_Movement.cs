@@ -43,12 +43,12 @@ public class Player_Movement : MonoBehaviour {
 		//Rotation of the Player
         if (!movementDisabled)
         {
-            if (Input.GetAxis("Horizontal") < -0.1f)
+			if (Input.mousePosition.x < Screen.width/2)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
 
-            if (Input.GetAxis("Horizontal") > 0.1f)
+			if (Input.mousePosition.x > Screen.width/2)
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }

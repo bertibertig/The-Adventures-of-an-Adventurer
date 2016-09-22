@@ -12,7 +12,7 @@ public class DropLoot : MonoBehaviour {
 	void Start () {
         amountOfCoinsToDrop = 0;
         //goldCoin = GameObject.FindGameObjectWithTag("GoldCoin");
-        goldCoin = Instantiate(Resources.Load("Items/Other/GoldCoin", typeof(GameObject))) as GameObject;
+        goldCoin = Resources.Load("Items/Other/GoldCoin", typeof(GameObject)) as GameObject;
 	}
 
     public void EnemyDropItem(GameObject _enemy,GameObject item)

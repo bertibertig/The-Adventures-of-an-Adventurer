@@ -50,7 +50,8 @@ public class Enemy_Health_Controller : MonoBehaviour
 
     void ApplyDamage(object[] attackData)
     {
-		anim.SetFloat ("Health", health);
+        if(anim != null)
+		    anim.SetFloat ("Health", health);
         int damage = Convert.ToInt32(attackData[0]);
         bool isCrit = Convert.ToBoolean(attackData[1]);
 
