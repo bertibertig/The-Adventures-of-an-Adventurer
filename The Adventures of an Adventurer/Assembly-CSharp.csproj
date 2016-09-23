@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Items\Other\GoldCoin.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeAnimation.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeHealthController.cs" />
+     <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeSquirel.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeStart.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeTop.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Awake.cs" />

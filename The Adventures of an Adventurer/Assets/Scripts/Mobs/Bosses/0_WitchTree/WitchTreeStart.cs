@@ -68,7 +68,7 @@ public class WitchTreeStart : MonoBehaviour {
 
         dialoge.ChangeTalker(enemy_Sprite);
         dialoge.ChangeTalkerName("Legit Witch");
-        dialoge.PrintText(usedDialoge[2], textSpeed, player_Talking);
+        dialoge.PrintText(usedDialoge[2], textSpeed * 20, player_Talking);
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetButtonDown("Interact"))
         {
