@@ -3,15 +3,15 @@ using System.Collections;
 
 public class WitchTreeSquirel : MonoBehaviour {
 
-    private Rigidbody2D 
 
 	// Use this for initialization
 	void Start () {
-	    
+        StartCoroutine("ThrowNuts");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    private IEnumerator ThrowNuts()
+    {
+
+        yield return null;
+    }
 }

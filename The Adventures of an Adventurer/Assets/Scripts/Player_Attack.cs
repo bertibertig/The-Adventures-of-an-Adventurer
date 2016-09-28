@@ -10,11 +10,6 @@ public class Player_Attack : MonoBehaviour {
     public Collider2D attackTrigger;
     private Animator anim;
 
-	public double AttackTimer
-	{
-		get { return attackTimer; }
-	}
-
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -40,6 +35,7 @@ public class Player_Attack : MonoBehaviour {
             {
                 isAttacking = false;
                 attackTrigger.enabled = false;
+				Attack_Trigger.alreadyHit = false;
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player_Movement : MonoBehaviour {
-
+	
 	//Floats
 	public float maxSpeed = 3;
 	public float speed = 50f;
@@ -53,7 +53,7 @@ public class Player_Movement : MonoBehaviour {
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
-		//Jumping /Dobble Jumping
+		//Jumping /Double Jumping
 		if (Input.GetButtonDown("Jump") && isAbleToJump)
 		{
 			if (grounded)
