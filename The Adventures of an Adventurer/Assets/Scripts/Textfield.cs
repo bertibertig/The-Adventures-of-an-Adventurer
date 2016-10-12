@@ -81,7 +81,7 @@ public class Textfield : MonoBehaviour {
         char[] letters = usedText.ToCharArray();
         text.text = "";
         
-        for (int i = 0; i < usedText.Length; i++)
+        for (int i = 0; i < letters.Length; i++)
         {
             if(!speachSFX.isPlaying)
                 speachSFX.Play();

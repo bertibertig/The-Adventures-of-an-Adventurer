@@ -68,6 +68,14 @@ public class Health_Controller : MonoBehaviour {
         }
     }
 
+    public float GetHealth
+    {
+        get
+        {
+            return health;
+        }
+    }
+
     void ResetIsInvincible()
     {
         isInvincible = false;
