@@ -53,7 +53,7 @@ public class Stoney_Interaction : MonoBehaviour {
                 Stoney.GetComponents<PolygonCollider2D>()[1].enabled = true;
                 keyInfo.SetActive(false);
                 axeRemovedOnce = true;
-                eventList.AddEvent("StoneyTriggered", true);
+                eventList.AddEvent("StoneyTriggered", true,"True when the Stoney Cutcene is triggered. Prevents the Stoney Cutcene from appearing multiple times.");
             }
 
             FollowPlayer();

@@ -269,7 +269,13 @@ public class Stoney_Awake : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         Destroy(Stoney.GetComponent<Rigidbody2D>());
         player.GetComponent<Health_Controller>().KnockbackEnabled = false;
-        player.GetComponent<Health_Controller>().ApplyDamage(10);
+
+        float dmg = 10f;
+        float plHealth = player.GetComponent<Health_Controller>().GetHealth;
+        if (plHealth <= 10)
+            dmg = plHealth - 1;
+        player.GetComponent<Health_Controller>().ApplyDamage(dmg);
+
         yield return new WaitForSeconds(0.1f);
         player.GetComponent<Health_Controller>().KnockbackEnabled = true;
         yield return new WaitForSeconds(3);
