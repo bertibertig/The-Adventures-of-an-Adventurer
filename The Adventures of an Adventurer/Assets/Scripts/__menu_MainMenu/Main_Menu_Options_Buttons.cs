@@ -31,8 +31,8 @@ public class Main_Menu_Options_Buttons : MonoBehaviour {
 
     void Start()
     {
-        filepath = @".\Saves\options.txt";
-        directory = @".\Saves\";
+        filepath = Directory.GetCurrentDirectory() +  @"\Saves\options.txt";
+        directory = Directory.GetCurrentDirectory() +  @"\Saves\";
 
         CheckIfFolderExists();
         options = ReadOptions();
@@ -56,6 +56,7 @@ public class Main_Menu_Options_Buttons : MonoBehaviour {
 
     public void BackToMainMenu()
     {
+        print(lang);
         SaveOptions();
         Application.LoadLevel(0);
     }
@@ -93,5 +94,17 @@ public class Main_Menu_Options_Buttons : MonoBehaviour {
             lang = "german";
         }
         SaveOptions();
+    }
+
+    public void SaveChanges()
+    {
+        print(filepath);
+        StreamWriter sw = new StreamWriter(filepath);
+
+        sw.WriteLine("###Language###");
+        sw.WriteLine("###language:");
+        sw.WriteLine(lang);
+
+        sw.Close();
     }
 }
