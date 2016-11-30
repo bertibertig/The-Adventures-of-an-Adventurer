@@ -48,7 +48,7 @@ public class Stoney_Interaction : MonoBehaviour {
                 //Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_without_Axe.GetComponent<SpriteRenderer>().sprite;
                 anim.SetBool("axeRemoved", true);
                 inventory.AddItem(1);
-                Stoney_Awake.GetComponent<Stoney_Awake>().SetAxRemovedTrue();
+                Stoney_Awake.GetComponent<Stoney_Awake>().SetAxeRemovedTrue();
                 Stoney.GetComponents<PolygonCollider2D>()[0].enabled = false;
                 Stoney.GetComponents<PolygonCollider2D>()[1].enabled = true;
                 keyInfo.SetActive(false);

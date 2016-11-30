@@ -85,7 +85,7 @@ public class Player_Movement : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
 
         //Disables Sliding of the Player
-        if (grounded)
+        if (grounded && !movementDisabled)
         {
             rb2d.velocity = easeVelocity;
         }

@@ -80,6 +80,8 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player_Attack.cs" />
      <Compile Include="Assets\Scripts\Player_Movement.cs" />
+     <Compile Include="Assets\Scripts\Sequences\Intro.cs" />
+     <Compile Include="Assets\Scripts\Sequences\IntroEndCollider.cs" />
      <Compile Include="Assets\Scripts\SignOnTrigger.cs" />
      <Compile Include="Assets\Scripts\Sound_Play.cs" />
      <Compile Include="Assets\Scripts\Textfield.cs" />

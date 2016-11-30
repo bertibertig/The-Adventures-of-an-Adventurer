@@ -13,6 +13,10 @@ public class Textfield : MonoBehaviour {
     private float textSpeed;
     private AudioSource speachSFX;
 
+    void Start()
+    {
+        //Disable();
+    }
     public void Enable()
     {
         text.enabled = true;

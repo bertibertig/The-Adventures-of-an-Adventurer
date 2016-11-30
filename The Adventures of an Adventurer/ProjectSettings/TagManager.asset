@@ -24,6 +24,7 @@ TagManager:
   - Test
   - LeaveCollider
   - Projectile
+  - Intro
   layers:
   - Default
   - TransparentFX

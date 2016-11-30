@@ -50,7 +50,7 @@ public class Stoney_Awake : MonoBehaviour {
 	    
 	}
 
-    public void SetAxRemovedTrue()
+    public void SetAxeRemovedTrue()
     {
         axeRemoved = true;
     }
