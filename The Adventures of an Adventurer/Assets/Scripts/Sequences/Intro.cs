@@ -21,7 +21,6 @@ public class Intro : MonoBehaviour
     private string[] usedDialoge;
     private Player_Movement movement;
     private static GameObject player;
-
     public bool IntroEnd { get; set; }
 
     // Use this for initialization
@@ -91,8 +90,17 @@ public class Intro : MonoBehaviour
         StartCoroutine("RemoveLogo");
         yield return new WaitForSeconds(3);
         presentsText.SetActive(false);
+        Color color = logo.GetComponent<Image>().color;
+        color = new Color(0, 0, 0);
         logo.SetActive(true);
-        yield return new WaitForSeconds(10);
+        float counter = 0;
+        do
+        {
+            counter += 0.1f;
+            color = new Color(counter, counter,counter);
+            yield return new WaitForSeconds(0.5f);
+        } while (color != new Color(1, 1, 1)) ;
+        //yield return new WaitForSeconds(10);
         logo.SetActive(false);
     }
 

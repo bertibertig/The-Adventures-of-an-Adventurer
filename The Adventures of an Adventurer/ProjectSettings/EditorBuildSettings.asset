@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/0_Level_Tutorial_01_Cave.unity
   - enabled: 0
     path: Assets/Scenes/00_Load_GameObjects.unity
+  - enabled: 1
+    path: Assets/Scenes/0_Level_Tutorial_00_Hut_of_the_Adventurer.unity

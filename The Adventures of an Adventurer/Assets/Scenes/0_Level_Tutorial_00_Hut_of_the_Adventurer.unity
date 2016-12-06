@@ -2176,6 +2176,7 @@ GameObject:
   - 224: {fileID: 754290406}
   - 222: {fileID: 754290405}
   - 114: {fileID: 754290404}
+  - 95: {fileID: 754290407}
   m_Layer: 5
   m_Name: AdventurerLogo
   m_TagString: Untagged
@@ -2234,6 +2235,23 @@ RectTransform:
   m_AnchoredPosition: {x: 19, y: 34.6}
   m_SizeDelta: {x: 3333.3333, y: 999.99994}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &754290407
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754290403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f122a7fa25421f49bb454528ea70f16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &763911904
 GameObject:
   m_ObjectHideFlags: 0

@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea8a35ed3974d44fb86cff270779f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 0_Level_Tutorial
+  levelToLoad: 0_Level_Tutorial_00_Hut_of_the_Adventurer
 --- !u!1 &165409546
 GameObject:
   m_ObjectHideFlags: 0
