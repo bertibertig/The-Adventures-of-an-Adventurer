@@ -68,6 +68,15 @@ public class Health_Controller : MonoBehaviour {
         }
     }
 
+    public void Heal(float healValue)
+    {
+        if (health + healValue <= maxHealth)
+            health = health + healValue;
+        else
+            health = health + (maxHealth - health);
+        UpdateGUI();
+    }
+
     public float GetHealth
     {
         get
@@ -129,4 +138,6 @@ public class Health_Controller : MonoBehaviour {
     {
         healthGUI.fillAmount = health / maxHealth;
     }
+
+
 }

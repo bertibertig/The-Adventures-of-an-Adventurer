@@ -54,7 +54,8 @@ public class Textfield : MonoBehaviour {
     {
         StopCoroutine("PrintTextByChars");
         StopCoroutine("PrintTextByCharsWithAudio");
-        speachSFX.Stop();
+        if(speachSFX != null)
+            speachSFX.Stop();
         text.text = "";
     }
 
@@ -75,8 +76,23 @@ public class Textfield : MonoBehaviour {
         text.text = "";
         for (int i = 0; i < usedText.Length; i++)
         {
-            text.text += letters[i];
-            yield return new WaitForSeconds(textSpeed);
+            if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ')
+            {
+                print("less Space");
+                do
+                {
+                    text.text += letters[i];
+                    i++;
+                    yield return new WaitForSeconds(0.00000001f);
+                } while (i >= letters.Length || (i + 3) < letters.Length && letters[i + 1] != ' ' && letters[i + 2] != ' ');
+
+            }
+            else
+            {
+                print((i + 3) < letters.Length);
+                text.text += letters[i];
+                yield return new WaitForSeconds(textSpeed);
+            }
         }
     }
 
@@ -89,8 +105,23 @@ public class Textfield : MonoBehaviour {
         {
             if(!speachSFX.isPlaying)
                 speachSFX.Play();
-            text.text += letters[i];
-            yield return new WaitForSeconds(textSpeed);
+            if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ' && letters[i + 3] == ' ')
+            {
+                print("less Space");
+                do
+                {
+                    text.text += letters[i];
+                    i++;
+                    yield return null;
+                } while (i >= letters.Length || (i + 3) < letters.Length && letters[i + 1] != ' ' && letters[i + 2] != ' ');
+
+            }
+            else
+            {
+                print((i + 3) < letters.Length);
+                text.text += letters[i];
+                yield return new WaitForSeconds(textSpeed);
+            }
         }
     }
 }

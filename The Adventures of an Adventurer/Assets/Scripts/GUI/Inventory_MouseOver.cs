@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.EventSystems;
+using System.Reflection;
 
 public class Inventory_MouseOver : MonoBehaviour{
 
@@ -14,6 +15,7 @@ public class Inventory_MouseOver : MonoBehaviour{
     private bool mouseOverObject;
     private bool informationLoaded;
     private string mousebutton;
+    private Inventory_Database.Item item;
 
     public GameObject infoBox;
     //public GameObject infoBoxBackground;
@@ -22,6 +24,7 @@ public class Inventory_MouseOver : MonoBehaviour{
     {
         mouseOverObject = false;
         informationLoaded = false;
+        //print("loadedMouseover");
     }
 
     public void MouseEnter()
@@ -31,7 +34,7 @@ public class Inventory_MouseOver : MonoBehaviour{
         //infoBox.GetComponentInChildren<Text>().text = "Hello World";
         if (informationLoaded)
             StartCoroutine("GetItemName");
-        print("Entered");
+        //print("Entered");
         if (!mouseOverObject)
         {
             mouseOverObject = true;
@@ -60,9 +63,12 @@ public class Inventory_MouseOver : MonoBehaviour{
     {
         for (int i = 0; i < 20; i++ )
         {
-            print(itemInfo[i].Item.GetName);
+            //print(itemInfo[i].Item.GetName);
             if (itemInfo[i].Slot.Equals(this.gameObject))
+            {
                 infoBox.GetComponentInChildren<Text>().text = itemInfo[i].Item.GetName;
+                item = itemInfo[i].Item;
+            }
             yield return null;
         }
     }
@@ -78,6 +84,12 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     public void MouseClick()
     {
-        print(mousebutton);
+        print(item.GetClassString + "." + item.GetFunction);
+        if (item.GetClassString != "" && item.GetFunction != "")
+        {
+            Type type = Type.GetType(item.GetClassString);
+            MethodInfo m = type.GetMethod(item.GetFunction);
+            m.Invoke(m, null);
+        }
     }
 }

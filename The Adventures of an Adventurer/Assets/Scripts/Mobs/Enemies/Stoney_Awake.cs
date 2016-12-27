@@ -96,9 +96,22 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().Disable();
         yield return new WaitForSeconds(1);
-        player.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        yield return new WaitForSeconds(1);
-        player.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        if (player.transform.localRotation == Quaternion.Euler(0, 0, 0))
+        {
+            player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            yield return new WaitForSeconds(0.7f);
+            player.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            yield return new WaitForSeconds(0.7f);
+            player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            yield return new WaitForSeconds(0.7f);
+            player.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            yield return new WaitForSeconds(0.7f);
+            player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
         textfield.GetComponent<Textfield>().ChangeTalker(player.GetComponent<SpriteRenderer>().sprite);
         textfield.GetComponent<Textfield>().ChangeTalkerName("Adventurer");
         textfield.GetComponent<Textfield>().Enable();
@@ -119,7 +132,7 @@ public class Stoney_Awake : MonoBehaviour {
         {
             yield return null;
         }
-        player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         textfield.GetComponent<Textfield>().Disable();
         //Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_Cracked.GetComponent<SpriteRenderer>().sprite;
         anim.SetBool("awake", true);
@@ -205,9 +218,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().Disable();
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(100f, 0));
-        yield return new WaitForSeconds(1);
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(100f,0));
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(75f, 0));
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
@@ -220,9 +231,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().Disable();
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200f, 0));
-        yield return new WaitForSeconds(1);
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200f, 0));
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(100f, 0));
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
@@ -235,9 +244,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().Disable();
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(300f, 0));
-        yield return new WaitForSeconds(1);
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(300f, 0));
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(125f, 0));
         yield return new WaitForSeconds(1);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();
@@ -250,7 +257,7 @@ public class Stoney_Awake : MonoBehaviour {
         textfield.GetComponent<Textfield>().StopPrintText();
         textfield.GetComponent<Textfield>().Disable();
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(770f, 0));
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(150f, 0));
         yield return new WaitForSeconds(2);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         textfield.GetComponent<Textfield>().Enable();

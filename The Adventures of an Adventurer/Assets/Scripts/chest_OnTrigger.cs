@@ -9,16 +9,17 @@ public class chest_OnTrigger : MonoBehaviour {
     public GameObject player;
     public AudioSource chest_open_1;
     public AudioSource chest_close_1;
-    public List<int> items_in_chest_id = new List<int>();
+    public int[] items_in_chest_id;
 
 
     private bool displayKeyInfo;
-
+    private Inventory_Database inventory;
     private Animator anim;
 
 	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponentInParent<Animator>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
 
         displayKeyInfo = false;
         keyInfo.SetActive(false);
@@ -43,6 +44,7 @@ public class chest_OnTrigger : MonoBehaviour {
                     opened = true;
                     chest_open_1.Play();
                     anim.SetBool("opened", opened);
+                    inventory.AddItem(3);
                 }
 
                 else if(opened)
