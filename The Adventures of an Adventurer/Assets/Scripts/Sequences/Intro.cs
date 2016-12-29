@@ -47,7 +47,7 @@ public class Intro : MonoBehaviour
         movement.MovementDisabled = true;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         player.GetComponent<Player_Attack>().enabled = false;
-        dialoge.Enable();
+        dialoge.EnableText();
         player.transform.localRotation = Quaternion.Euler(0, 180, 0);
         StartCoroutine("Conversation");
     }
@@ -67,14 +67,14 @@ public class Intro : MonoBehaviour
         StartCoroutine("Logos");
         while (!IntroEnd)
         {
-            dialoge.Disable();
+            dialoge.DisableText();
             player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10f, 0));
             yield return null;
         }
 
 
         dialoge.StopPrintText();
-        dialoge.Disable();
+        dialoge.DisableText();
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         logo.SetActive(false);
@@ -86,21 +86,14 @@ public class Intro : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         presentsText.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         StartCoroutine("RemoveLogo");
         yield return new WaitForSeconds(3);
         presentsText.SetActive(false);
-        Color color = logo.GetComponent<Image>().color;
-        color = new Color(0, 0, 0);
         logo.SetActive(true);
-        float counter = 0;
-        do
-        {
-            counter += 0.1f;
-            color = new Color(counter, counter,counter);
-            yield return new WaitForSeconds(0.5f);
-        } while (color != new Color(1, 1, 1)) ;
-        //yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(4);
+        logo.GetComponent<Animator>().SetBool("Fade", true);
+        yield return new WaitForSeconds(0.5f);
         logo.SetActive(false);
     }
 

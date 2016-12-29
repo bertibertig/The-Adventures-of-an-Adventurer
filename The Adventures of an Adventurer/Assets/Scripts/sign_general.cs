@@ -86,7 +86,7 @@ public class sign_general : MonoBehaviour {
     {
         textfield.ChangeTalker(this.gameObject.GetComponentInParent<SpriteRenderer>().sprite);
         textfield.ChangeTalkerName(talker);
-        textfield.Enable();
+        textfield.EnableText();
         print("CoRoutine started");
         for(int i = 0; i < usedDialoge.Length; i++)
         {
@@ -100,7 +100,7 @@ public class sign_general : MonoBehaviour {
             
         }
 
-        textfield.GetComponent<Textfield>().Disable();
+        textfield.GetComponent<Textfield>().DisableText();
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = false;
         player.GetComponent<Player_Attack>().enabled = true;

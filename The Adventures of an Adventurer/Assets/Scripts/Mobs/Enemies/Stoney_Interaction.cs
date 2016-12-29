@@ -12,7 +12,7 @@ public class Stoney_Interaction : MonoBehaviour {
     private bool axeRemovedOnce;
     private Animator anim;
     private EventList eventList;
-    private Inventory_Database inventory;
+    private Inventory_Main inventory;
 
 
     // Use this for initialization
@@ -21,7 +21,7 @@ public class Stoney_Interaction : MonoBehaviour {
         axeRemovedOnce = false;
         displayKeyInfo = false;
         eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
-        inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>();
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");

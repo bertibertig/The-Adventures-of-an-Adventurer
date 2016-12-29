@@ -25,6 +25,8 @@ TagManager:
   - LeaveCollider
   - Projectile
   - Intro
+  - MerchantUI
+  - MerchantSlot
   layers:
   - Default
   - TransparentFX

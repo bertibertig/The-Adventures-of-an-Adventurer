@@ -8,14 +8,20 @@ using System.Reflection;
 
 public class Inventory_MouseOver : MonoBehaviour{
 
-    public GameObject inventoryDatabase;
+    public GameObject inventoryMainDriver;
+    public GameObject yellow_Selecter;
+    public GameObject dragItem;
 
     private List<Inventory_Database.Item> itemList = new List<Inventory_Database.Item>();
-    private Inventory_Database.ItemInfo[] itemInfo;
+    private Inventory_Main.ItemInfo[] itemInfos;
+    private Inventory_Main.ItemInfo itemInfo;
     private bool mouseOverObject;
     private bool informationLoaded;
+    private bool gotItemName;
     private string mousebutton;
-    private Inventory_Database.Item item;
+    //private Vector3 startPosition;
+    private Inventory_Main.ItemInfo endPosition;
+    private Inventory_Main.ItemInfo otherItem;
 
     public GameObject infoBox;
     //public GameObject infoBoxBackground;
@@ -33,7 +39,9 @@ public class Inventory_MouseOver : MonoBehaviour{
         //infoBoxBackground.transform.localScale = new Vector2(infoBox.transform.localScale.x + 10, infoBox.transform.localScale.y + 10);
         //infoBox.GetComponentInChildren<Text>().text = "Hello World";
         if (informationLoaded)
+        {
             StartCoroutine("GetItemName");
+        }
         //print("Entered");
         if (!mouseOverObject)
         {
@@ -43,16 +51,16 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     void Update()
     {
-        if (inventoryDatabase.GetComponent<Inventory_Database>().GetItemInfoLoaded && !informationLoaded)
+        if (inventoryMainDriver.GetComponentInChildren<Inventory_Database>().GetItemInfoLoaded && !informationLoaded)
         {
-            itemList = inventoryDatabase.GetComponent<Inventory_Database>().GetItemDatabase;
-            itemInfo = inventoryDatabase.GetComponent<Inventory_Database>().GetItemInfo;
+            itemList = inventoryMainDriver.GetComponentInChildren<Inventory_Database>().GetItemDatabase;
+            itemInfos = inventoryMainDriver.GetComponent<Inventory_Main>().GetItemInfo;
             informationLoaded = true;
             //infoBox.GetComponentInChildren<Text>().text = "Test";
         }
         if (mouseOverObject)
         {
-            infoBox.transform.position = new Vector3(Input.mousePosition.x+20, Input.mousePosition.y, 0);
+            infoBox.transform.position = new Vector3(Input.mousePosition.x + 20, Input.mousePosition.y, 0);
         }
         if (Input.GetMouseButtonDown(0)) mousebutton = "Pressed left click.";
         if (Input.GetMouseButtonDown(1)) mousebutton = "Pressed right click.";
@@ -61,13 +69,13 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     public IEnumerator GetItemName()
     {
-        for (int i = 0; i < 20; i++ )
+        for (int i = 0; i < itemInfos.Length; i++ )
         {
             //print(itemInfo[i].Item.GetName);
-            if (itemInfo[i].Slot.Equals(this.gameObject))
+            if (itemInfos[i].Slot.Equals(this.gameObject))
             {
-                infoBox.GetComponentInChildren<Text>().text = itemInfo[i].Item.GetName;
-                item = itemInfo[i].Item;
+                infoBox.GetComponentInChildren<Text>().text = itemInfos[i].Item.GetName;
+                itemInfo = itemInfos[i];
             }
             yield return null;
         }
@@ -84,12 +92,80 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     public void MouseClick()
     {
-        print(item.GetClassString + "." + item.GetFunction);
-        if (item.GetClassString != "" && item.GetFunction != "")
+        if (mousebutton == "Pressed right click.")
         {
-            Type type = Type.GetType(item.GetClassString);
-            MethodInfo m = type.GetMethod(item.GetFunction);
-            m.Invoke(m, null);
+            print(itemInfo.Item.GetClassString + "." + itemInfo.Item.GetFunction);
+            if (itemInfo.Item.GetClassString != "" && itemInfo.Item.GetFunction != "")
+            {
+                Type type = Type.GetType(itemInfo.Item.GetClassString);
+                MethodInfo m = type.GetMethod(itemInfo.Item.GetFunction);
+                m.Invoke(m, null);
+            }
+        }
+
+        if (mousebutton == "Pressed left click." && !yellow_Selecter.GetComponent<Inventory_Selector>().Selected)
+        {
+            yellow_Selecter.GetComponent<Inventory_Selector>().Selected = true;
+            yellow_Selecter.GetComponent<Inventory_Selector>().ItemInfo = itemInfo;
+            yellow_Selecter.transform.position = itemInfo.Slot.transform.position;
+            yellow_Selecter.GetComponent<Image>().enabled = true;
+        }
+        else if(mousebutton == "Pressed left click." && yellow_Selecter.GetComponent<Inventory_Selector>().Selected)
+        {
+            yellow_Selecter.GetComponent<Inventory_Selector>().Selected = false;
+            yellow_Selecter.GetComponent<Image>().enabled = false;
+            Vector3 oldPosition = this.gameObject.transform.position;
+            this.gameObject.transform.position = yellow_Selecter.GetComponent<Inventory_Selector>().ItemInfo.Slot.transform.position;
+            yellow_Selecter.GetComponent<Inventory_Selector>().ItemInfo.Slot.transform.position = oldPosition;
+        }
+        print(yellow_Selecter.GetComponent<Inventory_Selector>().Selected);
+    }
+
+    /*public void BeginDrag()
+    {
+        if (mousebutton == "Pressed left click.")
+        {
+            isBeeingDraged = true;
+            infoBox.SetActive(false);
+            dragItem = gameObject;
+            startPosition = transform.position;
         }
     }
+
+    public void Drag()
+    {
+        if (mousebutton == "Pressed left click.")
+        {
+            transform.position = Input.mousePosition;
+            print("Mouse position:" + Input.mousePosition);
+            print("Slot1 position:" + itemInfo[0].Slot.transform.position);
+        }
+    }
+
+    public void EndDrag()
+    {
+        if (mousebutton == "Pressed left click.")
+        {
+            endPosition = null;
+            StartCoroutine("GetSlot");
+            print(endPosition.Slot.ToString());
+            isBeeingDraged = false;
+            dragItem = null;
+            transform.position = endPosition.Slot.transform.position;
+        }
+    }
+
+    private IEnumerator GetSlot()
+    {
+        foreach (Inventory_Database.ItemInfo item in itemInfo)
+        {
+            Vector3 leftUpperCorner = new Vector3(item.Slot.transform.position.x / 2, item.Slot.transform.position.y / 2);
+            //print(leftUpperCorner);
+            if (item.Slot.transform.position == Input.mousePosition)
+            {
+                endPosition = item;
+            }
+            yield return null;
+        }
+    }*/
 }

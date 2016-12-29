@@ -44,7 +44,6 @@ public class Enemy_Health_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
 		if(anim != null)
 			anim.SetFloat ("Health", health);
-		print (anim.ToString ());
         UpdateGUI();
     }
 

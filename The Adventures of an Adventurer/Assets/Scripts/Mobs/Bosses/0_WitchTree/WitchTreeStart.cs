@@ -39,7 +39,7 @@ public class WitchTreeStart : MonoBehaviour {
     {
         if (col.CompareTag("Player") && !CoRoutineStarted)
         {
-            dialoge.Enable();
+            dialoge.EnableText();
             CoRoutineStarted = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             movement.MovementDisabled = true;
@@ -88,7 +88,7 @@ public class WitchTreeStart : MonoBehaviour {
 
 
         dialoge.StopPrintText();
-        dialoge.Disable();
+        dialoge.DisableText();
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = false;

@@ -40,6 +40,9 @@ public class Health_Controller : MonoBehaviour {
         {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
         }
+
+        if (healthGUI == null)
+            healthGUI = GameObject.FindGameObjectWithTag("healthGUI").GetComponent<Image>();
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();

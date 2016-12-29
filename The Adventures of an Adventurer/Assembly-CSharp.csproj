@@ -58,9 +58,13 @@
      <Compile Include="Assets\Scripts\Entrance.cs" />
      <Compile Include="Assets\Scripts\Entrance_SetPlayer.cs" />
      <Compile Include="Assets\Scripts\EventList.cs" />
+     <Compile Include="Assets\Scripts\GUI\DisplayKeyInfo.cs" />
      <Compile Include="Assets\Scripts\GUI\Inventory_Database.cs" />
      <Compile Include="Assets\Scripts\GUI\Inventory_Main.cs" />
      <Compile Include="Assets\Scripts\GUI\Inventory_MouseOver.cs" />
+     <Compile Include="Assets\Scripts\GUI\Inventory_Selector.cs" />
+     <Compile Include="Assets\Scripts\GUI\MerchantGUI.cs" />
+     <Compile Include="Assets\Scripts\GUI\MerchantMouseOver.cs" />
      <Compile Include="Assets\Scripts\Gameobject_Checker.cs" />
      <Compile Include="Assets\Scripts\Generate_Random_Coins.cs" />
      <Compile Include="Assets\Scripts\GetItem.cs" />
@@ -77,6 +81,7 @@
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeTop.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Awake.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Interaction.cs" />
+     <Compile Include="Assets\Scripts\Objects\Choice.cs" />
      <Compile Include="Assets\Scripts\Pause_Menu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player_Attack.cs" />
@@ -93,6 +98,7 @@
      <Compile Include="Assets\Scripts\camera_follow.cs" />
      <Compile Include="Assets\Scripts\chest_OnTrigger.cs" />
      <Compile Include="Assets\Scripts\coin_collect.cs" />
+     <Compile Include="Assets\Scripts\color_man.cs" />
      <Compile Include="Assets\Scripts\enemy_slime_old.cs" />
      <Compile Include="Assets\Scripts\fallDownOnButtionPress_Script.cs" />
      <Compile Include="Assets\Scripts\player_grounded.cs" />
