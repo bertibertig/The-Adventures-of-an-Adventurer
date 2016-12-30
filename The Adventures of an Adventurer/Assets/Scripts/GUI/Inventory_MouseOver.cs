@@ -18,6 +18,7 @@ public class Inventory_MouseOver : MonoBehaviour{
     private bool mouseOverObject;
     private bool informationLoaded;
     private bool gotItemName;
+    private bool waitingForActivation;
     private string mousebutton;
     //private Vector3 startPosition;
     private Inventory_Main.ItemInfo endPosition;
@@ -28,6 +29,7 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     void Start()
     {
+        waitingForActivation = false;
         mouseOverObject = false;
         informationLoaded = false;
         //print("loadedMouseover");
@@ -35,7 +37,11 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     public void MouseEnter()
     {
-        infoBox.SetActive(true);
+        if (!waitingForActivation)
+        {
+            waitingForActivation = true;
+            StartCoroutine("WaitForActivation");
+        }
         //infoBoxBackground.transform.localScale = new Vector2(infoBox.transform.localScale.x + 10, infoBox.transform.localScale.y + 10);
         //infoBox.GetComponentInChildren<Text>().text = "Hello World";
         if (informationLoaded)
@@ -67,6 +73,14 @@ public class Inventory_MouseOver : MonoBehaviour{
         if (Input.GetMouseButtonDown(2)) mousebutton = "Pressed middle click.";
     }
 
+    private IEnumerator WaitForActivation()
+    {
+        do
+        {
+            yield return new WaitForSeconds(1);
+        }while(false);
+        infoBox.SetActive(true);
+    }
     public IEnumerator GetItemName()
     {
         for (int i = 0; i < itemInfos.Length; i++ )
@@ -74,8 +88,23 @@ public class Inventory_MouseOver : MonoBehaviour{
             //print(itemInfo[i].Item.GetName);
             if (itemInfos[i].Slot.Equals(this.gameObject))
             {
-                infoBox.GetComponentInChildren<Text>().text = itemInfos[i].Item.GetName;
                 itemInfo = itemInfos[i];
+                infoBox.GetComponentsInChildren<Text>()[0].text = itemInfo.Item.GetName;
+                infoBox.GetComponentsInChildren<Text>()[1].text = itemInfo.Item.GetPrice.ToString() + " Gold";
+                if(GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language == "german")
+                    infoBox.GetComponentsInChildren<Text>()[2].text = itemInfo.Item.GetGerDescription;
+                else
+                    infoBox.GetComponentsInChildren<Text>()[2].text = itemInfo.Item.GetEngDescription;
+                if (itemInfo.Item.GetID == 0)
+                {
+                    infoBox.GetComponentsInChildren<Image>()[1].color = itemInfo.Slot.GetComponent<Image>().color;
+                    infoBox.GetComponentsInChildren<Image>()[1].sprite = itemList[0].GetSprite;
+                }
+                else
+                {
+                    infoBox.GetComponentsInChildren<Image>()[1].color = UnityEngine.Color.white;
+                    infoBox.GetComponentsInChildren<Image>()[1].sprite = itemInfo.Item.GetSprite;
+                }
             }
             yield return null;
         }
@@ -83,6 +112,8 @@ public class Inventory_MouseOver : MonoBehaviour{
 
     public void MouseExit()
     {
+        StopCoroutine("WaitForActivation");
+        waitingForActivation = false;
         if (mouseOverObject)
         {
             mouseOverObject = false;

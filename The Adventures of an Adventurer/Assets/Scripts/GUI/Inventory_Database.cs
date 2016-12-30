@@ -31,6 +31,7 @@ public class Inventory_Database : MonoBehaviour {
 
         public int GetID { get { return this.ID; } }
         public Sprite GetSprite{ get { return this.itemSymbol; }  }
+        public int GetPrice { get { return this.price; } }
         public float X { get { return this.x; } }
         public float Y { get { return this.y; } }
         public string GetEngDescription { get { return this.descriptionEng; } }

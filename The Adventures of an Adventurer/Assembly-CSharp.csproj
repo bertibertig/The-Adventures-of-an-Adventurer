@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Awake.cs" />
      <Compile Include="Assets\Scripts\Mobs\Enemies\Stoney_Interaction.cs" />
      <Compile Include="Assets\Scripts\Objects\Choice.cs" />
+     <Compile Include="Assets\Scripts\Other\LanguageReader.cs" />
      <Compile Include="Assets\Scripts\Pause_Menu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player_Attack.cs" />
