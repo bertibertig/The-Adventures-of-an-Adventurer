@@ -5,10 +5,10 @@ using System;
 public class WitchTreeStart : MonoBehaviour {
 
     public float textSpeed;
-    public string language;
     public string[] germanDialoge;
     public string[] englishDialoge;
 
+    private string language;
     private AudioSource player_Talking;
     private Textfield dialoge;
     private Sprite player_Sprite;
@@ -29,6 +29,11 @@ public class WitchTreeStart : MonoBehaviour {
         if (textSpeed <= 0)
             textSpeed = 0.05f;
         CoRoutineStarted = false;
+
+        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
+            language = "english";
+        else
+            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
         if (language == "german")
             usedDialoge = germanDialoge;
         else

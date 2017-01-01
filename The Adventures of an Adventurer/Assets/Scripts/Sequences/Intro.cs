@@ -10,11 +10,11 @@ public class Intro : MonoBehaviour
     public GameObject logo;
     public string levelToLoad;
     public float textSpeed;
-    public string language;
     public string[] germanDialoge;
     public string[] englishDialoge;
 
     private AudioSource playerTalking;
+    private string language;
     private Textfield dialoge;
     private Sprite playerSprite;
     private bool CoRoutineStarted;
@@ -37,6 +37,12 @@ public class Intro : MonoBehaviour
         if (textSpeed <= 0)
             textSpeed = 0.05f;
         CoRoutineStarted = false;
+
+        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
+            language = "english";
+        else
+            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+
         if (language == "german")
             usedDialoge = germanDialoge;
         else

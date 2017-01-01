@@ -10,11 +10,11 @@ public class Stoney_Awake : MonoBehaviour {
     public AudioSource Stoney_HitSound;
     public AudioSource Stoney_Talking;
     public float textSpeed;
-    public string language;
     public string[] germanDialoge;
     public string[] englishDialoge;
 
     private string[] usedDialoge;
+    private string language;
     private bool axeRemoved;
     private bool conversatonHappened;
     private GameObject textfield;
@@ -38,6 +38,11 @@ public class Stoney_Awake : MonoBehaviour {
         movement = player.GetComponent<Player_Movement>();
         anim = Stoney.GetComponent<Animator>();
         player_Talking = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<AudioSource>();
+
+        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
+            language = "english";
+        else
+            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
 
         if (language == "german")
             usedDialoge = germanDialoge;

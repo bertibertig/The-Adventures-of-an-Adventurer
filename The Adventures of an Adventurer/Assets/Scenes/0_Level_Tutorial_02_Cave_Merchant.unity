@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSpeed: 0
-  language: german
+  idOfItems: 010000000200000003000000
   germanDialoge:
   - Sieh dir meinen geilen Stuff an Boiii!
   - Willste was kaufen?

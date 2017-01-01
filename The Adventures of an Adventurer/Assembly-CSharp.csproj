@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Items\Other\CoinTrigger.cs" />
      <Compile Include="Assets\Scripts\Items\Other\GoldCoin.cs" />
      <Compile Include="Assets\Scripts\Items\Other\HealthPotion.cs" />
+     <Compile Include="Assets\Scripts\Items\Weapons\Axe.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeAcorn.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeHealthController.cs" />
      <Compile Include="Assets\Scripts\Mobs\Bosses\0_WitchTree\WitchTreeSquirel.cs" />
@@ -103,13 +104,13 @@
      <Compile Include="Assets\Scripts\enemy_slime_old.cs" />
      <Compile Include="Assets\Scripts\fallDownOnButtionPress_Script.cs" />
      <Compile Include="Assets\Scripts\player_grounded.cs" />
-     <Compile Include="Assets\Scripts\sign_OnTrigger.cs" />
      <Compile Include="Assets\Scripts\sign_general.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
+     <Compile Include="Assets\sign_OnTrigger.cs" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault.shader" />
      <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />

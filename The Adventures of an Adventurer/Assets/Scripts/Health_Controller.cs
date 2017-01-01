@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Health_Controller : MonoBehaviour {
 
@@ -40,9 +41,10 @@ public class Health_Controller : MonoBehaviour {
         {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
         }
-
         if (healthGUI == null)
-            healthGUI = GameObject.FindGameObjectWithTag("healthGUI").GetComponent<Image>();
+            healthGUI = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "Front").FirstOrDefault().GetComponentInChildren<Image>();
+        if(deathText == null)
+            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponentInChildren<Text>();
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();

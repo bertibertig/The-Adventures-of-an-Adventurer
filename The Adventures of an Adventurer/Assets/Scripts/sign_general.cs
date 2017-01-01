@@ -25,6 +25,7 @@ public class sign_general : MonoBehaviour {
         if (textSpeed <= 0)
             textSpeed = 0.05f;
         textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
+        textfield.DisableText();
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<Player_Movement>();
 

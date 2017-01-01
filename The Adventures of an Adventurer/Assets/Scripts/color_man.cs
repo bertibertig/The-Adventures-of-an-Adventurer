@@ -4,10 +4,11 @@ using System.Collections;
 public class color_man : MonoBehaviour {
 
     public float textSpeed;
-    public string language;
+    public int[] idOfItems;
     public string[] germanDialoge;
     public string[] englishDialoge;
 
+    private string language;
     private string[] usedDialoge;
     private Textfield textfield;
     private GameObject inventory;
@@ -28,10 +29,18 @@ public class color_man : MonoBehaviour {
         displayKeyInfo = player.GetComponent<DisplayKeyInfo>();
         movement = player.GetComponent<Player_Movement>();
         talking = false;
+
+        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
+            language = "english";
+        else
+            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+
         if (language == "german")
             usedDialoge = germanDialoge;
         else
             usedDialoge = englishDialoge;
+        merchantGUI.ClearMerchantInventory();
+        merchantGUI.AddNewItemsToMerchantInventoryByIdArray(idOfItems);
     }
 
     void Update()

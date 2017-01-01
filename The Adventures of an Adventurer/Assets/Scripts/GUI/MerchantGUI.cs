@@ -10,9 +10,8 @@ public class MerchantGUI : MonoBehaviour {
     public GameObject MerchantScrollAndSlots;
     public string slotTag;
     public int merchantGold;
-    public int[] idOfItems;
 
-
+    private int[] idOfItems;
     private GameObject InventoryUI;
     private Inventory_Main inventoryMainDriver;
     private GameObject MerchantUI;
@@ -20,34 +19,54 @@ public class MerchantGUI : MonoBehaviour {
     private Inventory_Main.ItemInfo[] itemInfo;
     //private List<Inventory_Database.Item> Item_Database;
     private List<Inventory_Database.Item> merchantInventory;
+    private bool inventoryCleared;
+    private bool gotItemInfo;
 
     public Inventory_Main.ItemInfo[] GetItemInfo { get { return itemInfo; } }
+    public bool GetItemInfoLoaded { get { return gotItemInfo; } }
 
     // Use this for initialization
     void Start () {
+        gotItemInfo = false;
+        inventoryCleared = true;
         if (slotTag == "")
             slotTag = "MerchantSlot";
         InventoryUI = GameObject.FindGameObjectWithTag("InventoryUI");
         inventoryMainDriver = InventoryUI.GetComponentInChildren<Inventory_Main>();
         Main_Database = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
         MerchantUI = GameObject.FindGameObjectWithTag("MerchantUI");
-        StartCoroutine("CkeckIfItemListLoaded");
-        itemInfo = inventoryMainDriver.GetSlotArray(slotTag, NUMBER_OF_SLOTS);
-        MerchantScrollAndSlots.SetActive(false);
+        StartCoroutine("CheckIfItemListLoaded");
         //Item_Database = Main_Database.GetItemDatabase;
     }
 
-    private IEnumerator CkeckIfItemListLoaded()
+    public void AddNewItemsToMerchantInventoryByIdArray(int[] items)
+    {
+        this.idOfItems = items;
+        StartCoroutine("AddItemsToMerchantInventory");
+    }
+
+    public void ClearMerchantInventory()
+    {
+        StartCoroutine("ClearMerchantInventoryCoRoutine");
+    }
+    private IEnumerator CheckIfItemListLoaded()
     {
         do
         {
+            print("loading");
             yield return null;
         } while (!Main_Database.GetItemInfoLoaded);
-        StartCoroutine("AddItemsToMerchantInventory");
+        itemInfo = inventoryMainDriver.GetSlotArray(slotTag, NUMBER_OF_SLOTS);
+        MerchantScrollAndSlots.SetActive(false);
+        gotItemInfo = true;
     }
 
     private IEnumerator AddItemsToMerchantInventory()
     {
+        do
+        {
+            yield return null;
+        } while (!Main_Database.GetItemInfoLoaded && !inventoryCleared);
         merchantInventory = new List<Inventory_Database.Item>();
         foreach (int i in idOfItems)
         {
@@ -62,6 +81,22 @@ public class MerchantGUI : MonoBehaviour {
                 inventoryMainDriver.ChangeItem(itemInfo[i], new Inventory_Database.Item(0, "Empty", null, "Nothing", 0, "Null", 0, 0, "", ""));
             yield return null;
         }
+    }
+
+    private IEnumerator ClearMerchantInventoryCoRoutine()
+    {
+        inventoryCleared = false;
+        do
+        {
+            yield return null;
+        } while (!Main_Database.GetItemInfoLoaded);
+        merchantInventory = new List<Inventory_Database.Item>();
+        for (int i = 0; i < itemInfo.Length; i++)
+        {
+            inventoryMainDriver.ChangeItem(itemInfo[i], new Inventory_Database.Item(0, "Empty", null, "Nothing", 0, "Null", 0, 0, "", ""));
+            yield return null;
+        }
+        inventoryCleared = true;
     }
 
     public void OpenMechantUI()
