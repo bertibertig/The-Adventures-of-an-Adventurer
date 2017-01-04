@@ -113,7 +113,6 @@ D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\b
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\Unity.CecilTools.dll
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\Mono.Cecil.Pdb.dll
-D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\Assembly-CSharp.pdb
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEngine.xml
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEditor.xml
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEditor.Advertisements.xml
@@ -124,3 +123,4 @@ D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\b
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEngine.Networking.xml
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEditor.Networking.xml
 D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\UnityEditor.TreeEditor.xml
+D:\GitHub\The-Adventures-of-an-Adventurer\The Adventures of an Adventurer\Temp\bin\Debug\Assembly-CSharp.pdb

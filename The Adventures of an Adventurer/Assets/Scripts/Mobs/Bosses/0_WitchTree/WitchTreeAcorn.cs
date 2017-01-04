@@ -21,10 +21,10 @@ public class WitchTreeAcorn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!onGround)
+        /*if(!onGround)
             transform.Rotate(new Vector3(0, 0, -(this.gameObject.transform.rotation.z + 5)));
         if (onGround)
-            Destroy(damageDealer);
+            Destroy(damageDealer);*/
 
     }
 

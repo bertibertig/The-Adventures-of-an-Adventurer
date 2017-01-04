@@ -16,7 +16,7 @@ public class WitchTreeSquirel : MonoBehaviour {
         anim = this.gameObject.GetComponent<Animator>();
         anim.SetBool("throw", false);
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine("ThrowNuts");
+        //StartCoroutine("ThrowNuts");
 	}
 
     private IEnumerator ThrowNuts()
@@ -33,10 +33,12 @@ public class WitchTreeSquirel : MonoBehaviour {
 
             Vector3 currentPosition = new Vector3(this.gameObject.transform.position.x + 0.1f, this.gameObject.transform.position.y + 0.1f, this.gameObject.transform.position.z);
             GameObject tmpObj = GameObject.Instantiate(acorn, currentPosition, Quaternion.identity) as GameObject;
-            tmpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(2 * x, 2* y));  
+            tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 1);
+            Vector2 momentum = tmpObj.GetComponent<Rigidbody2D>().velocity * tmpObj.GetComponent<Rigidbody2D>().mass;
+            print(momentum);  
             yield return new WaitForSeconds(1);
             anim.SetBool("throw", false);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             
         }
     }

@@ -53,7 +53,6 @@ public class MerchantGUI : MonoBehaviour {
     {
         do
         {
-            print("loading");
             yield return null;
         } while (!Main_Database.GetItemInfoLoaded);
         itemInfo = inventoryMainDriver.GetSlotArray(slotTag, NUMBER_OF_SLOTS);
