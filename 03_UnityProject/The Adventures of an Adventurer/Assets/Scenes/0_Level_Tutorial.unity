@@ -1851,7 +1851,6 @@ GameObject:
   - 4: {fileID: 284135040}
   - 68: {fileID: 284135042}
   - 251: {fileID: 284135041}
-  - 114: {fileID: 284135043}
   m_Layer: 0
   m_Name: collider1
   m_TagString: Ground
@@ -1895,7 +1894,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284135039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1904,19 +1903,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -5.6262503, y: -3.87931}
   - {x: 2.865972, y: 2.0344381}
---- !u!114 &284135043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 284135039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2d8d918c964b74bbea449304f81368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameobj: {fileID: 0}
-  pl: {fileID: 0}
 --- !u!4 &300125407
 Transform:
   m_ObjectHideFlags: 0
@@ -5310,7 +5296,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933177227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -10498,7 +10484,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862477056}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11377,7 +11363,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1981240569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
