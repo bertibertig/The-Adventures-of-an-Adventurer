@@ -56,4 +56,9 @@ public class Main_Menu_Buttons : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void Networking()
+	{
+		Application.LoadLevel("Main_Menu_Networking");
+	}
+
 }
