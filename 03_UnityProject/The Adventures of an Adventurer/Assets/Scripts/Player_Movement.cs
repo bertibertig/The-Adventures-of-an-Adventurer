@@ -54,7 +54,7 @@ public class Player_Movement : MonoBehaviour {
             }
         }
 		//Jumping /Double Jumping
-		if (Input.GetButtonDown("Jump") && isAbleToJump)
+		if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
 		{
 			if (grounded)
 			{
