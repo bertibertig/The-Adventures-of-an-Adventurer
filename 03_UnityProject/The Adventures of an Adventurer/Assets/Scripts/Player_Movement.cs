@@ -51,13 +51,11 @@ public class Player_Movement : MonoBehaviour {
 			if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
-                print(player.transform.localPosition.x);
             }
 
 			if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                print(player.transform.localPosition.x);
             }
         }
 		//Jumping /Double Jumping
