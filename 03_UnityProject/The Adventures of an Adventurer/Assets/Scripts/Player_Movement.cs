@@ -22,15 +22,20 @@ public class Player_Movement : MonoBehaviour {
     private float knockbackPowr;
     private Vector3 knockbackDir;
 
+    GameObject player;
+    Camera camera;
+
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
 	// Use this for initialization
 	void Start () {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 2)
         {
             Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
         }
-		rb2d = gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
 		anim = gameObject.GetComponent<Animator>();
 	}
 
@@ -43,14 +48,16 @@ public class Player_Movement : MonoBehaviour {
 		//Rotation of the Player
         if (!movementDisabled)
         {
-			if (Input.mousePosition.x < Screen.width/2)
+			if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
+                print(player.transform.localPosition.x);
             }
 
-			if (Input.mousePosition.x > Screen.width/2)
+			if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
                 transform.localScale = new Vector3(1, 1, 1);
+                print(player.transform.localPosition.x);
             }
         }
 		//Jumping /Double Jumping
