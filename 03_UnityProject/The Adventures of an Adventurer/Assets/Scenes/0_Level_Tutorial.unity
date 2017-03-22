@@ -599,6 +599,10 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 104
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011711222166, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
   m_IsPrefabParent: 0
@@ -5650,6 +5654,89 @@ Transform:
   m_Father: {fileID: 1405610538}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &996550411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 996550412}
+  - component: {fileID: 996550414}
+  - component: {fileID: 996550413}
+  - component: {fileID: 996550415}
+  m_Layer: 0
+  m_Name: EndCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &996550412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996550411}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.22, y: 4.41, z: 0}
+  m_LocalScale: {x: 0.56249994, y: 7.610627, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996550413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996550411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fde9dbacc11ec438ea3cb8d561e743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpeed: 0
+  language: 
+  germanDialoge: []
+  englishDialoge: []
+--- !u!61 &996550414
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996550411}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!114 &996550415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996550411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfb6cb78e7e2ee4085a60787950fa45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpeed: 0.05
+  germanDialoge:
+  - "Moment, Ich muss noch die b\xF6se Hexe besiegen, bevor ich wieder zur\xFCck zur
+    H\xFCtte gehe!"
+  - "So, jetzt kann ich wieder zur\xFCck zur H\xFCtte gehen."
+  - "Warte mal! Eine Hexenleiche k\xF6nnte f\xFCr Kinder etwas verst\xF6rend sein."
+  - Ich lasse sie am besten durch Illusionsmagie wie Feuerholz aussehen.
+  englishDialoge:
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &999735894
 GameObject:
   m_ObjectHideFlags: 0
@@ -10147,11 +10234,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -63.31
+      value: -12.34
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: -2.78
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.z

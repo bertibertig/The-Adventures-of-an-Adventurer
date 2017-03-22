@@ -213,7 +213,7 @@ public class Textfield : MonoBehaviour {
             }
             else
             {
-                print((i + 3) < letters.Length);
+                //print((i + 3) < letters.Length);
                 text.text += letters[i];
                 yield return new WaitForSeconds(textSpeed);
             }

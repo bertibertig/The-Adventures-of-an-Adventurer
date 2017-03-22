@@ -55,7 +55,14 @@ public class EventList : MonoBehaviour {
 
     public Event GetEvent(int id)
     {
-        return events[id];
+        try
+        {
+            return events[id];
+        }
+        catch (System.IndexOutOfRangeException)
+        {
+            return null;
+        }
     }
 
     public Event GetEvent(string eventName)

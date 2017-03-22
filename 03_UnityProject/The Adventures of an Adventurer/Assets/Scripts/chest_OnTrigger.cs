@@ -6,12 +6,11 @@ public class chest_OnTrigger : MonoBehaviour {
 
     public bool opened;
     public GameObject keyInfo;
-    public GameObject player;
     public AudioSource chest_open_1;
     public AudioSource chest_close_1;
     public int[] items_in_chest_id;
 
-
+    private GameObject player;
     private bool displayKeyInfo;
     private bool gotContent;
     private Inventory_Main inventory;
@@ -25,11 +24,7 @@ public class chest_OnTrigger : MonoBehaviour {
         displayKeyInfo = false;
         keyInfo.SetActive(false);
         gotContent = false;
-
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -85,6 +80,7 @@ public class chest_OnTrigger : MonoBehaviour {
 
     public void FollowPlayer()
     {
+        print(player);
         float posx = player.transform.position.x;
         float posy = player.transform.position.y;
 
