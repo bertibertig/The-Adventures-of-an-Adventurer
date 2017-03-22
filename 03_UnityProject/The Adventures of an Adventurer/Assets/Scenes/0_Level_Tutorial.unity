@@ -599,6 +599,10 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 104
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011711222166, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
   m_IsPrefabParent: 0
@@ -5014,6 +5018,42 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.3, y: 2.3}
+--- !u!1 &841642100 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011441701186, guid: 2a9da9d8b046ee8479c8d8234564ba2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1081120662}
+--- !u!50 &841642103
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841642100}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &841642104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841642100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906a905f3fd89e74dabe4e8b61dfa7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &843237447
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,6 +6659,15 @@ Prefab:
     - target: {fileID: 212000013103933364, guid: 2a9da9d8b046ee8479c8d8234564ba2a,
         type: 2}
       propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013403123340, guid: 2a9da9d8b046ee8479c8d8234564ba2a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000013245422258, guid: 2a9da9d8b046ee8479c8d8234564ba2a,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -9097,6 +9146,7 @@ GameObject:
   - component: {fileID: 1595258768}
   - component: {fileID: 1595258767}
   - component: {fileID: 1595258769}
+  - component: {fileID: 1595258770}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Enemy
@@ -9111,7 +9161,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1595258762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.325, y: 1.171, z: 0}
+  m_LocalPosition: {x: 2.4, y: 1.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 243562719}
@@ -9234,7 +9284,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1595258762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5738990d42b2a41b15eadb88f10f03, type: 3}
   m_Name: 
@@ -9243,6 +9293,22 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.81
   Projectile: {fileID: 33819006}
+--- !u!114 &1595258770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595258762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fcde1f6c19b0f64c8c6763d197bc12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTarget: {fileID: 2091292620}
+  cannonBall: {fileID: 841642100}
+  shootAngleFar: 60
+  switchDistance: 2
+  shootAngleClose: 75
 --- !u!1 &1605175021
 GameObject:
   m_ObjectHideFlags: 0

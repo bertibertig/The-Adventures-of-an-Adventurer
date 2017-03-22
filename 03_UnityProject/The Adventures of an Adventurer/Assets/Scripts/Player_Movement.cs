@@ -39,7 +39,7 @@ public class Player_Movement : MonoBehaviour {
 		anim = gameObject.GetComponent<Animator>();
 	}
 
-	void Update()
+    void Update()
 	{
 		anim.SetBool("grounded", grounded);
 		//anim.SetBool("isDying", isDying);

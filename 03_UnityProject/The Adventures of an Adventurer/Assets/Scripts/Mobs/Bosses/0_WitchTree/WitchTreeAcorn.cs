@@ -16,7 +16,7 @@ public class WitchTreeAcorn : MonoBehaviour {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Enemy"))
             Physics2D.IgnoreCollision(g.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         onGround = false;
-        StartCoroutine("Disapear");
+        //StartCoroutine("Disapear");
 	}
 	
 	// Update is called once per frame
@@ -33,10 +33,11 @@ public class WitchTreeAcorn : MonoBehaviour {
         if (col.collider.CompareTag("Ground") || col.collider.CompareTag("Projectile"))
             onGround = true;
     }
-
+    /*
     IEnumerator Disapear()
     {
         yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
+    */
 }
