@@ -29,7 +29,7 @@ public class Player_Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 2)
         {
             Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
@@ -37,6 +37,11 @@ public class Player_Movement : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
 		anim = gameObject.GetComponent<Animator>();
+	}
+
+	void OnLevelWasLoaded()
+	{
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
     void Update()
@@ -58,6 +63,7 @@ public class Player_Movement : MonoBehaviour {
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
+
 		//Jumping /Double Jumping
 		if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
 		{

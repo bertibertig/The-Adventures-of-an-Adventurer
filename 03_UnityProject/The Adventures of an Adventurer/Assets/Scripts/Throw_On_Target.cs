@@ -7,21 +7,31 @@ public class Throw_On_Target : MonoBehaviour {
     public Transform myTarget;
     public GameObject cannonBall;
     public float shootAngleFar = 45;
-    public float switchDistance;
+	public float shootAngleMid = 45;
     public float shootAngleClose = 45;
+	public float switchDistanceFM;
+	public float switchDistanceMC;
     Vector3 direction;
 
 
     Vector3 BallisiticVel(Vector3 dir, float angle)
     {
-        float h = dir.y;
-        dir.y = 0;
-        float distance = dir.magnitude;
-        float a = angle * Mathf.Deg2Rad;
-        dir.y = Mathf.Tan(a);
-        distance += h / Mathf.Tan(a);
-        float vel = Mathf.Sqrt(distance * Physics2D.gravity.magnitude / Mathf.Sin(2 * a));
-
+		float a = 0;
+		float distance = 0;
+		float h = dir.y;
+		dir.y = 0;
+		float dirMag = dir.magnitude;
+		do {
+			dir.y = 0;
+			distance = dirMag;
+			a = angle * Mathf.Deg2Rad;
+			dir.y = Mathf.Tan (a);
+			distance += h / Mathf.Tan (a);
+			angle += 1;
+		} while(Mathf.Max(0, distance) == 0);
+		float vel = Mathf.Sqrt(distance * Physics2D.gravity.magnitude / Mathf.Sin (2 * a));
+		if (float.IsNaN (vel))
+			vel = 0;
         return vel * dir.normalized;
     }
 
@@ -31,14 +41,13 @@ public class Throw_On_Target : MonoBehaviour {
         {
             GameObject ball = Instantiate(cannonBall, transform.position, Quaternion.identity) as GameObject;
             direction = myTarget.position - transform.position;
-            if (direction.x >= switchDistance)
-            {
-                ball.GetComponent<Rigidbody2D>().velocity = BallisiticVel(direction, shootAngleFar);
-            }
-            else if (direction.x <= switchDistance)
-            {
-                ball.GetComponent<Rigidbody2D>().velocity = BallisiticVel(direction, shootAngleClose);
-            }
+			if (direction.x >= switchDistanceFM) {
+				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleFar);
+			} else if (direction.x < switchDistanceMC) {
+				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleClose);
+			} else {
+				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleMid);
+			}
             Destroy(ball, 5);
         }
     }
