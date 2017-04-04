@@ -135,7 +135,7 @@ public class Player_Movement : MonoBehaviour {
         {
             timer += Time.deltaTime;
             //rb2d.AddForce(new Vector3(knockbackDir.x * -100, 10 *  knockbackPowr, transform.position.z));
-            rb2d.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPowr, transform.position.z));
+            rb2d.AddForce(new Vector3(knockbackDir.x * -10, knockbackDir.y * knockbackPowr, transform.position.z));
         }
 
         yield return 0;

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Enemy_Movement_AI : MonoBehaviour {
 
-    public float health;
     public float maxSpeed;
     public float speed;
     public float maxWayX;
@@ -45,49 +44,41 @@ public class Enemy_Movement_AI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     public IEnumerator Move()
     {
-
         do
         {
-            do
-            {
-                rb2d.AddForce(Vector2.up * jumpPower);
-                rb2d.AddForce((Vector2.right * speed));
-                ControlMaxSpeed();
-                counter++;
-                yield return new WaitForSeconds(2);
-            } while (counter < 2);
-
-            rb2d.AddForce(Vector2.up * (jumpPower*2));
+            rb2d.AddForce(Vector2.up * jumpPower);
             rb2d.AddForce((Vector2.right * speed));
             ControlMaxSpeed();
+            counter++;
             yield return new WaitForSeconds(2);
+        } while (counter < 2);
 
-            counter = 0;
-            yield return new WaitForSeconds(1);
-            do
-            {
-                rb2d.AddForce(Vector2.up * jumpPower);
-                rb2d.AddForce((Vector2.left * speed));
-                ControlMaxSpeed();
-                counter++;
-                yield return new WaitForSeconds(2);
-            } while (counter < 2);
+        rb2d.AddForce(Vector2.up * (jumpPower*2));
+        rb2d.AddForce((Vector2.right * speed));
+        ControlMaxSpeed();
+        yield return new WaitForSeconds(2);
 
-            rb2d.AddForce(Vector2.up * (jumpPower*2));
+        counter = 0;
+        yield return new WaitForSeconds(1);
+        do
+        {
+            rb2d.AddForce(Vector2.up * jumpPower);
             rb2d.AddForce((Vector2.left * speed));
             ControlMaxSpeed();
+            counter++;
             yield return new WaitForSeconds(2);
+        } while (counter < 2);
 
-            counter = 0;
-        } while (health > 0);
+        rb2d.AddForce(Vector2.up * (jumpPower*2));
+        rb2d.AddForce((Vector2.left * speed));
+        ControlMaxSpeed();
+        yield return new WaitForSeconds(2);
+
+        counter = 0;
     }
 
     public void ControlMaxSpeed()

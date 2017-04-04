@@ -46,7 +46,7 @@ public class WitchTreeHealthController : MonoBehaviour {
         health = maxHealth;
         anim = GetComponent<Animator>();
         if (anim != null)
-            anim.SetFloat("Health", health);
+			anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
         print(anim.ToString());
         UpdateGUI();
         if (eventList.GetEvent("Boss_01_Defeated") != null)
@@ -63,7 +63,7 @@ public class WitchTreeHealthController : MonoBehaviour {
 
     void ApplyDamage(object[] attackData)
     {
-        anim.SetFloat("Health", health);
+		anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
         int damage = Convert.ToInt32(attackData[0]);
         bool isCrit = Convert.ToBoolean(attackData[1]);
 

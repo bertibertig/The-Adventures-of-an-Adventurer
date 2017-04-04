@@ -603,6 +603,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011075787558, guid: 7ce16b7c69bd922498e79d79319c87c1,
+        type: 2}
+      propertyPath: m_Text
+      value: And thus ended the Adventurers story...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011075787558, guid: 7ce16b7c69bd922498e79d79319c87c1,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011075787558, guid: 7ce16b7c69bd922498e79d79319c87c1,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
   m_IsPrefabParent: 0
@@ -1548,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5b6632d64459242b6a1f91b17e1536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 500
   minGoldDrop: 5
   maxGoldDrop: 10
   xp: 0
