@@ -56,7 +56,6 @@ public class WitchTreeStart : MonoBehaviour {
 	void Update()
 	{
 		if (ConversationEnded && !ThrowCoroutineStarted) {
-			throwScript.ThrowIsActive = true;
 			StartCoroutine ("ThrowNuts");
 			ThrowCoroutineStarted = true;
 		}
@@ -64,19 +63,33 @@ public class WitchTreeStart : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !CoRoutineStarted)
+        if (col.CompareTag("Player"))
         {
-            dialoge.EnableText();
-            CoRoutineStarted = true;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            movement.MovementDisabled = true;
-			if (player.GetComponent<Player_Attack> ().isActiveAndEnabled) {
-				player.GetComponent<Player_Attack> ().enabled = false;
-				attackWasActive = true;
+			if (!CoRoutineStarted) 
+			{
+				dialoge.EnableText ();
+				CoRoutineStarted = true;
+				player.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+				movement.MovementDisabled = true;
+				if (player.GetComponent<Player_Attack> ().isActiveAndEnabled) {
+					player.GetComponent<Player_Attack> ().enabled = false;
+					attackWasActive = true;
+				}
+				StartCoroutine ("Conversation");
 			}
-            StartCoroutine("Conversation");
+			throwScript.ThrowIsActive = true;
+			squirrelAnim.enabled = true;
         }
     }
+
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if (col.CompareTag ("Player") && CoRoutineStarted) 
+		{
+			throwScript.ThrowIsActive = false;
+			squirrelAnim.enabled = false;
+		}
+	}
 
     private IEnumerator Conversation()
     {
