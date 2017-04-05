@@ -15,8 +15,13 @@ public class WitchTreeStart : MonoBehaviour {
     private Sprite enemy_Sprite;
     private GameObject player;
     private bool CoRoutineStarted;
+	private bool ConversationEnded;
+	private bool ThrowCoroutineStarted;
     private string[] usedDialoge;
     private Player_Movement movement;
+
+	private Throw_On_Target throwScript;
+	private Animator squirrelAnim;
 
     void Start()
     {
@@ -26,6 +31,12 @@ public class WitchTreeStart : MonoBehaviour {
         player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
         enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
         movement = player.GetComponent<Player_Movement>();
+		ConversationEnded = false;
+		ThrowCoroutineStarted = false;
+
+		throwScript = transform.parent.gameObject.GetComponentInChildren<Throw_On_Target>();
+		squirrelAnim = transform.parent.FindChild ("Squirrel").GetComponent<Animator> ();
+
         if (textSpeed <= 0)
             textSpeed = 0.05f;
         CoRoutineStarted = false;
@@ -39,6 +50,15 @@ public class WitchTreeStart : MonoBehaviour {
         else
             usedDialoge = englishDialoge;
     }
+
+	void Update()
+	{
+		if (ConversationEnded && !ThrowCoroutineStarted) {
+			throwScript.ThrowIsActive = true;
+			StartCoroutine ("ThrowNuts");
+			ThrowCoroutineStarted = true;
+		}
+	}
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -98,5 +118,21 @@ public class WitchTreeStart : MonoBehaviour {
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = false;
         player.GetComponent<Player_Attack>().enabled = true;
+
+		ConversationEnded = true;
     }
+
+	public IEnumerator ThrowNuts()
+	{
+		while (true) {
+			yield return new WaitForSeconds (1.65f);
+			squirrelAnim.SetBool ("throw", true);
+
+			yield return new WaitForSeconds (0.35f);
+			throwScript.ThrowProjectile ();
+
+			yield return new WaitForSeconds (1);
+			squirrelAnim.SetBool ("throw", false);
+		}
+	}
 }

@@ -57,7 +57,7 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
     public IEnumerator MoveToPlayer()
     {
         yield return new WaitForSeconds(2);
-        do
+		while (hasSeenPlayer)
         {
             if ((positionOfPlayer.x - positionOfEnemy.x) > 0)
             {
@@ -71,6 +71,6 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
                 rb2d.AddForce((Vector2.left * enemyAI.speed));
             }
             yield return new WaitForSeconds(2);
-        } while (hasSeenPlayer) ;
+        }
     }
 }

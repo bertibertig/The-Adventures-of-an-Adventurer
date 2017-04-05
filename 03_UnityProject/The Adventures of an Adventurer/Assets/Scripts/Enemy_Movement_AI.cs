@@ -41,44 +41,39 @@ public class Enemy_Movement_AI : MonoBehaviour {
         StartCoroutine("Move");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public IEnumerator Move()
     {
-        do
-        {
-            rb2d.AddForce(Vector2.up * jumpPower);
-            rb2d.AddForce((Vector2.right * speed));
-            ControlMaxSpeed();
-            counter++;
-            yield return new WaitForSeconds(2);
-        } while (counter < 2);
+		while (true) {
+			do {
+				rb2d.AddForce (Vector2.up * jumpPower);
+				rb2d.AddForce ((Vector2.right * speed));
+				ControlMaxSpeed ();
+				counter++;
+				yield return new WaitForSeconds (2);
+			} while (counter < 2);
 
-        rb2d.AddForce(Vector2.up * (jumpPower*2));
-        rb2d.AddForce((Vector2.right * speed));
-        ControlMaxSpeed();
-        yield return new WaitForSeconds(2);
+			rb2d.AddForce (Vector2.up * (jumpPower * 2));
+			rb2d.AddForce ((Vector2.right * speed));
+			ControlMaxSpeed ();
+			yield return new WaitForSeconds (2);
 
-        counter = 0;
-        yield return new WaitForSeconds(1);
-        do
-        {
-            rb2d.AddForce(Vector2.up * jumpPower);
-            rb2d.AddForce((Vector2.left * speed));
-            ControlMaxSpeed();
-            counter++;
-            yield return new WaitForSeconds(2);
-        } while (counter < 2);
+			counter = 0;
+			yield return new WaitForSeconds (1);
+			do {
+				rb2d.AddForce (Vector2.up * jumpPower);
+				rb2d.AddForce ((Vector2.left * speed));
+				ControlMaxSpeed ();
+				counter++;
+				yield return new WaitForSeconds (2);
+			} while (counter < 2);
 
-        rb2d.AddForce(Vector2.up * (jumpPower*2));
-        rb2d.AddForce((Vector2.left * speed));
-        ControlMaxSpeed();
-        yield return new WaitForSeconds(2);
+			rb2d.AddForce (Vector2.up * (jumpPower * 2));
+			rb2d.AddForce ((Vector2.left * speed));
+			ControlMaxSpeed ();
+			yield return new WaitForSeconds (2);
 
-        counter = 0;
+			counter = 0;
+		}
     }
 
     public void ControlMaxSpeed()

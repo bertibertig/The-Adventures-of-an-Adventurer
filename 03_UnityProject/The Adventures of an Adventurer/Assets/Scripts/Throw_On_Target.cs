@@ -11,8 +11,20 @@ public class Throw_On_Target : MonoBehaviour {
     public float shootAngleClose = 45;
 	public float switchDistanceFM;
 	public float switchDistanceMC;
+
+	private bool throwIsActive = false;
     Vector3 direction;
 
+	public bool ThrowIsActive {
+		get
+		{
+			return throwIsActive;
+		}
+		set
+		{
+			throwIsActive = value;
+		}
+	}
 
     Vector3 BallisiticVel(Vector3 dir, float angle)
     {
@@ -35,12 +47,12 @@ public class Throw_On_Target : MonoBehaviour {
         return vel * dir.normalized;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            GameObject ball = Instantiate(cannonBall, transform.position, Quaternion.identity) as GameObject;
-            direction = myTarget.position - transform.position;
+	public void ThrowProjectile()
+	{
+		if (throwIsActive)
+		{
+			GameObject ball = Instantiate(cannonBall, transform.position, Quaternion.identity) as GameObject;
+			direction = myTarget.position - transform.position;
 			if (direction.x >= switchDistanceFM) {
 				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleFar);
 			} else if (direction.x < switchDistanceMC) {
@@ -48,7 +60,7 @@ public class Throw_On_Target : MonoBehaviour {
 			} else {
 				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleMid);
 			}
-            Destroy(ball, 5);
-        }
-    }
+			Destroy(ball, 5);
+		}
+	}
 }

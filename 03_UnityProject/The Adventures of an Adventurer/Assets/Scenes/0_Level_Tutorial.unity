@@ -6128,7 +6128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1037042162
 Transform:
   m_ObjectHideFlags: 0
@@ -6169,15 +6169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textSpeed: 0
   germanDialoge:
-  - Ha, hab ich dich endlich gefunden du hinterlistige Hexe!
+  - Ha, hab ich dich endlich gefunden, du hinterlistige Hexe!
   - Jetzt kannst du dich auf etwas gefasst machen!
   - '...'
   - Schweigen wird dir nicht helfen! Stirb!
   englishDialoge:
-  - 
-  - 
-  - 
-  - 
+  - There you are! I finally found you, you deceitful witch!
+  - Prepare for your demise!
+  - '...'
+  - Silence won't hinder your downfall! Die!
 --- !u!1 &1046868887
 GameObject:
   m_ObjectHideFlags: 0
@@ -9188,7 +9188,6 @@ GameObject:
   - component: {fileID: 1595258765}
   - component: {fileID: 1595258764}
   - component: {fileID: 1595258766}
-  - component: {fileID: 1595258768}
   - component: {fileID: 1595258767}
   - component: {fileID: 1595258770}
   m_Layer: 0
@@ -9311,17 +9310,6 @@ PolygonCollider2D:
       - {x: 0.4200561, y: 0.023849487}
       - {x: 0.42011714, y: 0.08542967}
       - {x: 0.2558868, y: 0.25293636}
---- !u!114 &1595258768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1595258762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b885e5a540c0b2145ab9c8f04b278c4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1595258770
 MonoBehaviour:
   m_ObjectHideFlags: 0
