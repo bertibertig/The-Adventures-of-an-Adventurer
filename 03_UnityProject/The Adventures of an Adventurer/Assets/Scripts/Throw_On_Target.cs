@@ -52,6 +52,7 @@ public class Throw_On_Target : MonoBehaviour {
 		if (throwIsActive)
 		{
 			GameObject ball = Instantiate(cannonBall, transform.position, Quaternion.identity) as GameObject;
+			ball.SetActive(true);
 			direction = myTarget.position - transform.position;
 			if (direction.x >= switchDistanceFM) {
 				ball.GetComponent<Rigidbody2D> ().velocity = BallisiticVel (direction, shootAngleFar);

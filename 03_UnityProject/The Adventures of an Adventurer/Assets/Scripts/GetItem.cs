@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public class GetItem : MonoBehaviour {
 
-    public Text multiplaier;
+    public Text multiplier;
     public Image item;
 
     private List<Inventory_Database.Item> itemList;
 
     void Start()
     {
-        multiplaier.enabled = false;
+        multiplier.enabled = false;
         item.enabled = false;
     }
 
@@ -20,16 +20,16 @@ public class GetItem : MonoBehaviour {
     {
         itemList = GameObject.FindGameObjectWithTag("InventoryUI").GetComponent<Inventory_Database>().GetItemDatabase;
         item.sprite = itemList[itemID].GetSprite;
-        multiplaier.text = "x" + number.ToString();
+        multiplier.text = "x" + number.ToString();
         StartCoroutine("ShowItem");
     }
 
     IEnumerator ShowItem()
     {
-        multiplaier.enabled = true;
+        multiplier.enabled = true;
         item.enabled = true;
         yield return new WaitForSeconds(5);
-        multiplaier.enabled = false;
+        multiplier.enabled = false;
         item.enabled = false;
     }
 }

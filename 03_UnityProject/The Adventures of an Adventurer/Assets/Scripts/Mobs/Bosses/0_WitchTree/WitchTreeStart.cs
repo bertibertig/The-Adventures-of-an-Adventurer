@@ -17,6 +17,7 @@ public class WitchTreeStart : MonoBehaviour {
     private bool CoRoutineStarted;
 	private bool ConversationEnded;
 	private bool ThrowCoroutineStarted;
+	private bool attackWasActive;
     private string[] usedDialoge;
     private Player_Movement movement;
 
@@ -33,6 +34,7 @@ public class WitchTreeStart : MonoBehaviour {
         movement = player.GetComponent<Player_Movement>();
 		ConversationEnded = false;
 		ThrowCoroutineStarted = false;
+		attackWasActive = false;
 
 		throwScript = transform.parent.gameObject.GetComponentInChildren<Throw_On_Target>();
 		squirrelAnim = transform.parent.FindChild ("Squirrel").GetComponent<Animator> ();
@@ -68,7 +70,10 @@ public class WitchTreeStart : MonoBehaviour {
             CoRoutineStarted = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             movement.MovementDisabled = true;
-            player.GetComponent<Player_Attack>().enabled = false;
+			if (player.GetComponent<Player_Attack> ().isActiveAndEnabled) {
+				player.GetComponent<Player_Attack> ().enabled = false;
+				attackWasActive = true;
+			}
             StartCoroutine("Conversation");
         }
     }
@@ -117,7 +122,9 @@ public class WitchTreeStart : MonoBehaviour {
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         movement.MovementDisabled = false;
-        player.GetComponent<Player_Attack>().enabled = true;
+		if (attackWasActive) {
+			player.GetComponent<Player_Attack> ().enabled = true;
+		}
 
 		ConversationEnded = true;
     }
