@@ -16,15 +16,15 @@ public class WitchTreeAcorn : MonoBehaviour {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Enemy"))
             Physics2D.IgnoreCollision(g.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         onGround = false;
-        StartCoroutine("Disapear");
+        //StartCoroutine("Disapear");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*if(!onGround)
+        if(!onGround)
             transform.Rotate(new Vector3(0, 0, -(this.gameObject.transform.rotation.z + 5)));
         if (onGround)
-            Destroy(damageDealer);*/
+            Destroy(damageDealer);
 
     }
 
@@ -33,10 +33,11 @@ public class WitchTreeAcorn : MonoBehaviour {
         if (col.collider.CompareTag("Ground") || col.collider.CompareTag("Projectile"))
             onGround = true;
     }
-
+    /*
     IEnumerator Disapear()
     {
         yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
+    */
 }

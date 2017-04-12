@@ -12,10 +12,13 @@ public class Axe : MonoBehaviour {
         ii = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>().GetItemInfo;
         Inventory_Main.ItemInfo[] iteminfo = (Inventory_Main.ItemInfo[])ii;
         Inventory_Main.ItemInfo axe = iteminfo.Where(n => n.Item.GetName == "Axe").FirstOrDefault();
-        if (axe.Slot.GetComponent<Image>().color == UnityEngine.Color.white)
-            axe.Slot.GetComponent<Image>().color = UnityEngine.Color.blue;
-        else
-            axe.Slot.GetComponent<Image>().color = UnityEngine.Color.white;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Attack>().enabled = !GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Attack>().enabled;
+		if (axe.Slot.GetComponent<Image> ().color == UnityEngine.Color.white) {
+			axe.Slot.GetComponent<Image> ().color = UnityEngine.Color.yellow;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Attack>().enabled = true;
+		} else {
+			axe.Slot.GetComponent<Image> ().color = UnityEngine.Color.white;
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<Player_Attack> ().enabled = false;
+		}
+        
     }
 }

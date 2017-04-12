@@ -101,8 +101,7 @@ public class Health_Controller : MonoBehaviour {
         anim.SetBool("isDying", true);
         player.enabled = false;
         UpdateGUI();
-        deathText.text = "You died...";
-        //Invoke("Respawn", 1);
+        deathText.text = "And thus ended the Adventurers story...";
         Invoke("Respawn", 5);
     }
 		
@@ -129,7 +128,7 @@ public class Health_Controller : MonoBehaviour {
     void Damage()
     {
         if (knockbackEnabled)
-            player.StartKnockback(0.02f, 350, player.transform.position);
+            player.StartKnockback(0.2f, -5f, player.transform.position);
         UpdateGUI();
     }
 
