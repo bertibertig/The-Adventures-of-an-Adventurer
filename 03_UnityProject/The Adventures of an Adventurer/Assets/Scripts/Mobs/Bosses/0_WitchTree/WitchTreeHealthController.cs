@@ -26,6 +26,7 @@ public class WitchTreeHealthController : MonoBehaviour {
     private Canvas healthCanvas;
     private DropLoot dropLoot;
     private DropLoot loot;
+    private Tutorial_WitchtreeDefeated dialogeAfterWitchTreeDefeated;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class WitchTreeHealthController : MonoBehaviour {
         loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
         eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
         healthCanvas = transform.GetComponentInChildren<Canvas>();
+        dialogeAfterWitchTreeDefeated = GameObject.FindGameObjectWithTag("EndSequenceHandler").GetComponent<Tutorial_WitchtreeDefeated>();
         healthCanvas.enabled = false;
         health = maxHealth;
         anim = GetComponent<Animator>();
@@ -84,6 +86,7 @@ public class WitchTreeHealthController : MonoBehaviour {
             WitchTop.SetActive(true);
             WitchBottom.SetActive(true);
             eventList.AddEvent("Boss_01_Defeated", true, "Is true if the player defeated Boss_01, the witch tree");
+            dialogeAfterWitchTreeDefeated.StartSequence();
             Destroy(healthBar);
             Destroy(this.gameObject);
         }

@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyInfo: {fileID: 747553865}
-  levelToLoad: 5
+  levelToLoad: 3
 --- !u!1001 &63263906
 Prefab:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5b6632d64459242b6a1f91b17e1536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 20
   minGoldDrop: 5
   maxGoldDrop: 10
   xp: 0
@@ -5667,7 +5667,7 @@ GameObject:
   - component: {fileID: 996550415}
   m_Layer: 0
   m_Name: EndCollider
-  m_TagString: Untagged
+  m_TagString: EndSequenceHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5696,10 +5696,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fde9dbacc11ec438ea3cb8d561e743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: 0
-  language: 
-  germanDialoge: []
-  englishDialoge: []
+  textSpeed: 0.05
+  germanDialoge:
+  - Haha, und wieder Mal bin ich siegreich!
+  - Ich habs immernoch drauf!
+  - "Jetzt muss ich die Hexenleiche aber noch verbrennen, damit sie endg\xFCltig besiegt
+    ist."
+  - Sonst kann sie sich durch ihre Magie wieder regenerieren.
+  - "Mein Kamin w\xFCrde sich daf\xFCr perfekt eignen. Also wieder zur\xFCck zu meiner
+    H\xFCtte."
+  englishDialoge:
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!61 &996550414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10234,11 +10245,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.34
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10274,6 +10285,11 @@ Prefab:
       propertyPath: deathText
       value: 
       objectReference: {fileID: 1466594503}
+    - target: {fileID: 114000011008733544, guid: fefe792212dfc364f9874ae89f6810a1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
   m_IsPrefabParent: 0
