@@ -5181,6 +5181,151 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.3, y: 2.3}
+--- !u!1001 &831739372
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988336117564958, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+      propertyPath: m_Name
+      value: EndCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: textSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[0]
+      value: Haha, und wieder Mal bin ich siegreich!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[1]
+      value: Ich habs immernoch drauf!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[2]
+      value: "Jetzt muss ich die Hexenleiche aber noch verbrennen, damit sie endg\xFCltig
+        besiegt ist."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[3]
+      value: Sonst kann sie sich durch ihre Magie wieder regenerieren.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[4]
+      value: "Mein Kamin w\xFCrde sich daf\xFCr perfekt eignen. Also wieder zur\xFCck
+        zu meiner H\xFCtte."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: textSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[0]
+      value: "Moment, Ich muss noch die b\xF6se Hexe besiegen, bevor ich wieder zur\xFCck
+        zur H\xFCtte gehe!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[1]
+      value: "So, jetzt kann ich wieder zur\xFCck zur H\xFCtte gehen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[2]
+      value: "Warte mal! Eine Hexenleiche k\xF6nnte f\xFCr Kinder etwas verst\xF6rend
+        sein."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: germanDialoge.Array.data[3]
+      value: Ich lasse sie am besten durch Illusionsmagie wie Feuerholz aussehen.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &841642100 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011441701186, guid: 2a9da9d8b046ee8479c8d8234564ba2a,
