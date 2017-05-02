@@ -84,6 +84,7 @@ public class WitchTreeHealthController : MonoBehaviour {
             WitchTop.SetActive(true);
             WitchBottom.SetActive(true);
             eventList.AddEvent("Boss_01_Defeated", true, "Is true if the player defeated Boss_01, the witch tree");
+            WitchBottom.GetComponent<Tutorial_WitchtreeDefeated>().StartSequence();
             Destroy(healthBar);
             Destroy(this.gameObject);
         }

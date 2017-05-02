@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee4ae0806a424744821328e87fe56f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: 0
+  textSpeed: 0.01
   language: german
   keyInfo: {fileID: 271978658}
   germanDialoge:
@@ -3865,6 +3865,7 @@ GameObject:
   - component: {fileID: 668221549}
   - component: {fileID: 668221548}
   - component: {fileID: 668221547}
+  - component: {fileID: 668221550}
   m_Layer: 0
   m_Name: WitchtreeBottom
   m_TagString: Ground
@@ -3946,6 +3947,26 @@ Transform:
   m_Father: {fileID: 1331698357}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &668221550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668221546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fde9dbacc11ec438ea3cb8d561e743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpeed: 0.05
+  germanDialoge:
+  - Ho Ha! Stirb Hexe!
+  - Ich habs also immer noch drauf.
+  - "Also, dan zur\xFCck zur H\xFCtte."
+  englishDialoge:
+  - 
+  - 
+  - 
 --- !u!1 &671056718
 GameObject:
   m_ObjectHideFlags: 0
@@ -11169,11 +11190,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -63.31
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11241,6 +11262,16 @@ Prefab:
     - target: {fileID: 50000011845848582, guid: fefe792212dfc364f9874ae89f6810a1,
         type: 2}
       propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013488576126, guid: fefe792212dfc364f9874ae89f6810a1,
+        type: 2}
+      propertyPath: dmg
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013908439544, guid: fefe792212dfc364f9874ae89f6810a1,
+        type: 2}
+      propertyPath: canDoubleJump
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

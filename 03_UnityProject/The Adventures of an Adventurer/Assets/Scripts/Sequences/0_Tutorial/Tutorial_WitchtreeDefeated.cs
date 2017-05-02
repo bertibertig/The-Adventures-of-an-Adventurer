@@ -13,15 +13,11 @@ public class Tutorial_WitchtreeDefeated : MonoBehaviour {
     Textfield textfield;
     int length;
 
-	// Use this for initialization
-	void Start () {
+    public void StartSequence()
+    {
         dialogeHandler = new Dialoge(textSpeed, germanDialoge, englishDialoge);
         player = GameObject.FindGameObjectWithTag("Player");
         textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-    }
-
-    public void StartSequence()
-    {
         length = dialogeHandler.UsedDialoge.Length;
         StartCoroutine("WitchTreeDefeatetCutscene");
     }
