@@ -1260,7 +1260,7 @@ MonoBehaviour:
   language: german
   keyInfo: {fileID: 271978658}
   germanDialoge:
-  - Mit 'E' kannst du mit Objekten in deine Umgebung interagieren.
+  - Mit 'E' kannst du mit Objekten in deiner Umgebung interagieren.
   - Wie? Das wusstest du schon?
   - "Sch\xF6n f\xFCr dich!"
   englishDialoge:
@@ -11190,11 +11190,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.15
+      value: -38.17
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000011226946224, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
       propertyPath: m_LocalPosition.z
