@@ -11,8 +11,8 @@ public class Damage_On_Collision : MonoBehaviour {
     {
         if (other.CompareTag("Player") == true)
         {
-            other.SendMessage("ApplyDamage", damage);
 			other.SendMessage("SetEnemyPlayerGotHitBy", this.gameObject);
+            other.SendMessage("ApplyDamage", damage);
         }
     }
 
@@ -20,8 +20,8 @@ public class Damage_On_Collision : MonoBehaviour {
     {
         if (other.CompareTag("Player") == true)
         {
-            other.SendMessage("ApplyDamage", damage);
 			other.SendMessage("SetEnemyPlayerGotHitBy", this.gameObject);
+            other.SendMessage("ApplyDamage", damage);
         }
     }
 }
