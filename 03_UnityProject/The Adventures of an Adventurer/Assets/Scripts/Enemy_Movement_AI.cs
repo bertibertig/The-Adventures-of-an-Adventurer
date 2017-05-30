@@ -100,8 +100,3 @@ public class Enemy_Movement_AI : MonoBehaviour {
         StartCoroutine("Move");
     }
 }
-
-//this.gameObject.transform.position = oldPosition;  
-/*this.gameObject.transform.position = newPosition;
-goneWayX = newPosition.x - oldPosition.x;
-goneWayY = newPosition.y - oldPosition.y;*/

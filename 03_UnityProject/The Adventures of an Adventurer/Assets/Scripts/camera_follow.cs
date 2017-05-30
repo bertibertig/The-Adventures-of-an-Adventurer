@@ -19,7 +19,6 @@ public class camera_follow : MonoBehaviour {
 	void Start () {
         if (player == null)
         {
-            //print("OK");
             player = GameObject.FindGameObjectWithTag("Player");
         }
 	

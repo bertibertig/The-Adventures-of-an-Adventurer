@@ -49,7 +49,6 @@ public class Player_Movement : MonoBehaviour {
     void Update()
 	{
 		anim.SetBool("grounded", grounded);
-		//anim.SetBool("isDying", isDying);
 		anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
 		
 		//Rotation of the Player

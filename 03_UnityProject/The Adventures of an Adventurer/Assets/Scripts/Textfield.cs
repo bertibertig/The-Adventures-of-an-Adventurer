@@ -25,7 +25,6 @@ public class Textfield : MonoBehaviour {
 
     void Start()
     {
-        //Disable();
         choicesEnabled = false;
     }
     public void EnableText()
@@ -75,7 +74,6 @@ public class Textfield : MonoBehaviour {
     {
         usedText = text;
         textSpeed = speed;
-        //print(usedText);
         StartCoroutine("PrintTextByChars");
     }
 
@@ -84,7 +82,6 @@ public class Textfield : MonoBehaviour {
         usedText = text;
         textSpeed = speed;
         speachSFX = speSFX;
-        //print(usedText);
         StartCoroutine("PrintTextByCharsWithAudio");
     }
 
@@ -174,7 +171,6 @@ public class Textfield : MonoBehaviour {
         {
             if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ')
             {
-                print("less Space");
                 do
                 {
                     text.text += letters[i];
@@ -202,7 +198,6 @@ public class Textfield : MonoBehaviour {
                 speachSFX.Play();
             if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ' && letters[i + 3] == ' ')
             {
-                print("less Space");
                 do
                 {
                     text.text += letters[i];
@@ -213,7 +208,6 @@ public class Textfield : MonoBehaviour {
             }
             else
             {
-                print((i + 3) < letters.Length);
                 text.text += letters[i];
                 yield return new WaitForSeconds(textSpeed);
             }

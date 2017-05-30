@@ -47,13 +47,11 @@ public class WitchTreeHealthController : MonoBehaviour {
         anim = GetComponent<Animator>();
         if (anim != null)
 			anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
-        print(anim.ToString());
-        UpdateGUI();
+		UpdateGUI();
         if (eventList.GetEvent("Boss_01_Defeated") != null)
         {
             if (eventList.GetEvent("Boss_01_Defeated").HasHappened)
             {
-                //WitchTop.SetActive(true);
                 WitchBottom.SetActive(true);
                 Destroy(healthBar);
                 Destroy(this.gameObject);

@@ -119,12 +119,7 @@ public class Health_Controller : MonoBehaviour {
         //generate world and reset player
     }
 
-	/*
-    void Respawn()
-    {
-        Application.LoadLevel(0);
-    }
-	*/
+	//TODO: Respawn
 
     void Damage()
     {
