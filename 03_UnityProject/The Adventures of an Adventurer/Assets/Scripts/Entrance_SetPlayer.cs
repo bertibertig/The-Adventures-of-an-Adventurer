@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Entrance_SetPlayer : MonoBehaviour {
 
-    public Vector3 positionOfEntrance;
-
     public GameObject player;
+    public GameObject eventList { get; set; }
 
     void Start()
     {
+        eventList = GameObject.FindGameObjectWithTag("EventList");
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("UI"));
         if (player == null)
@@ -20,6 +20,6 @@ public class Entrance_SetPlayer : MonoBehaviour {
     void OnLevelWasLoaded(int level)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(positionOfEntrance.x, positionOfEntrance.y, positionOfEntrance.z); ;
+        player.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 0.944361f, player.gameObject.transform.position.z);
     }
 }
