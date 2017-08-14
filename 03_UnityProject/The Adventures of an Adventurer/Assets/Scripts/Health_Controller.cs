@@ -15,7 +15,6 @@ public class Health_Controller : MonoBehaviour {
     private bool knockbackEnabled;
     private Animator anim;
     private Player_Movement player;
-	private GameObject damageSource;
     private bool isDead = false;
     private bool isInvincible = false;
 
@@ -129,7 +128,7 @@ public class Health_Controller : MonoBehaviour {
     void Damage()
     {
         if (knockbackEnabled)
-			player.StartKnockback(250f, player.transform.position, damageSource.transform.position);
+            player.StartKnockback(0.2f, -5f, player.transform.position);
         UpdateGUI();
     }
 
@@ -144,8 +143,5 @@ public class Health_Controller : MonoBehaviour {
         healthGUI.fillAmount = health / maxHealth;
     }
 
-	void SetEnemyPlayerGotHitBy(GameObject enemy)
-	{
-		this.damageSource = enemy;
-	}
+
 }

@@ -18,11 +18,9 @@ public class Player_Movement : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	private Animator anim;
     private bool movementDisabled;
-	private bool knockbackCoroutineStarted = false;
-	private bool ungroundedAfterKnockbackStarted = false;
-	private float knockbackPower;
-	private Vector2 playerScreenPosition;
-	private Vector2 enemyScreenPosition;
+    private float knockDur;
+    private float knockbackPowr;
+    private Vector3 knockbackDir;
 
     GameObject player;
     Camera camera;
@@ -81,16 +79,6 @@ public class Player_Movement : MonoBehaviour {
 				rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
 			}
 		}
-
-		if (knockbackCoroutineStarted && !grounded) {
-			ungroundedAfterKnockbackStarted = true;
-		}
-
-		if (knockbackCoroutineStarted && movementDisabled && ungroundedAfterKnockbackStarted &&grounded) {
-			movementDisabled = false;
-			knockbackCoroutineStarted = false;
-			ungroundedAfterKnockbackStarted = false;
-		}
 	}
 
     public bool GetGrounded()
@@ -131,33 +119,24 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-	public void StartKnockback(float knockbackPowr, Vector3 playerPos, Vector3 enemyPos)
+    public void StartKnockback(float knockDur, float knockbackPowr, Vector3 knockbackDir)
     {
-        this.knockbackPower = knockbackPowr;
-
-		Vector3 playerScreenPos = camera.WorldToScreenPoint (playerPos);
-		this.playerScreenPosition = new Vector2(playerScreenPos.x, playerScreenPos.y);
-
-		Vector3 enemyScreenPos = camera.WorldToScreenPoint (enemyPos);
-		this.enemyScreenPosition = new Vector2(enemyScreenPos.x, enemyScreenPos.y);
-
+        this.knockDur = knockDur;
+        this.knockbackPowr = knockbackPowr;
+        this.knockbackDir = knockbackDir;
         StartCoroutine("Knockback");
     }
 
     public IEnumerator Knockback()
     {
-		knockbackCoroutineStarted = true;
-		MovementDisabled = true;
+        float timer = 0;
 
-		rb2d.AddForce(transform.up * knockbackPower);
-		if (playerScreenPosition.x < enemyScreenPosition.x) {
-			rb2d.AddForce(transform.right * knockbackPower * -1.2f);
-		}
-		else if (playerScreenPosition.x > enemyScreenPosition.x) {
-			rb2d.AddForce (transform.right * knockbackPower * 1.2f);
-		}
-		else {
-		}
+        while(knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            //rb2d.AddForce(new Vector3(knockbackDir.x * -100, 10 *  knockbackPowr, transform.position.z));
+            rb2d.AddForce(new Vector3(knockbackDir.x * -10, knockbackDir.y * knockbackPowr, transform.position.z));
+        }
 
         yield return 0;
     }

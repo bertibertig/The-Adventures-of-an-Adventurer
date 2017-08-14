@@ -21,6 +21,7 @@ public class Inventory_Main : MonoBehaviour {
 
     public bool InterfereOpeningOfInventory { get; set; }
     public ItemInfo[] GetItemInfo { get { return this.itemInfo; } }
+    public bool InventoryDisabled { get; set; }
 
     public class ItemInfo
     {
@@ -53,6 +54,7 @@ public class Inventory_Main : MonoBehaviour {
         DontDestroyOnLoad(inventoryUI);
         DontDestroyOnLoad(this);
         inventoryOpen = false;
+        InventoryDisabled = false;
         //inventarUI.SetActive(false);   
     }
 	
@@ -68,7 +70,7 @@ public class Inventory_Main : MonoBehaviour {
             inventoryUI.SetActive(false);
             slotArrayLoaded = true;
         }
-        if(Input.GetButtonDown("Tab") && !InterfereOpeningOfInventory)
+        if(Input.GetButtonDown("Tab") && !InterfereOpeningOfInventory && !InventoryDisabled)
         {
             if(infoBox.activeSelf)
             {

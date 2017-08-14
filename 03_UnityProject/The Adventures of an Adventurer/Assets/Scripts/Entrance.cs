@@ -3,6 +3,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class Entrance : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class Entrance : MonoBehaviour {
 
     private GameObject player;
     private bool displayKeyInfo;
-
+    private GameObject EventList;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class Entrance : MonoBehaviour {
         {
             if (Input.GetButtonDown("Up"))
             {
-                Application.LoadLevel(levelToLoad);
+                SceneManager.LoadScene(levelToLoad);
             }
 
             FollowPlayer();

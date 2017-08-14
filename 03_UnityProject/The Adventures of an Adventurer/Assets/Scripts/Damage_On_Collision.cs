@@ -5,14 +5,11 @@ public class Damage_On_Collision : MonoBehaviour {
 
     public float damage;
 
-
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") == true)
         {
             other.SendMessage("ApplyDamage", damage);
-			other.SendMessage("SetEnemyPlayerGotHitBy", this.gameObject);
         }
     }
 
@@ -21,7 +18,6 @@ public class Damage_On_Collision : MonoBehaviour {
         if (other.CompareTag("Player") == true)
         {
             other.SendMessage("ApplyDamage", damage);
-			other.SendMessage("SetEnemyPlayerGotHitBy", this.gameObject);
         }
     }
 }
