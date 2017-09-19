@@ -83,9 +83,10 @@ public class Player_Movement : MonoBehaviour {
 
 		if (knockbackCoroutineStarted && !grounded) {
 			ungroundedAfterKnockbackStarted = true;
+			MovementDisabled = true;
 		}
 
-		if (knockbackCoroutineStarted && movementDisabled && ungroundedAfterKnockbackStarted &&grounded) {
+		if (ungroundedAfterKnockbackStarted && grounded) {
 			movementDisabled = false;
 			knockbackCoroutineStarted = false;
 			ungroundedAfterKnockbackStarted = false;
@@ -146,7 +147,6 @@ public class Player_Movement : MonoBehaviour {
     public IEnumerator Knockback()
     {
 		knockbackCoroutineStarted = true;
-		MovementDisabled = true;
 
 		rb2d.AddForce(transform.up * knockbackPower);
 		if (playerScreenPosition.x < enemyScreenPosition.x) {

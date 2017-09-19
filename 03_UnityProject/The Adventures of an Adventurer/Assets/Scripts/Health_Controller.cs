@@ -105,7 +105,7 @@ public class Health_Controller : MonoBehaviour {
         deathText.text = "And thus ended the Adventurers story...";
         Invoke("Respawn", 5);
     }
-		
+
     void Respawn()
     {
         deathText.enabled = false;

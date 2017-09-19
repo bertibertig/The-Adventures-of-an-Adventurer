@@ -1801,7 +1801,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 243562715}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c039645d15c085a4eb64fed143e2110a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -7937,12 +7937,12 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 1.0971451, y: 2.8759048}
-  - {x: 2.494011, y: 2.6526232}
-  - {x: 2.6287918, y: 2.0435228}
-  - {x: 2.9927826, y: 1.4441891}
-  - {x: 3.2295456, y: 1.0016586}
-  - {x: 3.3310623, y: -0.19765115}
+  - {x: 2.4502182, y: 5.3528337}
+  - {x: 2.4536514, y: 2.612267}
+  - {x: 2.6086197, y: 2.0233448}
+  - {x: 3.033142, y: 1.4240117}
+  - {x: 3.1891937, y: 0.73934394}
+  - {x: 3.270523, y: -0.15729499}
   - {x: 2.9434204, y: -0.89492834}
   - {x: 2.1673203, y: -1.0471671}
   - {x: 1.6751175, y: -0.76212895}
@@ -10235,7 +10235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1595258763
 Transform:
   m_ObjectHideFlags: 0
@@ -11547,6 +11547,16 @@ Prefab:
       propertyPath: canDoubleJump
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 60000011503435952, guid: fefe792212dfc364f9874ae89f6810a1,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000011845848582, guid: fefe792212dfc364f9874ae89f6810a1,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c039645d15c085a4eb64fed143e2110a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fefe792212dfc364f9874ae89f6810a1, type: 2}
   m_IsPrefabParent: 0
