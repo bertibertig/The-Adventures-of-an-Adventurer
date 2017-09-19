@@ -15,6 +15,7 @@ public class Health_Controller : MonoBehaviour {
     private bool knockbackEnabled;
     private Animator anim;
     private Player_Movement player;
+	private GameObject damageSource;
     private bool isDead = false;
     private bool isInvincible = false;
 
@@ -104,7 +105,7 @@ public class Health_Controller : MonoBehaviour {
         deathText.text = "And thus ended the Adventurers story...";
         Invoke("Respawn", 5);
     }
-		
+
     void Respawn()
     {
         deathText.enabled = false;
@@ -118,17 +119,12 @@ public class Health_Controller : MonoBehaviour {
         //generate world and reset player
     }
 
-	/*
-    void Respawn()
-    {
-        Application.LoadLevel(0);
-    }
-	*/
+	//TODO: Respawn
 
     void Damage()
     {
         if (knockbackEnabled)
-            player.StartKnockback(0.2f, -5f, player.transform.position);
+			player.StartKnockback(250f, player.transform.position, damageSource.transform.position);
         UpdateGUI();
     }
 
@@ -143,5 +139,8 @@ public class Health_Controller : MonoBehaviour {
         healthGUI.fillAmount = health / maxHealth;
     }
 
-
+	void SetEnemyPlayerGotHitBy(GameObject enemy)
+	{
+		this.damageSource = enemy;
+	}
 }
