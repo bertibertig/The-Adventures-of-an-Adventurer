@@ -15,6 +15,12 @@ public class Throw_On_Target : MonoBehaviour {
 	private bool throwIsActive = false;
     Vector3 direction;
 
+    private void Start()
+    {
+        if (myTarget == null)
+            myTarget = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
 	public bool ThrowIsActive {
 		get
 		{

@@ -21,3 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/0_Level_Tutorial_02_Cave_Merchant.unity
   - enabled: 1
     path: Assets/Scenes/Main_Menu_Networking.unity
+  - enabled: 1
+    path: Assets/Scenes/0_Level_Tutorial_03_Hut_Of_Adventurer_Limited.unity
+  - enabled: 1
+    path: Assets/Scenes/Main_Menu_Debug.unity

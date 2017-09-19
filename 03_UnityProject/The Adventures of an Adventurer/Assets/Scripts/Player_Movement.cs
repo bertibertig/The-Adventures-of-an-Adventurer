@@ -1,85 +1,97 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player_Movement : MonoBehaviour {
-	
-	//Floats
-	public float maxSpeed = 3;
-	public float speed = 50f;
-	public float jumpPower = 400f;
-	
-	//Bools
-	public bool grounded;
-	public bool isDying = false;
-	public bool canDoubleJump;
-	public bool isAbleToJump = false;
-	
-	//References
-	private Rigidbody2D rb2d;
-	private Animator anim;
+public class Player_Movement : Photon.MonoBehaviour
+{
+
+    //Floats
+    public float maxSpeed = 3;
+    public float speed = 50f;
+    public float jumpPower = 400f;
+    public float lerpStep = 0.1f;
+
+    //Bools
+    public bool multiplayerOn = false;
+    public bool grounded;
+    public bool isDying = false;
+    public bool canDoubleJump;
+    public bool isAbleToJump = false;
+    
+
+    //References
+    private Rigidbody2D rb2d;
+    private Animator anim;
     private bool movementDisabled;
     private float knockDur;
     private float knockbackPowr;
     private Vector3 knockbackDir;
+
+    //Multiplayer Variables
+    private Vector2 newPos;
+    private float rb2dRotation;
 
     GameObject player;
     Camera camera;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
-	// Use this for initialization
-	void Start () {
-		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    // Use this for initialization
+    void Start()
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 2)
         {
-            Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
+            //Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
         }
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-		anim = gameObject.GetComponent<Animator>();
-	}
+        anim = gameObject.GetComponent<Animator>();
+    }
 
-	void OnLevelWasLoaded()
-	{
-		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-	}
+    void OnLevelWasLoaded()
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     void Update()
-	{
-		anim.SetBool("grounded", grounded);
-		//anim.SetBool("isDying", isDying);
-		anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
-		
-		//Rotation of the Player
-        if (!movementDisabled)
+    {
+        anim.SetBool("grounded", grounded);
+        //anim.SetBool("isDying", isDying);
+        anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+
+        if (this.photonView.isMine || !multiplayerOn)
         {
-			if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
+            //Rotation of the Player
+            if (!movementDisabled)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+
+                if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
             }
 
-			if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
+            //Jumping /Double Jumping
+            if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (grounded)
+                {
+                    rb2d.AddForce(Vector2.up * jumpPower);
+                    canDoubleJump = true;
+                }
+                else if (canDoubleJump)
+                {
+                    canDoubleJump = false;
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                    rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
+                }
             }
         }
-
-		//Jumping /Double Jumping
-		if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
-		{
-			if (grounded)
-			{
-				rb2d.AddForce(Vector2.up * jumpPower);
-				canDoubleJump = true;
-			}
-			else if (canDoubleJump)
-			{
-				canDoubleJump = false;
-				rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-				rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
-			}
-		}
-	}
+    }
 
     public bool GetGrounded()
     {
@@ -95,27 +107,35 @@ public class Player_Movement : MonoBehaviour {
 
         float h = Input.GetAxis("Horizontal");
 
-        //Disables Sliding of the Player
-        if (grounded && !movementDisabled)
+        if (this.photonView.isMine || !multiplayerOn)
         {
-            rb2d.velocity = easeVelocity;
-        }
-
-        //Movement of the player
-        if (!movementDisabled)
-        {
-            rb2d.AddForce((Vector2.right * speed) * h);
-
-            if (rb2d.velocity.x > maxSpeed)
+            //Disables Sliding of the Player
+            if (grounded && !movementDisabled)
             {
-                rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+                rb2d.velocity = easeVelocity;
+            }
+
+            //Movement of the player
+            if (!movementDisabled)
+            {
+                rb2d.AddForce((Vector2.right * speed) * h);
+
+                if (rb2d.velocity.x > maxSpeed)
+                {
+                    rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+                }
+            }
+
+            //MaxSpeed of the player
+            if (rb2d.velocity.x < -maxSpeed)
+            {
+                rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
             }
         }
-
-        //MaxSpeed of the player
-        if (rb2d.velocity.x < -maxSpeed)
+        else
         {
-            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+            Vector2 lerp = Vector2.Lerp(this.rb2d.position, newPos, lerpStep);
+            rb2d.MovePosition(lerp);
         }
     }
 
@@ -131,13 +151,26 @@ public class Player_Movement : MonoBehaviour {
     {
         float timer = 0;
 
-        while(knockDur > timer)
+        while (knockDur > timer)
         {
             timer += Time.deltaTime;
             //rb2d.AddForce(new Vector3(knockbackDir.x * -100, 10 *  knockbackPowr, transform.position.z));
             rb2d.AddForce(new Vector3(knockbackDir.x * -10, knockbackDir.y * knockbackPowr, transform.position.z));
+            yield return null;
         }
 
         yield return 0;
+    }
+
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.isWriting)
+        {
+            stream.SendNext(this.rb2d.position);
+        }
+        else if(stream.isReading)
+        {
+            newPos = (Vector2)stream.ReceiveNext();
+        }
     }
 }

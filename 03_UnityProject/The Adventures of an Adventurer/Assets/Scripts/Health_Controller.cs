@@ -42,9 +42,9 @@ public class Health_Controller : MonoBehaviour {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
         }
         if (healthGUI == null)
-            healthGUI = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "Front").FirstOrDefault().GetComponentInChildren<Image>();
-        if(deathText == null)
-            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponentInChildren<Text>();
+            healthGUI = (GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "FrontPlayer").FirstOrDefault().GetComponentInChildren<Image>());
+        if (deathText == null)
+            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponent<Text>();
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();

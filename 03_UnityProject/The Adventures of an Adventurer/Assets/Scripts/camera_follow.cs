@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class camera_follow : MonoBehaviour {
+public class camera_follow : Photon.MonoBehaviour {
 
     private Vector2 velocity;
 
@@ -27,6 +27,11 @@ public class camera_follow : MonoBehaviour {
 
     void FixedUpdate()
     {
+        //TODO: Remove and Implement correct
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
         float posy = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 

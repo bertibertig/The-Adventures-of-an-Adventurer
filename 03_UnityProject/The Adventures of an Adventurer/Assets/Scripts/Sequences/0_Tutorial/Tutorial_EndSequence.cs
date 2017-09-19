@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial_EndSequence : MonoBehaviour {
 
     public float textSpeed;
+    public string levelToLoad;
     public string[] germanDialoge;
     public string[] englishDialoge;
 
@@ -77,5 +79,8 @@ public class Tutorial_EndSequence : MonoBehaviour {
         textfield.StopPrintText();
 
         dialoge.EndDialoge();
+
+        print("Loading Level: " + levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
     }
 }

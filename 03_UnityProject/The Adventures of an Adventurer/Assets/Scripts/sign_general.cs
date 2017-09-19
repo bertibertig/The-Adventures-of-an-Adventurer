@@ -83,6 +83,7 @@ public class sign_general : MonoBehaviour {
 
     }
 
+    //TODO: Implement System like this for other dialoges.
     private IEnumerator Read()
     {
         textfield.ChangeTalker(this.gameObject.GetComponentInParent<SpriteRenderer>().sprite);
@@ -92,12 +93,23 @@ public class sign_general : MonoBehaviour {
         for(int i = 0; i < usedDialoge.Length; i++)
         {
             textfield.PrintText(usedDialoge[i], textSpeed);
+            print(textfield.FinishedPrintingText);
             yield return new WaitForSeconds(0.1f);
             while (!Input.GetButtonDown("Interact"))
             {
                 yield return null;
             }
             textfield.StopPrintText();
+            textfield.PrintWholeText();
+            if (!textfield.FinishedPrintingText)
+            {
+                yield return new WaitForSeconds(0.1f);
+                while (!Input.GetButtonDown("Interact"))
+                {
+                    yield return null;
+                }
+                textfield.StopPrintText();
+            }
             
         }
 
