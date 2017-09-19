@@ -9,6 +9,7 @@ public class Player_Movement : Photon.MonoBehaviour
     public float speed = 50f;
     public float jumpPower = 400f;
     public float lerpStep = 0.1f;
+    private float knockbackPower;
 
     //Bools
     public bool multiplayerOn = false;
@@ -16,7 +17,9 @@ public class Player_Movement : Photon.MonoBehaviour
     public bool isDying = false;
     public bool canDoubleJump;
     public bool isAbleToJump = false;
-    
+    private bool knockbackCoroutineStarted = false;
+    private bool ungroundedAfterKnockbackStarted = false;
+
 
     //References
     private Rigidbody2D rb2d;
@@ -26,12 +29,15 @@ public class Player_Movement : Photon.MonoBehaviour
     private float knockbackPowr;
     private Vector3 knockbackDir;
 
+
     //Multiplayer Variables
     private Vector2 newPos;
     private float rb2dRotation;
 
     GameObject player;
     Camera camera;
+    private Vector2 playerScreenPosition;
+    private Vector2 enemyScreenPosition;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
@@ -90,6 +96,19 @@ public class Player_Movement : Photon.MonoBehaviour
                     rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
                 }
             }
+
+            if (knockbackCoroutineStarted && !grounded)
+            {
+                ungroundedAfterKnockbackStarted = true;
+                MovementDisabled = true;
+            }
+
+            if (ungroundedAfterKnockbackStarted && grounded)
+            {
+                movementDisabled = false;
+                knockbackCoroutineStarted = false;
+                ungroundedAfterKnockbackStarted = false;
+            }
         }
     }
 
@@ -139,24 +158,31 @@ public class Player_Movement : Photon.MonoBehaviour
         }
     }
 
-    public void StartKnockback(float knockDur, float knockbackPowr, Vector3 knockbackDir)
+    public void StartKnockback(float knockbackPowr, Vector3 playerPos, Vector3 enemyPos)
     {
-        this.knockDur = knockDur;
-        this.knockbackPowr = knockbackPowr;
-        this.knockbackDir = knockbackDir;
+        this.knockbackPower = knockbackPowr;
+
+        Vector3 playerScreenPos = camera.WorldToScreenPoint(playerPos);
+        this.playerScreenPosition = new Vector2(playerScreenPos.x, playerScreenPos.y);
+
+        Vector3 enemyScreenPos = camera.WorldToScreenPoint(enemyPos);
+        this.enemyScreenPosition = new Vector2(enemyScreenPos.x, enemyScreenPos.y);
+
         StartCoroutine("Knockback");
     }
 
     public IEnumerator Knockback()
     {
-        float timer = 0;
+        knockbackCoroutineStarted = true;
 
-        while (knockDur > timer)
+        rb2d.AddForce(transform.up * knockbackPower);
+        if (playerScreenPosition.x < enemyScreenPosition.x)
         {
-            timer += Time.deltaTime;
-            //rb2d.AddForce(new Vector3(knockbackDir.x * -100, 10 *  knockbackPowr, transform.position.z));
-            rb2d.AddForce(new Vector3(knockbackDir.x * -10, knockbackDir.y * knockbackPowr, transform.position.z));
-            yield return null;
+            rb2d.AddForce(transform.right * knockbackPower * - 1.2f);
+        }
+        else if (playerScreenPosition.x > enemyScreenPosition.x)
+        {
+            rb2d.AddForce(transform.right * knockbackPower * 1.2f);
         }
 
         yield return 0;
