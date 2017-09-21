@@ -39,7 +39,10 @@ public class WitchTreeHealthController : MonoBehaviour {
             maxGoldDrop = 3;
         if (xp <= 0)
             xp = 10;
-        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
         eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
         healthCanvas = transform.GetComponentInChildren<Canvas>();
         healthCanvas.enabled = false;
@@ -47,18 +50,21 @@ public class WitchTreeHealthController : MonoBehaviour {
         anim = GetComponent<Animator>();
         if (anim != null)
 			anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
-        print(anim.ToString());
-        UpdateGUI();
+		UpdateGUI();
         if (eventList.GetEvent("Boss_01_Defeated") != null)
         {
             if (eventList.GetEvent("Boss_01_Defeated").HasHappened)
             {
-                //WitchTop.SetActive(true);
                 WitchBottom.SetActive(true);
                 Destroy(healthBar);
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
     }
 
     void ApplyDamage(object[] attackData)

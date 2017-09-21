@@ -139,7 +139,6 @@ public class Stoney_Awake : MonoBehaviour {
         }
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         textfield.GetComponent<Textfield>().DisableText();
-        //Stoney.GetComponent<SpriteRenderer>().sprite = Stoney_Cracked.GetComponent<SpriteRenderer>().sprite;
         anim.SetBool("awake", true);
         textfield.GetComponent<Textfield>().StopPrintText();
         yield return new WaitForSeconds(2.3f);

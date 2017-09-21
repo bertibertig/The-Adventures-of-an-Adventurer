@@ -15,6 +15,7 @@ public class Health_Controller : MonoBehaviour {
     private bool knockbackEnabled;
     private Animator anim;
     private Player_Movement player;
+	private GameObject damageSource;
     private bool isDead = false;
     private bool isInvincible = false;
 
@@ -42,9 +43,9 @@ public class Health_Controller : MonoBehaviour {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
         }
         if (healthGUI == null)
-            healthGUI = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "Front").FirstOrDefault().GetComponentInChildren<Image>();
-        if(deathText == null)
-            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponentInChildren<Text>();
+            healthGUI = (GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "FrontPlayer").FirstOrDefault().GetComponentInChildren<Image>());
+        if (deathText == null)
+            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponent<Text>();
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();
@@ -97,14 +98,14 @@ public class Health_Controller : MonoBehaviour {
 
     void Death()
     {
-        deathText.enabled = true;
+        deathText.GetComponent<Text>().enabled = true;
         anim.SetBool("isDying", true);
         player.enabled = false;
         UpdateGUI();
         deathText.text = "And thus ended the Adventurers story...";
         Invoke("Respawn", 5);
     }
-		
+
     void Respawn()
     {
         deathText.enabled = false;
@@ -118,17 +119,12 @@ public class Health_Controller : MonoBehaviour {
         //generate world and reset player
     }
 
-	/*
-    void Respawn()
-    {
-        Application.LoadLevel(0);
-    }
-	*/
+	//TODO: Respawn
 
     void Damage()
     {
         if (knockbackEnabled)
-            player.StartKnockback(0.2f, -5f, player.transform.position);
+			player.StartKnockback(250f, player.transform.position, damageSource.transform.position);
         UpdateGUI();
     }
 
@@ -143,5 +139,8 @@ public class Health_Controller : MonoBehaviour {
         healthGUI.fillAmount = health / maxHealth;
     }
 
-
+	void SetEnemyPlayerGotHitBy(GameObject enemy)
+	{
+		this.damageSource = enemy;
+	}
 }

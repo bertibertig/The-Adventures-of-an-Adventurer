@@ -20,19 +20,16 @@ public class Inventory_MouseOver : MonoBehaviour{
     private bool gotItemName;
     private bool waitingForActivation;
     private string mousebutton;
-    //private Vector3 startPosition;
     private Inventory_Main.ItemInfo endPosition;
     private Inventory_Main.ItemInfo otherItem;
 
     public GameObject infoBox;
-    //public GameObject infoBoxBackground;
 
     void Start()
     {
         waitingForActivation = false;
         mouseOverObject = false;
         informationLoaded = false;
-        //print("loadedMouseover");
     }
 
     public void MouseEnter()
@@ -42,13 +39,10 @@ public class Inventory_MouseOver : MonoBehaviour{
             waitingForActivation = true;
             StartCoroutine("WaitForActivation");
         }
-        //infoBoxBackground.transform.localScale = new Vector2(infoBox.transform.localScale.x + 10, infoBox.transform.localScale.y + 10);
-        //infoBox.GetComponentInChildren<Text>().text = "Hello World";
         if (informationLoaded)
         {
             StartCoroutine("GetItemName");
         }
-        //print("Entered");
         if (!mouseOverObject)
         {
             mouseOverObject = true;
@@ -62,7 +56,6 @@ public class Inventory_MouseOver : MonoBehaviour{
             itemList = inventoryMainDriver.GetComponentInChildren<Inventory_Database>().GetItemDatabase;
             itemInfos = inventoryMainDriver.GetComponent<Inventory_Main>().GetItemInfo;
             informationLoaded = true;
-            //infoBox.GetComponentInChildren<Text>().text = "Test";
         }
         if (mouseOverObject)
         {
@@ -85,7 +78,6 @@ public class Inventory_MouseOver : MonoBehaviour{
     {
         for (int i = 0; i < itemInfos.Length; i++ )
         {
-            //print(itemInfo[i].Item.GetName);
             if (itemInfos[i].Slot.Equals(this.gameObject))
             {
                 itemInfo = itemInfos[i];
@@ -125,7 +117,6 @@ public class Inventory_MouseOver : MonoBehaviour{
     {
         if (mousebutton == "Pressed right click.")
         {
-            print(itemInfo.Item.GetClassString + "." + itemInfo.Item.GetFunction);
             if (itemInfo.Item.GetClassString != "" && itemInfo.Item.GetFunction != "")
             {
                 Type type = Type.GetType(itemInfo.Item.GetClassString);
@@ -152,54 +143,5 @@ public class Inventory_MouseOver : MonoBehaviour{
             this.gameObject.transform.position = yellow_Selecter.GetComponent<Inventory_Selector>().ItemInfo.Slot.transform.position;
             yellow_Selecter.GetComponent<Inventory_Selector>().ItemInfo.Slot.transform.position = oldPosition;
         }
-        print(yellow_Selecter.GetComponent<Inventory_Selector>().Selected);
     }
-
-    /*public void BeginDrag()
-    {
-        if (mousebutton == "Pressed left click.")
-        {
-            isBeeingDraged = true;
-            infoBox.SetActive(false);
-            dragItem = gameObject;
-            startPosition = transform.position;
-        }
-    }
-
-    public void Drag()
-    {
-        if (mousebutton == "Pressed left click.")
-        {
-            transform.position = Input.mousePosition;
-            print("Mouse position:" + Input.mousePosition);
-            print("Slot1 position:" + itemInfo[0].Slot.transform.position);
-        }
-    }
-
-    public void EndDrag()
-    {
-        if (mousebutton == "Pressed left click.")
-        {
-            endPosition = null;
-            StartCoroutine("GetSlot");
-            print(endPosition.Slot.ToString());
-            isBeeingDraged = false;
-            dragItem = null;
-            transform.position = endPosition.Slot.transform.position;
-        }
-    }
-
-    private IEnumerator GetSlot()
-    {
-        foreach (Inventory_Database.ItemInfo item in itemInfo)
-        {
-            Vector3 leftUpperCorner = new Vector3(item.Slot.transform.position.x / 2, item.Slot.transform.position.y / 2);
-            //print(leftUpperCorner);
-            if (item.Slot.transform.position == Input.mousePosition)
-            {
-                endPosition = item;
-            }
-            yield return null;
-        }
-    }*/
 }

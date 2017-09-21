@@ -16,12 +16,16 @@ public class Enemy_Movement_AI : MonoBehaviour {
     private Vector3 newPosition;
     private int counter;
 
+    public bool Died { get; set; }
+    public bool InMotion { get; set; }
+    public Ground_Check GroundTrigger { get; set; }
+
     private Rigidbody2D rb2d;
 
     // Use this for initialization
     void Start()
     {
-        if(speed <= 0)
+        if (speed <= 0)
             speed = 70f;
         if(maxSpeed <= 0)
             maxSpeed = 0.1f;
@@ -37,43 +41,63 @@ public class Enemy_Movement_AI : MonoBehaviour {
         goneWayX = 0;
         goneWayY = 0;
         counter = 0;
+        Died = false;
+        InMotion = false;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        GroundTrigger = gameObject.GetComponentInChildren<Ground_Check>();
         StartCoroutine("Move");
     }
 
     public IEnumerator Move()
     {
-		while (true) {
+		while (!Died || gameObject.GetComponentInChildren<Enemy_CheckForPlayer>().HasSeenPlayer) {
 			do {
-				rb2d.AddForce (Vector2.up * jumpPower);
-				rb2d.AddForce ((Vector2.right * speed));
-				ControlMaxSpeed ();
-				counter++;
-				yield return new WaitForSeconds (2);
-			} while (counter < 2);
+                if (GroundTrigger.Gronded || !gameObject.GetComponentInChildren<Enemy_CheckForPlayer>().HasSeenPlayer)
+                {
+                    rb2d.AddForce(Vector2.up * jumpPower);
+                    rb2d.AddForce((Vector2.right * speed));
+                    ControlMaxSpeed();
+                    counter++;
+                    yield return new WaitForSeconds(2);
+                }
+                yield return new WaitForSeconds(0.1f);
+            } while (counter < 2);
 
-			rb2d.AddForce (Vector2.up * (jumpPower * 2));
-			rb2d.AddForce ((Vector2.right * speed));
-			ControlMaxSpeed ();
-			yield return new WaitForSeconds (2);
+            while (GroundTrigger.Gronded || gameObject.GetComponentInChildren<Enemy_CheckForPlayer>().HasSeenPlayer)
+            {
+                rb2d.AddForce(Vector2.up * (jumpPower * 2));
+                rb2d.AddForce((Vector2.right * speed));
+                ControlMaxSpeed();
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(2);
 
-			counter = 0;
+            counter = 0;
 			yield return new WaitForSeconds (1);
 			do {
-				rb2d.AddForce (Vector2.up * jumpPower);
-				rb2d.AddForce ((Vector2.left * speed));
-				ControlMaxSpeed ();
-				counter++;
-				yield return new WaitForSeconds (2);
-			} while (counter < 2);
+                if (GroundTrigger.Gronded || !gameObject.GetComponentInChildren<Enemy_CheckForPlayer>().HasSeenPlayer)
+                {
+                    rb2d.AddForce(Vector2.up * jumpPower);
+                    rb2d.AddForce((Vector2.left * speed));
+                    ControlMaxSpeed();
+                    counter++;
+                    yield return new WaitForSeconds(2);
+                }
+                yield return new WaitForSeconds(0.1f);
+            } while (counter < 2);
 
-			rb2d.AddForce (Vector2.up * (jumpPower * 2));
-			rb2d.AddForce ((Vector2.left * speed));
-			ControlMaxSpeed ();
-			yield return new WaitForSeconds (2);
-
-			counter = 0;
+            while (GroundTrigger.Gronded || !gameObject.GetComponentInChildren<Enemy_CheckForPlayer>().HasSeenPlayer)
+            {
+                rb2d.AddForce(Vector2.up * (jumpPower * 2));
+                rb2d.AddForce((Vector2.left * speed));
+                ControlMaxSpeed();
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(2);
+            counter = 0;
+            yield return new WaitForSeconds(1);
 		}
+        print("CoRoutine exited");
     }
 
     public void ControlMaxSpeed()
@@ -100,8 +124,3 @@ public class Enemy_Movement_AI : MonoBehaviour {
         StartCoroutine("Move");
     }
 }
-
-//this.gameObject.transform.position = oldPosition;  
-/*this.gameObject.transform.position = newPosition;
-goneWayX = newPosition.x - oldPosition.x;
-goneWayY = newPosition.y - oldPosition.y;*/

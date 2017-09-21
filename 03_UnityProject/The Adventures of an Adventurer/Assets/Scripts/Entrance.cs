@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Entrance : MonoBehaviour {
 
@@ -16,23 +17,26 @@ public class Entrance : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
         displayKeyInfo = false;
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
         keyInfo.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (displayKeyInfo)
         {
             if (Input.GetButtonDown("Up"))
             {
                 SceneManager.LoadScene(levelToLoad);
             }
-
             FollowPlayer();
         }
 	}

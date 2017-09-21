@@ -27,6 +27,8 @@ TagManager:
   - Intro
   - MerchantUI
   - MerchantSlot
+  - EndSequenceHandler
+  - Spirit
   layers:
   - Default
   - TransparentFX

@@ -64,11 +64,14 @@ public class EventList : MonoBehaviour {
 
     public Event GetEvent(string eventName)
     {
-        foreach (Event e in events)
+        if (events != null)
         {
-            if (e.EventName == eventName)
-                return e;
+            foreach (Event e in events)
+            {
+                if (e.EventName == eventName)
+                    return e;
 
+            }
         }
         return null;
     }
