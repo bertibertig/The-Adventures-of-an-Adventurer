@@ -3711,6 +3711,43 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &606449238 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1949633956886376, guid: c343c2fe23f4592419f6f4aca269365d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2089756058}
+--- !u!114 &606449240 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114151933945706226, guid: c343c2fe23f4592419f6f4aca269365d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2089756058}
+  m_Script: {fileID: 11500000, guid: c3077bb97e363ab4db32c9c91c8d5d94, type: 3}
+--- !u!114 &606449244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606449238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 606449240}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 1
+  instantiationId: 1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &631715688 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1747210359107306, guid: e9e55cc26c6b22e489e968e1405b0c8f,
@@ -13375,7 +13412,12 @@ Prefab:
     - target: {fileID: 61011953577989856, guid: c343c2fe23f4592419f6f4aca269365d,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151933945706226, guid: c343c2fe23f4592419f6f4aca269365d,
+        type: 2}
+      propertyPath: lerpStep
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c343c2fe23f4592419f6f4aca269365d, type: 2}

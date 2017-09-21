@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeSceneTo : MonoBehaviour {
 
-	OnTriggerEnter(Collider2D col)
+	void OnTriggerEnter(Collider2D col)
     {
 
     }

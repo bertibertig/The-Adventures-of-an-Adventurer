@@ -360,7 +360,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bafd5ffb48dfba5448c9f59d45c01dd6, type: 3}
   m_Name: 
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8969a082d022d1648ac2b67b86556f97, type: 3}
   m_Name: 
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85a6d68e92c4b454e9bc512967cf0ab4, type: 3}
   m_Name: 
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62911ff5667c30d4f8feefd49aaca0a3, type: 3}
   m_Name: 
@@ -471,6 +471,8 @@ MonoBehaviour:
   isDying: 0
   canDoubleJump: 1
   isAbleToJump: 1
+  newVelocity: {x: 0, y: 0}
+  newRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114966362565043846
 MonoBehaviour:
   m_ObjectHideFlags: 1
