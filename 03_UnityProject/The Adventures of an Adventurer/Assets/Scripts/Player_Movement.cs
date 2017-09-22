@@ -28,7 +28,9 @@ public class Player_Movement : Photon.MonoBehaviour
     private float knockDur;
     private float knockbackPowr;
     private Vector3 knockbackDir;
-
+	private Vector3 currPlayerPos;
+	private Vector3 plPosAtCertainTime;
+	private float stuckCounter;
 
     //Multiplayer Variables
     private Vector2 newPos;
@@ -109,7 +111,12 @@ public class Player_Movement : Photon.MonoBehaviour
                 knockbackCoroutineStarted = false;
                 ungroundedAfterKnockbackStarted = false;
             }
+
+			currPlayerPos = camera.WorldToScreenPoint(player.transform.position);
         }
+
+		if(!grounded && Input.GetAxis("Horizontal") != 0)
+			StartCoroutine("CheckIfStuckOnWall");
     }
 
     public bool GetGrounded()
@@ -199,4 +206,34 @@ public class Player_Movement : Photon.MonoBehaviour
             newPos = (Vector2)stream.ReceiveNext();
         }
     }
+
+	private IEnumerator CheckIfStuckOnWall()
+	{
+		while(!grounded && Input.GetAxis("Horizontal") != 0)
+		{
+			plPosAtCertainTime = currPlayerPos;
+			yield return StartCoroutine ("Delay", 1.0f);
+
+			print (plPosAtCertainTime.x + ", " + currPlayerPos.x + ", " + MovementDisabled + ", " + stuckCounter);
+
+			if (stuckCounter < 4) {
+				if ((plPosAtCertainTime.x == currPlayerPos.x) && !grounded) {
+					stuckCounter++;
+				} else {
+					stuckCounter = 0;
+				}
+			} else {
+				MovementDisabled = true;
+			}
+		}
+		stuckCounter = 0;
+		MovementDisabled = false;
+
+		yield return 0;
+	}
+
+	private IEnumerator Delay(float secs)
+	{
+		yield return new WaitForSeconds(secs);
+	}
 }
