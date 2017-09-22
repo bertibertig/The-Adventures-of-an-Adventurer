@@ -3,25 +3,15 @@ using System.Collections;
 
 public class Ground_Check : MonoBehaviour {
 
-    private Player player;
-
-	// Use this for initialization
-	void Start () {
-        player = gameObject.GetComponent<Player>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public bool Gronded { get; set; }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        player.grounded = true;
+        Gronded = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        player.grounded = false;
+        Gronded = false;
     }
 }

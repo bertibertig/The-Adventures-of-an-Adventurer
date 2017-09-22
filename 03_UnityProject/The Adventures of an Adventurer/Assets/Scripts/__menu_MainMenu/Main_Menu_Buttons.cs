@@ -73,7 +73,7 @@ public class Main_Menu_Buttons : MonoBehaviour {
 
     public void New_Game()
 	{
-        Menu_Music.Stop();
+        //Menu_Music.Stop();
         Music_is_playing = false;
         foreach (GameObject go in UIElements)
             //go.SetActive (true);

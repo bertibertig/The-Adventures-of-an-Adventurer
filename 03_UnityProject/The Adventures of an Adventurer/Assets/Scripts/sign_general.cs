@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class sign_general : MonoBehaviour {
 
@@ -26,8 +27,8 @@ public class sign_general : MonoBehaviour {
             textSpeed = 0.05f;
         textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         textfield.DisableText();
-        player = GameObject.FindGameObjectWithTag("Player");
-        movement = player.GetComponent<Player_Movement>();
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
         if (language == "german")
         {
@@ -81,6 +82,12 @@ public class sign_general : MonoBehaviour {
             displayKeyInfo = false;
         }
 
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        movement = player.GetComponent<Player_Movement>();
     }
 
     //TODO: Implement System like this for other dialoges.

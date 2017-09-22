@@ -26,12 +26,11 @@ public class WitchTreeStart : MonoBehaviour {
 
     void Start()
     {
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        player_Talking = player.GetComponentInChildren<AudioSource>();
-        player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
         enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
-        movement = player.GetComponent<Player_Movement>();
 		ConversationEnded = false;
 		ThrowCoroutineStarted = false;
 		attackWasActive = false;
@@ -60,6 +59,14 @@ public class WitchTreeStart : MonoBehaviour {
 			ThrowCoroutineStarted = true;
 		}
 	}
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        player_Talking = player.GetComponentInChildren<AudioSource>();
+        player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
+        movement = player.GetComponent<Player_Movement>();
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {

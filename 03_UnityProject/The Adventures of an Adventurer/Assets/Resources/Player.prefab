@@ -372,7 +372,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53c1a56e39f7d1745b79bd69566a54e9, type: 3}
   m_Name: 
@@ -466,11 +466,13 @@ MonoBehaviour:
   speed: 50
   jumpPower: 400
   lerpStep: 0.5
-  multiplayerOn: 0
+  multiplayerOn: 1
   grounded: 0
   isDying: 0
   canDoubleJump: 1
   isAbleToJump: 1
+  newVelocity: {x: 0, y: 0}
+  newRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114966362565043846
 MonoBehaviour:
   m_ObjectHideFlags: 1
