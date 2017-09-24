@@ -96,6 +96,7 @@ public class Inventory_Main : MonoBehaviour {
         //ChangeItem(itemInfo[SlotID], itemList[ItemID]); -> How To use ChangeItem
         ChangeItem(itemInfo[0], itemList[1]);
         ChangeItem(itemInfo[1], itemList[2]);
+        //AddItem(itemList.Where(i => i.GetID == 4).FirstOrDefault().GetID);
         //print(itemInfo[5].Item.GetName);
     }
 

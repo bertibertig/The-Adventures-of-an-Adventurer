@@ -14,6 +14,7 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
     private bool CoRoutineStarted;
     private Enemy_Movement_AI enemyAI;
     private Ground_Check groundCheck;
+    private bool movementCoRoutineStarted = false;
 
     public bool HasSeenPlayer { get; set; }
 
@@ -57,8 +58,10 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !movementCoRoutineStarted)
         {
+            movementCoRoutineStarted = true;
+            StopCoroutine(MoveToPlayer());
             StartCoroutine("StopTriggerCoRoutine");
         }
     }
@@ -66,20 +69,19 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
     private IEnumerator StopTriggerCoRoutine()
     {
         yield return new WaitForSeconds(2);
+        movementCoRoutineStarted = false;
         HasSeenPlayer = false;
-        StopCoroutine(MoveToPlayer());
         enemy_movement.StartMoveCoroutine();
         CoRoutineStarted = false;
     }
 
     private IEnumerator MoveToPlayer()
     {
-        yield return new WaitForSeconds(2);
 		while (HasSeenPlayer)
         {
             if (groundCheck.Gronded)
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 if ((positionOfPlayer.x - positionOfEnemy.x) > 0)
                 {
                     rb2d.AddForce(Vector2.up * enemyAI.jumpPower);
@@ -91,7 +93,6 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
                     rb2d.AddForce(Vector2.up * enemyAI.jumpPower);
                     rb2d.AddForce((Vector2.left * enemyAI.speed));
                 }
-                print(groundCheck.Gronded);
             }
             yield return new WaitForSeconds(0.1f);
         }

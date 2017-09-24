@@ -29,7 +29,10 @@ public class SearchForGameObjects : MonoBehaviour {
         PlayerFound();
     }
 
-    
+    public void RestartSearchPlayerManual()
+    {
+        StartCoroutine("SerchForPlayer");
+    }
 
     private void PlayerFound()
     {
@@ -50,5 +53,10 @@ public class SearchForGameObjects : MonoBehaviour {
     {
         if (GameobjectFoundHandler != null)
             GameobjectFoundHandler(this, null);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        StartCoroutine("SerchForPlayer");
     }
 }

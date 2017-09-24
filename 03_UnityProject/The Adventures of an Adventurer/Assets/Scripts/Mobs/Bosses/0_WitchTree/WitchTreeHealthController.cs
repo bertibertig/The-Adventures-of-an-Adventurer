@@ -87,6 +87,7 @@ public class WitchTreeHealthController : MonoBehaviour {
         if (health == 0)
         {
             loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
+            loot.EnemyDropItemByID(this.gameObject, 4);
             WitchTop.SetActive(true);
             WitchBottom.SetActive(true);
             eventList.AddEvent("Boss_01_Defeated", true, "Is true if the player defeated Boss_01, the witch tree");

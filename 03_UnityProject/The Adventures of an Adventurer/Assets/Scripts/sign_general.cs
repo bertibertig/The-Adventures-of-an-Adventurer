@@ -100,7 +100,6 @@ public class sign_general : MonoBehaviour {
         for(int i = 0; i < usedDialoge.Length; i++)
         {
             textfield.PrintText(usedDialoge[i], textSpeed);
-            print(textfield.FinishedPrintingText);
             yield return new WaitForSeconds(0.1f);
             while (!Input.GetButtonDown("Interact"))
             {

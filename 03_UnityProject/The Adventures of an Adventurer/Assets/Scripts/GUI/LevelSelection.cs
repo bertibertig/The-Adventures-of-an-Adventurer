@@ -16,25 +16,34 @@ public class LevelSelection : MonoBehaviour {
     private bool levelSelected;
 
     public Animator rokingChair;
+    public GameObject rockingChairGO;
+    public GameObject inventoryUI;
 
     public bool PlayerSitting { get; set; }
+    public bool LevelSelectionDisabled { get; set; }
 
     // Use this for initialization
-    void Start () { 
+    void Start () {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+        inventoryUI.GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;
+        LevelSelectionDisabled = false;
         InitialiseScript();
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Cancel"))
+        if(Input.GetButtonDown("Cancel") && PlayerSitting && !LevelSelectionDisabled)
         {
-            //print("stop");
+            print("stop");
             StopCoroutine("LevelSelectionCoRoutine");
             rokingChair.SetBool("IsUsed",false);
             levels[position].LevelFrame.enabled = false;
             levels[position].LevelObjectItem.GetComponent<SpriteRenderer>().enabled = false;
             position = 0;
             PlayerSitting = false;
+            inventoryUI.GetComponentInChildren<Inventory_Main>().InventoryDisabled = false;
+            player.transform.position = rockingChairGO.transform.position;
             player.SetActive(true);
             ui.SetActive(true);
         }
@@ -65,21 +74,24 @@ public class LevelSelection : MonoBehaviour {
     {
         do
         {
-            if (Input.GetAxis("Horizontal") < 0)
+            if (!LevelSelectionDisabled)
             {
-                if (position - 1 != -1)
-                    ChangeSelection(-1);
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    if (position - 1 != -1)
+                        ChangeSelection(-1);
                     yield return new WaitForSeconds(0.5f);
+                }
+                if (Input.GetAxis("Horizontal") > 0)
+                {
+                    if (position + 1 != levels.Count)
+                        ChangeSelection(1);
+                    yield return new WaitForSeconds(0.5f);
+                }
+                if (Input.GetButtonDown("Interact"))
+                    print("Selected Level: " + levels[position].LevelName);
+                //TODO: Implement Level Startvfor Level 1
             }
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                if (position + 1 != levels.Count)
-                    ChangeSelection(1);
-                yield return new WaitForSeconds(0.5f);
-            }
-            if (Input.GetButtonDown("Interact"))
-                print("Selected Level: " + levels[position].LevelName);
-            //TODO: Implement Level Startvfor Level 1
             yield return null;
         } while (!levelSelected);
     }
@@ -113,10 +125,12 @@ public class LevelSelection : MonoBehaviour {
     public void RestartScript()
     {
         //TODO: BUG: Check why Adventurer is invisible on first frames of Animation. 
+        PlayerSitting = true;
         position = 0;
         rokingChair.SetBool("IsUsed", true);
         levels[position].LevelFrame.enabled = true;
         levels[position].LevelObjectItem.GetComponent<SpriteRenderer>().enabled = true;
+        inventoryUI.GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;
         player.SetActive(false);
         ui.SetActive(false);
         StartCoroutine("LevelSelectionCoRoutine");

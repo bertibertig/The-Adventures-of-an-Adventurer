@@ -46,7 +46,8 @@ public class Player_Movement : Photon.MonoBehaviour
     void Start()
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<camera_follow>().Player = this.gameObject;
+        if(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<camera_follow>() != null)
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<camera_follow>().Player = this.gameObject;
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 2)
         {
             //Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
@@ -63,7 +64,7 @@ public class Player_Movement : Photon.MonoBehaviour
 
     void Update()
     {
-        if (this.photonView.isMine || !multiplayerOn)
+        if (/*this.photonView.isMine ||*/ !multiplayerOn)
         {
             //Rotation of the Player
             if (!movementDisabled)
@@ -118,7 +119,7 @@ public class Player_Movement : Photon.MonoBehaviour
 
     void FixedUpdate()
     {
-        if (this.photonView.isMine || !multiplayerOn)
+        if (/*this.photonView.isMine ||*/ !multiplayerOn)
         {
             Vector3 easeVelocity = rb2d.velocity;
             easeVelocity.y = rb2d.velocity.y;
@@ -127,8 +128,17 @@ public class Player_Movement : Photon.MonoBehaviour
 
             float h = Input.GetAxis("Horizontal");
 
-            this.photonView.RPC("OnMovement", PhotonTargets.All);
-            anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+            if (multiplayerOn)
+            {
+                this.photonView.RPC("OnMovement", PhotonTargets.All);
+                anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+            }
+            else
+            {
+                anim.SetBool("grounded", grounded);
+                //anim.SetBool("isDying", isDying);
+                anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+            }
 
             //Disables Sliding of the Player
             if (grounded && !movementDisabled)

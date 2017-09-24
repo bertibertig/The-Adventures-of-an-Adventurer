@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class WitchTreeAcorn : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class WitchTreeAcorn : MonoBehaviour {
 	void Update () {
         if(!onGround)
             transform.Rotate(new Vector3(0, 0, -(this.gameObject.transform.rotation.z + 5)));
-        if (onGround)
+        if (onGround || GameObject.FindGameObjectsWithTag("Enemy").Where(g => g.name == "WitchTree").FirstOrDefault() == null)
             Destroy(damageDealer);
 
     }

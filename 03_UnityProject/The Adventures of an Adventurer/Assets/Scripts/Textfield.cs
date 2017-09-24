@@ -215,7 +215,6 @@ public class Textfield : MonoBehaviour {
                 } while (i >= letters.Length || (i + 3) < letters.Length && letters[i + 1] != ' ' && letters[i + 2] != ' ');
 
             }*/
-            print((i + 3) < letters.Length);
             text.text += letters[i];
             yield return new WaitForSeconds(textSpeed);
         }

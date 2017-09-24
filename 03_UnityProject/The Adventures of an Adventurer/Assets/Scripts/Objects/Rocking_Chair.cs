@@ -31,7 +31,6 @@ public class Rocking_Chair : MonoBehaviour {
     {
         while (playerEntered)
         {
-            print("Waiting for Input");
             if (Input.GetButtonDown("Interact") && !LvSelection.PlayerSitting)
             {
                 LvSelection.RestartScript();

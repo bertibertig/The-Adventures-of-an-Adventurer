@@ -19,7 +19,6 @@ public class Entrance : MonoBehaviour {
 	void Start () {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
-
         displayKeyInfo = false;
         keyInfo.SetActive(false);
 	}
@@ -61,9 +60,12 @@ public class Entrance : MonoBehaviour {
 
     public void FollowPlayer()
     {
-        float posx = player.transform.position.x;
-        float posy = player.transform.position.y;
+        if (player != null)
+        {
+            float posx = player.transform.position.x;
+            float posy = player.transform.position.y;
 
-        keyInfo.transform.position = new Vector3(posx, (posy + 2), transform.position.z);
+            keyInfo.transform.position = new Vector3(posx, (posy + 2), transform.position.z);
+        }
     }
 }

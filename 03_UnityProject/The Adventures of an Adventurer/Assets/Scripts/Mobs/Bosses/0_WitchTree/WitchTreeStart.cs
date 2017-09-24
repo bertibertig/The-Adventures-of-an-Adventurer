@@ -64,7 +64,7 @@ public class WitchTreeStart : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player_Talking = player.GetComponentInChildren<AudioSource>();
-        player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
+        player_Sprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
         movement = player.GetComponent<Player_Movement>();
     }
 
@@ -108,6 +108,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
         dialoge.PrintText(usedDialoge[1], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
@@ -116,6 +126,17 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
+
         dialoge.ChangeTalker(enemy_Sprite);
         dialoge.ChangeTalkerName("Legit Witch");
         dialoge.PrintText(usedDialoge[2], textSpeed * 20, player_Talking);
@@ -125,6 +146,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
         dialoge.ChangeTalker(player_Sprite);
         dialoge.ChangeTalkerName("Adventurer");
@@ -135,6 +166,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
 
         dialoge.StopPrintText();

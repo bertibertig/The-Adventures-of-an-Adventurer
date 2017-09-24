@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Spell_Menu_Mobile.unity
+- path: Assets/Scenes/0_Level_Tutorial_00_Hut_Intro.unity
   isLoaded: 1
   isActive: 1
