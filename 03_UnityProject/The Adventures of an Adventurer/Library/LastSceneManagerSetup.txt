@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/0_Level_Tutorial_00_Inside_Hut_of_the_Adventurer.unity
+- path: Assets/Scenes/Spell_Menu_Mobile.unity
   isLoaded: 1
   isActive: 1
