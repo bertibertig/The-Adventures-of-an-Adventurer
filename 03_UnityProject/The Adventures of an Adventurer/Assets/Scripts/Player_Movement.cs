@@ -37,6 +37,7 @@ public class Player_Movement : Photon.MonoBehaviour
     private float rb2dRotation;
 
     GameObject player;
+	PolygonCollider2D playerCollider;
     Camera camera;
     private Vector2 playerScreenPosition;
     private Vector2 enemyScreenPosition;
@@ -115,8 +116,8 @@ public class Player_Movement : Photon.MonoBehaviour
 			currPlayerPos = camera.WorldToScreenPoint(player.transform.position);
         }
 
-		if(!grounded && Input.GetAxis("Horizontal") != 0)
-			StartCoroutine("CheckIfStuckOnWall");
+		//if(!grounded && Input.GetAxis("Horizontal") != 0)
+		//	StartCoroutine("CheckIfStuckOnWall");
     }
 
     public bool GetGrounded()
@@ -207,6 +208,7 @@ public class Player_Movement : Photon.MonoBehaviour
         }
     }
 
+	/*
 	private IEnumerator CheckIfStuckOnWall()
 	{
 		while(!grounded && Input.GetAxis("Horizontal") != 0)
@@ -236,4 +238,5 @@ public class Player_Movement : Photon.MonoBehaviour
 	{
 		yield return new WaitForSeconds(secs);
 	}
+	*/
 }
