@@ -1801,7 +1801,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 243562715}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c039645d15c085a4eb64fed143e2110a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -7932,21 +7932,21 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1221727919}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c039645d15c085a4eb64fed143e2110a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 2.4502182, y: 5.3528337}
-  - {x: 2.4536514, y: 2.612267}
-  - {x: 2.6086197, y: 2.0233448}
-  - {x: 3.033142, y: 1.4240117}
-  - {x: 3.1891937, y: 0.73934394}
-  - {x: 3.270523, y: -0.15729499}
-  - {x: 2.9434204, y: -0.89492834}
-  - {x: 2.1673203, y: -1.0471671}
-  - {x: 1.6751175, y: -0.76212895}
-  - {x: 1.1187057, y: -0.51683515}
+  - {x: 2.6877136, y: 5.8187304}
+  - {x: 2.7093048, y: 2.685103}
+  - {x: 2.748932, y: 2.0179784}
+  - {x: 2.8767395, y: 1.4372163}
+  - {x: 3.0210342, y: 0.76038736}
+  - {x: 3.1219559, y: -0.120153904}
+  - {x: 2.8691406, y: -0.80207527}
+  - {x: 2.1858902, y: -0.9171729}
+  - {x: 1.6936874, y: -0.65999055}
+  - {x: 1.1651306, y: -0.42398208}
   - {x: 0.8504791, y: -0.23708367}
 --- !u!1 &1275214388
 GameObject:
@@ -10235,7 +10235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1595258763
 Transform:
   m_ObjectHideFlags: 0
