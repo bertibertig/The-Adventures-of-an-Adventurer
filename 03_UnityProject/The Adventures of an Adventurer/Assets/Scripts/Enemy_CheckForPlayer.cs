@@ -22,6 +22,7 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
     {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
         enemy_movement = gameObject.GetComponentInParent<Enemy_Movement_AI>();
         HasSeenPlayer = false;
         rb2d = gameObject.GetComponentInParent<Rigidbody2D>();

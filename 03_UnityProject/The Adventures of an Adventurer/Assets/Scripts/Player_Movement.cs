@@ -191,14 +191,16 @@ public class Player_Movement : Photon.MonoBehaviour
         rb2d.AddForce(transform.up * knockbackPower);
         if (playerScreenPosition.x < enemyScreenPosition.x)
         {
+            print("left");
             rb2d.AddForce(transform.right * knockbackPower * - 1.2f);
         }
         else if (playerScreenPosition.x > enemyScreenPosition.x)
         {
+            print("right");
             rb2d.AddForce(transform.right * knockbackPower * 1.2f);
         }
 
-        yield return 0;
+        yield return new WaitForSeconds(1); 
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

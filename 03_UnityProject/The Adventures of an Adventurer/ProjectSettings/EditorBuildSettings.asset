@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/0_Level_Tutorial_03_Hut_Of_Adventurer_Limited.unity
   - enabled: 1
     path: Assets/Scenes/Main_Menu_Debug.unity
+  - enabled: 1
+    path: Assets/Scenes/0_Level_Tutorial_00_Hut_Intro.unity

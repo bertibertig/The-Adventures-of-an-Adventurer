@@ -10,8 +10,8 @@ public class IntroEndCollider : MonoBehaviour {
     void Start()
     {
         intro = GameObject.FindGameObjectWithTag("Intro").GetComponent<Intro>();
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("UI"));
+        //DontDestroyOnLoad(player);
+        //DontDestroyOnLoad(GameObject.FindGameObjectWithTag("UI"));
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
