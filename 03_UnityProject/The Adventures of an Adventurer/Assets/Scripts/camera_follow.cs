@@ -18,10 +18,6 @@ public class camera_follow : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (Player == null)
-        {
-            Player = GameObject.FindGameObjectWithTag("Player");
-        }
     }
 
     void FixedUpdate()
@@ -31,6 +27,7 @@ public class camera_follow : Photon.MonoBehaviour {
         {
             SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
             searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+            Player = GameObject.FindGameObjectWithTag("Player");
         }
 
         if (Player != null)

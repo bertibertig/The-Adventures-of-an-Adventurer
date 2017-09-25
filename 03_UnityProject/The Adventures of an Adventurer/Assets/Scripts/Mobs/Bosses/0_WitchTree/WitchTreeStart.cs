@@ -30,7 +30,12 @@ public class WitchTreeStart : MonoBehaviour {
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
         if (player == null)
+        {
             player = GameObject.FindGameObjectWithTag("Player");
+            player_Talking = player.GetComponentInChildren<AudioSource>();
+            player_Sprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+            movement = player.GetComponent<Player_Movement>();
+        }
 
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;

@@ -81,6 +81,7 @@ public class Tutorial_EndSequence : MonoBehaviour {
         dialoge.EndDialoge();
 
         print("Loading Level: " + levelToLoad);
+        player.SetActive(false);
         gameObject.GetComponent<ChangeLevel>().LoadLevel();
     }
 }
