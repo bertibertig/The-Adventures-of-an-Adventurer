@@ -43,6 +43,9 @@ public class WitchTreeHealthController : MonoBehaviour {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
+        if (loot == null)
+            loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
         eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
         healthCanvas = transform.GetComponentInChildren<Canvas>();
         healthCanvas.enabled = false;

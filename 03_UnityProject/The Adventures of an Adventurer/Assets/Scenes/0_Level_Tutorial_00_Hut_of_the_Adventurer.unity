@@ -2185,7 +2185,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.59
+      value: 6.48
       objectReference: {fileID: 0}
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4009,6 +4009,7 @@ GameObject:
   - component: {fileID: 1892791942}
   - component: {fileID: 1892791944}
   - component: {fileID: 1892791943}
+  - component: {fileID: 1892791945}
   m_Layer: 0
   m_Name: EndIntro
   m_TagString: Untagged
@@ -4040,7 +4041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5882d8ee5752d01419811d788b8bf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionOfEntrance: {x: -0.3063339, y: 2.219448, z: 0}
   player: {fileID: 0}
 --- !u!61 &1892791944
 BoxCollider2D:
@@ -4056,6 +4056,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.1, y: 1}
+--- !u!114 &1892791945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1892791941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb226d39b6b228942b7455c9118ec084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: 0_Level_Tutorial
+  newPosition: {x: 0, y: 2.19}
 --- !u!1 &1927766106
 GameObject:
   m_ObjectHideFlags: 0

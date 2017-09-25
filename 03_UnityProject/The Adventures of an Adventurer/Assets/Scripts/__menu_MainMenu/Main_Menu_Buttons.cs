@@ -103,4 +103,9 @@ public class Main_Menu_Buttons : MonoBehaviour {
     {
         SceneManager.LoadScene("Main_Menu_Debug");
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Main_Menu_Credits");
+    }
 }

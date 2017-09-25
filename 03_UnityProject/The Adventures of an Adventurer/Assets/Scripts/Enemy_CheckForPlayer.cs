@@ -6,7 +6,7 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
 
     public GameObject enemy;
 
-    private GameObject player;
+    public GameObject player;
     private Rigidbody2D rb2d;
     private Vector3 positionOfEnemy;
     private Enemy_Movement_AI enemy_movement;
@@ -28,6 +28,8 @@ public class Enemy_CheckForPlayer : MonoBehaviour {
         rb2d = gameObject.GetComponentInParent<Rigidbody2D>();
         CoRoutineStarted = false;
         enemyAI = enemy.GetComponent<Enemy_Movement_AI>();
+        if(player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void PlayerFound(object sender, EventArgs e)

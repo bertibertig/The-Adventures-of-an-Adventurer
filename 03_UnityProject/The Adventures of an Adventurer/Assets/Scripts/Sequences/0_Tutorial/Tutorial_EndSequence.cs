@@ -81,6 +81,6 @@ public class Tutorial_EndSequence : MonoBehaviour {
         dialoge.EndDialoge();
 
         print("Loading Level: " + levelToLoad);
-        SceneManager.LoadScene(levelToLoad);
+        gameObject.GetComponent<ChangeLevel>().LoadLevel();
     }
 }

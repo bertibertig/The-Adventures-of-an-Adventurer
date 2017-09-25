@@ -29,6 +29,9 @@ public class WitchTreeStart : MonoBehaviour {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
 		ConversationEnded = false;

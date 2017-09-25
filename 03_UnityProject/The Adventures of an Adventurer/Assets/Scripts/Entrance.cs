@@ -9,7 +9,6 @@ using System;
 public class Entrance : MonoBehaviour {
 
     public GameObject keyInfo;
-    public int levelToLoad;
 
     private GameObject player;
     private bool displayKeyInfo;
@@ -21,7 +20,9 @@ public class Entrance : MonoBehaviour {
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
         displayKeyInfo = false;
         keyInfo.SetActive(false);
-	}
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public void PlayerFound(object sender, EventArgs e)
     {
@@ -34,7 +35,7 @@ public class Entrance : MonoBehaviour {
         {
             if (Input.GetButtonDown("Up"))
             {
-                SceneManager.LoadScene(levelToLoad);
+                gameObject.GetComponent<ChangeLevel>().LoadLevel();
             }
             FollowPlayer();
         }

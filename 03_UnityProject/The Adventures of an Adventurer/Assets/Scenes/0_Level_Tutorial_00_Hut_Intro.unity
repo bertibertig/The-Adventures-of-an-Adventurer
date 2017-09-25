@@ -623,6 +623,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &561126878
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.238006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.2761204
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277874054119812, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fccaf3c56f0a3c242b2e8e6e6faca7ad, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &771019843
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 771019844}
   - component: {fileID: 771019845}
+  - component: {fileID: 771019847}
   - component: {fileID: 771019846}
   m_Layer: 0
   m_Name: Door_Collider
@@ -679,6 +722,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: 0_Level_Tutorial_00_Hut_of_the_Adventurer
+  newPosition: {x: 6.48, y: 2.16}
+--- !u!114 &771019847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771019843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9776f24c4f089de4587453d064171d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter: 1
+  onButtonPress: 0
+  button: 
 --- !u!1 &784392989 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011711222166, guid: 7ce16b7c69bd922498e79d79319c87c1,
@@ -748,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &918459130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,7 +1570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1827878141
 Transform:
   m_ObjectHideFlags: 0

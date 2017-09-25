@@ -26,6 +26,9 @@ public class LevelSelection : MonoBehaviour {
     void Start () {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null)
+            player.SetActive(false);
+
         inventoryUI.GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;
         LevelSelectionDisabled = false;
         InitialiseScript();
@@ -33,7 +36,7 @@ public class LevelSelection : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetButtonDown("Cancel") && PlayerSitting && !LevelSelectionDisabled)
+        /*if(Input.GetButtonDown("Cancel") && PlayerSitting && !LevelSelectionDisabled)
         {
             print("stop");
             StopCoroutine("LevelSelectionCoRoutine");
@@ -46,7 +49,7 @@ public class LevelSelection : MonoBehaviour {
             player.transform.position = rockingChairGO.transform.position;
             player.SetActive(true);
             ui.SetActive(true);
-        }
+        }*/
     }
 
     private void InitialiseScript()

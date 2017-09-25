@@ -29,6 +29,7 @@ TagManager:
   - MerchantSlot
   - EndSequenceHandler
   - Spirit
+  - PlayerPosition
   layers:
   - Default
   - TransparentFX

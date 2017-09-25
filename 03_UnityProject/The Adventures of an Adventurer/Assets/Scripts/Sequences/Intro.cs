@@ -86,7 +86,6 @@ public class Intro : MonoBehaviour
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         logo.SetActive(false);
-        SceneManager.LoadScene(levelToLoad);
     }
 
     private IEnumerator Logos()

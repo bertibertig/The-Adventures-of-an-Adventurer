@@ -36,6 +36,7 @@ public class SearchForGameObjects : MonoBehaviour {
 
     private void PlayerFound()
     {
+        print("Notifieing Subscribers");
         if (PlayerFoundEventHandler != null)
             PlayerFoundEventHandler(this, null);
     }

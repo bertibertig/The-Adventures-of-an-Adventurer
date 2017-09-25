@@ -23,28 +23,31 @@ public class DialogeHandler : MonoBehaviour {
     public Textfield Textfield { get; set; }
     public bool Ready { get; set; }
 
-    public DialogeHandler(float textspeed, string[] germanDialoge, string[] englishDialoge, GameObject talker1, GameObject talker2, AudioSource talker1Audio = null, AudioSource talker2Audio = null)
+    public DialogeHandler(float textspeed, string[] germanDialoge, string[] englishDialoge, GameObject talker1, GameObject talker2 = null, AudioSource talker1Audio = null, AudioSource talker2Audio = null)
     {
         Ready = false;
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
         if (TextSpeed <= 0)
-            TextSpeed = 0.5f;
+            TextSpeed = 0.05f;
         else
             TextSpeed = textspeed;
         GermanText = germanDialoge;
         EnglishText = englishDialoge;
         Talker1 = talker1;
-        Talker2 = talker2;
+        if(talker2 != null)
+            Talker2 = talker2;
         Talker1Audio = talker1Audio;
-        Talker2Audio = talker2Audio;
+        if (talker2 != null)
+            Talker2Audio = talker2Audio;
         Textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
 
-        if (Talker1.GetComponent<SpriteRenderer>())
+        if (Talker1 != null)
             Talker1Sprite = Talker1.GetComponent<SpriteRenderer>().sprite;
-        if (Talker2.GetComponent<SpriteRenderer>())
+        if (Talker2 != null)
             Talker2Sprite = Talker2.GetComponent<SpriteRenderer>().sprite;
+
         if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
             Language = "english";
         else
