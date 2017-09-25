@@ -6,8 +6,6 @@ public class LevelSelection : MonoBehaviour {
 
     public GameObject levelTemp;
     public GameObject level1;
-    public GameObject player;
-    public GameObject ui;
 
     private int position = 0;
 
@@ -17,34 +15,10 @@ public class LevelSelection : MonoBehaviour {
 
     public Animator rokingChair;
 
-    public bool PlayerSitting { get; set; }
-
-    // Use this for initialization
-    void Start () { 
-        InitialiseScript();
-    }
-
-    private void Update()
-    {
-        if(Input.GetButtonDown("Cancel"))
-        {
-            //print("stop");
-            StopCoroutine("LevelSelectionCoRoutine");
-            rokingChair.SetBool("IsUsed",false);
-            levels[position].LevelFrame.enabled = false;
-            levels[position].LevelObjectItem.GetComponent<SpriteRenderer>().enabled = false;
-            position = 0;
-            PlayerSitting = false;
-            player.SetActive(true);
-            ui.SetActive(true);
-        }
-    }
-
-    private void InitialiseScript()
-    {
+	// Use this for initialization
+	void Start () {
         levelSelected = false;
         levels = new List<LevelObject>();
-        PlayerSitting = true;
 
         if (level1 != null)
         {
@@ -59,6 +33,19 @@ public class LevelSelection : MonoBehaviour {
         //TODO: Implement further levels.
 
         StartCoroutine("LevelSelectionCoRoutine");
+    }
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Cancel"))
+        {
+            print("stop");
+            StopCoroutine("LevelSelectionCoRoutine");
+            rokingChair.SetBool("IsUsed",false);
+            levels[position].LevelFrame.enabled = false;
+            levels[position].LevelObjectItem.GetComponent<SpriteRenderer>().enabled = false;
+            position = 0;
+        }
     }
 
     IEnumerator LevelSelectionCoRoutine()
@@ -108,17 +95,5 @@ public class LevelSelection : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         yield return null;
-    }
-
-    public void RestartScript()
-    {
-        //TODO: BUG: Check why Adventurer is invisible on first frames of Animation. 
-        position = 0;
-        rokingChair.SetBool("IsUsed", true);
-        levels[position].LevelFrame.enabled = true;
-        levels[position].LevelObjectItem.GetComponent<SpriteRenderer>().enabled = true;
-        player.SetActive(false);
-        ui.SetActive(false);
-        StartCoroutine("LevelSelectionCoRoutine");
     }
 }

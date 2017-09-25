@@ -1,124 +1,85 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player_Movement : Photon.MonoBehaviour
-{
-
-    //Floats
-    public float maxSpeed = 3;
-    public float speed = 50f;
-    public float jumpPower = 400f;
-    public float lerpStep = 0.1f;
-    private float knockbackPower;
-
-    //Bools
-    public bool multiplayerOn = false;
-    public bool grounded;
-    public bool isDying = false;
-    public bool canDoubleJump;
-    public bool isAbleToJump = false;
-    private bool knockbackCoroutineStarted = false;
-    private bool ungroundedAfterKnockbackStarted = false;
-
-
-    //References
-    private Rigidbody2D rb2d;
-    private Animator anim;
+public class Player_Movement : MonoBehaviour {
+	
+	//Floats
+	public float maxSpeed = 3;
+	public float speed = 50f;
+	public float jumpPower = 400f;
+	
+	//Bools
+	public bool grounded;
+	public bool isDying = false;
+	public bool canDoubleJump;
+	public bool isAbleToJump = false;
+	
+	//References
+	private Rigidbody2D rb2d;
+	private Animator anim;
     private bool movementDisabled;
     private float knockDur;
     private float knockbackPowr;
     private Vector3 knockbackDir;
-	private Vector3 currPlayerPos;
-	private Vector3 plPosAtCertainTime;
-	private float stuckCounter;
-
-    //Multiplayer Variables
-    private Vector2 newPos;
-    private float rb2dRotation;
 
     GameObject player;
-	PolygonCollider2D playerCollider;
     Camera camera;
-    private Vector2 playerScreenPosition;
-    private Vector2 enemyScreenPosition;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
-    // Use this for initialization
-    void Start()
-    {
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+	// Use this for initialization
+	void Start () {
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 2)
         {
-            //Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
         }
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
-    }
+		anim = gameObject.GetComponent<Animator>();
+	}
 
-    void OnLevelWasLoaded()
-    {
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
+	void OnLevelWasLoaded()
+	{
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+	}
 
     void Update()
-    {
-        anim.SetBool("grounded", grounded);
-        //anim.SetBool("isDying", isDying);
-        anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
-
-        if (this.photonView.isMine || !multiplayerOn)
+	{
+		anim.SetBool("grounded", grounded);
+		//anim.SetBool("isDying", isDying);
+		anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+		
+		//Rotation of the Player
+        if (!movementDisabled)
         {
-            //Rotation of the Player
-            if (!movementDisabled)
+			if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
-                if (Input.mousePosition.x < camera.WorldToScreenPoint(player.transform.localPosition).x)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-
-                if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
+                transform.localScale = new Vector3(-1, 1, 1);
             }
 
-            //Jumping /Double Jumping
-            if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
+			if (Input.mousePosition.x > camera.WorldToScreenPoint(player.transform.localPosition).x)
             {
-                if (grounded)
-                {
-                    rb2d.AddForce(Vector2.up * jumpPower);
-                    canDoubleJump = true;
-                }
-                else if (canDoubleJump)
-                {
-                    canDoubleJump = false;
-                    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-                    rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
-                }
+                transform.localScale = new Vector3(1, 1, 1);
             }
-
-            if (knockbackCoroutineStarted && !grounded)
-            {
-                ungroundedAfterKnockbackStarted = true;
-                MovementDisabled = true;
-            }
-
-            if (ungroundedAfterKnockbackStarted && grounded)
-            {
-                movementDisabled = false;
-                knockbackCoroutineStarted = false;
-                ungroundedAfterKnockbackStarted = false;
-            }
-
-			currPlayerPos = camera.WorldToScreenPoint(player.transform.position);
         }
 
-		//if(!grounded && Input.GetAxis("Horizontal") != 0)
-		//	StartCoroutine("CheckIfStuckOnWall");
-    }
+		//Jumping /Double Jumping
+		if (Input.GetButtonDown("Jump") && isAbleToJump && !movementDisabled)
+		{
+			if (grounded)
+			{
+				rb2d.AddForce(Vector2.up * jumpPower);
+				canDoubleJump = true;
+			}
+			else if (canDoubleJump)
+			{
+				canDoubleJump = false;
+				rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+				rb2d.AddForce(Vector2.up * (jumpPower * 0.8f));
+			}
+		}
+	}
 
     public bool GetGrounded()
     {
@@ -134,109 +95,49 @@ public class Player_Movement : Photon.MonoBehaviour
 
         float h = Input.GetAxis("Horizontal");
 
-        if (this.photonView.isMine || !multiplayerOn)
+        //Disables Sliding of the Player
+        if (grounded && !movementDisabled)
         {
-            //Disables Sliding of the Player
-            if (grounded && !movementDisabled)
-            {
-                rb2d.velocity = easeVelocity;
-            }
+            rb2d.velocity = easeVelocity;
+        }
 
-            //Movement of the player
-            if (!movementDisabled)
-            {
-                rb2d.AddForce((Vector2.right * speed) * h);
+        //Movement of the player
+        if (!movementDisabled)
+        {
+            rb2d.AddForce((Vector2.right * speed) * h);
 
-                if (rb2d.velocity.x > maxSpeed)
-                {
-                    rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
-                }
-            }
-
-            //MaxSpeed of the player
-            if (rb2d.velocity.x < -maxSpeed)
+            if (rb2d.velocity.x > maxSpeed)
             {
-                rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+                rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
             }
         }
-        else
+
+        //MaxSpeed of the player
+        if (rb2d.velocity.x < -maxSpeed)
         {
-            Vector2 lerp = Vector2.Lerp(this.rb2d.position, newPos, lerpStep);
-            rb2d.MovePosition(lerp);
+            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
     }
 
-    public void StartKnockback(float knockbackPowr, Vector3 playerPos, Vector3 enemyPos)
+    public void StartKnockback(float knockDur, float knockbackPowr, Vector3 knockbackDir)
     {
-        this.knockbackPower = knockbackPowr;
-
-        Vector3 playerScreenPos = camera.WorldToScreenPoint(playerPos);
-        this.playerScreenPosition = new Vector2(playerScreenPos.x, playerScreenPos.y);
-
-        Vector3 enemyScreenPos = camera.WorldToScreenPoint(enemyPos);
-        this.enemyScreenPosition = new Vector2(enemyScreenPos.x, enemyScreenPos.y);
-
+        this.knockDur = knockDur;
+        this.knockbackPowr = knockbackPowr;
+        this.knockbackDir = knockbackDir;
         StartCoroutine("Knockback");
     }
 
     public IEnumerator Knockback()
     {
-        knockbackCoroutineStarted = true;
+        float timer = 0;
 
-        rb2d.AddForce(transform.up * knockbackPower);
-        if (playerScreenPosition.x < enemyScreenPosition.x)
+        while(knockDur > timer)
         {
-            rb2d.AddForce(transform.right * knockbackPower * - 1.2f);
-        }
-        else if (playerScreenPosition.x > enemyScreenPosition.x)
-        {
-            rb2d.AddForce(transform.right * knockbackPower * 1.2f);
+            timer += Time.deltaTime;
+            //rb2d.AddForce(new Vector3(knockbackDir.x * -100, 10 *  knockbackPowr, transform.position.z));
+            rb2d.AddForce(new Vector3(knockbackDir.x * -10, knockbackDir.y * knockbackPowr, transform.position.z));
         }
 
         yield return 0;
     }
-
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if(stream.isWriting)
-        {
-            stream.SendNext(this.rb2d.position);
-        }
-        else if(stream.isReading)
-        {
-            newPos = (Vector2)stream.ReceiveNext();
-        }
-    }
-
-	/*
-	private IEnumerator CheckIfStuckOnWall()
-	{
-		while(!grounded && Input.GetAxis("Horizontal") != 0)
-		{
-			plPosAtCertainTime = currPlayerPos;
-			yield return StartCoroutine ("Delay", 1.0f);
-
-			print (plPosAtCertainTime.x + ", " + currPlayerPos.x + ", " + MovementDisabled + ", " + stuckCounter);
-
-			if (stuckCounter < 4) {
-				if ((plPosAtCertainTime.x == currPlayerPos.x) && !grounded) {
-					stuckCounter++;
-				} else {
-					stuckCounter = 0;
-				}
-			} else {
-				MovementDisabled = true;
-			}
-		}
-		stuckCounter = 0;
-		MovementDisabled = false;
-
-		yield return 0;
-	}
-
-	private IEnumerator Delay(float secs)
-	{
-		yield return new WaitForSeconds(secs);
-	}
-	*/
 }
