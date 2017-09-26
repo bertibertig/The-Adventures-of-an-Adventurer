@@ -28,6 +28,12 @@ public class ChangeLevel : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().RestartSearchPlayerManual();
             }
         }
+        if (levelToLoad == "Main_Menu")
+        {
+            Destroy(GameObject.FindGameObjectWithTag("UI_OnlyOnce"));
+            Destroy(GameObject.FindGameObjectWithTag("EventList"));
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+        }
         SceneManager.LoadScene(levelToLoad);
     }
 }

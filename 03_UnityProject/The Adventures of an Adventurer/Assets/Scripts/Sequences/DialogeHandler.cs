@@ -51,14 +51,25 @@ public class DialogeHandler : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
             Language = "english";
         else
-            Language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+            Language = "english";
+            //Language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
         if (Language == "german")
             UsedDialoge = germanDialoge;
         else
             UsedDialoge = englishDialoge;
+        PlayerFound();
     }
 
     public void PlayerFound(object sender, EventArgs e)
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Movement = Player.GetComponent<Player_Movement>();
+        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+        PlayerAudio = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<AudioSource>();
+        Ready = true;
+    }
+
+    public void PlayerFound()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Movement = Player.GetComponent<Player_Movement>();

@@ -30,6 +30,12 @@ public class sign_general : MonoBehaviour {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
+        if (player == null || movement == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            movement = player.GetComponent<Player_Movement>();
+        }
+
         if (language == "german")
         {
             usedDialoge = germanDialoge;

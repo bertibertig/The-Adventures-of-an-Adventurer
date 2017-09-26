@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Tutorial_Ending_Hut : MonoBehaviour {
@@ -150,6 +151,8 @@ public class Tutorial_Ending_Hut : MonoBehaviour {
         textfield.StopPrintText();
         textfield.DisableText();
 
+        yield return new WaitForSeconds(0.1f);
         levelSelection.SetActive(true);
+        levelSelection.GetComponent<LevelSelection>().enabled = true;
     }
 }

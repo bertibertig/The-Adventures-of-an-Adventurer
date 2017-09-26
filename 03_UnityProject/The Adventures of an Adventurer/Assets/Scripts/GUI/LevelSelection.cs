@@ -14,6 +14,7 @@ public class LevelSelection : MonoBehaviour {
     private List<LevelObject> levels;
 
     private bool levelSelected;
+    private LevelSelectionHandler lvHandler;
 
     public Animator rokingChair;
     public GameObject rockingChairGO;
@@ -26,9 +27,10 @@ public class LevelSelection : MonoBehaviour {
     void Start () {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null)
-            player.SetActive(false);
+        /*if(player != null)
+            player.SetActive(false);*/
 
+        lvHandler = gameObject.GetComponent<LevelSelectionHandler>();
         inventoryUI.GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;
         LevelSelectionDisabled = false;
         InitialiseScript();
@@ -92,11 +94,17 @@ public class LevelSelection : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                 }
                 if (Input.GetButtonDown("Interact"))
-                    print("Selected Level: " + levels[position].LevelName);
+                    gameObject.GetComponent<LevelSelectionHandler>().HandleLevel(position);
                 //TODO: Implement Level Startvfor Level 1
             }
             yield return null;
         } while (!levelSelected);
+    }
+
+    private void LevelAction()
+    {
+        if (position == 0)
+            StartCoroutine("Level1Dialoge");
     }
 
     private void ChangeSelection(int changer)

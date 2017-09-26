@@ -19,7 +19,9 @@ public class Throw_On_Target : MonoBehaviour {
     private void Start()
     {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
-        searchForPlayer.PlayerFoundEventHandler += PlayerFound;  
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+        if (myTarget == null)
+            myTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void PlayerFound(object sender, EventArgs e)

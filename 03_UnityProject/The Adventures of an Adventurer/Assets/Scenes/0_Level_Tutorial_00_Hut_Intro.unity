@@ -286,6 +286,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &52287247
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 470231825}
+    m_Modifications:
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &141163604 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4078577995421048, guid: d44ec84374aafab43ba4d9426a272c3f,
@@ -499,70 +541,11 @@ EdgeCollider2D:
   m_Points:
   - {x: 6.136476, y: -1.0703992}
   - {x: 6.1578255, y: -5.0002956}
---- !u!1 &410940080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 410940081}
-  - component: {fileID: 410940082}
-  m_Layer: 0
-  m_Name: Black
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &410940081
+--- !u!4 &410940081 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 410940080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: -2.93, z: -5}
-  m_LocalScale: {x: 122.24626, y: 70.535385, z: 3.8556101}
-  m_Children: []
-  m_Father: {fileID: 470231825}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &410940082
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 410940080}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 51fc42843a15c0f49a24cd1b9b431cf8, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  m_PrefabParentObject: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d,
+    type: 2}
+  m_PrefabInternal: {fileID: 52287247}
 --- !u!1 &470231823
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,17 +576,25 @@ MonoBehaviour:
   textSpeed: 0.05
   germanDialoge:
   - "... und so hat euer Opi aus dem m\xE4chtigen Drachen Sushi gemacht."
-  - Uh, wow, Toll Opa.
-  - Ja, aber das ist noch gar nichts im gegensatz zu, ...
+  - Uh, wow. Toll Opa.
+  - Ja, aber das ist noch gar nichts im Gegensatz zu...
   - Hoppla da hab ich mich ein bisschen verplappert.
   - "Ich hab ganz \xFCbersehen neues Feuerholz in den Kamin nachzulgen."
-  - Hm, keines mehr da. Kinder, ich geh schnell in den Wald und hohl neues.
+  - Hm, keines mehr da. Kinder, ich geh schnell in den Wald und hol neues.
   - "Ihr bleibt w\xE4hrenddessen hier und wartet auf mich."
   - " Keine Angst, die H\xFCtte hat einen Zauber, der euch vor Monstern sch\xFCtz."
   - Ok Opa.
   englishDialoge:
-  - 
-  - 
+  - '...and that''s how your grandfather made sushi out of the dragon!'
+  - Uh, wow. Cool!
+  - Still, this is nothing compared to...
+  - Ah wait...
+  - I forgot to throw fire wood into the fire place!
+  - Hm... seems like there's no wood left. Children, I go to the forest and get new
+    wood.
+  - Meanwhile you wait here for me.
+  - No worries, a spell protects the hut from enemies.
+  - Ok!
   player: {fileID: 1807216719}
   children: {fileID: 1734215918}
   levelSelection: {fileID: 918459129}

@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSpeed: 0.05
-  language: german
+  language: english
   keyInfo: {fileID: 271978658}
   germanDialoge:
   - Mit 'E' kannst du mit Objekten in deine Umgebung interagieren.
@@ -3929,6 +3929,16 @@ Prefab:
       propertyPath: deathText
       value: 
       objectReference: {fileID: 380945023}
+    - target: {fileID: 114966362565043846, guid: 2434264677136674186d576aa98882eb,
+        type: 2}
+      propertyPath: dmg
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114156462295741506, guid: 2434264677136674186d576aa98882eb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114372587653932328, guid: 2434264677136674186d576aa98882eb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2434264677136674186d576aa98882eb, type: 2}
@@ -5981,22 +5991,22 @@ Prefab:
     - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
         type: 2}
       propertyPath: englishDialoge.Array.data[0]
-      value: 
+      value: Haha, I won once again!
       objectReference: {fileID: 0}
     - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
         type: 2}
       propertyPath: englishDialoge.Array.data[1]
-      value: 
+      value: Still as fit as back then!
       objectReference: {fileID: 0}
     - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
         type: 2}
       propertyPath: englishDialoge.Array.data[2]
-      value: 
+      value: Now I just have to burn the witch's corpse..
       objectReference: {fileID: 0}
     - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
         type: 2}
       propertyPath: englishDialoge.Array.data[3]
-      value: 
+      value: Else she might revive herself with her magic.
       objectReference: {fileID: 0}
     - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
         type: 2}
@@ -6011,6 +6021,36 @@ Prefab:
     - target: {fileID: 1988336117564958, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: blackFade
+      value: 
+      objectReference: {fileID: 1830941416}
+    - target: {fileID: 114547775442975224, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[4]
+      value: My fireplace would be perfect to do so.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[0]
+      value: Wait a second, I still have to beat the evil witch!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[1]
+      value: Now I can go back to the kids.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[2]
+      value: Wait! A corpse could be irritating for the children
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972592297243608, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+        type: 2}
+      propertyPath: englishDialoge.Array.data[3]
+      value: I should use illusion magic to her look like fire wood.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09da5a1f0fdf16b4da615a40dfab1192, type: 2}
@@ -6033,6 +6073,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: 0_Level_Tutorial_00_Inside_Hut_of_the_Adventurer
   newPosition: {x: -1.8, y: -3.9}
+--- !u!4 &831739378 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4426600624042880, guid: 09da5a1f0fdf16b4da615a40dfab1192,
+    type: 2}
+  m_PrefabInternal: {fileID: 831739372}
 --- !u!1 &838087333
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,6 +9975,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114784328300454802, guid: aa860afc8fd699647861675c96ef66a2,
+        type: 2}
+      propertyPath: language
+      value: english
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa860afc8fd699647861675c96ef66a2, type: 2}
   m_IsPrefabParent: 0
@@ -10031,6 +10081,56 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.3, y: 0.7}
+--- !u!1001 &1385729283
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 831739378}
+    m_Modifications:
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -14.48889
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.42703447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 437.2163
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637689657614468, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 18.645323
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 01b611d005dc58141aa9f97d9639d20d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1389443111
 GameObject:
   m_ObjectHideFlags: 0
@@ -13750,6 +13850,11 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.6, y: 0.3}
+--- !u!1 &1830941416 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1571228080649072, guid: 01b611d005dc58141aa9f97d9639d20d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1385729283}
 --- !u!1 &1855016826
 GameObject:
   m_ObjectHideFlags: 0
