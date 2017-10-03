@@ -66,7 +66,7 @@ public class Inventory_Main : MonoBehaviour {
             itemList = inventoryDatabase.GetItemDatabase;
             itemInfo = GetSlotArray(slotTag,NUMBER_OF_SLOTS);
             emptyBrown = itemInfo[0].Slot.GetComponent<Image>().color;
-            //FillInventoryTemporarely();
+            FillInventoryTemporarely();
             inventoryUI.SetActive(false);
             slotArrayLoaded = true;
         }
