@@ -30,6 +30,7 @@ TagManager:
   - EndSequenceHandler
   - Spirit
   - PlayerPosition
+  - Waypoint
   layers:
   - Default
   - TransparentFX
