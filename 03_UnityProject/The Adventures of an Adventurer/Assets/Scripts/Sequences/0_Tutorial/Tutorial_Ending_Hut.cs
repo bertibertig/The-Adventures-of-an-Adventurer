@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Tutorial_Ending_Hut : MonoBehaviour {
 
+    public string xmlTag;
+    public string filepath;
     public float textSpeed;
     public string[] germanDialoge;
     public string[] englishDialoge;
@@ -26,7 +28,7 @@ public class Tutorial_Ending_Hut : MonoBehaviour {
         else
             eventList = GameObject.FindGameObjectWithTag("EventList");
 
-        dialogeHandler = new DialogeHandler(textSpeed, germanDialoge, englishDialoge, children);
+        //dialogeHandler = new XMLReader().LoadDialouge(xmlTag, filepath);
         if(textfield == null)
             textfield = dialogeHandler.Textfield;
         if (player == null)
@@ -69,89 +71,11 @@ public class Tutorial_Ending_Hut : MonoBehaviour {
     IEnumerator Intro_Sequence()
     {
         levelSelection.GetComponent<LevelSelection>().LevelSelectionDisabled = true;
-        textfield.ChangeTalker(dialogeHandler.PlayerSprite);
-        textfield.ChangeTalkerName("Adventurer");
-        textfield.PrintText(dialogeHandler.UsedDialoge[0], textSpeed, dialogeHandler.PlayerAudio);
-        while (!Input.GetButtonDown("Interact"))
+        while(dialogeHandler.Talking)
         {
             yield return null;
         }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-        yield return null;
 
-        textfield.ChangeTalker(dialogeHandler.Talker1Sprite);
-        textfield.ChangeTalkerName("Grandchildren");
-        textfield.PrintText(dialogeHandler.UsedDialoge[1], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-        textfield.StopPrintText();
-
-        textfield.ChangeTalker(dialogeHandler.PlayerSprite);
-        textfield.ChangeTalkerName("Adventurer");
-        textfield.PrintText(dialogeHandler.UsedDialoge[2], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[3], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.StopPrintText();
-        textfield.DisableText();
-
-        yield return new WaitForSeconds(0.1f);
         levelSelection.SetActive(true);
         levelSelection.GetComponent<LevelSelection>().enabled = true;
     }

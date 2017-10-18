@@ -4,29 +4,17 @@ using System;
 
 public class sign_general : MonoBehaviour {
 
-    public float textSpeed;
-    public string language;
     public GameObject keyInfo;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
+    public string id = "default";
 
     private bool displayKeyInfo;
-    private bool talking;
-    private string talker;
-    private string[] usedDialoge;
-    private Textfield textfield;
     private GameObject player;
     private Player_Movement movement;
-    private AudioSource signSound;
+    private DialogeHandler dHandler;
 
     // Use this for initialization
     void Start () {
         displayKeyInfo = false;
-        talking = false;
-        if (textSpeed <= 0)
-            textSpeed = 0.05f;
-        textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-        textfield.DisableText();
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
@@ -35,38 +23,26 @@ public class sign_general : MonoBehaviour {
             player = GameObject.FindGameObjectWithTag("Player");
             movement = player.GetComponent<Player_Movement>();
         }
-
-        if (language == "german")
-        {
-            usedDialoge = germanDialoge;
-            talker = "Schild";
-        }
-        else
-        {
-            usedDialoge = englishDialoge;
-            talker = "sign";
-        }
+        
     }
 
     void Update()
     {
+        if(GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().LoadedDialoge && dHandler == null)
+        {
+            dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        }
+
         if (displayKeyInfo)
         {
-            if (Input.GetButtonDown("Interact") && !talking)
+            if (Input.GetButtonDown("Interact"))
             {
-                talking = true;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 movement.MovementDisabled = true;
                 player.GetComponent<Player_Attack>().enabled = false;
                 print("talking");
-                StartCoroutine("Read");
+                dHandler.StartConversation();
             }
-
-            if (Input.GetButtonDown("Submit") && talking)
-            {
-                textSpeed = 0.01f;
-            }
-
             FollowPlayer();
         }
     }
@@ -96,8 +72,7 @@ public class sign_general : MonoBehaviour {
         movement = player.GetComponent<Player_Movement>();
     }
 
-    //TODO: Implement System like this for other dialoges.
-    private IEnumerator Read()
+    /*private IEnumerator Read()
     {
         textfield.ChangeTalker(this.gameObject.GetComponentInParent<SpriteRenderer>().sprite);
         textfield.ChangeTalkerName(talker);
@@ -130,7 +105,7 @@ public class sign_general : MonoBehaviour {
         movement.MovementDisabled = false;
         player.GetComponent<Player_Attack>().enabled = true;
         talking = false;
-    }
+    }*/
 
     public void FollowPlayer()
     {

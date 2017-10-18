@@ -5,8 +5,6 @@ using System;
 public class WitchTreeStart : MonoBehaviour {
 
     public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
 
     private string language;
     private AudioSource player_Talking;

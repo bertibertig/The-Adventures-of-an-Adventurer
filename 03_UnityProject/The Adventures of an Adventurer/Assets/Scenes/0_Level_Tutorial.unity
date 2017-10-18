@@ -528,6 +528,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114967981488076060, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967981488076060, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967981488076060, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
   m_IsPrefabParent: 0
@@ -3678,6 +3693,47 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &564810630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 564810631}
+  - component: {fileID: 564810632}
+  m_Layer: 0
+  m_Name: DialogesDB
+  m_TagString: DialogesDB
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564810631
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564810630}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -38.35, y: -4.23, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564810632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564810630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004aa80b9e9170343a1d604336994706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filepath: xml\dialoges\0_Tutorial.xml
 --- !u!1 &579810287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,11 +3807,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -58.2
+      value: -19.17
       objectReference: {fileID: 0}
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5592,7 +5648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815414502
 GameObject:
@@ -7527,15 +7583,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textSpeed: 0
   germanDialoge:
-  - Ha, hab ich dich endlich gefunden, du hinterlistige Hexe!
-  - Jetzt kannst du dich auf etwas gefasst machen!
-  - '...'
-  - Schweigen wird dir nicht helfen! Stirb!
+  - 
+  - 
+  - 
+  - 
   englishDialoge:
-  - There you are! I finally found you, you deceitful witch!
-  - Prepare for your demise!
+  - 
+  - 
   - '...'
-  - Silence won't hinder your downfall! Die!
+  - 
 --- !u!1 &1045211803
 GameObject:
   m_ObjectHideFlags: 0
@@ -10695,6 +10751,16 @@ Prefab:
       propertyPath: keyInfo
       value: 
       objectReference: {fileID: 271978658}
+    - target: {fileID: 114645497903914200, guid: 33eaca34f8228fe4590444d20844ad98,
+        type: 2}
+      propertyPath: objectTag
+      value: sign01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114645497903914200, guid: 33eaca34f8228fe4590444d20844ad98,
+        type: 2}
+      propertyPath: id
+      value: sign01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33eaca34f8228fe4590444d20844ad98, type: 2}
   m_IsPrefabParent: 0
