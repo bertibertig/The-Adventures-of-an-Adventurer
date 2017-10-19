@@ -11,6 +11,7 @@ public class XMLReader : MonoBehaviour {
     public string filepath = @"Assets\xml\dialoges\0_Tutorial.xml";
 
     private string language;
+    private GameObject player;
 
     public List<GameObject> dHandlerDB { get; set; }
     public bool LoadedDialoge { get; set; }
@@ -23,6 +24,17 @@ public class XMLReader : MonoBehaviour {
             language = "english";
         else
             language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+
+        //StartCoroutine("LoadDialouge");
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine("LoadDialouge");
     }
 
@@ -168,8 +180,10 @@ public class XMLReader : MonoBehaviour {
             dHFromGo.Language = "english";
         else
             dHFromGo.Language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
-        dHFromGo.Player = GameObject.FindGameObjectWithTag("Player");
-        dHFromGo.Movement = dHFromGo.Player.GetComponent<Player_Movement>();
+
+        /*MULTIPLAYER_OWN*/
+        dHFromGo.Player = player;
+        dHFromGo.Movement = player.GetComponent<Player_Movement>();
 
         dHandlerDB.Add(tmpObj);
     }

@@ -31,6 +31,8 @@ TagManager:
   - Spirit
   - PlayerPosition
   - DialogesDB
+  - MultiplayerGUI
+  - MultiplayerController
   layers:
   - Default
   - TransparentFX

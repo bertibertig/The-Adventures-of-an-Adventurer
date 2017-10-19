@@ -121,10 +121,10 @@ public class Inventory_MouseOver : MonoBehaviour{
             {
                 Type type = Type.GetType(itemInfo.Item.GetClassString);
                 MethodInfo m = type.GetMethod(itemInfo.Item.GetFunction);
-                if(itemInfo.Item.GetOptionalParams != null)
+                if (itemInfo.Item.GetOptionalParams != null)
                     m.Invoke(m, itemInfo.Item.GetOptionalParams);
                 else
-                    m.Invoke(m, null);
+                    m.Invoke(m, new object[] { "" });
             }
         }
 

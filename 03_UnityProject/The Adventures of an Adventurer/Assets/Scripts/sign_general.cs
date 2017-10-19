@@ -17,12 +17,12 @@ public class sign_general : MonoBehaviour {
         displayKeyInfo = false;
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
-
+        /*MULTIPLAYER_OWN
         if (player == null || movement == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             movement = player.GetComponent<Player_Movement>();
-        }
+        }*/
         
     }
 

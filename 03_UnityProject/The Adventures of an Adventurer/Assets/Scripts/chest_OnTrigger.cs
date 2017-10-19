@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class chest_OnTrigger : MonoBehaviour {
 
@@ -21,6 +22,9 @@ public class chest_OnTrigger : MonoBehaviour {
 	void Start () {
         anim = gameObject.GetComponentInParent<Animator>();
         inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>();
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
         displayKeyInfo = false;
         keyInfo.SetActive(false);
@@ -62,6 +66,11 @@ public class chest_OnTrigger : MonoBehaviour {
             }
             FollowPlayer();
         }
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 

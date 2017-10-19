@@ -97,6 +97,7 @@ public class Inventory_Main : MonoBehaviour {
         ChangeItem(itemInfo[0], itemList[1]);
         ChangeItem(itemInfo[1], itemList[2]);
         ChangeItem(itemInfo[2], itemList[3]);
+        ChangeItem(itemInfo[3], itemList[5]);
         //AddItem(itemList.Where(i => i.GetID == 4).FirstOrDefault().GetID);
         //print(itemInfo[5].Item.GetName);
     }
@@ -156,11 +157,16 @@ public class Inventory_Main : MonoBehaviour {
         GameObject[] slots;
         ItemInfo[] ii = new ItemInfo[itemInfoSize];
         slots = GameObject.FindGameObjectsWithTag(slotTagMethod).OrderBy(go => go.name).ToArray();
-        print("Slots: " + slots.Length);
         for (int i = 0; i < slots.Length; i++)
         {
             ii[i] = new ItemInfo(itemList[0], slots[i]);
         }
         return ii;
     }
+
+    public void DisableInventory()
+    {
+        inventoryOpen = false;
+        inventoryUI.SetActive(inventoryOpen);
+    } 
 }
