@@ -52,10 +52,6 @@ public class WitchTreeStart : MonoBehaviour {
             language = "english";
         else
             language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
-        if (language == "german")
-            usedDialoge = germanDialoge;
-        else
-            usedDialoge = englishDialoge;
     }
 
 	void Update()

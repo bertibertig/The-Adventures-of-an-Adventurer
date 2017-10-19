@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class XMLReader : MonoBehaviour {
 
-    public string filepath = @"xml\dialoges\0_Tutorial.xml";
+    public string filepath = @"Assets\xml\dialoges\0_Tutorial.xml";
 
     private string language;
 
