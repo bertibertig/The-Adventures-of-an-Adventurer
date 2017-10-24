@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
 
 public class LanguageReader : MonoBehaviour {
 
@@ -14,9 +15,12 @@ public class LanguageReader : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        XMLReader xmlReader = new XMLReader();
+        Language = xmlReader.ReadLanguage();
+        /*
         if (language == "german")
             language = "german";
         else
-            language = "english";
+            language = "english";*/
 	}
 }
