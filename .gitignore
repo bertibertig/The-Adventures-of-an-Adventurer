@@ -33,7 +33,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.info
 Library/ShaderCache/
+Library/metadata/
 
 
 ### VisualStudio ###
@@ -308,92 +310,4 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
-The Adventures of an Adventurer/Library/metadata/6a/6a6442d245cf2d846a5b0b1d06e33327
-The Adventures of an Adventurer/Library/metadata/6a/6a6442d245cf2d846a5b0b1d06e33327.info
-The Adventures of an Adventurer/Library/metadata/81/81ed37bd344917248ad234605bf10f6e
-The Adventures of an Adventurer/Library/metadata/81/81ed37bd344917248ad234605bf10f6e.info
-The Adventures of an Adventurer/Library/metadata/b9/b98c083a2df3cbb4fa933ef3a6811bb0
-The Adventures of an Adventurer/Library/metadata/b9/b98c083a2df3cbb4fa933ef3a6811bb0.info
-The Adventures of an Adventurer/Library/metadata/f0/f0c2e56a8533e7c43b1a0e7ba49ec341
-The Adventures of an Adventurer/Library/metadata/f0/f0c2e56a8533e7c43b1a0e7ba49ec341.info
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/0/06c015c0195c9dac19baed5ba65aa41e.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/1/12142c5fb95e3baf42590a666f962add.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/2/208e5881c7bd373f0cf608e1da19a291.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/2/266d6b10e361110af322995e74105310.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/2/2a29a7ee7f1b356eb8d7a9ac9f120d25.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/3/3292d44cefaffd704b76675ac1fb1f09.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/3/35f9c034f7a9334b093257ec347d12e2.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/3/38cfaf41df46934c00bc91f76ebfcac2.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/3/3a498e90cb8fde67fab75edb299e68cf.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/5/52ca921bc097725ffee2edb72778d242.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/6/645642a0a1ead3aa34fae0d6ec0ee2d5.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/7/7c4efe078e42bdf68a95efa0ba231e5f.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/7/7e52041d2559ddf02939ebf09963776a.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/7/7e8316ea7881b5a9aa84baf68646d3c2.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/8/803965fe2cefc6a8777691d359c43f3f.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/8/81c6e49dff96c7569330ac861ff29013.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/8/85a9017fb9c3a3533a42abd87850ec96.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/8/8b623f2283e26b41a0ddd3f4bdba05c7.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/a/a01a4dca5d024505e15f87169e9f772e.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/a/a6ae4f0f7ceea03edb1d4c6d36404d72.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/a/a84bca8e4cb13e4e92e23c1772e5b9f5.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/a/af65bf4004c030ccd37d54c700bd1b76.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/b/ba56c7001bd694773cd763c9ad4e2a93.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/d/d1b361b311d100bd900433c3b6f25b46.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/d/d4281282ba2f755b319e01df7e174ca5.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/d/d9c80dd6223384493e5b3a8aa3721d6d.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/d/dbeb5d1f032d3bfe77f98aae37d2f15a.bin
-03_UnityProject/The Adventures of an Adventurer/Library/ShaderCache/f/fe801afc80e0ef9fe8468790e037387d.bin
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/0d/0d3bb855445e36e479c85976fc88383a
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/0d/0d3bb855445e36e479c85976fc88383a.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/26/2682a692a2be7e14e901a738c7806da0
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/26/2682a692a2be7e14e901a738c7806da0.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/2f/2fe3476eabbbb6c448e6b55a2cc471f5
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/2f/2fe3476eabbbb6c448e6b55a2cc471f5.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/30/307433eba81a469ab1e2084d52d1a5a2
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/30/307433eba81a469ab1e2084d52d1a5a2.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/32/32188fd89022c154c81befa2f0e00be0
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/32/32188fd89022c154c81befa2f0e00be0.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/32/328cc881519068e4eb7db4bb907ad2d9
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/32/328cc881519068e4eb7db4bb907ad2d9.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/41/4113173d5e95493ab8765d7b08371de4
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/41/4113173d5e95493ab8765d7b08371de4.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/49/49f5766d0d4954f44b85d4bbd7131677
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/49/49f5766d0d4954f44b85d4bbd7131677.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/4b/4ba2329b63d54f0187bcaa12486b1b0f
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/4b/4ba2329b63d54f0187bcaa12486b1b0f.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/51/517af1b5b81b93b43b9745d58f017562
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/51/517af1b5b81b93b43b9745d58f017562.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/69/6981461fe431401459211818212a29cf
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/69/6981461fe431401459211818212a29cf.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/6c/6cdf1e5c78d14720aaadccd4c792df96
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/6c/6cdf1e5c78d14720aaadccd4c792df96.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/84/84ca94c19f25ae14d83aa41bb3654390
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/84/84ca94c19f25ae14d83aa41bb3654390.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/86/86f4de9468454445ac2f39e207fafa3a
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/86/86f4de9468454445ac2f39e207fafa3a.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/8e/8e7066e382b0fc749b25dbb1a3004dfe
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/8e/8e7066e382b0fc749b25dbb1a3004dfe.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/d0/d05b96cee66e14240838de167097537a
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/d0/d05b96cee66e14240838de167097537a.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/d9/d91035c548f23744c9bfb107348ed1c0
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/d9/d91035c548f23744c9bfb107348ed1c0.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/f7/f70555f144d8491a825f0804e09c671c
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/f7/f70555f144d8491a825f0804e09c671c.info
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc
-03_UnityProject/The Adventures of an Adventurer/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc.info
-03_UnityProject/The Adventures of an Adventurer/Library/
+
