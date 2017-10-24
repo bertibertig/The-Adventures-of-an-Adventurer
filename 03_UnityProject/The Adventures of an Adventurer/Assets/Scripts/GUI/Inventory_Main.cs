@@ -21,6 +21,7 @@ public class Inventory_Main : MonoBehaviour {
 
     public bool InterfereOpeningOfInventory { get; set; }
     public ItemInfo[] GetItemInfo { get { return this.itemInfo; } }
+    public bool InventoryDisabled { get; set; }
 
     public class ItemInfo
     {
@@ -50,9 +51,10 @@ public class Inventory_Main : MonoBehaviour {
         itemList = inventoryDatabase.GetItemDatabase;;
         slotsLoaded = false;
         itemInfo = new ItemInfo[NUMBER_OF_SLOTS];
-        DontDestroyOnLoad(inventoryUI);
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(inventoryUI);
+        //DontDestroyOnLoad(this);
         inventoryOpen = false;
+        InventoryDisabled = false;
         //inventarUI.SetActive(false);   
     }
 	
@@ -68,7 +70,7 @@ public class Inventory_Main : MonoBehaviour {
             inventoryUI.SetActive(false);
             slotArrayLoaded = true;
         }
-        if(Input.GetButtonDown("Tab") && !InterfereOpeningOfInventory)
+        if(Input.GetButtonDown("Tab") && !InterfereOpeningOfInventory && !InventoryDisabled)
         {
             if(infoBox.activeSelf)
             {
@@ -94,6 +96,8 @@ public class Inventory_Main : MonoBehaviour {
         //ChangeItem(itemInfo[SlotID], itemList[ItemID]); -> How To use ChangeItem
         ChangeItem(itemInfo[0], itemList[1]);
         ChangeItem(itemInfo[1], itemList[2]);
+        ChangeItem(itemInfo[2], itemList[3]);
+        //AddItem(itemList.Where(i => i.GetID == 4).FirstOrDefault().GetID);
         //print(itemInfo[5].Item.GetName);
     }
 
@@ -152,6 +156,7 @@ public class Inventory_Main : MonoBehaviour {
         GameObject[] slots;
         ItemInfo[] ii = new ItemInfo[itemInfoSize];
         slots = GameObject.FindGameObjectsWithTag(slotTagMethod).OrderBy(go => go.name).ToArray();
+        print("Slots: " + slots.Length);
         for (int i = 0; i < slots.Length; i++)
         {
             ii[i] = new ItemInfo(itemList[0], slots[i]);

@@ -26,12 +26,19 @@ public class WitchTreeStart : MonoBehaviour {
 
     void Start()
     {
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            player_Talking = player.GetComponentInChildren<AudioSource>();
+            player_Sprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+            movement = player.GetComponent<Player_Movement>();
+        }
+
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        player_Talking = player.GetComponentInChildren<AudioSource>();
-        player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
         enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
-        movement = player.GetComponent<Player_Movement>();
 		ConversationEnded = false;
 		ThrowCoroutineStarted = false;
 		attackWasActive = false;
@@ -60,6 +67,14 @@ public class WitchTreeStart : MonoBehaviour {
 			ThrowCoroutineStarted = true;
 		}
 	}
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        player_Talking = player.GetComponentInChildren<AudioSource>();
+        player_Sprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+        movement = player.GetComponent<Player_Movement>();
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -101,6 +116,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
         dialoge.PrintText(usedDialoge[1], textSpeed, player_Talking);
         yield return new WaitForSeconds(0.1f);
@@ -109,6 +134,17 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
+
         dialoge.ChangeTalker(enemy_Sprite);
         dialoge.ChangeTalkerName("Legit Witch");
         dialoge.PrintText(usedDialoge[2], textSpeed * 20, player_Talking);
@@ -118,6 +154,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
         dialoge.ChangeTalker(player_Sprite);
         dialoge.ChangeTalkerName("Adventurer");
@@ -128,6 +174,16 @@ public class WitchTreeStart : MonoBehaviour {
             yield return null;
         }
         dialoge.StopPrintText();
+        dialoge.PrintWholeText();
+        if (!dialoge.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            dialoge.StopPrintText();
+        }
 
 
         dialoge.StopPrintText();

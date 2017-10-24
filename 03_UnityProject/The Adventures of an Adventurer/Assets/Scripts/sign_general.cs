@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class sign_general : MonoBehaviour {
 
@@ -26,8 +27,14 @@ public class sign_general : MonoBehaviour {
             textSpeed = 0.05f;
         textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         textfield.DisableText();
-        player = GameObject.FindGameObjectWithTag("Player");
-        movement = player.GetComponent<Player_Movement>();
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        if (player == null || movement == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            movement = player.GetComponent<Player_Movement>();
+        }
 
         if (language == "german")
         {
@@ -83,6 +90,13 @@ public class sign_general : MonoBehaviour {
 
     }
 
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        movement = player.GetComponent<Player_Movement>();
+    }
+
+    //TODO: Implement System like this for other dialoges.
     private IEnumerator Read()
     {
         textfield.ChangeTalker(this.gameObject.GetComponentInParent<SpriteRenderer>().sprite);
@@ -98,6 +112,16 @@ public class sign_general : MonoBehaviour {
                 yield return null;
             }
             textfield.StopPrintText();
+            textfield.PrintWholeText();
+            if (!textfield.FinishedPrintingText)
+            {
+                yield return new WaitForSeconds(0.1f);
+                while (!Input.GetButtonDown("Interact"))
+                {
+                    yield return null;
+                }
+                textfield.StopPrintText();
+            }
             
         }
 

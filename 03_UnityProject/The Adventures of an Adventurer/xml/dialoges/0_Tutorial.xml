@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<dialoges>
+	<dialoge object="sign01">
+		<textblock id="1">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<deText>Mit 'E' kannst du mit Objekten in deiner Umgebung interagieren.</deText>
+			<enText>By pressing 'E' you can interact with your surroundings.</enText>
+		</textblock>
+		<textblock id="2">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<deText>Wie? Das wusstest du schon?</deText>
+			<enText>What? You already knew that?</enText>
+		</textblock>
+		<textblock id="3">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<deText>Schön für dich!</deText>
+			<enText>Good for you then!</enText>
+		</textblock>
+	</dialoge>
+</dialoges>

@@ -3,35 +3,40 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
+using System;
 
 public class Entrance : MonoBehaviour {
 
     public GameObject keyInfo;
-    public int levelToLoad;
 
     private GameObject player;
     private bool displayKeyInfo;
-
+    private GameObject EventList;
 
 	// Use this for initialization
 	void Start () {
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
         displayKeyInfo = false;
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
         keyInfo.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (displayKeyInfo)
         {
             if (Input.GetButtonDown("Up"))
             {
-                Application.LoadLevel(levelToLoad);
+                gameObject.GetComponent<ChangeLevel>().LoadLevel();
             }
-
             FollowPlayer();
         }
 	}
@@ -56,9 +61,12 @@ public class Entrance : MonoBehaviour {
 
     public void FollowPlayer()
     {
-        float posx = player.transform.position.x;
-        float posy = player.transform.position.y;
+        if (player != null)
+        {
+            float posx = player.transform.position.x;
+            float posy = player.transform.position.y;
 
-        keyInfo.transform.position = new Vector3(posx, (posy + 2), transform.position.z);
+            keyInfo.transform.position = new Vector3(posx, (posy + 2), transform.position.z);
+        }
     }
 }

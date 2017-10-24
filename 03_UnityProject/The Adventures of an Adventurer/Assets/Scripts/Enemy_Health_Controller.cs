@@ -37,7 +37,15 @@ public class Enemy_Health_Controller : MonoBehaviour
             maxGoldDrop = 3;
         if (xp <= 0)
             xp = 10;
-        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        if (loot == null)
+            loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
+        //loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
         healthCanvas = transform.GetComponentInChildren<Canvas>();
         healthCanvas.enabled = false;
         health = maxHealth;
@@ -45,6 +53,11 @@ public class Enemy_Health_Controller : MonoBehaviour
 		if(anim != null)
 			anim.SetFloat ("Health", health);
         UpdateGUI();
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
     }
 
     void ApplyDamage(object[] attackData)
@@ -68,6 +81,7 @@ public class Enemy_Health_Controller : MonoBehaviour
         if (health == 0)
         {
             loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
+            this.gameObject.GetComponent<Enemy_Movement_AI>().Died = true;
             Destroy(healthBar);
             Destroy(this.gameObject);
         }
@@ -118,5 +132,4 @@ public class Enemy_Health_Controller : MonoBehaviour
         }
         Destroy(dmgPref.gameObject, 1.5f);
     }
-
 }

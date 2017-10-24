@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial_WitchtreeDefeated : MonoBehaviour {
 
@@ -15,7 +16,9 @@ public class Tutorial_WitchtreeDefeated : MonoBehaviour {
 
     public void StartSequence()
     {
+        //TODO: Rewrite for JSON
         dialogeHandler = new Dialoge(textSpeed, germanDialoge, englishDialoge);
+        print(englishDialoge[0]);
         player = GameObject.FindGameObjectWithTag("Player");
         textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         length = dialogeHandler.UsedDialoge.Length;

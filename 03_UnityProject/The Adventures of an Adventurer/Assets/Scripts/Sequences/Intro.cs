@@ -21,6 +21,7 @@ public class Intro : MonoBehaviour
     private string[] usedDialoge;
     private Player_Movement movement;
     private static GameObject player;
+    private GameObject InventoryUI;
     public bool IntroEnd { get; set; }
 
     // Use this for initialization
@@ -47,7 +48,8 @@ public class Intro : MonoBehaviour
             usedDialoge = germanDialoge;
         else
             usedDialoge = englishDialoge;
-
+        if(GameObject.FindGameObjectsWithTag("InventoryUI").Length >= 0)
+            GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;
 
         CoRoutineStarted = true;
         movement.MovementDisabled = true;
@@ -84,7 +86,6 @@ public class Intro : MonoBehaviour
         player.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         logo.SetActive(false);
-        SceneManager.LoadScene(levelToLoad);
     }
 
     private IEnumerator Logos()

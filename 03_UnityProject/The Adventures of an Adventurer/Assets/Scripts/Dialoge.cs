@@ -27,7 +27,7 @@ public class Dialoge : MonoBehaviour {
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
         player = GameObject.FindGameObjectWithTag("Player");
         Player_Talking = player.GetComponentInChildren<AudioSource>();
-        PlayerSprite = player.GetComponent<SpriteRenderer>().sprite;
+        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
         movement = player.GetComponent<Player_Movement>();
         if (textSpeed <= 0)
             textSpeed = 0.05f;

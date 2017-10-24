@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,21 @@ public class Throw_On_Target : MonoBehaviour {
 	private bool throwIsActive = false;
     Vector3 direction;
 
-	public bool ThrowIsActive {
+    private void Start()
+    {
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+        if (myTarget == null)
+            myTarget = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        if (myTarget == null)
+            myTarget = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    public bool ThrowIsActive {
 		get
 		{
 			return throwIsActive;

@@ -21,9 +21,13 @@ public class EventList : MonoBehaviour {
 
     public List<Event> GetEvents { get { return this.events; } }
 
+    public float PreviousLevel { get; set; }
+    public Vector3 PlayerPositionForNewLevel { get; set; }
+
     void Start()
     {
         events = new List<Event>();
+        PreviousLevel = 0;
     }
 	// Use this for initialization
 	void Awake () {
@@ -60,11 +64,14 @@ public class EventList : MonoBehaviour {
 
     public Event GetEvent(string eventName)
     {
-        foreach (Event e in events)
+        if (events != null)
         {
-            if (e.EventName == eventName)
-                return e;
+            foreach (Event e in events)
+            {
+                if (e.EventName == eventName)
+                    return e;
 
+            }
         }
         return null;
     }

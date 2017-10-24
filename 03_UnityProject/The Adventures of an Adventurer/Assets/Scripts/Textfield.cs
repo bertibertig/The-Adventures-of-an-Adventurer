@@ -23,10 +23,15 @@ public class Textfield : MonoBehaviour {
 
     public int GetCurrentChoicePosition { get { return currentChoicePosition; } }
 
+    public bool FinishedPrintingText { get; set; }
+
     void Start()
     {
+        DisableText();
         choicesEnabled = false;
+        FinishedPrintingText = false;
     }
+
     public void EnableText()
     {
         text.enabled = true;
@@ -74,6 +79,7 @@ public class Textfield : MonoBehaviour {
     {
         usedText = text;
         textSpeed = speed;
+        //print(usedText);
         StartCoroutine("PrintTextByChars");
     }
 
@@ -82,6 +88,7 @@ public class Textfield : MonoBehaviour {
         usedText = text;
         textSpeed = speed;
         speachSFX = speSFX;
+        //print(usedText);
         StartCoroutine("PrintTextByCharsWithAudio");
     }
 
@@ -165,12 +172,14 @@ public class Textfield : MonoBehaviour {
 
     private IEnumerator PrintTextByChars()
     {
+        FinishedPrintingText = false;
         char[] letters = usedText.ToCharArray();
         text.text = "";
         for (int i = 0; i < usedText.Length; i++)
         {
-            if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ')
+            /*if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ')
             {
+                print("less Space");
                 do
                 {
                     text.text += letters[i];
@@ -178,17 +187,16 @@ public class Textfield : MonoBehaviour {
                     yield return new WaitForSeconds(0.00000001f);
                 } while (i >= letters.Length || (i + 3) < letters.Length && letters[i + 1] != ' ' && letters[i + 2] != ' ');
 
-            }
-            else
-            {
-                text.text += letters[i];
-                yield return new WaitForSeconds(textSpeed);
-            }
+            }*/
+            text.text += letters[i];
+            yield return new WaitForSeconds(textSpeed);
         }
+        FinishedPrintingText = true;
     }
 
     private IEnumerator PrintTextByCharsWithAudio()
     {
+        FinishedPrintingText = false;
         char[] letters = usedText.ToCharArray();
         text.text = "";
         
@@ -196,8 +204,9 @@ public class Textfield : MonoBehaviour {
         {
             if(!speachSFX.isPlaying)
                 speachSFX.Play();
-            if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ' && letters[i + 3] == ' ')
+            /*if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ' && letters[i + 3] == ' ')
             {
+                print("less Space");
                 do
                 {
                     text.text += letters[i];
@@ -205,12 +214,17 @@ public class Textfield : MonoBehaviour {
                     yield return null;
                 } while (i >= letters.Length || (i + 3) < letters.Length && letters[i + 1] != ' ' && letters[i + 2] != ' ');
 
-            }
-            else
-            {
-                text.text += letters[i];
-                yield return new WaitForSeconds(textSpeed);
-            }
+            }*/
+            text.text += letters[i];
+            yield return new WaitForSeconds(textSpeed);
         }
+        FinishedPrintingText = true;
+    }
+
+
+    //TODO: Test for Choise
+    public void PrintWholeText()
+    {
+        text.text = usedText;
     }
 }
