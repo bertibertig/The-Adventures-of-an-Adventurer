@@ -1,7 +1,0 @@
-Level 0:
-
-Mountion_sign:
-
-english: This sign reads: Mt. Climb Up And Fall Off.
-german: Auf diesem Schild steht: Der Raufrenn-und-Runterfall-Berg.
-______
