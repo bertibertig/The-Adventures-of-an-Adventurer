@@ -1803,6 +1803,35 @@ SpriteRenderer:
   m_Color: {r: 0.78676474, g: 0.6132137, b: 0.6132137, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &263041966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1468621368}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 263041967}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263041967
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1468621368}
+  m_GameObject: {fileID: 263041966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 300125407}
+  m_Father: {fileID: 855625657}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271978658 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010209973812, guid: c616828d0f5c0c546bf0bd124aba23a7,
@@ -2019,11 +2048,20 @@ EdgeCollider2D:
   m_Points:
   - {x: -5.6262503, y: -3.87931}
   - {x: 2.865972, y: 2.0344381}
---- !u!4 &300125407 stripped
+--- !u!4 &300125407
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4835805894921500, guid: 33eaca34f8228fe4590444d20844ad98,
     type: 2}
   m_PrefabInternal: {fileID: 1468621368}
+  m_GameObject: {fileID: 1329163065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 263041967}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300399471
 GameObject:
   m_ObjectHideFlags: 0
@@ -6320,7 +6358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 723459175}
-  - {fileID: 300125407}
+  - {fileID: 263041967}
   - {fileID: 1142332927}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -9555,6 +9593,21 @@ Transform:
   m_Father: {fileID: 699001856}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1329163065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1468621368}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 300125407}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1331698356
 GameObject:
   m_ObjectHideFlags: 0
@@ -11828,7 +11881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1595258763
 Transform:
   m_ObjectHideFlags: 0

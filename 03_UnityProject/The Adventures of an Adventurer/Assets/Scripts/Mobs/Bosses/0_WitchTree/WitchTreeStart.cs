@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 
 public class WitchTreeStart : MonoBehaviour {
 
@@ -20,8 +21,9 @@ public class WitchTreeStart : MonoBehaviour {
 	private bool attackWasActive;
     private string[] usedDialoge;
     private Player_Movement movement;
+    System.Collections.Generic.List<GameObject> birds;
 
-	private Throw_On_Target throwScript;
+    private Throw_On_Target throwScript;
 	private Animator squirrelAnim;
 
     void Start()
@@ -58,12 +60,14 @@ public class WitchTreeStart : MonoBehaviour {
             usedDialoge = germanDialoge;
         else
             usedDialoge = englishDialoge;
+
+        birds = GameObject.FindGameObjectsWithTag("Waypoint").Where(x => x.name.Contains("Bird")).ToList();
     }
 
 	void Update()
 	{
 		if (ConversationEnded && !ThrowCoroutineStarted) {
-			StartCoroutine ("ThrowNuts");
+			StartCoroutine ("BossAttack");
 			ThrowCoroutineStarted = true;
 		}
 	}
@@ -198,17 +202,38 @@ public class WitchTreeStart : MonoBehaviour {
 		ConversationEnded = true;
     }
 
-	public IEnumerator ThrowNuts()
+	public IEnumerator BossAttack()
 	{
+        System.Random rdm = new System.Random();
+
+        int i;
+
 		while (true) {
-			yield return new WaitForSeconds (1.65f);
-			squirrelAnim.SetBool ("throw", true);
+            i = rdm.Next(1, 11);
+            Spawn_GameObject spawnScript;
 
-			yield return new WaitForSeconds (0.35f);
-			throwScript.ThrowProjectile ();
+            Debug.Log(i);
 
-			yield return new WaitForSeconds (1);
-			squirrelAnim.SetBool ("throw", false);
+            yield return new WaitForSeconds(1.65f);
+            if (i <= 8)
+            {
+                squirrelAnim.SetBool("throw", true);
+
+                yield return new WaitForSeconds(0.35f);
+                throwScript.ThrowProjectile();
+
+                yield return new WaitForSeconds(1);
+                squirrelAnim.SetBool("throw", false);
+            }
+            else if(i > 8)
+            {
+                foreach (GameObject bird in birds)
+                {
+                    spawnScript = bird.transform.Find("WP_A").GetComponent<Spawn_GameObject>();
+                    spawnScript.enabled = true;
+                    spawnScript.enabled = false;
+                }
+            }
 		}
 	}
 }
