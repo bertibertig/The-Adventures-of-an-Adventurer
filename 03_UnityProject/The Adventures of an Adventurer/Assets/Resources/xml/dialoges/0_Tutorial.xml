@@ -1,0 +1,129 @@
+﻿<?xml version="1.0"?>
+<dialoges>
+	<dialoge object="default" length="1">
+		<textblock id="1">
+			<talker>Default</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
+			<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
+		</textblock>
+	</dialoge>
+
+	<dialoge object="sign01" length="3">
+		<textblock id="1">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Mit 'E' kannst du mit Objekten in deiner Umgebung interagieren.</german>
+			<english>By pressing 'E' you can interact with your surroundings.</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Wie? Das wusstest du schon?</german>
+			<english>What? You already knew that?</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Schön für dich!</german>
+			<english>Good for you then!</english>
+		</textblock>
+	</dialoge>
+
+	<dialoge object="WitchTree" length="4">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ha, hab ich dich endlich gefunden, du hinterlistige Hexe!</german>
+			<english>There you are! I finally found you, you deceitful witch!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Jetzt kannst du dich auf etwas gefasst machen!</german>
+			<english>Prepare for your demise!</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Legit Witch</talker>
+			<sprite>Mobs/Bosses/0_WitchTree/WitchTree</sprite>
+			<textspeed>0.5</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>...</german>
+			<english>...</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Schweigen wird dir nicht helfen! Stirb!</german>
+			<english>Silence won't hinder your downfall! Die!</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="WitchTreeDefeated" length="3">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hahaaa! Stirb Hexe!</german>
+			<english>Hiaaaaaa! Die you wicked Witch</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ich habs also immer noch drauf.</german>
+			<english>I've still got it.</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Also dann, zurück zur Hütte</german>
+			<english>Ok, let's get back to the hut.</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="MPBoss" length="3">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Haltet ein! Ich beabsichtige nicht euch zu bekämpfen.</german>
+			<english>Hold it! I don't wanna fight with you.</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Jedoch ist es meine Absicht.</german>
+			<english>However, it is my intention.</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Na gut, dann lass uns kämpfen.</german>
+			<english>Well, then let's fight</english>
+		</textblock>
+	</dialoge>
+</dialoges>

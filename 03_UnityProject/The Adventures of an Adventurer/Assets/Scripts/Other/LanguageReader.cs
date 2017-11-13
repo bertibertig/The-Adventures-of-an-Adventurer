@@ -19,9 +19,9 @@ public class LanguageReader : MonoBehaviour {
 
     }
 
-    public string ReadLanguage(string filePath = "options.xml")
+    public string ReadLanguage(string filePath = @"xml\options")
     {
-        String xmlString = new StreamReader("options.xml").ReadToEnd();
+        String xmlString = (Resources.Load(filePath) as TextAsset).text;
         return ReadXML(xmlString, "language");
     }
 
