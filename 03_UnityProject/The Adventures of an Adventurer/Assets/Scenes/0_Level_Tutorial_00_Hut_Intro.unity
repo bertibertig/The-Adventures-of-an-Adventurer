@@ -494,6 +494,16 @@ Prefab:
       propertyPath: m_Name
       value: Player_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 114710114619575136, guid: 2434264677136674186d576aa98882eb,
+        type: 2}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114710114619575136, guid: 2434264677136674186d576aa98882eb,
+        type: 2}
+      propertyPath: instantiationId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2434264677136674186d576aa98882eb, type: 2}
   m_IsPrefabParent: 0
@@ -573,6 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3a7241d56f4442ae12a8c1a3d1a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xmlTag: 
+  filepath: 
   textSpeed: 0.05
   germanDialoge:
   - "... und so hat euer Opi aus dem m\xE4chtigen Drachen Sushi gemacht."

@@ -28,13 +28,17 @@ public class DialogeHandler : MonoBehaviour {
     public bool Ready { get; set; }
     public bool ConversationFinishedOnce { get; set; }
 
-    public void StartConversation(int printUntil = -1)
+    public void StartConversation(int printUntil = -1, int rotation = -1)
     {
         if(!Talking)
         {
             Talking = true;
-            Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            Movement.MovementDisabled = true;
+            if (Player != null)
+            {
+                Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                Movement.MovementDisabled = true;
+                Player.transform.localScale = new Vector3(rotation, 1, 1);
+            }
             if (Player.GetComponent<Player_Attack>().isActiveAndEnabled)
             {
                 Player.GetComponent<Player_Attack>().enabled = false;
