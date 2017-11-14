@@ -1,22 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Tutorial_Ending_Hut : MonoBehaviour {
 
-    public string xmlTag;
-    public string filepath;
-    public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
-    public GameObject player;
-    public GameObject children;
+    public string id;
     public GameObject levelSelection;
     public GameObject rockingChair;
-    public Textfield textfield;
 
-    private DialogeHandler dialogeHandler;
+    private DialogeHandler dHandler;
     private GameObject eventList;
 
     // Use this for initialization
@@ -28,13 +22,29 @@ public class Tutorial_Ending_Hut : MonoBehaviour {
         else
             eventList = GameObject.FindGameObjectWithTag("EventList");
 
-        //dialogeHandler = new XMLReader().LoadDialouge(xmlTag, filepath);
-        if(textfield == null)
-            textfield = dialogeHandler.Textfield;
-        if (player == null)
-            player = Resources.Load("Player") as GameObject;
+        SearchForGameObjects searchForDialogeDB = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForDialogeDB.DialogeDBFoundEventHandler += DialogeDBFound;
+
         levelSelection.SetActive(false);
         StartCoroutine("FadeIn");
+
+        if(GameObject.FindGameObjectWithTag("DialogesDB") != null)
+        {
+            dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+            dHandler.DialogeEndedEventHandler += DialogeEnded;
+        }
+    }
+
+    void DialogeDBFound(object sender, EventArgs e)
+    {
+        dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        dHandler.DialogeEndedEventHandler += DialogeEnded; 
+    }
+
+    private void DialogeEnded(object sender, EventArgs e)
+    {
+        levelSelection.SetActive(true);
+        levelSelection.GetComponent<LevelSelection>().enabled = true;
     }
 
     IEnumerator FadeIn()
@@ -48,35 +58,7 @@ public class Tutorial_Ending_Hut : MonoBehaviour {
             yield return new WaitForSeconds(0.03f);
         }
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine("WaitForInisialisation");
-    }
-
-    IEnumerator WaitForInisialisation()
-    {
-        GameObject tmpObj = GameObject.Instantiate(Resources.Load("Player"), new Vector3(-10, -4.88f, -1) , Quaternion.identity) as GameObject;
-        bool conversationStarted = false;
-        do
-        {
-            print(dialogeHandler.Ready + " " + conversationStarted);
-            if (dialogeHandler.Ready && !conversationStarted)
-            {
-                conversationStarted = true;
-                textfield.EnableText();
-                StartCoroutine("Intro_Sequence");
-            }
-            yield return null;
-        } while (!conversationStarted);
-    }
-
-    IEnumerator Intro_Sequence()
-    {
         levelSelection.GetComponent<LevelSelection>().LevelSelectionDisabled = true;
-        while(dialogeHandler.Talking)
-        {
-            yield return null;
-        }
-
-        levelSelection.SetActive(true);
-        levelSelection.GetComponent<LevelSelection>().enabled = true;
+        dHandler.StartConversation();
     }
 }

@@ -88,8 +88,8 @@ public class Main_Menu_Buttons : MonoBehaviour {
 	
 	public void Quit()
 	{
-        Menu_Music.Stop();
-        Destroy(tempMusic);
+        //Menu_Music.Stop();
+        //Destroy(tempMusic);
 		Application.Quit();
 	}
 

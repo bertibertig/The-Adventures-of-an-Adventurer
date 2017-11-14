@@ -35,12 +35,10 @@ public class SearchForGameObjects : MonoBehaviour {
 
     IEnumerator SerchForDialogeDBAndWaitForDialogesLoaded()
     {
-        while(DialogesDB == null)
-        {
-            DialogesDB = GameObject.FindGameObjectWithTag("DialogesDB");
-            yield return null;
-        }
-        while(!DialogesDB.GetComponent<XMLReader>().LoadedDialoge)
+        DialogesDB = GameObject.FindGameObjectWithTag("DialogesDB");
+        if (DialogesDB == null)
+            DialogesDB = GameObject.Instantiate(Resources.Load("Other/DialogesDB"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        while (!DialogesDB.GetComponent<XMLReader>().LoadedDialoge)
         {
             yield return null;
         }

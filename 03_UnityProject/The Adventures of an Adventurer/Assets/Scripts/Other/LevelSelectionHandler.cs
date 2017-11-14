@@ -1,19 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelSelectionHandler : MonoBehaviour {
 
-    public string xmlTag;
-    public string filepath;
-    public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
-    public GameObject player;
-    public GameObject children;
+    public string id;
     public GameObject levelSelection;
-    public Textfield textfield;
     public GameObject blackFade;
     public Text continuedText;
     public string toBeContinued = "To be continued ...";
@@ -32,29 +26,27 @@ public class LevelSelectionHandler : MonoBehaviour {
             eventList = GameObject.FindGameObjectWithTag("EventList");
 
         //dHandler = new XMLReader().LoadDialouge(xmlTag, filepath);
-        
-        if (player == null)
-            player = Resources.Load("Player") as GameObject;
+
         //levelSelection.SetActive(false);
+    }
+
+    private void DialogeEnded(object sender, EventArgs e)
+    {
+        StartCoroutine("FadeOut");
     }
 
     public void HandleLevel(int levelID)
     {
-        levelSelection.GetComponent<LevelSelection>().LevelSelectionDisabled = true;
-        if (levelID == 0)
-            StartCoroutine("Level1CoRoutine");
-    }
-
-    IEnumerator Level1CoRoutine()
-    {
         if (!sequenceRunning)
         {
             sequenceRunning = true;
-            while (dHandler.Talking)
+            levelSelection.GetComponent<LevelSelection>().LevelSelectionDisabled = true;
+            if (levelID == 0)
             {
-                yield return null;
+                dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id+(levelID+1).ToString()).GetComponent<DialogeHandler>();
+                dHandler.DialogeEndedEventHandler += DialogeEnded;
+                dHandler.StartConversation();
             }
-            StartCoroutine("FadeOut");
         }
     }
 

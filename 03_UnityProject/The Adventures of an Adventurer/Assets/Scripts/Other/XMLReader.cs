@@ -35,7 +35,8 @@ public class XMLReader : MonoBehaviour {
     public void PlayerFound(object sender, EventArgs e)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine("LoadDialouge");
+        if(!LoadedDialoge)
+            StartCoroutine("LoadDialouge");
     }
 
     /*public DialogeHandler SpecificLoadDialouge(string id, string filepath)
@@ -202,12 +203,14 @@ public class XMLReader : MonoBehaviour {
         /*MULTIPLAYER_OWN*/
         dHFromGo.Player = player;
         dHFromGo.Movement = player.GetComponent<Player_Movement>();
+        tmpObj.AddComponent<DontDestroyOnLoad>();
+        tmpObj.transform.parent = this.gameObject.transform;
 
         dHandlerDB.Add(tmpObj);
     }
 
 
-    //TODO: Check why Player has no Talkingsound
+    //TODO: Check why Player has no Talkingsound => Because Gameobject does not "exist"
     IEnumerator LoadRessources(DialogeHandler dH)
     {
         foreach (string tR in dH.ResourcesAsString)

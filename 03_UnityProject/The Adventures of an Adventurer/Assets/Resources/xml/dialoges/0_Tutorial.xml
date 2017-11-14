@@ -102,12 +102,12 @@
 	
 	<dialoge object="MPBoss" length="3">
 		<textblock id="1">
-			<talker>Adventurer</talker>
-			<sprite>Player</sprite>
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
 			<textspeed>0</textspeed>
 			<methodeAfterEnd>None</methodeAfterEnd>
-			<german>Haltet ein! Ich beabsichtige nicht euch zu bekämpfen.</german>
-			<english>Hold it! I don't wanna fight with you.</english>
+			<german>Fremder!, wenn falls ihr begehrt zu passieren, müsst ihr zuerst mich besiegen</german>
+			<english></english>
 		</textblock>
 		<textblock id="2">
 			<talker>Mysterious Knight</talker>
@@ -124,6 +124,60 @@
 			<methodeAfterEnd>None</methodeAfterEnd>
 			<german>Na gut, dann lass uns kämpfen.</german>
 			<english>Well, then let's fight</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="TutEnding01" length="4">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>... und so hab ich die böse Hexe besiegt!</german>
+			<english>...and that's how I beat the evil witch!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Grandchildren</talker>
+			<sprite>NPCs/children</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Oh, toll Opa. Wer hätte gedacht, dass direkt neben unserer Hütte eine böse Hexe wohnt.</german>
+			<english>Awesome, grandpa! Who could have known that a witch lives close to our place</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Jaja, ich habs auch kaum glauben können. Aber genau so hat es sich zugetragen.</german>
+			<english>I couldn't believe it either. But that's how it happened!</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Lasst mal überlegen, was ich euch als nächstes erzählen kann.</german>
+			<english>Let me think what else I could tell you...</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="LvSelLv1" length="2">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hab ich euch eigentlich schon mal erzählt, wie mein Leben als Adventurer begann.</german>
+			<english>Have I ever told you how my life as an adventurer started</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Also, das war so ...</german>
+			<english>Well, it was like this...</english>
 		</textblock>
 	</dialoge>
 </dialoges>
