@@ -202,7 +202,7 @@ public class Textfield : MonoBehaviour {
         
         for (int i = 0; i < letters.Length; i++)
         {
-            if(!speachSFX.isPlaying)
+            if(speachSFX != null &&!speachSFX.isPlaying)
                 speachSFX.Play();
             /*if ((i + 3) < letters.Length && letters[i + 1] == ' ' && letters[i + 2] == ' ' && letters[i + 3] == ' ')
             {

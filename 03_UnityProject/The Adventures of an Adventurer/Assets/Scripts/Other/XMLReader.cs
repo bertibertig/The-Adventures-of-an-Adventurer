@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class XMLReader : MonoBehaviour {
 
-    public string filepath = @"Assets\xml\dialoges\0_Tutorial.xml";
+    public string filepath = @"xml\dialoges\0_Tutorial";
 
     private string language;
     private GameObject player;
@@ -91,8 +91,12 @@ public class XMLReader : MonoBehaviour {
         List<string> dialoge = new List<string>();
         List<string> talkerNames = new List<string>();
         List<string> talkerRessources = new List<string>();
+        List<float> textspeeds = new List<float>();
+        List<string> methodesAfterEnd = new List<string>();
 
-        String xmlString = new StreamReader(filepath).ReadToEnd();
+        String xmlString = (Resources.Load(filepath) as TextAsset).text;
+
+        //String xmlString = new StreamReader(filepath).ReadToEnd();
 
         if (xmlString != null)
         {
@@ -108,6 +112,8 @@ public class XMLReader : MonoBehaviour {
                     dialoge = new List<string>();
                     talkerNames = new List<string>();
                     talkerRessources = new List<string>();
+                    textspeeds = new List<float>();
+                    methodesAfterEnd = new List<string>();
                     length = Convert.ToInt32(reader.Value);
                     for (int i = 0; i < length; i++)
                     {
@@ -119,14 +125,21 @@ public class XMLReader : MonoBehaviour {
                             talkerNames.Add(reader.ReadElementContentAsString());
                             reader.ReadToFollowing("sprite");
                             talkerRessources.Add(reader.ReadElementContentAsString());
+                            reader.ReadToFollowing("textspeed");
+                            string tmp = reader.ReadElementContentAsString();
+                            if (tmp == "0" || tmp == "")
+                                textspeeds.Add(0.05f);
+                            else
+                                textspeeds.Add(Convert.ToSingle(tmp));
+                            reader.ReadToFollowing("methodeAfterEnd");
+                            methodesAfterEnd.Add(reader.ReadElementContentAsString());
                             reader.ReadToFollowing(language);
                             dialoge.Add(reader.ReadElementContentAsString());
                         }
                         yield return null;
                     }
-                    print(counter);
                     counter++;
-                    CreateGO(id, dialoge, talkerNames, talkerRessources);
+                    CreateGO(id, dialoge, talkerNames, talkerRessources, textspeeds, methodesAfterEnd);
                     reader.ReadToFollowing("dialoge");
                     reader.MoveToFirstAttribute();
                     id = reader.Value;
@@ -150,7 +163,7 @@ public class XMLReader : MonoBehaviour {
         return null;
     }
 
-    private void CreateGO(string dialougeName, List<string> dialoge, List<string> talkerNames, List<string> talkerRessources, float textspeed = 0.05f)
+    private void CreateGO(string dialougeName, List<string> dialoge, List<string> talkerNames, List<string> talkerRessources,List<float> textSpeeds, List<string> methodesAfterEnd ,float defaultTextspeed = 0.05f)
     {
         GameObject tmpObj = new GameObject();
         tmpObj.name = dialougeName;
@@ -160,20 +173,25 @@ public class XMLReader : MonoBehaviour {
         dHFromGo.Talkers = new List<GameObject>();
         dHFromGo.Dialoge = new List<string>();
         dHFromGo.TalkerNames = new List<string>();
+        dHFromGo.TextSpeeds = new List<float>();
         dHFromGo.TalkersSounds = new List<AudioSource>();
+        dHFromGo.MethodesAfterEnd = new List<string>();
 
         dHFromGo.Talking = false;
         dHFromGo.Ready = false;
+        dHFromGo.ConversationFinishedOnce = false;
 
-        if (dHFromGo.TextSpeed <= 0)
-            dHFromGo.TextSpeed = 0.05f;
+        if (dHFromGo.DefaultTextSpeed <= 0)
+            dHFromGo.DefaultTextSpeed = 0.05f;
         else
-            dHFromGo.TextSpeed = textspeed;
+            dHFromGo.DefaultTextSpeed = defaultTextspeed;
         dHFromGo.Dialoge = dialoge;
         dHFromGo.DialougeName = dialougeName;
         dHFromGo.TalkerNames = talkerNames;
         dHFromGo.ResourcesAsString = talkerRessources;
-        StartCoroutine("LoadSprites", dHFromGo);
+        dHFromGo.TextSpeeds = textSpeeds;
+        dHFromGo.MethodesAfterEnd = methodesAfterEnd;
+        StartCoroutine("LoadRessources", dHFromGo);
         dHFromGo.Textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
 
         if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
@@ -188,14 +206,18 @@ public class XMLReader : MonoBehaviour {
         dHandlerDB.Add(tmpObj);
     }
 
-    IEnumerator LoadSprites(DialogeHandler dH)
+
+    //TODO: Check why Player has no Talkingsound
+    IEnumerator LoadRessources(DialogeHandler dH)
     {
         foreach (string tR in dH.ResourcesAsString)
         {
             GameObject go = (Resources.Load(tR) as GameObject);
             dH.Talkers.Add(go);
             if (dH.Talkers[dH.Talkers.Count - 1].GetComponentInChildren<AudioSource>() != null)
+            {
                 dH.TalkersSounds.Add(dH.Talkers[dH.Talkers.Count - 1].GetComponentInChildren<AudioSource>());
+            }
             else
                 dH.TalkersSounds.Add(null);
             yield return null;

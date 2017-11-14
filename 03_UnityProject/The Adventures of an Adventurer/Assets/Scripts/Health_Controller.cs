@@ -22,21 +22,21 @@ public class Health_Controller : MonoBehaviour {
     public bool KnockbackEnabled { get { return this.knockbackEnabled; } set { this.knockbackEnabled = value; } }
     public float Health { get { return this.health; } }
 
-	void Start () {
+    void Start () {
         anim = GetComponent<Animator>();
         player = GetComponent<Player_Movement>();
         knockbackEnabled = true;
 
-        if (Application.loadedLevel == 2)
-        {
+        /*if (Application.loadedLevel == 2)
+        {*/
             health = startHealth;
             maxHealth = startHealth;
-        }
+        /*}
         else
         {
             health = PlayerPrefs.GetFloat("Health");
             maxHealth = PlayerPrefs.GetFloat("MaxHealth");
-        }
+        }*/
 
         if (GameObject.FindGameObjectsWithTag("UI").Length >= 2)
         {
@@ -49,7 +49,7 @@ public class Health_Controller : MonoBehaviour {
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();
-	}
+    }
 
     public void ApplyDamage(float damage)
     {

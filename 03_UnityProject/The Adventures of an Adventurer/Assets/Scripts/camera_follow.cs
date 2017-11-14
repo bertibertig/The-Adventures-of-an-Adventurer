@@ -10,6 +10,7 @@ public class camera_follow : Photon.MonoBehaviour {
     public float smoothTimeX;
 
     public GameObject Player { get; set; }
+    public bool Static { get; set; }
 
     public bool bounds;
 
@@ -22,27 +23,30 @@ public class camera_follow : Photon.MonoBehaviour {
 
     void FixedUpdate()
     {
-        //TODO: Remove and Implement correct
-        if(Player == null)
+        if (!Static)
         {
-            SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
-            searchForPlayer.PlayerFoundEventHandler += PlayerFound;
-            Player = GameObject.FindGameObjectWithTag("Player");
-        }
+            //TODO: Remove and Implement correct
+            if (Player == null)
+            {
+                SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+                searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+                Player = GameObject.FindGameObjectWithTag("Player");
+            }
 
-        if (Player != null)
-        {
-            float posx = Mathf.SmoothDamp(transform.position.x, Player.transform.position.x, ref velocity.x, smoothTimeX);
-            float posy = Mathf.SmoothDamp(transform.position.y, Player.transform.position.y, ref velocity.y, smoothTimeY);
+            if (Player != null)
+            {
+                float posx = Mathf.SmoothDamp(transform.position.x, Player.transform.position.x, ref velocity.x, smoothTimeX);
+                float posy = Mathf.SmoothDamp(transform.position.y, Player.transform.position.y, ref velocity.y, smoothTimeY);
 
-            transform.position = new Vector3(posx, posy, transform.position.z);
-        }
+                transform.position = new Vector3(posx, posy, transform.position.z);
+            }
 
-        if (bounds)
-        {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
-            Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
-            Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
+            if (bounds)
+            {
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
+                Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
+                Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
+            }
         }
     }
 
