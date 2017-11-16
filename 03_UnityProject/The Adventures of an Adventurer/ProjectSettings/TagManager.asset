@@ -33,6 +33,7 @@ TagManager:
   - DialogesDB
   - MultiplayerGUI
   - MultiplayerController
+  - MPBoss
   layers:
   - Default
   - TransparentFX

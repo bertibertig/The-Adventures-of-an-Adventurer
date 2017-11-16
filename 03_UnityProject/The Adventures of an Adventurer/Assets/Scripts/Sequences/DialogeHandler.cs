@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class DialogeHandler : MonoBehaviour {
@@ -83,6 +85,19 @@ public class DialogeHandler : MonoBehaviour {
                 }
                 Textfield.StopPrintText();
             }
+
+            if(MethodesAfterEnd[i] != "None")
+            {
+                string[] function = MethodesAfterEnd[i].Split('.');
+                Type type = Type.GetType(function[0]);
+                MethodInfo m = type.GetMethod(function[1]);
+                if (function.Length > 2)
+                    m.Invoke(m, ((IEnumerable)function[2]).Cast<object>().Select(s => s == null ? s : s.ToString()).ToArray());
+                else
+                    m.Invoke(m, new object[] { "" });
+            }
+
+
             yield return null;
         }
 

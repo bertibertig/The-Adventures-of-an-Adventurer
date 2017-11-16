@@ -10,7 +10,12 @@ public class Main_Menu_Debug_Buttons : MonoBehaviour {
         SceneManager.LoadScene("0_Level_Tutorial");
     }
 
-	public void BackButton()
+    public void LoadTestGround()
+    {
+        SceneManager.LoadScene("TestGround");
+    }
+
+    public void BackButton()
     {
         SceneManager.LoadScene("Main_Menu");
     }

@@ -97,7 +97,7 @@ public class Inventory_Main : MonoBehaviour {
         ChangeItem(itemInfo[0], itemList[1]);
         ChangeItem(itemInfo[1], itemList[2]);
         ChangeItem(itemInfo[2], itemList[3]);
-        ChangeItem(itemInfo[3], itemList[5]);
+        //ChangeItem(itemInfo[3], itemList[5]);
         //AddItem(itemList.Where(i => i.GetID == 4).FirstOrDefault().GetID);
         //print(itemInfo[5].Item.GetName);
     }

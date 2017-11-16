@@ -100,30 +100,62 @@
 		</textblock>
 	</dialoge>
 	
-	<dialoge object="MPBoss" length="3">
+	<dialoge object="MPBoss" length="7">
 		<textblock id="1">
 			<talker>Mysterious Knight</talker>
 			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
 			<textspeed>0</textspeed>
 			<methodeAfterEnd>None</methodeAfterEnd>
-			<german>Fremder!, wenn falls ihr begehrt zu passieren, müsst ihr zuerst mich besiegen</german>
-			<english></english>
+			<german>Fremder! Falls ihr begehrt zu passieren, müsst ihr zuerst mich besiegen</german>
+			<english>Stranger! If you seek to pass, you have to defeat me first.</english>
 		</textblock>
 		<textblock id="2">
-			<talker>Mysterious Knight</talker>
-			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
-			<textspeed>0</textspeed>
-			<methodeAfterEnd>None</methodeAfterEnd>
-			<german>Jedoch ist es meine Absicht.</german>
-			<english>However, it is my intention.</english>
-		</textblock>
-		<textblock id="3">
 			<talker>Adventurer</talker>
 			<sprite>Player</sprite>
 			<textspeed>0</textspeed>
 			<methodeAfterEnd>None</methodeAfterEnd>
-			<german>Na gut, dann lass uns kämpfen.</german>
-			<english>Well, then let's fight</english>
+			<german>Ich bin doch nur auf Reisen, ist das wirklich nötig?</german>
+			<english>I am just traveling, is this really necessary</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ha, das sagt ihr doch nur weil ihr Angst habt.</german>
+			<english>Ha, you just say that because you are frightened.</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Na gut, wenn es WIRKLICH nötig ist.</german>
+			<english>Well, if it realy IS necessary.</english>
+		</textblock>
+		<textblock id="5">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>DialogeMPBoss.SummonSpirit</methodeAfterEnd>
+			<german>Also dann, mein Kumpane kommt zu mir!</german>
+			<english>Well then, my buddy come to me!</english>
+		</textblock>
+		<textblock id="6">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Zwei gegen einen? Ist das nicht etwas unfär?</german>
+			<english>Two against one? Isn't that a little bit unfair?</english>
+		</textblock>
+		<textblock id="7">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Keine faulen Ausreden mehr, kämpft oder sterbt!</german>
+			<english>No lazy excuses, fight or die!</english>
 		</textblock>
 	</dialoge>
 	
