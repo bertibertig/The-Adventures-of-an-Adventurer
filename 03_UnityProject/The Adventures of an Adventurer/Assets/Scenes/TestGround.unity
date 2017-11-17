@@ -10377,17 +10377,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1239248288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7381caf929c81a840a3f05292c07e147, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bb634ee12b0034d984fd7137c6eb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 200
   minGoldDrop: 0
   maxGoldDrop: 0
   xp: 0
   healthGUI: {fileID: 1240638883}
   healthTransitionLayer: {fileID: 2130254251}
   DamageNumberPrefab: {fileID: 490454247}
-  healthBar: {fileID: 1952236179}
+  healthBar: {fileID: 2066616790}
 --- !u!114 &1240638883 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11439294, guid: 2696c446d4eabbd4f8ba448c5036f2ef,
@@ -10843,7 +10843,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f961dbec93bd5347ba4107cc53572da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8c0ce1bbe7a8324484821a0f5fbc4f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16894,10 +16894,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1952236179 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 102832, guid: 2696c446d4eabbd4f8ba448c5036f2ef, type: 2}
-  m_PrefabInternal: {fileID: 754766311}
 --- !u!1 &1965836536
 GameObject:
   m_ObjectHideFlags: 0
@@ -17360,6 +17356,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &2066616790 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177880, guid: 2696c446d4eabbd4f8ba448c5036f2ef, type: 2}
+  m_PrefabInternal: {fileID: 754766311}
 --- !u!1 &2078283377
 GameObject:
   m_ObjectHideFlags: 0
