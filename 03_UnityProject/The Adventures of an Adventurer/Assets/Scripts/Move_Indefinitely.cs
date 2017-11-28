@@ -11,8 +11,7 @@ public class Move_Indefinitely : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if(target != null)
-            direction = (target.position - transform.position).normalized;
+        Set_Target_Direction();
 	}
 	
 	// Update is called once per frame
@@ -23,5 +22,17 @@ public class Move_Indefinitely : MonoBehaviour {
     public void Move_To_Direction(Vector3 dir)
     {
         direction = dir;
+    }
+
+    public void Move_To_Target(GameObject target)
+    {
+        this.target = target.transform;
+        Set_Target_Direction();
+    }
+
+    private void Set_Target_Direction()
+    {
+        if (target != null)
+            direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
     }
 }

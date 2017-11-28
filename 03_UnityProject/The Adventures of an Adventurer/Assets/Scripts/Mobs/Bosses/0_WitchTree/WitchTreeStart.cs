@@ -19,9 +19,10 @@ public class WitchTreeStart : MonoBehaviour {
 	private bool ConversationEnded;
 	private bool ThrowCoroutineStarted;
 	private bool attackWasActive;
+    private bool playerIsInRange;
     private string[] usedDialoge;
     private Player_Movement movement;
-    System.Collections.Generic.List<GameObject> birds;
+    System.Collections.Generic.List<GameObject> birdsWP;
 
     private Throw_On_Target throwScript;
 	private Animator squirrelAnim;
@@ -61,7 +62,7 @@ public class WitchTreeStart : MonoBehaviour {
         else
             usedDialoge = englishDialoge;
 
-        birds = GameObject.FindGameObjectsWithTag("Waypoint").Where(x => x.name.Contains("Bird")).ToList();
+        birdsWP = GameObject.FindGameObjectsWithTag("Waypoint").Where(x => x.name.Contains("Bird")).ToList();
     }
 
 	void Update()
@@ -96,7 +97,8 @@ public class WitchTreeStart : MonoBehaviour {
 				}
 				StartCoroutine ("Conversation");
 			}
-			throwScript.ThrowIsActive = true;
+			playerIsInRange = true;
+            throwScript.ThrowIsActive = true;
 			squirrelAnim.enabled = true;
         }
     }
@@ -105,7 +107,8 @@ public class WitchTreeStart : MonoBehaviour {
 	{
 		if (col.CompareTag ("Player") && CoRoutineStarted) 
 		{
-			throwScript.ThrowIsActive = false;
+			playerIsInRange = false;
+            throwScript.ThrowIsActive = false;
 			squirrelAnim.enabled = false;
 		}
 	}
@@ -207,33 +210,37 @@ public class WitchTreeStart : MonoBehaviour {
         System.Random rdm = new System.Random();
 
         int i;
+        Spawn_GameObject spawnScript;
 
-		while (true) {
-            i = rdm.Next(1, 11);
-            Spawn_GameObject spawnScript;
-
-            Debug.Log(i);
-
-            yield return new WaitForSeconds(1.65f);
-            if (i <= 8)
+        while (true) {
+            if (playerIsInRange)
             {
-                squirrelAnim.SetBool("throw", true);
+                i = rdm.Next(1, 11);
 
-                yield return new WaitForSeconds(0.35f);
-                throwScript.ThrowProjectile();
+                Debug.Log(i);
 
-                yield return new WaitForSeconds(1);
-                squirrelAnim.SetBool("throw", false);
-            }
-            else if(i > 8)
-            {
-                foreach (GameObject bird in birds)
+                yield return new WaitForSeconds(1.65f);
+                if (i <= 8)
                 {
-                    spawnScript = bird.transform.Find("WP_A").GetComponent<Spawn_GameObject>();
-                    spawnScript.enabled = true;
-                    spawnScript.enabled = false;
+                    squirrelAnim.SetBool("throw", true);
+
+                    yield return new WaitForSeconds(0.35f);
+                    throwScript.ThrowProjectile();
+
+                    yield return new WaitForSeconds(1);
+                    squirrelAnim.SetBool("throw", false);
+                }
+                else if (i > 8)
+                {
+                    foreach (GameObject bird in birdsWP)
+                    {
+                        spawnScript = bird.transform.Find("WP_A").GetComponent<Spawn_GameObject>();
+                        spawnScript.enabled = true;
+                        spawnScript.enabled = false;
+                    }
                 }
             }
+            yield return 0;
 		}
 	}
 }

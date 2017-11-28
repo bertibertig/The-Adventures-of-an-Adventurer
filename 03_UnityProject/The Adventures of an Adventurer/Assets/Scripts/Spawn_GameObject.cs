@@ -22,5 +22,9 @@ public class Spawn_GameObject : MonoBehaviour {
 		GameObject objectCopy = Instantiate (objectToSpawn, transform.position, Quaternion.identity);
 		objectCopy.name = objectName;
 		objectCopy.SetActive (true);
-	}
+        for (int i = 0; i < objectCopy.transform.childCount; i++)
+        {
+            objectCopy.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
 }

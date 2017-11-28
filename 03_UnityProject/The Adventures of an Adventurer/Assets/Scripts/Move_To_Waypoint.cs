@@ -19,9 +19,9 @@ public class Move_To_Waypoint : MonoBehaviour {
 	private bool movementStarted;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (movingObject == null)
-			movingObject = this.gameObject;
+			movingObject = gameObject;
 
 		if (startPoint == null)
 			startPoint = GameObject.FindGameObjectsWithTag ("Waypoint").Where (x => x.name == this.gameObject.name).FirstOrDefault ().transform.Find ("WP_A").gameObject;
@@ -34,11 +34,14 @@ public class Move_To_Waypoint : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		movingObject.transform.position = new Vector3(xMovement, yMovement, zMovement);
 
-		if(movementStarted == true)
-			t += movementSpeed * Time.deltaTime;
-	}
+
+        if (movementStarted == true)
+        {
+            movingObject.transform.position = new Vector3(xMovement, yMovement, zMovement);
+            t += movementSpeed * Time.deltaTime;
+        }
+    }
 
 	public void MoveFromAToB()
 	{
