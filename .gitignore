@@ -29,7 +29,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
+*.info
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and

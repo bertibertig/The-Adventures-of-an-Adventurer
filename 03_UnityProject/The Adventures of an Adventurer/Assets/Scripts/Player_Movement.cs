@@ -145,6 +145,7 @@ public class Player_Movement : Photon.MonoBehaviour
         Vector3 enemyScreenPos = camera.WorldToScreenPoint(enemyPos);
         this.enemyScreenPosition = new Vector2(enemyScreenPos.x, enemyScreenPos.y);
 
+		rb2d.velocity = Vector2.zero;
         StartCoroutine("Knockback");
     }
 
