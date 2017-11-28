@@ -220,7 +220,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010156718058, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000011711222166, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
       propertyPath: m_IsActive
@@ -237,7 +237,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012032913270, guid: 7ce16b7c69bd922498e79d79319c87c1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000012120676848, guid: 7ce16b7c69bd922498e79d79319c87c1,
         type: 2}
@@ -453,7 +453,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114372587653932328, guid: 2434264677136674186d576aa98882eb,
         type: 2}
@@ -504,7 +504,9 @@ Prefab:
       propertyPath: instantiationId
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114710114619575136, guid: 2434264677136674186d576aa98882eb, type: 2}
+    - {fileID: 114768872615825880, guid: 2434264677136674186d576aa98882eb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2434264677136674186d576aa98882eb, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &289167851
@@ -583,30 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3a7241d56f4442ae12a8c1a3d1a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xmlTag: 
-  filepath: 
-  textSpeed: 0.05
-  germanDialoge:
-  - "... und so hat euer Opi aus dem m\xE4chtigen Drachen Sushi gemacht."
-  - Uh, wow. Toll Opa.
-  - Ja, aber das ist noch gar nichts im Gegensatz zu...
-  - Hoppla da hab ich mich ein bisschen verplappert.
-  - "Ich hab ganz \xFCbersehen neues Feuerholz in den Kamin nachzulgen."
-  - Hm, keines mehr da. Kinder, ich geh schnell in den Wald und hol neues.
-  - "Ihr bleibt w\xE4hrenddessen hier und wartet auf mich."
-  - " Keine Angst, die H\xFCtte hat einen Zauber, der euch vor Monstern sch\xFCtz."
-  - Ok Opa.
-  englishDialoge:
-  - '...and that''s how your grandfather made sushi out of the dragon!'
-  - Uh, wow. Cool!
-  - Still, this is nothing compared to...
-  - Ah wait...
-  - I forgot to throw fire wood into the fire place!
-  - Hm... seems like there's no wood left. Children, I go to the forest and get new
-    wood.
-  - Meanwhile you wait here for me.
-  - No worries, a spell protects the hut from enemies.
-  - Ok!
+  id: NewGameIntro
   player: {fileID: 1807216719}
   children: {fileID: 1734215918}
   levelSelection: {fileID: 918459129}
@@ -971,6 +950,48 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &1125799227
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2141148338}
+    m_Modifications:
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -38.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 689c8fba8817f7a47baa9a4e20d04c12, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1166568754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1312,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!4 &1443026157 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4871287797761812, guid: 689c8fba8817f7a47baa9a4e20d04c12,
+    type: 2}
+  m_PrefabInternal: {fileID: 1125799227}
 --- !u!1 &1608002456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4078577995421048, guid: d44ec84374aafab43ba4d9426a272c3f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114628779005793932, guid: d44ec84374aafab43ba4d9426a272c3f,
         type: 2}
@@ -1557,6 +1583,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4934464565318882, guid: 2434264677136674186d576aa98882eb,
     type: 2}
   m_PrefabInternal: {fileID: 227879821}
+--- !u!114 &1807216721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1807216719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9e5a8cd2b7b334d9777d33b3591bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 3
+  speed: 50
+  jumpPower: 400
+  grounded: 0
+  isDying: 0
+  canDoubleJump: 0
+  isAbleToJump: 0
 --- !u!1 &1827878140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +1965,7 @@ Transform:
   m_LocalPosition: {x: 1.0381478, y: -2.4875765, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1443026157}
   - {fileID: 1807216720}
   - {fileID: 784392990}
   - {fileID: 141163604}

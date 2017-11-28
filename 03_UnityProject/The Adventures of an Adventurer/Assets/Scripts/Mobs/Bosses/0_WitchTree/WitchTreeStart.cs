@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 
-public class WitchTreeStart : MonoBehaviour {
+public class WitchTreeStart : MonoBehaviour
+{
 
     public string id = "WitchTree";
 
     private GameObject player;
-	private bool ThrowCoroutineStarted;
-    private bool dialougeStarted;
-    private Player_Movement movement;
+    private bool ThrowCoroutineStarted;
+
     private DialogeHandler dHandler;
 
-	private Throw_On_Target throwScript;
-	private Animator squirrelAnim;
+    private bool playerIsInRange;
+    private Player_Movement movement;
+    System.Collections.Generic.List<GameObject> birdsWP;
+
+    private Throw_On_Target throwScript;
+    private Animator squirrelAnim;
 
     void Start()
     {
@@ -34,17 +39,18 @@ public class WitchTreeStart : MonoBehaviour {
         ThrowCoroutineStarted = false;
 
         throwScript = transform.parent.gameObject.GetComponentInChildren<Throw_On_Target>();
-		squirrelAnim = transform.parent.FindChild ("Squirrel").GetComponent<Animator> ();
+        squirrelAnim = transform.parent.FindChild("Squirrel").GetComponent<Animator>();
+        birdsWP = GameObject.FindGameObjectsWithTag("Waypoint").Where(x => x.name.Contains("Bird")).ToList();
     }
 
-	void Update()
-	{
+    void Update()
+    {
         if (dHandler != null && dHandler.Talking == false && dHandler.ConversationFinishedOnce == true && !ThrowCoroutineStarted)
         {
-			StartCoroutine ("ThrowNuts");
-			ThrowCoroutineStarted = true;
-		}
-	}
+            StartCoroutine("BossAttack");
+            ThrowCoroutineStarted = true;
+        }
+    }
 
     public void PlayerFound(object sender, EventArgs e)
     {
@@ -59,35 +65,64 @@ public class WitchTreeStart : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !dHandler.ConversationFinishedOnce)
+        if (col.CompareTag("Player"))
         {
-            dHandler.StartConversation();
+            if(!dHandler.ConversationFinishedOnce)
+                dHandler.StartConversation();
+            playerIsInRange = true;
+            throwScript.ThrowIsActive = true;
+            squirrelAnim.enabled = true;
         }
-        throwScript.ThrowIsActive = true;
-        squirrelAnim.enabled = true;
     }
 
-	void OnTriggerExit2D(Collider2D col)
-	{
-		if (col.CompareTag ("Player")) 
-		{
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            playerIsInRange = false;
             throwScript.ThrowIsActive = false;
-			squirrelAnim.enabled = false;
-		}
-	}
+            squirrelAnim.enabled = false;
+        }
+    }
 
-	public IEnumerator ThrowNuts()
-	{
-		while (true) {
-			yield return new WaitForSeconds (1.65f);
-			squirrelAnim.SetBool ("throw", true);
+    public IEnumerator BossAttack()
+    {
+        System.Random rdm = new System.Random();
 
-			yield return new WaitForSeconds (0.35f);
-			throwScript.ThrowProjectile ();
+        int i;
+        Spawn_GameObject spawnScript;
 
-			yield return new WaitForSeconds (1);
-			squirrelAnim.SetBool ("throw", false);
-		}
-	}
+        while (true)
+        {
+            if (playerIsInRange)
+            {
+                i = rdm.Next(1, 11);
+
+                Debug.Log(i);
+
+                yield return new WaitForSeconds(1.65f);
+                if (i <= 8)
+                {
+                    squirrelAnim.SetBool("throw", true);
+
+                    yield return new WaitForSeconds(0.35f);
+                    throwScript.ThrowProjectile();
+
+                    yield return new WaitForSeconds(1);
+                    squirrelAnim.SetBool("throw", false);
+                }
+                else if (i > 8)
+                {
+                    foreach (GameObject bird in birdsWP)
+                    {
+                        spawnScript = bird.transform.Find("WP_A").GetComponent<Spawn_GameObject>();
+                        spawnScript.enabled = true;
+                        spawnScript.enabled = false;
+                        yield return null;
+                    }
+                }
+            }
+            yield return 0;
+        }
+    }
 }
- 

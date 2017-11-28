@@ -1,43 +1,35 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Intro_Hut : MonoBehaviour {
 
-    public string xmlTag;
-    public string filepath;
-    public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
+    public string id = "NewGameIntro";
     public GameObject player;
     public GameObject children;
     public GameObject levelSelection;
     public GameObject rockingChair;
 
-    private DialogeHandler dialogeHandler;
+    private DialogeHandler dHandler;
     private Textfield textfield;
 
 	// Use this for initialization
 	void Start () {
         //SdialogeHandler = new XMLReader().LoadDialouge(xmlTag,filepath);
-        textfield = dialogeHandler.Textfield;
+
+        SearchForGameObjects searchForDialogeDB = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForDialogeDB.DialogeDBFoundEventHandler += DialogeDBFound;
+
+        GameObject.FindGameObjectWithTag("MultiplayerGUI").SetActive(false);
 
         StartCoroutine("FadeIn");
     }
 
-    IEnumerator WaitForInisialisation()
+    void DialogeDBFound(object sender, EventArgs e)
     {
-        bool conversationStarted = false;
-        do
-        {
-            if (dialogeHandler.Ready && !conversationStarted)
-            {
-                conversationStarted = true;
-                textfield.EnableText();
-                StartCoroutine("Intro_Sequence");
-            }
-            yield return null;
-        } while (!conversationStarted);
+        dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        StartCoroutine("Intro_Sequence");
     }
 
     IEnumerator FadeIn()
@@ -51,17 +43,17 @@ public class Intro_Hut : MonoBehaviour {
             yield return new WaitForSeconds(0.03f);
         }
         yield return new WaitForSeconds(2);
-        StartCoroutine("WaitForInisialisation");
+        dHandler.StartConversation();
     }
 	
 	IEnumerator Intro_Sequence()
     {
-        while (dialogeHandler.Talking)
+        while (!dHandler.ConversationFinishedOnce)
         {
             yield return null;
         }
 
-        dialogeHandler.Movement.MovementDisabled = true;
+        dHandler.Movement.MovementDisabled = true;
         rockingChair.GetComponent<Animator>().SetBool("IsUsed", false);
         player.transform.position = rockingChair.transform.position;
         player.SetActive(true);

@@ -212,4 +212,79 @@
 			<english>Well, it was like this...</english>
 		</textblock>
 	</dialoge>
+	
+	<dialoge object="NewGameIntro" length="9">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>... und so hat euer Opi aus dem mächtigen Drachen Sushi gemacht.</german>
+			<english>...and that's how your grandfather made sushi out of the dragon!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Grandchildren</talker>
+			<sprite>NPCs/children</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Uh, wow. Toll Opa.</german>
+			<english>Uh, wow. Cool!</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ja, aber das ist noch gar nichts im Vergleich zu...</german>
+			<english>Still, this is nothing compared to...</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hoppla da hab ich mich ein bisschen verplappert.</german>
+			<english>Ah wait...</english>
+		</textblock>
+		<textblock id="5">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ich hab ganz übersehen neues Feuerholz in den Kamin nachzulgen.</german>
+			<english>I forgot to throw fire wood into the fire place!</english>
+		</textblock>
+		<textblock id="6">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hm, keines mehr da. Kinder, ich geh schnell in den Wald und hol neues.</german>
+			<english>Hm... seems like there's no wood left. Children, I go to the forest and get new wood.</english>
+		</textblock>
+		<textblock id="7">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ihr bleibt währenddessen hier und wartet auf mich.</german>
+			<english>Meanwhile you wait here for me.</english>
+		</textblock>
+		<textblock id="8">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Keine Angst, die Hütte hat einen Zauber, der euch vor Monstern schütz.</german>
+			<english>No worries, a spell protects the hut from enemies.</english>
+		</textblock>
+		<textblock id="9">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ok Opa.</german>
+			<english>Ok!</english>
+		</textblock>
+	</dialoge>
 </dialoges>
