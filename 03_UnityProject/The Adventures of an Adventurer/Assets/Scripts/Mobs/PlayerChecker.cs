@@ -27,7 +27,7 @@ public class PlayerChecker : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            print("Notifieing Subscribers (PlayerAproaching)");
+            print("Notifieing Subscribers (PlayerExiting)");
             if (PlayerExiting != null)
                 PlayerExiting(this, null);
         }
