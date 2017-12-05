@@ -1,0 +1,10 @@
+05.12.2017 (v0.0.2)
+- XML Reader for easier Dialouge editing
+- Second Attack for second Boss (WitchTree Bird Attack)
+- New Animations for the Multiplayer Boss + Implementation
+- 2 new Enemies which apair in second Level
+- Basic Implementation of second Level (Only Accessable through Debug Menu)
+- Fixed some Minor Bugs
+	- XML Reader Bugs (Display Dialouge, Call Methodes, Play Sound while Talking)
+	- Main Menu Language Options
+	- Throw Skript for Squirel
