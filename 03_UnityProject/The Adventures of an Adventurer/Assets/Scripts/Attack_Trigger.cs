@@ -32,7 +32,7 @@ public class Attack_Trigger : MonoBehaviour {
 		}
 		attackData[1] = isCrit;
 
-		if (col.isTrigger != true && col.CompareTag ("Enemy") && alreadyHit == false) {
+		if (col.isTrigger != true && col.CompareTag ("Enemy") && alreadyHit == false && col.gameObject.layer != LayerMask.NameToLayer("Invincible")) {
 			alreadyHit = true;
 			col.SendMessageUpwards ("ApplyDamage", attackData);
 		}

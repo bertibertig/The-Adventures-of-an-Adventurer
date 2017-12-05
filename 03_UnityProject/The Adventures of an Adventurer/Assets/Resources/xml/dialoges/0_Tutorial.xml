@@ -1,0 +1,301 @@
+﻿<?xml version="1.0"?>
+<dialoges>
+	<dialoge object="default" length="1">
+		<textblock id="1">
+			<talker>Default</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
+			<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
+		</textblock>
+	</dialoge>
+
+	<dialoge object="sign01" length="3">
+		<textblock id="1">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Mit 'E' kannst du mit Objekten in deiner Umgebung interagieren.</german>
+			<english>By pressing 'E' you can interact with your surroundings.</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Wie? Das wusstest du schon?</german>
+			<english>What? You already knew that?</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Sign</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Schön für dich!</german>
+			<english>Good for you then!</english>
+		</textblock>
+	</dialoge>
+
+	<dialoge object="WitchTree" length="4">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ha, hab ich dich endlich gefunden, du hinterlistige Hexe!</german>
+			<english>There you are! I finally found you, you deceitful witch!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Jetzt kannst du dich auf etwas gefasst machen!</german>
+			<english>Prepare for your demise!</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Legit Witch</talker>
+			<sprite>Mobs/Bosses/0_WitchTree/WitchTree</sprite>
+			<textspeed>0.5</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>...</german>
+			<english>...</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Schweigen wird dir nicht helfen! Stirb!</german>
+			<english>Silence won't hinder your downfall! Die!</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="WitchTreeDefeated" length="3">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hahaaa! Stirb Hexe!</german>
+			<english>Hiaaaaaa! Die you wicked Witch</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ich habs also immer noch drauf.</german>
+			<english>I've still got it.</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Also dann, zurück zur Hütte</german>
+			<english>Ok, let's get back to the hut.</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="MPBoss" length="7">
+		<textblock id="1">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Fremder! Falls ihr begehrt zu passieren, müsst ihr zuerst mich besiegen</german>
+			<english>Stranger! If you seek to pass, you have to defeat me first.</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ich bin doch nur auf Reisen, ist das wirklich nötig?</german>
+			<english>I am just traveling, is this really necessary</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ha, das sagt ihr doch nur weil ihr Angst habt.</german>
+			<english>Ha, you just say that because you are frightened.</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Na gut, wenn es WIRKLICH nötig ist.</german>
+			<english>Well, if it realy IS necessary.</english>
+		</textblock>
+		<textblock id="5">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>DialogeMPBoss.SummonSpirit</methodeAfterEnd>
+			<german>Also dann, mein Kumpane kommt zu mir!</german>
+			<english>Well then, my buddy come to me!</english>
+		</textblock>
+		<textblock id="6">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Zwei gegen einen? Ist das nicht etwas unfär?</german>
+			<english>Two against one? Isn't that a little bit unfair?</english>
+		</textblock>
+		<textblock id="7">
+			<talker>Mysterious Knight</talker>
+			<sprite>Mobs/Bosses/1_MPBoss/Boss</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Keine faulen Ausreden mehr, kämpft oder sterbt!</german>
+			<english>No lazy excuses, fight or die!</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="TutEnding01" length="4">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>... und so hab ich die böse Hexe besiegt!</german>
+			<english>...and that's how I beat the evil witch!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Grandchildren</talker>
+			<sprite>NPCs/children</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Oh, toll Opa. Wer hätte gedacht, dass direkt neben unserer Hütte eine böse Hexe wohnt.</german>
+			<english>Awesome, grandpa! Who could have known that a witch lives close to our place</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Jaja, ich habs auch kaum glauben können. Aber genau so hat es sich zugetragen.</german>
+			<english>I couldn't believe it either. But that's how it happened!</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Lasst mal überlegen, was ich euch als nächstes erzählen kann.</german>
+			<english>Let me think what else I could tell you...</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="LvSelLv1" length="2">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hab ich euch eigentlich schon mal erzählt, wie mein Leben als Adventurer begann.</german>
+			<english>Have I ever told you how my life as an adventurer started</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Also, das war so ...</german>
+			<english>Well, it was like this...</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="NewGameIntro" length="9">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>... und so hat euer Opi aus dem mächtigen Drachen Sushi gemacht.</german>
+			<english>...and that's how your grandfather made sushi out of the dragon!</english>
+		</textblock>
+		<textblock id="2">
+			<talker>Grandchildren</talker>
+			<sprite>NPCs/children</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Uh, wow. Toll Opa.</german>
+			<english>Uh, wow. Cool!</english>
+		</textblock>
+		<textblock id="3">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ja, aber das ist noch gar nichts im Vergleich zu...</german>
+			<english>Still, this is nothing compared to...</english>
+		</textblock>
+		<textblock id="4">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hoppla da hab ich mich ein bisschen verplappert.</german>
+			<english>Ah wait...</english>
+		</textblock>
+		<textblock id="5">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ich hab ganz übersehen neues Feuerholz in den Kamin nachzulgen.</german>
+			<english>I forgot to throw fire wood into the fire place!</english>
+		</textblock>
+		<textblock id="6">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Hm, keines mehr da. Kinder, ich geh schnell in den Wald und hol neues.</german>
+			<english>Hm... seems like there's no wood left. Children, I go to the forest and get new wood.</english>
+		</textblock>
+		<textblock id="7">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ihr bleibt währenddessen hier und wartet auf mich.</german>
+			<english>Meanwhile you wait here for me.</english>
+		</textblock>
+		<textblock id="8">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Keine Angst, die Hütte hat einen Zauber, der euch vor Monstern schütz.</german>
+			<english>No worries, a spell protects the hut from enemies.</english>
+		</textblock>
+		<textblock id="9">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Ok Opa.</german>
+			<english>Ok!</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="IntroWalk" length="1">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Na gut, dann geh ich mal los um Feuerholz zu holen.</german>
+			<english>Well, I better get going for that firewood.</english>
+		</textblock>
+	</dialoge>
+</dialoges>

@@ -30,6 +30,11 @@ TagManager:
   - EndSequenceHandler
   - Spirit
   - PlayerPosition
+  - DialogesDB
+  - MultiplayerGUI
+  - MultiplayerController
+  - MPBoss
+  - Waypoint
   layers:
   - Default
   - TransparentFX

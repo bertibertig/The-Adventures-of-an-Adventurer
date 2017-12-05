@@ -41,8 +41,8 @@ public class Enemy_Health_Controller : MonoBehaviour
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
-        if (loot == null)
-            loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+        /*if (loot == null)
+            loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();*/
 
         //loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
 

@@ -20,8 +20,10 @@ public class Throw_On_Target : MonoBehaviour {
     {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        /*MULTIPLAYER_OWN
         if (myTarget == null)
-            myTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            myTarget = GameObject.FindGameObjectWithTag("Player").transform;*/
     }
 
     public void PlayerFound(object sender, EventArgs e)

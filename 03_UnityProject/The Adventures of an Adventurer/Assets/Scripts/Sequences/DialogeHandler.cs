@@ -1,82 +1,151 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class DialogeHandler : MonoBehaviour {
 
-    public float TextSpeed { get; set; }
-    public string[] GermanText { get; set; }
-    public string[] EnglishText { get; set; }
+    private bool loadedTalkerSprites;
+    private bool loadedMainComponents;
+    private List<string> tempTalkerRessources;
+    public event EventHandler DialogeEndedEventHandler;
+
+    public bool Talking { get; set; }
+    public float DefaultTextSpeed { get; set; }
+    public List<string> Dialoge { get; set; }
     public string Language { get; set; }
-    public AudioSource PlayerAudio { get; set; }
-    public AudioSource Talker1Audio { get; set; }
-    public AudioSource Talker2Audio { get; set; }
-    public GameObject Talker1 { get; set; }
-    public GameObject Talker2 { get; set; }
-    public Sprite PlayerSprite { get; set; }
-    public Sprite Talker1Sprite { get; set; }
-    public Sprite Talker2Sprite { get; set; }
+    public List<GameObject> Talkers { get; set; }
+    public List<string> ResourcesAsString { get; set; }
+    public List<string> TalkerNames { get; set; }
+    public List<Sprite> Sprites { get; set; }
+    public List<float> TextSpeeds { get; set; }
+    public List<AudioSource> TalkersSounds { get; set; }
+    public List<string> MethodesAfterEnd { get; set; }
     public GameObject Player { get; set; }
-    public string[] UsedDialoge { get; set; }
     public Player_Movement Movement { get; set; }
     public Textfield Textfield { get; set; }
+    public string DialougeName { get; set; }
     public bool Ready { get; set; }
+    public bool ConversationFinishedOnce { get; set; }
 
-    public DialogeHandler(float textspeed, string[] germanDialoge, string[] englishDialoge, GameObject talker1, GameObject talker2 = null, AudioSource talker1Audio = null, AudioSource talker2Audio = null)
+    public void StartConversation(int printUntil = -1, int rotation = -1)
     {
-        Ready = false;
-        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
-        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
-
-        if (TextSpeed <= 0)
-            TextSpeed = 0.05f;
-        else
-            TextSpeed = textspeed;
-        GermanText = germanDialoge;
-        EnglishText = englishDialoge;
-        Talker1 = talker1;
-        if(talker2 != null)
-            Talker2 = talker2;
-        Talker1Audio = talker1Audio;
-        if (talker2 != null)
-            Talker2Audio = talker2Audio;
-        Textfield = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-
-        if (Talker1 != null)
-            Talker1Sprite = Talker1.GetComponent<SpriteRenderer>().sprite;
-        if (Talker2 != null)
-            Talker2Sprite = Talker2.GetComponent<SpriteRenderer>().sprite;
-
-        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
-            Language = "english";
-        else
-            Language = "english";
-            //Language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
-        if (Language == "german")
-            UsedDialoge = germanDialoge;
-        else
-            UsedDialoge = englishDialoge;
-        PlayerFound();
+        if(!Talking)
+        {
+            Talking = true;
+            if (Player != null)
+            {
+                Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                Movement.MovementDisabled = true;
+                Player.transform.localScale = new Vector3(rotation, 1, 1);
+            }
+            if (Player.GetComponent<Player_Attack>().isActiveAndEnabled)
+            {
+                Player.GetComponent<Player_Attack>().enabled = false;
+            }
+            StartCoroutine("Conversation", printUntil);
+        }
     }
 
-    public void PlayerFound(object sender, EventArgs e)
+    public void PrintOneLine(int line)
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        Movement = Player.GetComponent<Player_Movement>();
-        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
-        PlayerAudio = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<AudioSource>();
-        Ready = true;
+        if (!Talking)
+        {
+            Talking = true;
+            StartCoroutine("PrintOneLineCoRoutine", line);
+        }
     }
 
-    public void PlayerFound()
+    private IEnumerator Conversation(int printUntil)
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        Movement = Player.GetComponent<Player_Movement>();
-        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
-        PlayerAudio = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<AudioSource>();
-        Ready = true;
+        if (printUntil == -1)
+            printUntil = Dialoge.Count;
+        Textfield.EnableText();
+
+        for(int i = 0; i < printUntil; i++)
+        {
+            Textfield.ChangeTalker(Talkers[i].GetComponent<SpriteRenderer>().sprite);
+            Textfield.ChangeTalkerName(TalkerNames[i]);
+            Textfield.PrintText(Dialoge[i], TextSpeeds[i], TalkersSounds[i]);
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            Textfield.StopPrintText();
+            Textfield.PrintWholeText();
+            if (!Textfield.FinishedPrintingText)
+            {
+                yield return new WaitForSeconds(0.1f);
+                while (!Input.GetButtonDown("Interact"))
+                {
+                    yield return null;
+                }
+                Textfield.StopPrintText();
+            }
+
+            if(MethodesAfterEnd[i] != "None")
+            {
+                string[] function = MethodesAfterEnd[i].Split('.');
+                Type type = Type.GetType(function[0]);
+                MethodInfo m = type.GetMethod(function[1]);
+                if (function.Length > 2)
+                    m.Invoke(m, ((IEnumerable)function[2]).Cast<object>().Select(s => s == null ? s : s.ToString()).ToArray());
+                else
+                    m.Invoke(m, new object[] { "" });
+            }
+
+
+            yield return null;
+        }
+
+        Textfield.DisableText();
+        Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        Movement.MovementDisabled = false;
+        Player.GetComponent<Player_Attack>().enabled = true;
+        Talking = false;
+        DialogeEnded();
+        ConversationFinishedOnce = true;
     }
 
+    private IEnumerator PrintOneLineCoRoutine(int line)
+    {
+        Textfield.EnableText();
+        Textfield.ChangeTalker(Talkers[line].GetComponent<SpriteRenderer>().sprite);
+        Textfield.ChangeTalkerName(TalkerNames[line]);
+        Textfield.PrintText(Dialoge[line], TextSpeeds[line],TalkersSounds[line]);
+        yield return new WaitForSeconds(0.1f);
+        while (!Input.GetButtonDown("Interact"))
+        {
+            yield return null;
+        }
+        Textfield.StopPrintText();
+        Textfield.PrintWholeText();
+        if (!Textfield.FinishedPrintingText)
+        {
+            yield return new WaitForSeconds(0.1f);
+            while (!Input.GetButtonDown("Interact"))
+            {
+                yield return null;
+            }
+            Textfield.StopPrintText();
+        }
 
+        /*Textfield.DisableText();
+        Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        Movement.MovementDisabled = false;
+        Player.GetComponent<Player_Attack>().enabled = true;*/
+        Talking = false;
+        DialogeEnded();
+        ConversationFinishedOnce = true;
+    }
+
+    private void DialogeEnded()
+    {
+        print("Notifieing Subscribers (DilogeEnded)");
+        if (DialogeEndedEventHandler != null)
+            DialogeEndedEventHandler(this, null);
+    }
 }

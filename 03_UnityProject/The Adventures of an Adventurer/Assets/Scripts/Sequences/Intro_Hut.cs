@@ -1,41 +1,39 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Intro_Hut : MonoBehaviour {
 
-    public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
+    public string id = "NewGameIntro";
     public GameObject player;
     public GameObject children;
     public GameObject levelSelection;
     public GameObject rockingChair;
 
-    private DialogeHandler dialogeHandler;
+    private DialogeHandler dHandler;
     private Textfield textfield;
 
 	// Use this for initialization
 	void Start () {
-        dialogeHandler = new DialogeHandler(textSpeed, germanDialoge, englishDialoge, player, children);
-        textfield = dialogeHandler.Textfield;
+        //SdialogeHandler = new XMLReader().LoadDialouge(xmlTag,filepath);
+
+        if (GameObject.FindGameObjectWithTag("EventList") == null)
+            GameObject.Instantiate(Resources.Load("Other/EventList") as GameObject);
+
+        SearchForGameObjects searchForDialogeDB = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForDialogeDB.DialogeDBFoundEventHandler += DialogeDBFound;
+
+        GameObject.FindGameObjectWithTag("MultiplayerGUI").SetActive(false);
 
         StartCoroutine("FadeIn");
     }
 
-    IEnumerator WaitForInisialisation()
+    void DialogeDBFound(object sender, EventArgs e)
     {
-        bool conversationStarted = false;
-        do
-        {
-            if (dialogeHandler.Ready && !conversationStarted)
-            {
-                conversationStarted = true;
-                textfield.EnableText();
-                StartCoroutine("Intro_Sequence");
-            }
-            yield return null;
-        } while (!conversationStarted);
+        dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().DialogeDBFoundEventHandler -= DialogeDBFound;
+        StartCoroutine("Intro_Sequence");
     }
 
     IEnumerator FadeIn()
@@ -49,186 +47,17 @@ public class Intro_Hut : MonoBehaviour {
             yield return new WaitForSeconds(0.03f);
         }
         yield return new WaitForSeconds(2);
-        StartCoroutine("WaitForInisialisation");
+        dHandler.StartConversation();
     }
 	
 	IEnumerator Intro_Sequence()
     {
-        levelSelection.GetComponent<LevelSelection>().LevelSelectionDisabled = true;
-        textfield.ChangeTalker(dialogeHandler.Talker1Sprite);
-        textfield.ChangeTalkerName("Adventurer");
-        textfield.PrintText(dialogeHandler.UsedDialoge[0], textSpeed, dialogeHandler.PlayerAudio);
-        while (!Input.GetButtonDown("Interact"))
+        while (!dHandler.ConversationFinishedOnce)
         {
             yield return null;
         }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-        yield return null;
 
-        textfield.ChangeTalker(dialogeHandler.Talker2Sprite);
-        textfield.ChangeTalkerName("Grandchildren");
-        textfield.PrintText(dialogeHandler.UsedDialoge[1], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.ChangeTalker(dialogeHandler.PlayerSprite);
-        textfield.ChangeTalkerName("Adventurer");
-        textfield.PrintText(dialogeHandler.UsedDialoge[2], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[3], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[4], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[5], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[6], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.PrintText(dialogeHandler.UsedDialoge[7], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.ChangeTalker(dialogeHandler.Talker2Sprite);
-        textfield.ChangeTalkerName("Grandchildren");
-        textfield.PrintText(dialogeHandler.UsedDialoge[8], textSpeed, dialogeHandler.PlayerAudio);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        textfield.StopPrintText();
-        textfield.PrintWholeText();
-        if (!textfield.FinishedPrintingText)
-        {
-            yield return new WaitForSeconds(0.1f);
-            while (!Input.GetButtonDown("Interact"))
-            {
-                yield return null;
-            }
-            textfield.StopPrintText();
-        }
-
-        textfield.StopPrintText();
-        textfield.DisableText();
-
-        dialogeHandler.Movement.MovementDisabled = true;
+        dHandler.Movement.MovementDisabled = true;
         rockingChair.GetComponent<Animator>().SetBool("IsUsed", false);
         player.transform.position = rockingChair.transform.position;
         player.SetActive(true);

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114246646127814958}
   - component: {fileID: 50832907328763508}
   - component: {fileID: 114041721401476746}
+  - component: {fileID: 114961652345792240}
   m_Layer: 0
   m_Name: Spirit
   m_TagString: Spirit
@@ -101,6 +102,17 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114961652345792240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694029958023458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8969a082d022d1648ac2b67b86556f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212832460826223536
 SpriteRenderer:
   m_ObjectHideFlags: 1

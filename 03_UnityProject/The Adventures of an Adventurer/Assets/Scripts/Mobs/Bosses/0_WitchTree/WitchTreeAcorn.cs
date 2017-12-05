@@ -10,12 +10,9 @@ public class WitchTreeAcorn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        witchTreeLeaveColliders = GameObject.FindGameObjectsWithTag("LeaveCollider");
-        foreach(GameObject g in witchTreeLeaveColliders)
-            Physics2D.IgnoreCollision(g.GetComponent<EdgeCollider2D>(), GetComponent<PolygonCollider2D>());
         damageDealer = gameObject.GetComponentInChildren<Damage_On_Collision>();
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Enemy"))
-            Physics2D.IgnoreCollision(g.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+            Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         onGround = false;
         //StartCoroutine("Disapear");
 	}

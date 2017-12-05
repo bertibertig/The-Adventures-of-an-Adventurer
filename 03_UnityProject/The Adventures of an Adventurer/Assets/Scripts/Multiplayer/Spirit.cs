@@ -14,9 +14,18 @@ public class Spirit : Photon.MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb2d = this.GetComponent<Rigidbody2D>();
-        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
-        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+        if (GameObject.FindGameObjectWithTag("EventList") != null)
+        {
+            SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+            searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+        }
 	}
+
+    public void Update()
+    {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public void PlayerFound(object sender, EventArgs e)
     {
@@ -45,6 +54,8 @@ public class Spirit : Photon.MonoBehaviour {
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        if(rb2d == null)
+            rb2d = this.GetComponent<Rigidbody2D>();
         if (stream.isWriting)
         {
             stream.SendNext(this.rb2d.position);
