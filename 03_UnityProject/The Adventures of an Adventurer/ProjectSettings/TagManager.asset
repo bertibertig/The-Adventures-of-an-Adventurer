@@ -34,6 +34,7 @@ TagManager:
   - MultiplayerGUI
   - MultiplayerController
   - MPBoss
+  - Waypoint
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,8 @@ using System;
 
 public class camera_follow : Photon.MonoBehaviour {
 
+    public GameObject playerGOForTesting;
+
     private Vector2 velocity;
 
     public float smoothTimeY;
@@ -19,14 +21,18 @@ public class camera_follow : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (playerGOForTesting != null)
+            Player = playerGOForTesting;
     }
 
     void FixedUpdate()
     {
         if (!Static)
         {
+            if (GameObject.FindGameObjectWithTag("EventList") == null)
+                print("ERROR: No SearchForGameObjects (EventList)");
             //TODO: Remove and Implement correct
-            if (Player == null)
+            if (Player == null && GameObject.FindGameObjectWithTag("EventList") != null)
             {
                 SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
                 searchForPlayer.PlayerFoundEventHandler += PlayerFound;

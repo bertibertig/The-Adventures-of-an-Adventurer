@@ -287,4 +287,15 @@
 			<english>Ok!</english>
 		</textblock>
 	</dialoge>
+	
+	<dialoge object="IntroWalk" length="1">
+		<textblock id="1">
+			<talker>Adventurer</talker>
+			<sprite>Player</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>Na gut, dann geh ich mal los um Feuerholz zu holen.</german>
+			<english>Well, I better get going for that firewood.</english>
+		</textblock>
+	</dialoge>
 </dialoges>

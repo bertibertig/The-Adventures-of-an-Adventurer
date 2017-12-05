@@ -7,16 +7,23 @@ using System.Text;
 
 public class LanguageReader : MonoBehaviour {
 
+    public event EventHandler LanguageLoadedEventHandler;
+
     public string Language { get; set; }
-    public bool LanguageLoaded { get; set; }
 
 
     // Use this for initialization
     void Start () {
-        LanguageLoaded = false;
         Language = ReadLanguage();
-        LanguageLoaded = true;
+        LanguageLoaded();
 
+    }
+
+    private void LanguageLoaded()
+    {
+        print("Notifieing Subscribers (LanguageLoaded)");
+        if (LanguageLoadedEventHandler != null)
+            LanguageLoadedEventHandler(this, null);
     }
 
     public string ReadLanguage(string filePath = @"xml\options")

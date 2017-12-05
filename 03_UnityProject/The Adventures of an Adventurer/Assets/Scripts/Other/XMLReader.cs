@@ -28,8 +28,16 @@ public class XMLReader : MonoBehaviour {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
+        GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().LanguageLoadedEventHandler += XMLReader_LanguageLoadedEventHandler;
+
 
         //StartCoroutine("LoadDialouge");
+    }
+
+    private void XMLReader_LanguageLoadedEventHandler(object sender, EventArgs e)
+    {
+        language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+        LoadDialouge();
     }
 
     public void PlayerFound(object sender, EventArgs e)
@@ -83,11 +91,6 @@ public class XMLReader : MonoBehaviour {
 
     private IEnumerator LoadDialouge()
     {
-        while (!GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().LanguageLoaded)
-        {
-            yield return null;
-        }
-        language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
         int length = 0;
         List<string> dialoge = new List<string>();
         List<string> talkerNames = new List<string>();
@@ -210,7 +213,7 @@ public class XMLReader : MonoBehaviour {
     }
 
 
-    //TODO: Check why Player has no Talkingsound => Because Gameobject does not "exist"
+    //TODO: Check why Player has no Talkingsound => Because Gameobject does not "exist" (not Inisialised)
     IEnumerator LoadRessources(DialogeHandler dH)
     {
         foreach (string tR in dH.ResourcesAsString)

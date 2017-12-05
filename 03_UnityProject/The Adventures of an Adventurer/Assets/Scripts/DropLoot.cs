@@ -12,7 +12,11 @@ public class DropLoot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         amountOfCoinsToDrop = 0;
-        inventoryDB = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
+        if (GameObject.FindGameObjectWithTag("InventoryUI") == null)
+            print("No InventoryUI (UI_Group)");
+
+        if(GameObject.FindGameObjectWithTag("InventoryUI") != null)
+            inventoryDB = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Database>();
         //goldCoin = GameObject.FindGameObjectWithTag("GoldCoin");
         goldCoin = Resources.Load("Items/Other/GoldCoin", typeof(GameObject)) as GameObject;
 	}

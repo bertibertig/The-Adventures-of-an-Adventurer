@@ -18,6 +18,9 @@ public class Intro_Hut : MonoBehaviour {
 	void Start () {
         //SdialogeHandler = new XMLReader().LoadDialouge(xmlTag,filepath);
 
+        if (GameObject.FindGameObjectWithTag("EventList") == null)
+            GameObject.Instantiate(Resources.Load("Other/EventList") as GameObject);
+
         SearchForGameObjects searchForDialogeDB = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForDialogeDB.DialogeDBFoundEventHandler += DialogeDBFound;
 
@@ -29,6 +32,7 @@ public class Intro_Hut : MonoBehaviour {
     void DialogeDBFound(object sender, EventArgs e)
     {
         dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().DialogeDBFoundEventHandler -= DialogeDBFound;
         StartCoroutine("Intro_Sequence");
     }
 
