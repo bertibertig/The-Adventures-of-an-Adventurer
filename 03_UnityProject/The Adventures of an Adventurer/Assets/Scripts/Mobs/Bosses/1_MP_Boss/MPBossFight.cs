@@ -9,6 +9,7 @@ public class MPBossFight : MonoBehaviour {
     public GameObject rColl;
     public GameObject shield;
     public float maxSpeed;
+    public Vector2 cameraPositionForFight;
 
     private Rigidbody2D rb2d;
     private Animator wepAnim;
@@ -36,7 +37,7 @@ public class MPBossFight : MonoBehaviour {
     public void StartFight()
     {
         cam.GetComponent<camera_follow>().Static = true;
-        cam.transform.position = new Vector3(-70.39f, 1.58f, -10);
+        cam.transform.position = cameraPositionForFight;
         Charge();
     }
 

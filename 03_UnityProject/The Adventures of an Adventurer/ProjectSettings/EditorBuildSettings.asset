@@ -29,7 +29,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu_Credits.unity
   - enabled: 1
     path: Assets/Scenes/Level00/0_Level_Tutorial_00_Inside_Hut_of_the_Adventurer.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestGround.unity
   - enabled: 1
     path: Assets/Scenes/Level01/01_Level_Forest.unity
