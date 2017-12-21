@@ -79,7 +79,7 @@ public class Main_Menu_NetworkingNewBehaviourScript : Photon.MonoBehaviour {
         print("Joined");
         PhotonNetwork.Instantiate("Spirit", new Vector2(-100, -100), Quaternion.identity, 0);
         print("Joined as Spirit");
-        PhotonNetwork.LoadLevel("0_Level_Tutorial");
+        PhotonNetwork.LoadLevel("Level_T1_MP");
     }
 
 

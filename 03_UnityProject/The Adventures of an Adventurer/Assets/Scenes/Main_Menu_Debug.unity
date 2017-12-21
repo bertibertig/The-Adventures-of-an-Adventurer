@@ -765,7 +765,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Load TestGround
+  m_Text: Load MP Test
 --- !u!222 &1567584504
 CanvasRenderer:
   m_ObjectHideFlags: 0

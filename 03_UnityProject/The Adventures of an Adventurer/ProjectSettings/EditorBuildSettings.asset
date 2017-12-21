@@ -33,3 +33,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TestGround.unity
   - enabled: 1
     path: Assets/Scenes/Level01/01_Level_Forest.unity
+  - enabled: 1
+    path: Assets/Scenes/Testlevel/Level_T1_MP.unity

@@ -12,7 +12,7 @@ public class Main_Menu_Debug_Buttons : MonoBehaviour {
 
     public void LoadTestGround()
     {
-        SceneManager.LoadScene("TestGround");
+        SceneManager.LoadScene("Level_T1_MP");
     }
 
     public void BackButton()

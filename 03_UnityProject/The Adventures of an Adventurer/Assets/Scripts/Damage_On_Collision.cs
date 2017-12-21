@@ -11,7 +11,6 @@ public class Damage_On_Collision : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.tag);
         if (other.CompareTag("Player") == true)
         {
 			other.SendMessage("SetEnemyPlayerGotHitBy", this.gameObject);
