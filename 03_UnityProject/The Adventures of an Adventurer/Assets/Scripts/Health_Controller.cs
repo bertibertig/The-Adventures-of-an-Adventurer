@@ -143,4 +143,9 @@ public class Health_Controller : MonoBehaviour {
 	{
 		this.damageSource = enemy;
 	}
+
+    public bool IsAtFullHealth()
+    {
+        return health == maxHealth;
+    }
 }

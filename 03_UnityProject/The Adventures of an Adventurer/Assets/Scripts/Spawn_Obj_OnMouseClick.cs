@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn_Obj_Facing_Cursor : MonoBehaviour {
+public class Spawn_Obj_OnMouseClick : MonoBehaviour {
 
     public float objLifespan = 5.0f;
     public bool shootingIsActive = false;
+    public bool facingCursor = true;
     public GameObject projectile;
 
     private Vector3 lastClickCoordinate;
@@ -28,8 +29,16 @@ public class Spawn_Obj_Facing_Cursor : MonoBehaviour {
 
     public void SpawnProjectile()
     {
-        GameObject projectileClone = Instantiate(projectile, transform.position, Quaternion.FromToRotation(Vector3.down, normalizedDirection));
+        GameObject projectileClone;
+
+        if (facingCursor)
+            projectileClone = Instantiate(projectile, transform.position, Quaternion.FromToRotation(Vector3.down, normalizedDirection));
+        else
+            projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
+
         projectileClone.SetActive(true);
+        for(int i = 0; i < projectileClone.transform.childCount; i++)
+            projectileClone.transform.GetChild(i).gameObject.SetActive(true);
 
         if (projectileClone.GetComponent<Move_Indefinitely>() != null)
             projectileClone.GetComponent<Move_Indefinitely>().Move_To_Direction(normalizedDirection);

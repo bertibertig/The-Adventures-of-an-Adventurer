@@ -44,8 +44,6 @@ public class Enemy_Health_Controller : MonoBehaviour
         if (loot == null)
             loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
 
-        //loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
-
         healthCanvas = transform.GetComponentInChildren<Canvas>();
         healthCanvas.enabled = false;
         health = maxHealth;
@@ -53,6 +51,17 @@ public class Enemy_Health_Controller : MonoBehaviour
 		if(anim != null)
 			anim.SetFloat ("Health", health);
         UpdateGUI();
+    }
+
+    private void Update()
+    {
+        if (health == 0)
+        {
+            loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
+            this.gameObject.GetComponent<Enemy_Movement_AI>().Died = true;
+            Destroy(healthBar);
+            Destroy(this.gameObject);
+        }
     }
 
     public void PlayerFound(object sender, EventArgs e)
@@ -78,14 +87,7 @@ public class Enemy_Health_Controller : MonoBehaviour
 
         InitDamageNumbers(damage.ToString(), isCrit);
 
-        if (health == 0)
-        {
-            loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
-            this.gameObject.GetComponent<Enemy_Movement_AI>().Died = true;
-            Destroy(healthBar);
-            Destroy(this.gameObject);
-        }
-        else
+        if (health != 0)
         {
             UpdateGUI();
         }
@@ -130,6 +132,26 @@ public class Enemy_Health_Controller : MonoBehaviour
             dmgPref.GetComponent<Text>().text = dmg + "\nCritical!";
             dmgPref.GetComponent<Animator>().SetTrigger("Crit");
         }
+        Destroy(dmgPref.gameObject, 1.5f);
+    }
+
+    public void InitTextPopup(string txt)
+    {
+        if (healthIsVisible == false)
+        {
+            healthCanvas.enabled = true;
+            healthIsVisible = true;
+        }
+
+        GameObject dmgPref = Instantiate(DamageNumberPrefab) as GameObject;
+        RectTransform rect = dmgPref.GetComponent<RectTransform>();
+        dmgPref.transform.SetParent(transform.FindChild("EnemyCanvas"));
+        rect.transform.localPosition = DamageNumberPrefab.transform.localPosition;
+        rect.transform.localScale = DamageNumberPrefab.transform.localScale;
+
+        dmgPref.GetComponent<Text>().text = txt;
+        dmgPref.GetComponent<Animator>().SetTrigger("Hit");
+
         Destroy(dmgPref.gameObject, 1.5f);
     }
 }

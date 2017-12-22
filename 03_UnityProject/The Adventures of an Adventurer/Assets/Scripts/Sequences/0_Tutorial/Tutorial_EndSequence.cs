@@ -96,7 +96,6 @@ public class Tutorial_EndSequence : MonoBehaviour {
         SpriteRenderer bFade = blackFade.GetComponent<SpriteRenderer>();
         do
         {
-            print(bFade.color.a);
             bFade.color = new Color(bFade.color.r, bFade.color.g, bFade.color.b, (bFade.color.a + 0.01f));
             yield return new WaitForSeconds(0.03f);
         } while (bFade.color.a <= 1);
