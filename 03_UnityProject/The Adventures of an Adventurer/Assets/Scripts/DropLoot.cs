@@ -39,7 +39,8 @@ public class DropLoot : MonoBehaviour {
     {
         enemy = _enemy;
         amountOfCoinsToDrop = Random.Range(minCoins, maxCoins);
-        StartCoroutine("DropCoins");
+        if(this.gameObject.activeInHierarchy)
+            StartCoroutine("DropCoins");
     }
 
     public IEnumerator DropCoins()

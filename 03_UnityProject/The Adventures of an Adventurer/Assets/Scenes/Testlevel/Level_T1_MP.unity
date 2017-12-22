@@ -1174,7 +1174,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1592728168949866, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1626188986475608, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
       propertyPath: m_IsActive
@@ -1199,6 +1199,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseButtonEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359628426356260, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 120.8999
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359628426356260, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -43.099976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
