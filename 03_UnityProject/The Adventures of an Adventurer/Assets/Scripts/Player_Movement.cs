@@ -26,7 +26,7 @@ public class Player_Movement : Photon.MonoBehaviour
     private Vector2 enemyScreenPosition;
 
     GameObject player;
-    Camera camera;
+    new Camera camera;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
 
