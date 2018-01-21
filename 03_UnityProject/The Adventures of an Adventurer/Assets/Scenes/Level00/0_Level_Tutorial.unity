@@ -827,10 +827,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAtObject: {fileID: 0}
   objLifespan: 5
-  shootingIsActive: 0
   facingCursor: 1
   projectile: {fileID: 2140890941}
+  selected: 0
 --- !u!1 &98159046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,10 +1865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAtObject: {fileID: 0}
   objLifespan: 5
-  shootingIsActive: 0
   facingCursor: 0
   projectile: {fileID: 631930441}
+  selected: 0
 --- !u!1 &252351395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5404,7 +5406,7 @@ MonoBehaviour:
   verticalOffset: 1
   horizontalOffset: 0
   objectLifespan: 1
-  spawnByPressOnPlayer: 1
+  selected: 0
 --- !u!1 &747553865
 GameObject:
   m_ObjectHideFlags: 0
@@ -7748,7 +7750,7 @@ MonoBehaviour:
   id: WitchTree
 --- !u!114 &1045211804 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+  m_PrefabParentObject: {fileID: 114410038693682650, guid: cdbe9c95641b3a54594db0622ccf59db,
     type: 2}
   m_PrefabInternal: {fileID: 1677331204}
   m_Script: {fileID: 11500000, guid: 86ed5d9cb1f63884786d406d0bda509c, type: 3}
@@ -12727,55 +12729,55 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4140898096588374, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+    - target: {fileID: 4607639449296924, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+    - target: {fileID: 114410038693682650, guid: cdbe9c95641b3a54594db0622ccf59db,
         type: 2}
       propertyPath: ConnectionState
       value: 
       objectReference: {fileID: 1811860492}
-    - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+    - target: {fileID: 114410038693682650, guid: cdbe9c95641b3a54594db0622ccf59db,
         type: 2}
       propertyPath: CreateButton
       value: 
       objectReference: {fileID: 470438422}
-    - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+    - target: {fileID: 114410038693682650, guid: cdbe9c95641b3a54594db0622ccf59db,
         type: 2}
       propertyPath: RoomName
       value: 
       objectReference: {fileID: 372439743}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: cdbe9c95641b3a54594db0622ccf59db, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1679457587
 GameObject:

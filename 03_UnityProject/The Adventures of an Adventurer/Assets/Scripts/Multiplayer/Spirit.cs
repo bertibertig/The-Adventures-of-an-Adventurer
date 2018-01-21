@@ -6,6 +6,8 @@ using UnityEngine;
 public class Spirit : Photon.MonoBehaviour {
 
     public float lerpStep = 0.5f;
+    public bool offline = false;
+    public bool StopFollowingCursor = false;
 
     private Rigidbody2D rb2d;
     private Vector2 newPos;
@@ -38,7 +40,7 @@ public class Spirit : Photon.MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-		if(this.photonView.isMine)
+		if(this.photonView.isMine || offline)
         {
             Vector2 mouse = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
             //NOTE: Only for Debugging has to be changed to Touch controlls. 

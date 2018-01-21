@@ -12,7 +12,7 @@ public class Spawn_OnPlayer : MonoBehaviour {
     public float verticalOffset;
     public float horizontalOffset;
     public float objectLifespan;
-    public bool spawnByPressOnPlayer = false;
+    public bool selected = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class Spawn_OnPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(spawnByPressOnPlayer && objectToSpawn != null && Input.GetMouseButtonUp(0))
+		if(selected && objectToSpawn != null && Input.GetMouseButtonUp(0))
         {
             spawnLocation = new Vector2(player.transform.position.x + horizontalOffset, player.transform.position.y + verticalOffset);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);

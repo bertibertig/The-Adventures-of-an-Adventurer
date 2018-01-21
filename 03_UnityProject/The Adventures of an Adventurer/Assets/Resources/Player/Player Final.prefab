@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1150114420712644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4155908782997890}
+  - component: {fileID: 114968184206820646}
+  m_Layer: 0
+  m_Name: FireballController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1453345306613154
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +63,6 @@ GameObject:
   - component: {fileID: 114205038577339782}
   - component: {fileID: 114155471429747242}
   - component: {fileID: 114252586241199858}
-  - component: {fileID: 114267948249457786}
   m_Layer: 0
   m_Name: Player Final
   m_TagString: Player
@@ -55,47 +70,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1535583714270814
+--- !u!1 &1551703505500634
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4339336408413590}
-  - component: {fileID: 114759087900028546}
-  m_Layer: 0
-  m_Name: PoisonSpellController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1653834294935358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4275195245725902}
-  - component: {fileID: 114950392111244202}
-  m_Layer: 0
-  m_Name: FireballController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1658076651962178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4167987286823796}
-  - component: {fileID: 114193689779939900}
+  - component: {fileID: 4662886584367582}
+  - component: {fileID: 114229731613314586}
   m_Layer: 0
   m_Name: HealSpellController
   m_TagString: Untagged
@@ -137,6 +120,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1992739651882046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4725694860756310}
+  - component: {fileID: 114270941383060420}
+  m_Layer: 0
+  m_Name: PoisonSpellController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4138587798498470
 Transform:
   m_ObjectHideFlags: 1
@@ -150,44 +149,18 @@ Transform:
   m_Father: {fileID: 4520113112588810}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4167987286823796
+--- !u!4 &4155908782997890
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658076651962178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4520113112588810}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4275195245725902
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653834294935358}
+  m_GameObject: {fileID: 1150114420712644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4520113112588810}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4339336408413590
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535583714270814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4520113112588810}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4494979764570120
 Transform:
@@ -209,15 +182,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453345306613154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.16, y: -0.73, z: -1}
+  m_LocalPosition: {x: -8.1, y: 3.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138587798498470}
   - {fileID: 4494979764570120}
   - {fileID: 4605018863326560}
-  - {fileID: 4275195245725902}
-  - {fileID: 4339336408413590}
-  - {fileID: 4167987286823796}
+  - {fileID: 4155908782997890}
+  - {fileID: 4725694860756310}
+  - {fileID: 4662886584367582}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,6 +206,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4520113112588810}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4662886584367582
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551703505500634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4520113112588810}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4725694860756310
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1992739651882046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4520113112588810}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50501054913702082
 Rigidbody2D:
@@ -468,22 +467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyInfo: {fileID: 0}
---- !u!114 &114193689779939900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658076651962178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8007fb5b262f242bdd0375f6b39804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 0}
-  verticalOffset: 1
-  horizontalOffset: 0
-  objectLifespan: 1
-  spawnByPressOnPlayer: 1
 --- !u!114 &114205038577339782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,6 +478,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62911ff5667c30d4f8feefd49aaca0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114229731613314586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551703505500634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8007fb5b262f242bdd0375f6b39804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 0}
+  verticalOffset: 1
+  horizontalOffset: 0
+  objectLifespan: 1
+  spawnByPressOnPlayer: 1
 --- !u!114 &114252586241199858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,17 +505,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8969a082d022d1648ac2b67b86556f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114267948249457786
+--- !u!114 &114270941383060420
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453345306613154}
+  m_GameObject: {fileID: 1992739651882046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objLifespan: 5
+  shootingIsActive: 0
+  facingCursor: 0
+  projectile: {fileID: 0}
 --- !u!114 &114316724109351182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,27 +575,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 100
---- !u!114 &114759087900028546
+--- !u!114 &114968184206820646
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535583714270814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objLifespan: 5
-  shootingIsActive: 0
-  facingCursor: 0
-  projectile: {fileID: 0}
---- !u!114 &114950392111244202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653834294935358}
+  m_GameObject: {fileID: 1150114420712644}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}

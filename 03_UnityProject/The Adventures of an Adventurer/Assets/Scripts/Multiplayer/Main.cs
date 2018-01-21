@@ -10,17 +10,30 @@ public class Main : MonoBehaviour {
     public Text ConnectionState;
     public Button CreateButton;
     public InputField RoomName;
+    public string connectionGUIName = "ConnectionGUI";
 
     private GameObject Player;
     private bool waitingForSecondPlayer = false;
+    private GameObject multiplayerComplete;
 
-    public GameObject MultiplayerComplete { get; set; }
+    public GameObject MultiplayerComplete
+    {
+        get
+        {
+            if (multiplayerComplete != null)
+                return multiplayerComplete;
+            else
+                StartCoroutine("SearchForConnectionGUI");
+            return multiplayerComplete;
+        }
+        set { multiplayerComplete = value; }
+    }
+
     public bool RoomCreated { get; set; }
 
     void Start () {
         PhotonNetwork.ConnectUsingSettings("v1.0");
-        MultiplayerComplete = GameObject.FindGameObjectWithTag("MultiplayerGUI");
-        MultiplayerComplete.SetActive(false);
+        StartCoroutine("SearchForConnectionGUI");
         //StartCoroutine("InizialiseServer");
         Player = GameObject.FindGameObjectWithTag("Player");
         RoomCreated = false;
@@ -31,6 +44,30 @@ public class Main : MonoBehaviour {
         if (ConnectionState != null)
         {
             StartCoroutine("InizialiseServer");
+        }
+    }
+
+    IEnumerator SearchForConnectionGUI()
+    {
+        GameObject tmpMPGUI = GameObject.FindGameObjectWithTag("MultiplayerGUI");
+        for(int i = 0; i < tmpMPGUI.transform.childCount; i++)
+        {
+            if (tmpMPGUI.transform.GetChild(i).name == "ConnectionGUI")
+                MultiplayerComplete = tmpMPGUI.transform.GetChild(i).gameObject;
+            yield return null;
+        }
+
+        if (MultiplayerComplete == null)
+        {
+            tmpMPGUI.transform.parent = Instantiate(Resources.Load("Multiplayer/ConnectionGUI") as GameObject).transform;
+        }
+        MultiplayerComplete.SetActive(false);
+        if(ConnectionState == null || CreateButton == null || RoomName == null)
+        {
+            print("MultiplayerPlate has no values, reverting to Default");
+            ConnectionState = MultiplayerComplete.GetComponentsInChildren<Text>().Where(g => g.gameObject.name == "ConnectionGUI").FirstOrDefault();
+            CreateButton = MultiplayerComplete.GetComponentsInChildren<Button>().Where(g => g.gameObject.name == "CreateButton").FirstOrDefault();
+            RoomName = MultiplayerComplete.GetComponentsInChildren<InputField>().Where(g => g.gameObject.name == "RoomName").FirstOrDefault();
         }
     }
 

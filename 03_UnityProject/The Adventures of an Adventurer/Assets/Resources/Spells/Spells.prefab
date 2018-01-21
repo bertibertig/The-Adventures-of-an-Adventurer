@@ -158,6 +158,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4762284033573868}
+  - component: {fileID: 114110093437749324}
   m_Layer: 0
   m_Name: Heal
   m_TagString: Untagged
@@ -265,8 +266,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675455931929626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.550236, y: -0.6066409, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.960236, y: 2.1333592, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4684783549598024}
@@ -365,7 +366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1646958823808964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772542598698116}
@@ -575,6 +576,18 @@ MonoBehaviour:
     type: 2}
   playerIsObstacle: 0
   enemyIsObstacle: 1
+--- !u!114 &114110093437749324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646958823808964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e458ed23c636b14a9a73032c83fb5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healingToDo: 20
 --- !u!114 &114156379492228774
 MonoBehaviour:
   m_ObjectHideFlags: 1
