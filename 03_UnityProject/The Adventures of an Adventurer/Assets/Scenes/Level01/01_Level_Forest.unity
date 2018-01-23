@@ -310,6 +310,10 @@ Prefab:
       propertyPath: devices.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1592728168949866, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
   m_IsPrefabParent: 0
@@ -1604,7 +1608,7 @@ MonoBehaviour:
   minCloudsSpawnPosition: {x: -46.57, y: 8.66}
   maxCloudsSpawnPosition: {x: 83.89, y: 12.22}
   cloudEndOnXAxis: -54.22709
-  secondsUntilACloudSpawns: 1
+  secondsUntilACloudSpawns: 20
 --- !u!4 &1971295785
 Transform:
   m_ObjectHideFlags: 0
