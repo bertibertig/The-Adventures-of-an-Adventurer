@@ -7636,7 +7636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd9c080dbff0d64681b0a48b5dcc914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devices: 07000000080000000b000000
+  devices: 00000000080000000b000000
 --- !u!114 &114635150450675364
 MonoBehaviour:
   m_ObjectHideFlags: 1

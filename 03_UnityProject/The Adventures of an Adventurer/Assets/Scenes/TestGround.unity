@@ -2436,12 +2436,6 @@ Transform:
   m_Father: {fileID: 699001856}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &372439743 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114744333054986278, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
-    type: 2}
-  m_PrefabInternal: {fileID: 63263906}
-  m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &381229749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,12 +3483,6 @@ PolygonCollider2D:
       - {x: -1.15, y: -1.15}
       - {x: 1.15, y: -1.15}
       - {x: 1.1471329, y: 1.2505405}
---- !u!114 &470438422 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114265667710694954, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
-    type: 2}
-  m_PrefabInternal: {fileID: 63263906}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &484204440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4039,6 +4027,10 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1081524758448728, guid: 0ac9fe128c68f0e4394121f1567ea85e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931478028421416, guid: 0ac9fe128c68f0e4394121f1567ea85e, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -11592,7 +11584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1506740980
 Animator:
   serializedVersion: 3
@@ -11673,39 +11665,34 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.96999997, y: -1.18}
-      - {x: 1.0699999, y: -0.96}
+    - - {x: 0.8772049, y: -1.1825306}
+      - {x: 1.0209885, y: -0.9452953}
       - {x: 1.05, y: -0.9}
-      - {x: 0.95, y: -0.9}
-      - {x: 1.15, y: -0.68}
+      - {x: 1.0970459, y: -0.6647242}
+      - {x: 1.0861969, y: -0.43416125}
       - {x: 1.15, y: -0.42}
-      - {x: 0.96999997, y: -0.29999998}
-      - {x: 0.90999997, y: -0.24}
-      - {x: 0.96999997, y: -0.12}
-      - {x: 0.96999997, y: -0.06}
-      - {x: 0.90999997, y: -0.04}
-      - {x: 0.93, y: 0.19999999}
-      - {x: 0.87, y: 0.24}
-      - {x: 0.63, y: 0.12}
-      - {x: 0.63, y: 0.26}
-      - {x: 0.59, y: 0.32}
+      - {x: 0.92098236, y: -0.3098032}
+      - {x: 0.8658829, y: -0.20078737}
+      - {x: 1.0209732, y: -0.052604616}
+      - {x: 0.9003067, y: -0.023332775}
+      - {x: 0.87718964, y: 0.23338324}
+      - {x: 0.6135788, y: -0.027780056}
+      - {x: 0.70661926, y: 0.32568008}
+      - {x: 0.5243225, y: 0.3692602}
       - {x: 0.53, y: 0.62}
-      - {x: 0.48999998, y: 0.65999997}
-      - {x: 0.42999998, y: 0.64}
+      - {x: 0.4735794, y: 0.62715995}
+      - {x: 0.41905212, y: 0.6016868}
       - {x: 0.39, y: 0.58}
-      - {x: 0.26999998, y: 0.64}
-      - {x: 0.21, y: 0.62}
-      - {x: 0.19, y: 0.76}
-      - {x: 0.13, y: 0.79999995}
-      - {x: -0.07, y: 0.91999996}
-      - {x: -0.14999999, y: 0.9}
-      - {x: -0.29, y: 0.64}
-      - {x: -0.45, y: 0.76}
-      - {x: -0.51, y: 0.68}
-      - {x: -0.59, y: 0.56}
-      - {x: -0.66999996, y: 0.38}
-      - {x: -0.83, y: 0.44}
-      - {x: -0.93, y: 0.099999994}
+      - {x: 0.30851746, y: 0.45032665}
+      - {x: 0.27895355, y: 0.5928842}
+      - {x: 0.1381073, y: 0.73681414}
+      - {x: -0.07649994, y: 0.8879237}
+      - {x: -0.24473572, y: 0.61754394}
+      - {x: -0.44880676, y: 0.6374877}
+      - {x: -0.6247864, y: 0.4211027}
+      - {x: -0.7588501, y: 0.33053333}
+      - {x: -0.866272, y: 0.14779174}
+      - {x: -0.9300003, y: 0.09569603}
       - {x: -1.05, y: -0.12}
       - {x: -0.93, y: -0.38}
       - {x: -1.13, y: -0.16}
@@ -11713,12 +11700,10 @@ PolygonCollider2D:
       - {x: -1.23, y: -0.19999999}
       - {x: -1.17, y: -0.34}
       - {x: -0.93, y: -0.65999997}
-      - {x: -1.13, y: -0.53999996}
       - {x: -1.15, y: -0.65999997}
-      - {x: -1.0699999, y: -1}
-      - {x: -0.95, y: -1.1}
-      - {x: -0.76873016, y: -1.2999785}
-      - {x: 0.83, y: -1.3}
+      - {x: -0.98892975, y: -1.0392654}
+      - {x: -0.68852234, y: -1.3005767}
+      - {x: 0.72372437, y: -1.2899525}
 --- !u!114 &1506740984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11730,7 +11715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747ca78f495d27840865ab1d53a2367e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
+  maxSpeed: 2
 --- !u!50 &1506740985
 Rigidbody2D:
   serializedVersion: 4
@@ -12792,17 +12777,17 @@ Prefab:
         type: 2}
       propertyPath: ConnectionState
       value: 
-      objectReference: {fileID: 1811860492}
+      objectReference: {fileID: 0}
     - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
         type: 2}
       propertyPath: CreateButton
       value: 
-      objectReference: {fileID: 470438422}
+      objectReference: {fileID: 0}
     - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
         type: 2}
       propertyPath: RoomName
       value: 
-      objectReference: {fileID: 372439743}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
   m_IsPrefabParent: 0
@@ -14158,12 +14143,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!114 &1811860492 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114388084991136016, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
-    type: 2}
-  m_PrefabInternal: {fileID: 63263906}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1812717283
 GameObject:
   m_ObjectHideFlags: 0

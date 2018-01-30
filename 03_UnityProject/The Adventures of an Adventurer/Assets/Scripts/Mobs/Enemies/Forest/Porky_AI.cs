@@ -9,13 +9,15 @@ public class Porky_AI : MonoBehaviour {
     private bool hasSeenPlayer = false;
     private Rigidbody2D rb2d;
     private Animator anim;
+    private GameObject player;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         GetComponentInChildren<PlayerChecker>().PlayerEnter += Porky_AI_PlayerEnter;
         GetComponentInChildren<PlayerChecker>().PlayerExiting += Porky_AI_PlayerExiting;
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine("NormalMovement");
 	}
 
@@ -33,6 +35,7 @@ public class Porky_AI : MonoBehaviour {
         StopCoroutine("NormalMovement");
         rb2d.velocity = new Vector2(0, 0);
         anim.SetBool("attack", true);
+        StartCoroutine("MoveToPlayer");
         print("Following Player");
     }
 
@@ -75,5 +78,23 @@ public class Porky_AI : MonoBehaviour {
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
+    }
+
+    IEnumerator MoveToPlayer()
+    {
+        yield return new WaitForSeconds(2);
+        do
+        {
+            if(this.gameObject.transform.position.x < player.transform.position.x && hasSeenPlayer)
+            {
+                rb2d.AddForce(Vector2.right * 50);
+            }
+            else if(hasSeenPlayer)
+            {
+                rb2d.AddForce(Vector2.left * 50);
+            }
+            ControlMaxSpeed();
+            yield return null;
+        } while (hasSeenPlayer);
     }
 }

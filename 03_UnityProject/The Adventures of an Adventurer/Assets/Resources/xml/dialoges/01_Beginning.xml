@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+	<dialoges>
+		<dialoge object="default" length="1">
+			<textblock id="1">
+				<talker>Default</talker>
+				<sprite>Decoration/sign</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
+				<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
+			</textblock>
+		</dialoge>
+		
+		<dialoge object="Beginning" length="2">
+			<textblock id="1">
+				<talker>Adventurer</talker>
+				<sprite>Player</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>*Gähn*</german>
+				<english>*Yawn*</english>
+			</textblock>
+			
+			<textblock id="2">
+				<talker>Adventurer</talker>
+				<sprite>Player</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Was hat all dieses Geschrei zu bedeuten?</german>
+				<english>What does all this screaming mean?</english>
+			</textblock>
+		</dialoge>
+	</dialoges>

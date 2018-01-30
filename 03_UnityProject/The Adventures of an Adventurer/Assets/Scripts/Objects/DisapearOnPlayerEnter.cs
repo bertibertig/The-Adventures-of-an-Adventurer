@@ -6,7 +6,9 @@ public class DisapearOnPlayerEnter : MonoBehaviour {
 
     public bool fadeInIfPlayerLeaves = true;
 
-    private bool fadeInStarted = false;
+    private bool fadeStarted = false;
+    private bool fadedIn = true;
+    private bool fadeInEnded = true;
 
     private void Start()
     {
@@ -15,16 +17,25 @@ public class DisapearOnPlayerEnter : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !fadeInStarted)
+        if (col.CompareTag("Player") && !fadeStarted)
+        {
+            fadeStarted = true;
             StartCoroutine("FadeOut");
+        }
             
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && fadeInIfPlayerLeaves && !fadeInStarted)
+        if (col.CompareTag("Player") && fadeInIfPlayerLeaves && !fadeStarted)
         {
-            fadeInStarted = true;
+            fadeInEnded = false;
+            fadeStarted = true;
+            StartCoroutine("FadeIn");
+        }
+        if (col.CompareTag("Player") && !fadeInEnded)
+        {
+            StopCoroutine("FadeOut");
             StartCoroutine("FadeIn");
         }
     }
@@ -37,6 +48,8 @@ public class DisapearOnPlayerEnter : MonoBehaviour {
             fadeOutObject.color = new Color(fadeOutObject.color.r, fadeOutObject.color.g, fadeOutObject.color.b, fadeOutObject.color.a - 0.01f);
             yield return new WaitForSeconds(0.01f);
         } while (fadeOutObject.color.a > 0);
+        fadeStarted = false;
+        fadedIn = false;
     }
 
     IEnumerator FadeIn()
@@ -45,9 +58,10 @@ public class DisapearOnPlayerEnter : MonoBehaviour {
         do
         {
             fadeOutObject.color = new Color(fadeOutObject.color.r, fadeOutObject.color.g, fadeOutObject.color.b, fadeOutObject.color.a + 0.01f);
-            print(fadeOutObject.color.a);
             yield return new WaitForSeconds(0.01f);
-        } while (fadeOutObject.color.a >= 1);
-        fadeInStarted = false;
+        } while (fadeOutObject.color.a < 1);
+        fadeStarted = false;
+        fadedIn = true;
+        fadeInEnded = true;
     }
 }

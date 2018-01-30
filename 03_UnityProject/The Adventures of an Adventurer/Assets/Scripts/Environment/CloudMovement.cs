@@ -8,6 +8,7 @@ public class CloudMovement : MonoBehaviour {
     public float cloudSpeed = -3;
     [Header("Seconds the Cloud waits untill it moves again.")]
     public float cloudWait = 3;
+    public float maxSpeed = 3;
 
     private Rigidbody2D rb2d;
 
@@ -22,8 +23,26 @@ public class CloudMovement : MonoBehaviour {
     {
         do
         {
-            rb2d.AddForce(new Vector2(cloudSpeed, 0));
+            ControlMaxSpeed();
+            
             yield return new WaitForSeconds(cloudWait);
         } while (rb2d.transform.position.x >= CloudEnd);
+    }
+
+    public void ControlMaxSpeed()
+    {
+        if (rb2d.velocity.x > maxSpeed)
+        {
+            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+        }
+
+        else if (rb2d.velocity.x < -maxSpeed)
+        {
+            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+        }
+        else
+        {
+            rb2d.AddForce(new Vector2(cloudSpeed, 0));
+        }
     }
 }
