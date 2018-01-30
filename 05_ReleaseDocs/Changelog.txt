@@ -8,3 +8,11 @@
 	- XML Reader Bugs (Display Dialouge, Call Methodes, Play Sound while Talking)
 	- Main Menu Language Options
 	- Throw Skript for Squirel
+23.01.18
+- Implementation of some Decoration for the second level
+	- Clouds which move from left to right on the Horizon
+	- A tent and a fireplace for the Adventurer
+	- A Forest, where the people from the city flee to
+- Drawed and added a new Background for the second level
+- Implementet an entrance to a cave
+	The entrance is hidden behind a dirthill, which vanishes if the player gets behind it, so that the entrance can be seen.
