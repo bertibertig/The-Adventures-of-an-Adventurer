@@ -33,10 +33,16 @@ public class Main : MonoBehaviour {
 
     void Start () {
         PhotonNetwork.ConnectUsingSettings("v1.0");
-        StartCoroutine("SearchForConnectionGUI");
+        Activate_On_Startup aos = GameObject.FindGameObjectWithTag("UI_OnlyOnce").GetComponent<Activate_On_Startup>();
+        aos.UIActivatedHandler += Main_UIActivatedHandler;
         //StartCoroutine("InizialiseServer");
         Player = GameObject.FindGameObjectWithTag("Player");
         RoomCreated = false;
+    }
+
+    private void Main_UIActivatedHandler(object sender, System.EventArgs e)
+    {
+        StartCoroutine("SearchForConnectionGUI");
     }
 
     public void ConnectAfterOpening()
