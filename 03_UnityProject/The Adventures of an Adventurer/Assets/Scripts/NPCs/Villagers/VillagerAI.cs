@@ -32,7 +32,10 @@ public class VillagerAI : MonoBehaviour {
         do
         {
             if (Vector2.Distance(endPos, transform.position) <= 1)
+            {
                 runningEnabled = false;
+                Destroy(this.gameObject);
+            }
             else
                 ControlMaxSpeedX();
             yield return new WaitForFixedUpdate();

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runningEnabled: 1
-  endPos: {x: -45.22, y: 1.65, z: 0}
+  endPos: {x: -48.83, y: 1.65, z: 0}
   speed: 3
   maxSpeed: 5
 --- !u!212 &212799648259439908

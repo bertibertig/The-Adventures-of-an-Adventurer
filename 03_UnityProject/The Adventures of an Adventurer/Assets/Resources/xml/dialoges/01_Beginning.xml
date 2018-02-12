@@ -11,10 +11,10 @@
 			</textblock>
 		</dialoge>
 		
-		<dialoge object="Beginning" length="2">
+		<dialoge object="Beginning" length="3">
 			<textblock id="1">
 				<talker>Adventurer</talker>
-				<sprite>Player</sprite>
+				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>*Gähn*</german>
@@ -23,11 +23,20 @@
 			
 			<textblock id="2">
 				<talker>Adventurer</talker>
-				<sprite>Player</sprite>
+				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Was hat all dieses Geschrei zu bedeuten?</german>
 				<english>What does all this screaming mean?</english>
+			</textblock>
+			
+			<textblock id="3">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>DialogeClassControllerStartSequence.StopSpawningOfVillagers</methodeAfterEnd>
+				<german>Stop Spawning Villagers by pressing E</german>
+				<english>Stop Spawning Villagers by pressing E</english>
 			</textblock>
 		</dialoge>
 	</dialoges>

@@ -35,6 +35,7 @@ TagManager:
   - MultiplayerController
   - MPBoss
   - Waypoint
+  - Sequences
   layers:
   - Default
   - TransparentFX

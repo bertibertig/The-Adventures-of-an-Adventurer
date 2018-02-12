@@ -15,8 +15,8 @@ public class SpawnRunningVillagers : MonoBehaviour {
     public float roation = 180;
 
     [Header("Seconds until a new Villager is spawned")]
-    public float minvillagerDelay = 5;
-    public float maxvillagerDelay = 5;
+    public float minVillagerDelay = 5;
+    public float maxVillagerDelay = 5;
 
     public bool SpawnVillagers { get; set; }
 
@@ -42,21 +42,23 @@ public class SpawnRunningVillagers : MonoBehaviour {
         do
         {
             //Couple Chance
-            if (UnityEngine.Random.Range(0, 10) == 10)
+            int coupleRandom = UnityEngine.Random.Range(0, 10);
+            //print(coupleRandom);
+            if (coupleRandom == 1)
             {
                 SpawnVillager();
                 yield return new WaitForSeconds(0.3f);
             }
             SpawnVillager();
 
-            float villagerDelay = UnityEngine.Random.Range(minvillagerDelay, maxvillagerDelay);
+            float villagerDelay = UnityEngine.Random.Range(minVillagerDelay, maxVillagerDelay);
             yield return new WaitForSeconds(villagerDelay);
         } while (SpawnVillagers);
     }
 
 	public void SpawnVillager()
     {
-        int villagerId = UnityEngine.Random.Range(0, 4);
+        int villagerId = UnityEngine.Random.Range(0, villagers.Length - 1);
         if (villagerId == lastSpawnedVillagerId)
             if (villagerId - 1 < 0)
                 villagerId++;
