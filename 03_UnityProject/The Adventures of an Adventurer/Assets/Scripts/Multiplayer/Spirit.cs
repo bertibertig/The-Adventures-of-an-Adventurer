@@ -40,14 +40,13 @@ public class Spirit : Photon.MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-		if(this.photonView.isMine || offline)
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+		if((this.photonView.isMine || offline) && !StopFollowingCursor)
         {
-            Vector2 mouse = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-            //NOTE: Only for Debugging has to be changed to Touch controlls. 
-            if (Input.mousePosition.x >= 0 && Input.mousePosition.y >= 0)
-                this.rb2d.position = mouse;
+            this.rb2d.position = new Vector2(player.transform.position.x + 5, player.transform.position.y + 5);
         }
-        else
+        else if(!StopFollowingCursor)
         {
             Vector2 lerp = Vector2.Lerp(this.rb2d.position, newPos, lerpStep);
             rb2d.MovePosition(lerp);

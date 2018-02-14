@@ -13,10 +13,13 @@ public class Spawn_Obj_OnMouseClick : MonoBehaviour {
     public bool Selected
     {
         get { return selected; }
-        set { selected = value; }
+        set {
+            firstSelection = true;
+            selected = value;
+        }
     }
 
-
+    private bool firstSelection = true;
     private Vector3 lastClickCoordinate;
     private Vector3 normalizedDirection;
 
@@ -28,11 +31,15 @@ public class Spawn_Obj_OnMouseClick : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonUp(0) && selected)
+		if(Input.GetMouseButtonUp(0) && selected && !firstSelection)
         {
             lastClickCoordinate = Input.mousePosition;
             normalizedDirection = ((Vector2)Camera.main.ScreenToWorldPoint(lastClickCoordinate) - (Vector2)transform.position).normalized;
             SpawnProjectile();
+        }
+        else if(Input.GetMouseButtonUp(0) && selected && firstSelection)
+        {
+            firstSelection = false;
         }
 	}
 

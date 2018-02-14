@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 50832907328763508}
   - component: {fileID: 114041721401476746}
   - component: {fileID: 114961652345792240}
+  - component: {fileID: 114688258780464098}
   m_Layer: 0
   m_Name: Spirit
   m_TagString: Spirit
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694029958023458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.807045, y: 8.010926, z: 0}
+  m_LocalPosition: {x: -4.74, y: 5.05, z: 0}
   m_LocalScale: {x: 0.5166311, y: 0.5166311, z: 0.5166311}
   m_Children:
   - {fileID: 4854070762330200}
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpStep: 0.1
-  offline: 1
+  offline: 0
   StopFollowingCursor: 0
 --- !u!114 &114155765824641700
 MonoBehaviour:
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnAtObject: {fileID: 0}
+  SpawnAtObject: {fileID: 1694029958023458}
   objLifespan: 5
   facingCursor: 0
   projectile: {fileID: 0}
@@ -226,6 +227,17 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114688258780464098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694029958023458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15160ead2e9474b82ab59f68e596e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114870291038907218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnAtObject: {fileID: 0}
+  SpawnAtObject: {fileID: 1694029958023458}
   objLifespan: 5
   facingCursor: 1
   projectile: {fileID: 0}

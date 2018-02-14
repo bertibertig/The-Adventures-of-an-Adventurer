@@ -33,8 +33,8 @@ public class Main : MonoBehaviour {
 
     void Start () {
         PhotonNetwork.ConnectUsingSettings("v1.0");
-        Activate_On_Startup aos = GameObject.FindGameObjectWithTag("UI_OnlyOnce").GetComponent<Activate_On_Startup>();
-        aos.UIActivatedHandler += Main_UIActivatedHandler;
+        //Activate_On_Startup aos = GameObject.FindGameObjectWithTag("UI_OnlyOnce").GetComponent<Activate_On_Startup>();
+        //aos.UIActivatedHandler += Main_UIActivatedHandler;
         //StartCoroutine("InizialiseServer");
         Player = GameObject.FindGameObjectWithTag("Player");
         RoomCreated = false;
@@ -71,7 +71,7 @@ public class Main : MonoBehaviour {
         if(ConnectionState == null || CreateButton == null || RoomName == null)
         {
             print("MultiplayerPlate has no values, reverting to Default");
-            ConnectionState = MultiplayerComplete.GetComponentsInChildren<Text>().Where(g => g.gameObject.name == "ConnectionGUI").FirstOrDefault();
+            ConnectionState = MultiplayerComplete.GetComponentsInChildren<Text>().Where(g => g.gameObject.name == "ConnectionState").FirstOrDefault();
             CreateButton = MultiplayerComplete.GetComponentsInChildren<Button>().Where(g => g.gameObject.name == "CreateButton").FirstOrDefault();
             RoomName = MultiplayerComplete.GetComponentsInChildren<InputField>().Where(g => g.gameObject.name == "RoomName").FirstOrDefault();
         }

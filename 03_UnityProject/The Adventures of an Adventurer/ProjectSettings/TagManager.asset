@@ -36,6 +36,8 @@ TagManager:
   - MPBoss
   - Waypoint
   - Sequences
+  - ConnectionGUI
+  - Spells
   layers:
   - Default
   - TransparentFX
