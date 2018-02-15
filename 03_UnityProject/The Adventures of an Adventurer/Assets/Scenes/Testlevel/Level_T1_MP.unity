@@ -6224,6 +6224,10 @@ Prefab:
       propertyPath: devices.Array.data[3]
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1178087116823710, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
   m_IsPrefabParent: 0
