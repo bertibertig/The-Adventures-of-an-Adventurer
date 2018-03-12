@@ -11,12 +11,12 @@
 			</textblock>
 		</dialoge>
 		
-		<dialoge object="Beginning" length="3">
+		<dialoge object="Beginning" length="2">
 			<textblock id="1">
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
-				<methodeAfterEnd>None</methodeAfterEnd>
+				<methodeAfterEnd>DialogeClassControllerStartSequence.MovePlayerOutOfTent</methodeAfterEnd>
 				<german>*Gähn*</german>
 				<english>*Yawn*</english>
 			</textblock>
@@ -25,18 +25,47 @@
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
-				<methodeAfterEnd>None</methodeAfterEnd>
+				<methodeAfterEnd>DialogeClassControllerStartSequence.StopSpawningOfVillagers</methodeAfterEnd>
 				<german>Was hat all dieses Geschrei zu bedeuten?</german>
-				<english>What does all this screaming mean?</english>
+				<english>What's the reason for all this screaming?</english>
+			</textblock>			
+		</dialoge>
+	
+	<dialoge object="ForestVillagers" length="4">
+			<textblock id="1">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Nein! Geh da nicht rein!</german>
+				<english>No! Don't go in there!</english>
 			</textblock>
+			
+			<textblock id="2">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>DialogeClassControllerStartSequence.MovePlayerOutOfTent</methodeAfterEnd>
+				<german>Wieso nicht?</german>
+				<english>Why not?</english>
+			</textblock>			
 			
 			<textblock id="3">
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
-				<methodeAfterEnd>DialogeClassControllerStartSequence.StopSpawningOfVillagers</methodeAfterEnd>
-				<german>Stop Spawning Villagers by pressing E</german>
-				<english>Stop Spawning Villagers by pressing E</english>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Das ist der verbotene Wald!</german>
+				<english>Thats the Forbidden Forest!</english>
+			</textblock>
+			
+			<textblock id="4">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Der Verbotene Wald? Hätten die sich nicht einen besseren Namen einfallen lassen können?</german>
+				<english>The Forbidden Forest? Couldn't they think of a better name?</english>
 			</textblock>
 		</dialoge>
-	</dialoges>
+</dialoges>

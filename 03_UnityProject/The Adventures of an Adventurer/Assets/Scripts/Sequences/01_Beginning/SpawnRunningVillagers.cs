@@ -18,6 +18,10 @@ public class SpawnRunningVillagers : MonoBehaviour {
     public float minVillagerDelay = 5;
     public float maxVillagerDelay = 5;
 
+    [Header("Enable Spawning Multiple Villagers?")]
+    public bool enableSpawnCouples = true;
+    public bool enableSpawnTripple = false;
+
     public bool SpawnVillagers { get; set; }
 
     private static GameObject[] villagers;
@@ -44,10 +48,16 @@ public class SpawnRunningVillagers : MonoBehaviour {
             //Couple Chance
             int coupleRandom = UnityEngine.Random.Range(0, 10);
             //print(coupleRandom);
-            if (coupleRandom == 1)
+            if (coupleRandom == 1 && enableSpawnCouples)
             {
                 SpawnVillager();
                 yield return new WaitForSeconds(0.3f);
+                int tripleRandom = UnityEngine.Random.Range(0, 5);
+                if(tripleRandom == 1 && enableSpawnTripple)
+                {
+                    SpawnVillager();
+                    yield return new WaitForSeconds(0.3f);
+                }
             }
             SpawnVillager();
 
@@ -64,7 +74,7 @@ public class SpawnRunningVillagers : MonoBehaviour {
                 villagerId++;
             else
                 villagerId--;
-        Instantiate(villagers[villagerId], new Vector3(villagersSpawnPosition.x, villagersSpawnPosition.y), Quaternion.Euler(0, roation, 0));
+        Instantiate(villagers[villagerId], new Vector3(villagersSpawnPosition.x, villagersSpawnPosition.y,-4), Quaternion.Euler(0, roation, 0));
         lastSpawnedVillagerId = villagerId;
     }
 }

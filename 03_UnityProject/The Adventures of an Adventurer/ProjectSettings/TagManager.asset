@@ -38,6 +38,7 @@ TagManager:
   - Sequences
   - ConnectionGUI
   - Spells
+  - SequenceItems
   layers:
   - Default
   - TransparentFX

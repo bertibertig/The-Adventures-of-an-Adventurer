@@ -9,6 +9,8 @@ public class StartSequence : MonoBehaviour {
     public bool sceneEnabled = true;
     [Header("Nametag of the Dialouge object")]
     public string id;
+    [Header("Gameobject: HalfTent for cutscene")]
+    public GameObject halfTent;
 
     private DialogeHandler dHandler;
 
@@ -26,9 +28,4 @@ public class StartSequence : MonoBehaviour {
             dHandler.StartConversation();
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

@@ -14,18 +14,34 @@ public class VillagerAI : MonoBehaviour {
 
     private Vector2 dirNormalized;
     private Rigidbody2D rb2d;
+    private Animator anim;
+    private PolygonCollider2D polColl;
 
     // Use this for initialization
     void Start ()
     {
+        if(this.GetComponent<PolygonCollider2D>() == null)
+        {
+            if (runningEnabled)
+                polColl = this.gameObject.transform.Find("RunningCollider").GetComponent<PolygonCollider2D>();
+            else
+                polColl = this.gameObject.transform.Find("StandingCollider").GetComponent<PolygonCollider2D>();
+            polColl.enabled = true;
+        }
         dirNormalized = (endPos - transform.position).normalized;
         rb2d = this.gameObject.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         IgnorePlayerColliders();
         if (runningEnabled)
         {
             StartCoroutine("Run");
         }
 	}
+
+    private void Update()
+    {
+        anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+    }
 
     private IEnumerator Run()
     {
@@ -58,8 +74,8 @@ public class VillagerAI : MonoBehaviour {
     public void IgnorePlayerColliders()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(this.GetComponent<PolygonCollider2D>(), player.GetComponent<PolygonCollider2D>());
-        Physics2D.IgnoreCollision(this.GetComponent<PolygonCollider2D>(), player.GetComponents<CircleCollider2D>()[0]);
-        Physics2D.IgnoreCollision(this.GetComponent<PolygonCollider2D>(), player.GetComponents<CircleCollider2D>()[1]);
+        Physics2D.IgnoreCollision(polColl, player.GetComponent<PolygonCollider2D>());
+        Physics2D.IgnoreCollision(polColl, player.GetComponents<CircleCollider2D>()[0]);
+        Physics2D.IgnoreCollision(polColl, player.GetComponents<CircleCollider2D>()[1]);
     }
 }

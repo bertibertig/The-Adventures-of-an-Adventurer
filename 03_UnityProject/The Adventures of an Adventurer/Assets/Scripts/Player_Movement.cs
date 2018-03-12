@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Player_Movement : Photon.MonoBehaviour
 {
@@ -24,11 +25,22 @@ public class Player_Movement : Photon.MonoBehaviour
     private float knockbackPower;
     private Vector2 playerScreenPosition;
     private Vector2 enemyScreenPosition;
+    private Vector2 addForceForMovePlayer;
+
+    //Events
+    public event EventHandler MovementToPositionEndedHandler;
 
     GameObject player;
     new Camera camera;
 
     public bool MovementDisabled { get { return this.movementDisabled; } set { this.movementDisabled = value; } }
+
+    private void MovementToPositionEnded()
+    {
+        print("Notifieing Subscribers (MovementToPositionEnded)");
+        if (MovementToPositionEndedHandler != null)
+            MovementToPositionEndedHandler(this, null);
+    }
 
     // Use this for initialization
     void Start()
@@ -121,14 +133,17 @@ public class Player_Movement : Photon.MonoBehaviour
         if (!movementDisabled)
         {
             rb2d.AddForce((Vector2.right * speed) * h);
+            ControlMaxSpeed();
+        }
+    }
 
-            if (rb2d.velocity.x > maxSpeed)
-            {
-                rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
-            }
+    private void ControlMaxSpeed()
+    {
+        if (rb2d.velocity.x > maxSpeed)
+        {
+            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
         }
 
-        //MaxSpeed of the player
         if (rb2d.velocity.x < -maxSpeed)
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
@@ -167,5 +182,29 @@ public class Player_Movement : Photon.MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    public void MovePlayerToPosition(Vector2 endPosition)
+    {
+        StartCoroutine("MovePlayerToPositionCoroutine", endPosition);
+    }
+
+    private IEnumerator MovePlayerToPositionCoroutine(Vector2 endPosition)
+    {
+        bool arrived = false;
+        Vector2 orientation;
+        if (endPosition.x < gameObject.transform.position.x)
+            orientation = Vector2.left;
+        else
+            orientation = Vector2.right;
+        do
+        {
+            rb2d.AddForce(orientation * speed);
+            ControlMaxSpeed();
+            yield return null;
+            if (endPosition.x >= this.gameObject.transform.position.x)
+                arrived = true;
+        } while (!arrived);
+        MovementToPositionEnded();
     }
 }
