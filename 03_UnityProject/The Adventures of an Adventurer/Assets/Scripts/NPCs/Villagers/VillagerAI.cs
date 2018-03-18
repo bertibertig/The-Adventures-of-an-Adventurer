@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class VillagerAI : MonoBehaviour {
@@ -17,21 +18,30 @@ public class VillagerAI : MonoBehaviour {
     private Animator anim;
     private PolygonCollider2D polColl;
 
+    public PolygonCollider2D StandPolColl { get; set; }
+    public PolygonCollider2D RunPolColl { get; set; }
+
     // Use this for initialization
     void Start ()
     {
-        if(this.GetComponent<PolygonCollider2D>() == null)
+        if (this.GetComponent<PolygonCollider2D>() == null)
         {
+            StandPolColl = this.gameObject.transform.Find("StandingCollider").GetComponent<PolygonCollider2D>();
+            RunPolColl = this.gameObject.transform.Find("RunningCollider").GetComponent<PolygonCollider2D>();
             if (runningEnabled)
-                polColl = this.gameObject.transform.Find("RunningCollider").GetComponent<PolygonCollider2D>();
+            {
+                polColl = RunPolColl;
+            }
             else
-                polColl = this.gameObject.transform.Find("StandingCollider").GetComponent<PolygonCollider2D>();
+                polColl = StandPolColl;
             polColl.enabled = true;
         }
+        else
+            polColl = this.GetComponent<PolygonCollider2D>();
         dirNormalized = (endPos - transform.position).normalized;
         rb2d = this.gameObject.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        IgnorePlayerColliders();
+        IgnorePlayerAndSequenceColliders();
         if (runningEnabled)
         {
             StartCoroutine("Run");
@@ -41,6 +51,16 @@ public class VillagerAI : MonoBehaviour {
     private void Update()
     {
         anim.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+        if (speed >= 0.1)
+        {
+            polColl = RunPolColl;
+            IgnorePlayerAndSequenceColliders();
+        }
+        else
+        {
+            polColl = StandPolColl;
+            IgnorePlayerAndSequenceColliders();
+        }
     }
 
     private IEnumerator Run()
@@ -71,11 +91,20 @@ public class VillagerAI : MonoBehaviour {
         }
     }
 
-    public void IgnorePlayerColliders()
+    public void IgnorePlayerAndSequenceColliders()
     {
+        //Player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(polColl, player.GetComponent<PolygonCollider2D>());
         Physics2D.IgnoreCollision(polColl, player.GetComponents<CircleCollider2D>()[0]);
         Physics2D.IgnoreCollision(polColl, player.GetComponents<CircleCollider2D>()[1]);
+
+        //Sequence
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager00").FirstOrDefault().GetComponent<VillagerAI>().StandPolColl);
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager00").FirstOrDefault().GetComponent<VillagerAI>().RunPolColl);
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager01").FirstOrDefault().GetComponent<VillagerAI>().StandPolColl);
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager01").FirstOrDefault().GetComponent<VillagerAI>().RunPolColl);
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager03").FirstOrDefault().GetComponent<VillagerAI>().StandPolColl);
+        Physics2D.IgnoreCollision(polColl, GameObject.FindGameObjectsWithTag("SequenceItems").Where(g => g.name == "Villager03").FirstOrDefault().GetComponent<VillagerAI>().RunPolColl);
     }
 }

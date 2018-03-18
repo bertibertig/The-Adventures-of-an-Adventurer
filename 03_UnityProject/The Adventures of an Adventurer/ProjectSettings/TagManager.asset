@@ -39,6 +39,7 @@ TagManager:
   - ConnectionGUI
   - Spells
   - SequenceItems
+  - PlayerButtons
   layers:
   - Default
   - TransparentFX

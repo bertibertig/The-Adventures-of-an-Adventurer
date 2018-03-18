@@ -19,6 +19,8 @@ public class SpawnRunningVillagers : MonoBehaviour {
     public float maxVillagerDelay = 5;
 
     [Header("Enable Spawning Multiple Villagers?")]
+    [Tooltip("Chance when a Couple or Tripple will spawn (Chance for Tripple is divided by 2)")]
+    public int spawnChance = 10;
     public bool enableSpawnCouples = true;
     public bool enableSpawnTripple = false;
 
@@ -46,13 +48,13 @@ public class SpawnRunningVillagers : MonoBehaviour {
         do
         {
             //Couple Chance
-            int coupleRandom = UnityEngine.Random.Range(0, 10);
+            int coupleRandom = UnityEngine.Random.Range(0, spawnChance);
             //print(coupleRandom);
             if (coupleRandom == 1 && enableSpawnCouples)
             {
                 SpawnVillager();
                 yield return new WaitForSeconds(0.3f);
-                int tripleRandom = UnityEngine.Random.Range(0, 5);
+                int tripleRandom = UnityEngine.Random.Range(0, spawnChance/2);
                 if(tripleRandom == 1 && enableSpawnTripple)
                 {
                     SpawnVillager();

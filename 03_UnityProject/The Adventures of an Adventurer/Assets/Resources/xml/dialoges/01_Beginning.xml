@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0"?>
-	<dialoges>
-		<dialoge object="default" length="1">
-			<textblock id="1">
-				<talker>Default</talker>
-				<sprite>Decoration/sign</sprite>
-				<textspeed>0</textspeed>
-				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
-				<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
-			</textblock>
-		</dialoge>
-		
-		<dialoge object="Beginning" length="2">
+<dialoges>
+	<dialoge object="default" length="1">
+		<textblock id="1">
+			<talker>Default</talker>
+			<sprite>Decoration/sign</sprite>
+			<textspeed>0</textspeed>
+			<methodeAfterEnd>None</methodeAfterEnd>
+			<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
+			<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
+		</textblock>
+	</dialoge>
+	
+	<dialoge object="Beginning" length="2">
 			<textblock id="1">
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
@@ -31,10 +31,10 @@
 			</textblock>			
 		</dialoge>
 	
-	<dialoge object="ForestVillagers" length="4">
+		<dialoge object="ForestVillagers_01" length="4">
 			<textblock id="1">
-				<talker>Adventurer</talker>
-				<sprite>Player\Player Final Young</sprite>
+				<talker>Villager 1</talker>
+				<sprite>NPCs\Villagers\Villager03</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Nein! Geh da nicht rein!</german>
@@ -42,17 +42,17 @@
 			</textblock>
 			
 			<textblock id="2">
-				<talker>Adventurer</talker>
-				<sprite>Player\Player Final Young</sprite>
+				<talker>Villager 2</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0</textspeed>
-				<methodeAfterEnd>DialogeClassControllerStartSequence.MovePlayerOutOfTent</methodeAfterEnd>
+				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Wieso nicht?</german>
 				<english>Why not?</english>
 			</textblock>			
 			
 			<textblock id="3">
-				<talker>Adventurer</talker>
-				<sprite>Player\Player Final Young</sprite>
+				<talker>Villager 3</talker>
+				<sprite>NPCs\Villagers\Villager01</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Das ist der verbotene Wald!</german>
@@ -60,12 +60,133 @@
 			</textblock>
 			
 			<textblock id="4">
-				<talker>Adventurer</talker>
-				<sprite>Player\Player Final Young</sprite>
+				<talker>Villager 2</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Der Verbotene Wald? Hätten die sich nicht einen besseren Namen einfallen lassen können?</german>
 				<english>The Forbidden Forest? Couldn't they think of a better name?</english>
+			</textblock>
+		</dialoge>
+		
+		<dialoge object="ForestVillagers_02" length="10">
+			<textblock id="1">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Was ist denn hier los?</german>
+				<english>What's happening here?</english>
+			</textblock>
+			
+			<textblock id="2">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Hast du das noch nicht mitbekommen?</german>
+				<english>Didn't you hear the news?</english>
+			</textblock>			
+			
+			<textblock id="3">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Nein</german>
+				<english>No</english>
+			</textblock>
+			
+			<textblock id="4">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Ja lebst du denn in einem Zelt im Wald?</german>
+				<english>Do you live in a tnet in the woods?</english>
+			</textblock>
+			
+			<textblock id="5">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Naja</german>
+				<english>Well</english>
+			</textblock>
+			
+			<textblock id="6">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
+				<textspeed>0.3</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>... Oh</german>
+				<english>... Oh</english>
+			</textblock>
+			
+			<textblock id="7">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Die Hexen haben unser Dorf angegriffen!</german>
+				<english>The witches attacket our village!</english>
+			</textblock>
+			
+			<textblock id="8">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager00</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Ich konnte zwar mit meinen Nachbarn fliehen, aber Ahi hat mir gerade erzählt, dass sie ihren Sohn nicht finden konnte.</german>
+				<english>I could flee along with my neighbours, but Ahi just told me that she couldn't find her son.</english>
+			</textblock>
+			
+			<textblock id="9">
+				<talker>Ahi</talker>
+				<sprite>NPCs\Villagers\Villager01</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Das ist richtig, mein kleiner Fungo. Ich mach mir doch so sorgen um ihn!</german>
+				<english>That's right my little Fungo. I am so worried about him!</english>
+			</textblock>
+			
+			<textblock id="10">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Keine Angst Leute, ich werd da mal nach dem rechten sehen.</german>
+				<english>Don't worry peps i will check if everithing is in order.</english>
+			</textblock>
+		</dialoge>
+		
+		<dialoge object="ForestVillagers_02_SecondTime" length="3">
+			<textblock id="1">
+				<talker>Ahi</talker>
+				<sprite>NPCs\Villagers\Villager01</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Ich hoffe nur meinem Fungo gehts gut.</german>
+				<english>I just hope my little Fungo is alright.</english>
+			</textblock>
+			
+			<textblock id="2">
+				<talker>Villager</talker>
+				<sprite>NPCs\Villagers\Villager03</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Keine Angst Ahi, Fungo ist doch ein kleverer Bursche. Er konnte sicher ein Versteck finden.</german>
+				<english>Don't worry Ahi, Fungo is a clever boy. I am sure he could find a palce to hide.</english>
+			</textblock>			
+			
+			<textblock id="3">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final Young</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>(Ich sollte mich auf den Weg zum Dorf begeben!)</german>
+				<english>(I should get going to the village!)</english>
 			</textblock>
 		</dialoge>
 </dialoges>

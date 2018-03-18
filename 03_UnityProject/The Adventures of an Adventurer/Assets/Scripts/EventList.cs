@@ -37,7 +37,7 @@ public class EventList : MonoBehaviour {
         }
 	}
 
-    public void AddEvent(string eventName, bool happened, string description)
+    public void AddEvent(string eventName, bool happened = true, string description = "")
     {
         bool eventAlreadyContained = false;
         foreach (Event e in events)
@@ -59,6 +59,8 @@ public class EventList : MonoBehaviour {
 
     public Event GetEvent(int id)
     {
+        if (id >= events.Count)
+            return null;
         return events[id];
     }
 
@@ -85,5 +87,19 @@ public class EventList : MonoBehaviour {
 
         }
         return 0;
+    }
+
+    public void ListAllEvents()
+    {
+        StartCoroutine("ListAllEventsCoroutine");
+    }
+
+    private IEnumerator ListAllEventsCoroutine()
+    {
+        foreach(Event e in events)
+        {
+            print("Name: " + e.EventName + " Happened: " + e.HasHappened + " Description: " + e.Description);
+            yield return null;
+        }
     }
 }

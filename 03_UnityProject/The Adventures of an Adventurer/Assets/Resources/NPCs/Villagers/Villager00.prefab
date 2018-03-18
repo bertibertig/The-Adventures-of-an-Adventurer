@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114203919008447758}
   m_Layer: 0
   m_Name: Villager00
-  m_TagString: Untagged
+  m_TagString: SequenceItems
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,8 +81,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129557292200240}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -27.15, y: 2.38, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -15.061459, y: -1.1627349, z: 0.0625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4456706400320376}
@@ -170,25 +170,20 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -0.10974121, y: 0.88888884}
-      - {x: -0.10954094, y: 0.5647838}
-      - {x: -0.16064453, y: 0.4603114}
-      - {x: -0.26231003, y: 0.39193153}
-      - {x: -0.34605598, y: 0.2375989}
-      - {x: -0.35414505, y: 0.0021948814}
-      - {x: -0.30978394, y: -0.31551838}
-      - {x: -0.3225479, y: -0.48764336}
-      - {x: -0.4933567, y: -0.65903246}
-      - {x: -0.4984951, y: -0.91446626}
-      - {x: 0.30656624, y: -0.91344976}
-      - {x: 0.30034065, y: -0.03883338}
-      - {x: 0.34246254, y: -0.01328516}
-      - {x: 0.39213562, y: 0.007033825}
-      - {x: 0.39726257, y: 0.39696503}
-      - {x: 0.3930893, y: 0.6484437}
-      - {x: 0.46130562, y: 0.7864301}
-      - {x: 0.5, y: 0.8306515}
-      - {x: 0.5, y: 0.8888889}
+    - - {x: -0.2551422, y: 0.8632294}
+      - {x: -0.25494385, y: 0.590443}
+      - {x: -0.26231384, y: 0.37482536}
+      - {x: -0.36743927, y: 0.23332226}
+      - {x: -0.36270142, y: -0.0020816326}
+      - {x: -0.36537933, y: -0.25137043}
+      - {x: -0.32743835, y: -0.86314785}
+      - {x: 0.24669266, y: -0.866408}
+      - {x: 0.24901962, y: -0.25693655}
+      - {x: 0.2510109, y: 0.24651945}
+      - {x: 0.25613785, y: 0.4140712}
+      - {x: 0.30723953, y: 0.74242485}
+      - {x: 0.3588791, y: 0.79812205}
+      - {x: 0.35887527, y: 0.86322963}
 --- !u!95 &95416360263365750
 Animator:
   serializedVersion: 3
@@ -252,7 +247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: 90fcba9fe2df185409402942bcd475d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99071711e515d6e4eb030ee422bcd0f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
