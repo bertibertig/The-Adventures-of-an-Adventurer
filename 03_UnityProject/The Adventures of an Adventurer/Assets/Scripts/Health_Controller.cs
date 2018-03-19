@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Health_Controller : MonoBehaviour {
 
@@ -23,11 +24,14 @@ public class Health_Controller : MonoBehaviour {
     public float Health { get { return this.health; } }
 
 	void Start () {
+
+        ResetPlayerPrefs();
+
         anim = GetComponent<Animator>();
         player = GetComponent<Player_Movement>();
         knockbackEnabled = true;
 
-        if (Application.loadedLevel == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             health = startHealth;
             maxHealth = startHealth;
@@ -37,7 +41,6 @@ public class Health_Controller : MonoBehaviour {
             health = PlayerPrefs.GetFloat("Health");
             maxHealth = PlayerPrefs.GetFloat("MaxHealth");
         }
-
         if (GameObject.FindGameObjectsWithTag("UI").Length >= 2)
         {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
@@ -103,6 +106,7 @@ public class Health_Controller : MonoBehaviour {
         player.enabled = false;
         UpdateGUI();
         deathText.text = "And thus ended the Adventurers story...";
+        ResetPlayerPrefs();
         Invoke("Respawn", 5);
     }
 
@@ -115,7 +119,7 @@ public class Health_Controller : MonoBehaviour {
         player.enabled = true;
 		UpdateGUI();
         Destroy(GameObject.FindGameObjectWithTag("Music"));
-		Application.LoadLevel(0);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //generate world and reset player
     }
 
@@ -128,7 +132,7 @@ public class Health_Controller : MonoBehaviour {
         UpdateGUI();
     }
 
-    void OnDestroy()
+    void ResetPlayerPrefs()
     {
         PlayerPrefs.SetFloat("Health", health);
         PlayerPrefs.SetFloat("MaxHealth", maxHealth);
