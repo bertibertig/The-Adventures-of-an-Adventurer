@@ -1,12 +1,17 @@
 fileFormatVersion: 2
-guid: 99071711e515d6e4eb030ee422bcd0f2
-timeCreated: 1520854240
+guid: 2c6c42a542b9320459ff10e0f6e9b252
+timeCreated: 1521453178
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: VillagerStanding_0
-    21300002: VillagerStanding_1
-    21300004: VillagerStanding_2
+    21300000: wateranimate2_0
+    21300002: wateranimate2_1
+    21300004: wateranimate2_2
+    21300006: wateranimate2_3
+    21300008: wateranimate2_6
+    21300010: wateranimate2_7
+    21300012: wateranimate2_8
+    21300014: wateranimate2_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 25
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -56,7 +61,7 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -64,7 +69,7 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +77,7 @@ TextureImporter:
   - buildTarget: iPhone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,7 +85,7 @@ TextureImporter:
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +93,7 @@ TextureImporter:
   - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,41 +102,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VillagerStanding_0
+      name: wateranimate2_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 38
-        width: 13
-        height: 31
+        x: 18
+        y: 228
+        width: 64
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: VillagerStanding_1
+      name: wateranimate2_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 38
-        width: 14
-        height: 31
+        x: 114
+        y: 228
+        width: 64
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: VillagerStanding_2
+      name: wateranimate2_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 38
-        width: 14
-        height: 31
+        x: 210
+        y: 228
+        width: 64
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wateranimate2_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 228
+        width: 64
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wateranimate2_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 36
+        width: 64
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wateranimate2_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 36
+        width: 64
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wateranimate2_8
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 36
+        width: 64
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wateranimate2_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 36
+        width: 64
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

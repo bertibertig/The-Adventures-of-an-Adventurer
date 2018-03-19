@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 using System;
+using System.Linq;
 
 public class Entrance : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class Entrance : MonoBehaviour {
 	void Start () {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+        if (keyInfo == null)
+            keyInfo = GameObject.FindGameObjectsWithTag("PlayerButtons").Where(g => g.name.Equals("Arrow_Up")).FirstOrDefault();
         displayKeyInfo = false;
         keyInfo.SetActive(false);
         if (player == null)
@@ -46,6 +49,8 @@ public class Entrance : MonoBehaviour {
         if (col.CompareTag("Player"))
         {
             keyInfo.SetActive(true);
+            if (!keyInfo.GetComponent<SpriteRenderer>().enabled)
+                keyInfo.GetComponent<SpriteRenderer>().enabled = true;
             displayKeyInfo = true;
         }
     }
@@ -54,7 +59,7 @@ public class Entrance : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            keyInfo.SetActive(false);
+            keyInfo.GetComponent<SpriteRenderer>().enabled = false;
             displayKeyInfo = false;
         }
     }
@@ -66,7 +71,7 @@ public class Entrance : MonoBehaviour {
             float posx = player.transform.position.x;
             float posy = player.transform.position.y;
 
-            keyInfo.transform.position = new Vector3(posx, (posy + 2), transform.position.z);
+            keyInfo.transform.position = new Vector3(posx, (posy + 2));
         }
     }
 }

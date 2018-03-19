@@ -38,6 +38,7 @@ public class Main : MonoBehaviour {
         //StartCoroutine("InizialiseServer");
         Player = GameObject.FindGameObjectWithTag("Player");
         RoomCreated = false;
+        StartCoroutine("SearchForConnectionGUI");
     }
 
     private void Main_UIActivatedHandler(object sender, System.EventArgs e)
@@ -75,6 +76,7 @@ public class Main : MonoBehaviour {
             CreateButton = MultiplayerComplete.GetComponentsInChildren<Button>().Where(g => g.gameObject.name == "CreateButton").FirstOrDefault();
             RoomName = MultiplayerComplete.GetComponentsInChildren<InputField>().Where(g => g.gameObject.name == "RoomName").FirstOrDefault();
         }
+        tmpMPGUI.SetActive(false);
     }
 
     void OnJoinedRoom()

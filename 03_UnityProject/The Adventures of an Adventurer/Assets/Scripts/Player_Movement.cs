@@ -22,6 +22,7 @@ public class Player_Movement : Photon.MonoBehaviour
     private bool movementDisabled;
     private bool knockbackCoroutineStarted = false;
     private bool ungroundedAfterKnockbackStarted = false;
+    private bool turnToMovement;
     private float knockbackPower;
     private Vector2 playerScreenPosition;
     private Vector2 enemyScreenPosition;
@@ -184,8 +185,9 @@ public class Player_Movement : Photon.MonoBehaviour
         yield return 0;
     }
 
-    public void MovePlayerToPosition(Vector2 endPosition)
+    public void MovePlayerToPosition(Vector2 endPosition, bool _turnToMovement = true)
     {
+        this.turnToMovement = _turnToMovement;
         StartCoroutine("MovePlayerToPositionCoroutine", endPosition);
     }
 
@@ -199,6 +201,7 @@ public class Player_Movement : Photon.MonoBehaviour
             orientation = Vector2.right;
         do
         {
+            MovementDisabled = true;
             rb2d.AddForce(orientation * speed);
             ControlMaxSpeed();
             yield return null;
@@ -206,5 +209,6 @@ public class Player_Movement : Photon.MonoBehaviour
                 arrived = true;
         } while (!arrived);
         MovementToPositionEnded();
+        MovementDisabled = false;
     }
 }

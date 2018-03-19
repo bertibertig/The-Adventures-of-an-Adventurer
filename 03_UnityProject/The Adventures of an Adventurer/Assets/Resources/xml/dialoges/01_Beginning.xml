@@ -6,8 +6,8 @@
 			<sprite>Decoration/sign</sprite>
 			<textspeed>0</textspeed>
 			<methodeAfterEnd>None</methodeAfterEnd>
-			<german>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</german>
-			<english>I you see this, you have found a bug. Yay. Or some genius has forgot to change the default message.</english>
+			<german>If you see this, you have found a bug. Yay. Or some genius forgot to change the default message.</german>
+			<english>If you see this, you have found a bug. Yay. Or some genius forgot to change the default message.</english>
 		</textblock>
 	</dialoge>
 	
@@ -27,7 +27,7 @@
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>DialogeClassControllerStartSequence.StopSpawningOfVillagers</methodeAfterEnd>
 				<german>Was hat all dieses Geschrei zu bedeuten?</german>
-				<english>What's the reason for all this screaming?</english>
+				<english>What's the reason behind all of this screaming?</english>
 			</textblock>			
 		</dialoge>
 	
@@ -56,7 +56,7 @@
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Das ist der verbotene Wald!</german>
-				<english>Thats the Forbidden Forest!</english>
+				<english>This is the forbidden forest!</english>
 			</textblock>
 			
 			<textblock id="4">
@@ -64,8 +64,8 @@
 				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Der Verbotene Wald? Hätten die sich nicht einen besseren Namen einfallen lassen können?</german>
-				<english>The Forbidden Forest? Couldn't they think of a better name?</english>
+				<german>Der verbotene Wald? Hätten die sich nicht einen besseren Namen einfallen lassen können?</german>
+				<english>The forbidden forest? Couldn't they think of a better name?</english>
 			</textblock>
 		</dialoge>
 		
@@ -76,7 +76,7 @@
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Was ist denn hier los?</german>
-				<english>What's happening here?</english>
+				<english>What's going on?</english>
 			</textblock>
 			
 			<textblock id="2">
@@ -93,8 +93,8 @@
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Nein</german>
-				<english>No</english>
+				<german>Nein.</german>
+				<english>No.</english>
 			</textblock>
 			
 			<textblock id="4">
@@ -102,8 +102,8 @@
 				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Ja lebst du denn in einem Zelt im Wald?</german>
-				<english>Do you live in a tnet in the woods?</english>
+				<german>Lebst du denn in einem Zelt im Wald?</german>
+				<english>Do you live in a tent in the forest?</english>
 			</textblock>
 			
 			<textblock id="5">
@@ -120,8 +120,8 @@
 				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0.3</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>... Oh</german>
-				<english>... Oh</english>
+				<german>... Oh.</german>
+				<english>... Oh.</english>
 			</textblock>
 			
 			<textblock id="7">
@@ -130,7 +130,7 @@
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
 				<german>Die Hexen haben unser Dorf angegriffen!</german>
-				<english>The witches attacket our village!</english>
+				<english>The witches attacked our village!</english>
 			</textblock>
 			
 			<textblock id="8">
@@ -138,17 +138,17 @@
 				<sprite>NPCs\Villagers\Villager00</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Ich konnte zwar mit meinen Nachbarn fliehen, aber Ahi hat mir gerade erzählt, dass sie ihren Sohn nicht finden konnte.</german>
-				<english>I could flee along with my neighbours, but Ahi just told me that she couldn't find her son.</english>
+				<german>Ich konnte zwar mit meinen Nachbarn fliehen, aber Margitt hat mir gerade erzählt, dass sie ihren Sohn nicht finden kann.</german>
+				<english>I could flee along with my neighbours, but Margitt just told me that she cannot find her son.</english>
 			</textblock>
 			
 			<textblock id="9">
-				<talker>Ahi</talker>
+				<talker>Margitt</talker>
 				<sprite>NPCs\Villagers\Villager01</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Das ist richtig, mein kleiner Fungo. Ich mach mir doch so sorgen um ihn!</german>
-				<english>That's right my little Fungo. I am so worried about him!</english>
+				<german>Das ist richtig, mein kleiner Fuppi. Ich mach mir doch so Sorgen um ihn!</german>
+				<english>That's right, my little Fuppi. I am so worried about him!</english>
 			</textblock>
 			
 			<textblock id="10">
@@ -156,19 +156,19 @@
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Keine Angst Leute, ich werd da mal nach dem rechten sehen.</german>
-				<english>Don't worry peps i will check if everithing is in order.</english>
+				<german>Keine Angst Leute, ich werd da mal nach dem Rechten sehen.</german>
+				<english>Don't worry peeps, I will check if everything is alright.</english>
 			</textblock>
 		</dialoge>
 		
 		<dialoge object="ForestVillagers_02_SecondTime" length="3">
 			<textblock id="1">
-				<talker>Ahi</talker>
+				<talker>Margitt</talker>
 				<sprite>NPCs\Villagers\Villager01</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Ich hoffe nur meinem Fungo gehts gut.</german>
-				<english>I just hope my little Fungo is alright.</english>
+				<german>Ich hoffe nur meinem Fuppi gehts gut!</german>
+				<english>I just hope my little Fuppi is alright!</english>
 			</textblock>
 			
 			<textblock id="2">
@@ -176,8 +176,8 @@
 				<sprite>NPCs\Villagers\Villager03</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>Keine Angst Ahi, Fungo ist doch ein kleverer Bursche. Er konnte sicher ein Versteck finden.</german>
-				<english>Don't worry Ahi, Fungo is a clever boy. I am sure he could find a palce to hide.</english>
+				<german>Keine Angst Margitt, Fuppi ist doch ein kleverer Bursche. Er konnte sicher ein Versteck finden.</german>
+				<english>Don't worry Margitt, Fuppi is a clever boy. I am sure he found a palce to hide.</english>
 			</textblock>			
 			
 			<textblock id="3">
@@ -185,8 +185,8 @@
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
 				<methodeAfterEnd>None</methodeAfterEnd>
-				<german>(Ich sollte mich auf den Weg zum Dorf begeben!)</german>
-				<english>(I should get going to the village!)</english>
+				<german>(Ich sollte mich auf den Weg machen!)</german>
+				<english>(I should get going!)</english>
 			</textblock>
 		</dialoge>
 </dialoges>

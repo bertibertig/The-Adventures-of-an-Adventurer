@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 99071711e515d6e4eb030ee422bcd0f2
-timeCreated: 1520854240
+guid: dfc195bc1bd78784d8ea695663c96db9
+timeCreated: 1521444896
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: VillagerStanding_0
-    21300002: VillagerStanding_1
-    21300004: VillagerStanding_2
+    21300000: cavetochity_seperated_0
+    21300002: cavetochity_seperated_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +42,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 10
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -56,7 +55,7 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -64,7 +63,7 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +71,7 @@ TextureImporter:
   - buildTarget: iPhone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,7 +79,7 @@ TextureImporter:
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +87,7 @@ TextureImporter:
   - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,39 +96,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VillagerStanding_0
+      name: cavetochity_seperated_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 38
-        width: 13
-        height: 31
+        x: 21
+        y: 90
+        width: 36
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: VillagerStanding_1
+      name: cavetochity_seperated_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 38
-        width: 14
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: VillagerStanding_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 38
-        width: 14
-        height: 31
+        x: 0
+        y: 0
+        width: 270
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
