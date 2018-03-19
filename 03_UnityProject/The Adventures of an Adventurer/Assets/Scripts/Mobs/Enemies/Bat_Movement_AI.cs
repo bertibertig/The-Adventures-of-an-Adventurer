@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy_Movement_AI : Photon.MonoBehaviour {
-
+public class Bat_Movement_AI : Photon.MonoBehaviour
+{
     public float maxSpeed;
     public float speed;
     public float maxWayX;
@@ -24,7 +24,6 @@ public class Enemy_Movement_AI : Photon.MonoBehaviour {
 
     public bool Died { get; set; }
     public bool InMotion { get; set; }
-    public Ground_Check GroundTrigger { get; set; }
 
     private Rigidbody2D rb2d;
 
@@ -33,16 +32,12 @@ public class Enemy_Movement_AI : Photon.MonoBehaviour {
     {
         if (speed <= 0)
             speed = 70f;
-        if(maxSpeed <= 0)
+        if (maxSpeed <= 0)
             maxSpeed = 0.1f;
-        if(maxWayX <= 0)
+        if (maxWayX <= 0)
             maxWayX = 50;
         if (maxWayY <= 0)
             maxWayY = 20;
-        if (movementTimeout <= 0)
-            movementTimeout = 2f;
-        if (jumpPower < 0)
-            jumpPower = 0;
 
         hasSeenPlayer = false;
         goneWayX = 0;
@@ -51,7 +46,6 @@ public class Enemy_Movement_AI : Photon.MonoBehaviour {
         Died = false;
         InMotion = false;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        GroundTrigger = gameObject.GetComponentInChildren<Ground_Check>();
         StartCoroutine("Move");
     }
 
@@ -63,51 +57,7 @@ public class Enemy_Movement_AI : Photon.MonoBehaviour {
 
     public IEnumerator Move()
     {
-		while (!Died || !hasSeenPlayer) {
-            do {
-                if (GroundTrigger.Gronded && !hasSeenPlayer)
-                {
-                    rb2d.AddForce(Vector2.up * jumpPower);
-                    rb2d.AddForce((Vector2.right * speed));
-                    ControlMaxSpeed();
-                    counter++;
-                    yield return new WaitForSeconds(2);
-                }
-                yield return new WaitForSeconds(0.1f);
-            } while (counter < 2);
-
-            if (GroundTrigger.Gronded && !hasSeenPlayer)
-            {
-                rb2d.AddForce(Vector2.up * (jumpPower * 2));
-                rb2d.AddForce((Vector2.right * speed));
-                ControlMaxSpeed();
-                yield return new WaitForSeconds(1);
-            }
-
-            counter = 0;
-			do {
-                if (GroundTrigger.Gronded && !hasSeenPlayer)
-                {
-                    yield return new WaitForSeconds(1);
-                    rb2d.AddForce(Vector2.up * jumpPower);
-                    rb2d.AddForce((Vector2.left * speed));
-                    ControlMaxSpeed();
-                    counter++;
-                    yield return new WaitForSeconds(2);
-                }
-                yield return new WaitForSeconds(0.1f);
-            } while (counter < 2);
-
-            if (GroundTrigger.Gronded && !hasSeenPlayer)
-            {
-                rb2d.AddForce(Vector2.up * (jumpPower * 2));
-                rb2d.AddForce((Vector2.left * speed));
-                ControlMaxSpeed();
-                yield return new WaitForSeconds(1);
-            }
-            counter = 0;
-            yield return new WaitForSeconds(1);
-		}
+        yield return null;
     }
 
     public void ControlMaxSpeed()
@@ -138,12 +88,12 @@ public class Enemy_Movement_AI : Photon.MonoBehaviour {
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(stream.isWriting)
+        if (stream.isWriting)
         {
             stream.SendNext(rb2d.position);
             stream.SendNext(rb2d.velocity);
         }
-        else if(stream.isReading)
+        else if (stream.isReading)
         {
             newPos = (Vector2)stream.ReceiveNext();
             newVelocity = (Vector2)stream.ReceiveNext();

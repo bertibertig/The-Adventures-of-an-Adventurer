@@ -12,9 +12,9 @@ public class DoT_Trigger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherCol)
     {
-        if (otherCol.tag == "Enemy")
+        if (otherCol.CompareTag("Enemy"))
         {
-            otherCol.GetComponent<Enemy_Health_Controller>().InitTextPopup(hitText);
+            otherCol.SendMessageUpwards("InitTextPopup", hitText);
             dot = otherCol.GetComponent<Damage_Over_Time>();
             if (!dot.DotIsActive)
             {

@@ -146,4 +146,24 @@ public class WitchTreeHealthController : MonoBehaviour {
         }
         Destroy(dmgPref.gameObject, 1.5f);
     }
+
+    void InitTextPopup(string txt)
+    {
+        if (healthIsVisible == false)
+        {
+            healthCanvas.enabled = true;
+            healthIsVisible = true;
+        }
+
+        GameObject dmgPref = Instantiate(DamageNumberPrefab) as GameObject;
+        RectTransform rect = dmgPref.GetComponent<RectTransform>();
+        dmgPref.transform.SetParent(transform.FindChild("EnemyCanvas"));
+        rect.transform.localPosition = DamageNumberPrefab.transform.localPosition;
+        rect.transform.localScale = DamageNumberPrefab.transform.localScale;
+
+        dmgPref.GetComponent<Text>().text = txt;
+        dmgPref.GetComponent<Animator>().SetTrigger("Hit");
+
+        Destroy(dmgPref.gameObject, 1.5f);
+    }
 }

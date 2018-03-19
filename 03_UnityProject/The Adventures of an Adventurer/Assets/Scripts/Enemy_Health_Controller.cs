@@ -58,7 +58,6 @@ public class Enemy_Health_Controller : MonoBehaviour
         if (health == 0)
         {
             loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
-            this.gameObject.GetComponent<Enemy_Movement_AI>().Died = true;
             Destroy(healthBar);
             Destroy(this.gameObject);
         }
@@ -135,7 +134,7 @@ public class Enemy_Health_Controller : MonoBehaviour
         Destroy(dmgPref.gameObject, 1.5f);
     }
 
-    public void InitTextPopup(string txt)
+    void InitTextPopup(string txt)
     {
         if (healthIsVisible == false)
         {
