@@ -34,6 +34,8 @@ public class ChangeLevel : MonoBehaviour {
             Destroy(GameObject.FindGameObjectWithTag("EventList"));
             Destroy(GameObject.FindGameObjectWithTag("Player"));
         }
+        if (this.gameObject.GetComponent<Entrance>() != null)
+            this.gameObject.GetComponent<Entrance>().keyInfo.GetComponent<SpriteRenderer>().enabled = false;
         SceneManager.LoadScene(levelToLoad);
     }
 }

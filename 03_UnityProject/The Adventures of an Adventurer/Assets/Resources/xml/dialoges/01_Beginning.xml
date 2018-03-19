@@ -11,8 +11,24 @@
 		</textblock>
 	</dialoge>
 	
-	<dialoge object="Beginning" length="2">
+	<dialoge object="Beginning" length="4">
 			<textblock id="1">
+				<talker>Adventurer</talker>
+				<sprite>Player\Player Final</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Ich schlief gerade in meinem neu erbauten Zelt, als plötzlich...</german>
+				<english>I slept in my new tent. Suddenly...</english>
+			</textblock>
+			<textblock id="2">
+				<talker>Adventurer</talker>
+				<sprite>NPCs\Villagers\Villager06</sprite>
+				<textspeed>0</textspeed>
+				<methodeAfterEnd>None</methodeAfterEnd>
+				<german>Hilfe!</german>
+				<english>Help!</english>
+			</textblock>
+			<textblock id="3">
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>
@@ -21,7 +37,7 @@
 				<english>*Yawn*</english>
 			</textblock>
 			
-			<textblock id="2">
+			<textblock id="4">
 				<talker>Adventurer</talker>
 				<sprite>Player\Player Final Young</sprite>
 				<textspeed>0</textspeed>

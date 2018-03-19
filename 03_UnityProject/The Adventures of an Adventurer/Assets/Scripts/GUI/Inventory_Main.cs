@@ -10,6 +10,7 @@ public class Inventory_Main : MonoBehaviour {
     public int NUMBER_OF_SLOTS;
     public GameObject inventoryUI;
     public string slotTag;
+    public bool FillInventoryWithTempItems = false;
 
     private UnityEngine.Color emptyBrown;
     private bool slotsLoaded;
@@ -66,7 +67,8 @@ public class Inventory_Main : MonoBehaviour {
             itemList = inventoryDatabase.GetItemDatabase;
             itemInfo = GetSlotArray(slotTag,NUMBER_OF_SLOTS);
             emptyBrown = itemInfo[0].Slot.GetComponent<Image>().color;
-            FillInventoryTemporarely();
+            if(FillInventoryWithTempItems)
+                FillInventoryTemporarely();
             inventoryUI.SetActive(false);
             slotArrayLoaded = true;
         }

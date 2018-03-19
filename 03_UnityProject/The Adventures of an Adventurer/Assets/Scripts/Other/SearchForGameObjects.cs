@@ -16,9 +16,11 @@ public class SearchForGameObjects : MonoBehaviour {
     public GameObject DialogesDB { get; set; }
 
     public GameObject TempGO { get; set; }
+    public bool DialogeDBAlreadyLoaded { get; set; }
 
     private void Start()
     {
+        DialogeDBAlreadyLoaded = false;
         StartCoroutine("SerchForPlayer");
         StartCoroutine("SerchForDialogeDBAndWaitForDialogesLoaded");
     }
@@ -42,6 +44,7 @@ public class SearchForGameObjects : MonoBehaviour {
         {
             yield return null;
         }
+        DialogeDBAlreadyLoaded = true;
         DialogeDBFound();
     }
 

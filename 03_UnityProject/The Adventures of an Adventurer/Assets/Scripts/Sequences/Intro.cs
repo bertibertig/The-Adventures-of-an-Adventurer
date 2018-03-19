@@ -26,6 +26,8 @@ public class Intro : MonoBehaviour
         GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().PlayerFoundEventHandler += Intro_PlayerFoundEventHandler;
         GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().DialogeDBFoundEventHandler += Intro_DialogeDBFoundEventHandler;
 
+        
+
         /*if(GameObject.FindGameObjectsWithTag("InventoryUI").Length >= 0)
             GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;*/
 
@@ -33,6 +35,11 @@ public class Intro : MonoBehaviour
     }
 
     private void Intro_DialogeDBFoundEventHandler(object sender, System.EventArgs e)
+    {
+        LoadDialoge();
+    }
+
+    private void LoadDialoge()
     {
         dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
         dHandler.DialogeEndedEventHandler += DHandler_DialogeEndedEventHandler;

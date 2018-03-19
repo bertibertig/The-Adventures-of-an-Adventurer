@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class chest_OnTrigger : MonoBehaviour {
 
@@ -26,8 +27,13 @@ public class chest_OnTrigger : MonoBehaviour {
         SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
         searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
+        if (GameObject.FindGameObjectsWithTag("PlayerButtons").Length == 0)
+            GameObject.Instantiate(Resources.Load("GUI/PlayerButtons") as GameObject);
+        if (keyInfo == null)
+            keyInfo = GameObject.FindGameObjectsWithTag("PlayerButtons").Where(g => g.name.Equals("E")).FirstOrDefault();
+        else
+            keyInfo.SetActive(false);
         displayKeyInfo = false;
-        keyInfo.SetActive(false);
         gotContent = false;
 
         if (player == null)
@@ -78,7 +84,10 @@ public class chest_OnTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            keyInfo.SetActive(true);
+            if (!keyInfo.GetActive())
+                keyInfo.SetActive(true);
+            else
+                keyInfo.GetComponent<SpriteRenderer>().enabled = true;
             displayKeyInfo = true;
         }
     }
@@ -87,7 +96,7 @@ public class chest_OnTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            keyInfo.SetActive(false);
+            keyInfo.GetComponent<SpriteRenderer>().enabled = false;
             displayKeyInfo = false;
         }
     }

@@ -18,7 +18,7 @@ public class SetPositionForPlayer : MonoBehaviour {
         if (ChangePositionOnLevelChange)
         {
             if (GameObject.FindGameObjectWithTag("Player"))
-                GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PositionOnNewLevel.x, PositionOnNewLevel.y, -1);
+                GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PositionOnNewLevel.x, PositionOnNewLevel.y, -2);
             ChangePositionOnLevelChange = false;
         }
     }
