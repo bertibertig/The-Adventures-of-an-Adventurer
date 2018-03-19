@@ -81,8 +81,8 @@ public class MPBossHealthController : MonoBehaviour {
         {
             loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
             loot.EnemyDropItemByID(this.gameObject, 5);
-            if(this.gameObject.GetComponent<Enemy_Movement_AI>() != null)
-                this.gameObject.GetComponent<Enemy_Movement_AI>().Died = true;
+            if(this.gameObject.GetComponent<Slime_Movement_AI>() != null)
+                this.gameObject.GetComponent<Slime_Movement_AI>().Died = true;
             this.GetComponent<MPBossFight>().EndFight();
             Destroy(healthBar);
             Destroy(this.gameObject);

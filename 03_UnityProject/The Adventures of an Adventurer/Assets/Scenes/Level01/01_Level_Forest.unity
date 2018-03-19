@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceda63782baf20248a5e3cacfbf61e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneEnabled: 0
+  sceneEnabled: 1
   id: Beginning
   halfTent: {fileID: 0}
 --- !u!4 &80659929
@@ -2569,11 +2569,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448876972698304, guid: 75d521835898b7d4c9a16cde6306f7e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.34
+      value: -33.71
       objectReference: {fileID: 0}
     - target: {fileID: 4448876972698304, guid: 75d521835898b7d4c9a16cde6306f7e6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.92
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 4448876972698304, guid: 75d521835898b7d4c9a16cde6306f7e6, type: 2}
       propertyPath: m_LocalPosition.z
