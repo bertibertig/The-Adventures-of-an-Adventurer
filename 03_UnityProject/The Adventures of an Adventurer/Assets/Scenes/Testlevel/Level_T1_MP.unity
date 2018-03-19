@@ -281,6 +281,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1949633956886376, guid: c343c2fe23f4592419f6f4aca269365d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c343c2fe23f4592419f6f4aca269365d, type: 2}
   m_IsPrefabParent: 0
@@ -1513,6 +1517,16 @@ Prefab:
         type: 2}
       propertyPath: RoomName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+        type: 2}
+      propertyPath: spawnAsSpirit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007066246277748, guid: 1e4d7664a6df16848bcf7db699d17d2c,
+        type: 2}
+      propertyPath: connectionGUIName
+      value: ConnectionGUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e4d7664a6df16848bcf7db699d17d2c, type: 2}
@@ -6162,7 +6176,7 @@ Prefab:
     - target: {fileID: 114629111379368726, guid: b2c44c9299a08e24bbcb9fbd24a5c166,
         type: 2}
       propertyPath: devices.Array.data[0]
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1818115574204934, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
       propertyPath: m_IsActive
@@ -6227,6 +6241,14 @@ Prefab:
     - target: {fileID: 1178087116823710, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386638418144692, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386638418144692, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c44c9299a08e24bbcb9fbd24a5c166, type: 2}
@@ -7582,7 +7604,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1931478028421416, guid: 0ac9fe128c68f0e4394121f1567ea85e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114863418508138408, guid: 0ac9fe128c68f0e4394121f1567ea85e,
         type: 2}
