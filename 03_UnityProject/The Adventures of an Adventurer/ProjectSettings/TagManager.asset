@@ -28,6 +28,18 @@ TagManager:
   - MerchantUI
   - MerchantSlot
   - EndSequenceHandler
+  - Spirit
+  - PlayerPosition
+  - DialogesDB
+  - MultiplayerGUI
+  - MultiplayerController
+  - MPBoss
+  - Waypoint
+  - Sequences
+  - ConnectionGUI
+  - Spells
+  - SequenceItems
+  - PlayerButtons
   layers:
   - Default
   - TransparentFX

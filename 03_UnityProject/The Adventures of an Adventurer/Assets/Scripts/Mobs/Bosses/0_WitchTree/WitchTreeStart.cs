@@ -1,103 +1,128 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 
-public class WitchTreeStart : MonoBehaviour {
+public class WitchTreeStart : MonoBehaviour
+{
 
-    public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
+    public string id = "WitchTree";
 
-    private string language;
-    private AudioSource player_Talking;
-    private Textfield dialoge;
-    private Sprite player_Sprite;
-    private Sprite enemy_Sprite;
     private GameObject player;
-    private bool CoRoutineStarted;
-    private string[] usedDialoge;
+    private bool ThrowCoroutineStarted;
+
+    private DialogeHandler dHandler;
+
+    private bool playerIsInRange;
     private Player_Movement movement;
+    System.Collections.Generic.List<GameObject> birdsWP;
+
+    private Throw_On_Target throwScript;
+    private Animator squirrelAnim;
 
     void Start()
     {
-        dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        player_Talking = player.GetComponentInChildren<AudioSource>();
-        player_Sprite = player.GetComponent<SpriteRenderer>().sprite;
-        enemy_Sprite = gameObject.GetComponentInParent<SpriteRenderer>().sprite;
-        movement = player.GetComponent<Player_Movement>();
-        if (textSpeed <= 0)
-            textSpeed = 0.05f;
-        CoRoutineStarted = false;
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
 
-        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
-            language = "english";
-        else
-            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
-        if (language == "german")
-            usedDialoge = germanDialoge;
-        else
-            usedDialoge = englishDialoge;
+        SearchForGameObjects searchForDialogeDB = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForDialogeDB.DialogeDBFoundEventHandler += DialogeDBFound;
+
+        /*MULTIPLAYER_OWN
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            player_Talking = player.GetComponentInChildren<AudioSource>();
+            player_Sprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+            movement = player.GetComponent<Player_Movement>();
+        }*/
+        ThrowCoroutineStarted = false;
+
+        throwScript = transform.parent.gameObject.GetComponentInChildren<Throw_On_Target>();
+        squirrelAnim = transform.parent.FindChild("Squirrel").GetComponent<Animator>();
+        birdsWP = GameObject.FindGameObjectsWithTag("Waypoint").Where(x => x.name.Contains("Bird")).ToList();
+    }
+
+    void Update()
+    {
+        if (dHandler != null && dHandler.Talking == false && dHandler.ConversationFinishedOnce == true && !ThrowCoroutineStarted)
+        {
+            StartCoroutine("BossAttack");
+            ThrowCoroutineStarted = true;
+        }
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        movement = player.GetComponent<Player_Movement>();
+    }
+
+    void DialogeDBFound(object sender, EventArgs e)
+    {
+        dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !CoRoutineStarted)
+        if (col.CompareTag("Player"))
         {
-            dialoge.EnableText();
-            CoRoutineStarted = true;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            movement.MovementDisabled = true;
-            player.GetComponent<Player_Attack>().enabled = false;
-            StartCoroutine("Conversation");
+            if(!dHandler.ConversationFinishedOnce)
+                dHandler.StartConversation();
+            playerIsInRange = true;
+            throwScript.ThrowIsActive = true;
+            squirrelAnim.enabled = true;
         }
     }
 
-    private IEnumerator Conversation()
+    void OnTriggerExit2D(Collider2D col)
     {
-        dialoge.ChangeTalker(player_Sprite);
-        dialoge.ChangeTalkerName("Adventurer");
-        dialoge.PrintText(usedDialoge[0], textSpeed, player_Talking);
-        while (!Input.GetButtonDown("Interact"))
+        if (col.CompareTag("Player"))
         {
-            yield return null;
+            playerIsInRange = false;
+            throwScript.ThrowIsActive = false;
+            squirrelAnim.enabled = false;
         }
-        dialoge.StopPrintText();
+    }
 
-        dialoge.PrintText(usedDialoge[1], textSpeed, player_Talking);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
+    public IEnumerator BossAttack()
+    {
+        System.Random rdm = new System.Random();
+
+        int i;
+        Spawn_GameObject spawnScript;
+
+        while (true)
         {
-            yield return null;
+            if (playerIsInRange)
+            {
+                i = rdm.Next(1, 11);
+
+                Debug.Log(i);
+
+                yield return new WaitForSeconds(1.65f);
+                if (i <= 8)
+                {
+                    squirrelAnim.SetBool("throw", true);
+
+                    yield return new WaitForSeconds(0.35f);
+                    throwScript.ThrowProjectile();
+
+                    yield return new WaitForSeconds(1);
+                    squirrelAnim.SetBool("throw", false);
+                }
+                else if (i > 8)
+                {
+                    foreach (GameObject bird in birdsWP)
+                    {
+                        spawnScript = bird.transform.Find("WP_A").GetComponent<Spawn_GameObject>();
+                        spawnScript.enabled = true;
+                        spawnScript.enabled = false;
+                        yield return null;
+                    }
+                }
+            }
+            yield return 0;
         }
-        dialoge.StopPrintText();
-
-        dialoge.ChangeTalker(enemy_Sprite);
-        dialoge.ChangeTalkerName("Legit Witch");
-        dialoge.PrintText(usedDialoge[2], textSpeed * 20, player_Talking);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        dialoge.StopPrintText();
-
-        dialoge.ChangeTalker(player_Sprite);
-        dialoge.ChangeTalkerName("Adventurer");
-        dialoge.PrintText(usedDialoge[3], textSpeed, player_Talking);
-        yield return new WaitForSeconds(0.1f);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        dialoge.StopPrintText();
-
-
-        dialoge.StopPrintText();
-        dialoge.DisableText();
-        player.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        movement.MovementDisabled = false;
-        player.GetComponent<Player_Attack>().enabled = true;
     }
 }

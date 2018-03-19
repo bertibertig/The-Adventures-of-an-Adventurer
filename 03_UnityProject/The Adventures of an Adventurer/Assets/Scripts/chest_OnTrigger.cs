@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class chest_OnTrigger : MonoBehaviour {
 
     public bool opened;
     public GameObject keyInfo;
+    public GameObject player;
     public AudioSource chest_open_1;
     public AudioSource chest_close_1;
     public int[] items_in_chest_id;
 
-    private GameObject player;
+
     private bool displayKeyInfo;
     private bool gotContent;
     private Inventory_Main inventory;
@@ -21,10 +24,22 @@ public class chest_OnTrigger : MonoBehaviour {
         anim = gameObject.GetComponentInParent<Animator>();
         inventory = GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>();
 
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        if (GameObject.FindGameObjectsWithTag("PlayerButtons").Length == 0)
+            GameObject.Instantiate(Resources.Load("GUI/PlayerButtons") as GameObject);
+        if (keyInfo == null)
+            keyInfo = GameObject.FindGameObjectsWithTag("PlayerButtons").Where(g => g.name.Equals("E")).FirstOrDefault();
+        else
+            keyInfo.SetActive(false);
         displayKeyInfo = false;
-        keyInfo.SetActive(false);
         gotContent = false;
-        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     // Update is called once per frame
@@ -59,12 +74,20 @@ public class chest_OnTrigger : MonoBehaviour {
         }
     }
 
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            keyInfo.SetActive(true);
+            if (!keyInfo.GetActive())
+                keyInfo.SetActive(true);
+            else
+                keyInfo.GetComponent<SpriteRenderer>().enabled = true;
             displayKeyInfo = true;
         }
     }
@@ -73,14 +96,13 @@ public class chest_OnTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            keyInfo.SetActive(false);
+            keyInfo.GetComponent<SpriteRenderer>().enabled = false;
             displayKeyInfo = false;
         }
     }
 
     public void FollowPlayer()
     {
-        print(player);
         float posx = player.transform.position.x;
         float posy = player.transform.position.y;
 

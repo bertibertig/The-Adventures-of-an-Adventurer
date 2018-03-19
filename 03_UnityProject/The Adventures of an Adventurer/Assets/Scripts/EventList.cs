@@ -21,9 +21,13 @@ public class EventList : MonoBehaviour {
 
     public List<Event> GetEvents { get { return this.events; } }
 
+    public float PreviousLevel { get; set; }
+    public Vector3 PlayerPositionForNewLevel { get; set; }
+
     void Start()
     {
         events = new List<Event>();
+        PreviousLevel = 0;
     }
 	// Use this for initialization
 	void Awake () {
@@ -33,7 +37,7 @@ public class EventList : MonoBehaviour {
         }
 	}
 
-    public void AddEvent(string eventName, bool happened, string description)
+    public void AddEvent(string eventName, bool happened = true, string description = "")
     {
         bool eventAlreadyContained = false;
         foreach (Event e in events)
@@ -55,23 +59,21 @@ public class EventList : MonoBehaviour {
 
     public Event GetEvent(int id)
     {
-        try
-        {
-            return events[id];
-        }
-        catch (System.IndexOutOfRangeException)
-        {
+        if (id >= events.Count)
             return null;
-        }
+        return events[id];
     }
 
     public Event GetEvent(string eventName)
     {
-        foreach (Event e in events)
+        if (events != null)
         {
-            if (e.EventName == eventName)
-                return e;
+            foreach (Event e in events)
+            {
+                if (e.EventName == eventName)
+                    return e;
 
+            }
         }
         return null;
     }
@@ -85,5 +87,19 @@ public class EventList : MonoBehaviour {
 
         }
         return 0;
+    }
+
+    public void ListAllEvents()
+    {
+        StartCoroutine("ListAllEventsCoroutine");
+    }
+
+    private IEnumerator ListAllEventsCoroutine()
+    {
+        foreach(Event e in events)
+        {
+            print("Name: " + e.EventName + " Happened: " + e.HasHappened + " Description: " + e.Description);
+            yield return null;
+        }
     }
 }

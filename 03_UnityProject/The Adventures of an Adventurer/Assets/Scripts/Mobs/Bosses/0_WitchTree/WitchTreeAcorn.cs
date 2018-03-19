@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class WitchTreeAcorn : MonoBehaviour {
 
@@ -9,22 +10,19 @@ public class WitchTreeAcorn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        witchTreeLeaveColliders = GameObject.FindGameObjectsWithTag("LeaveCollider");
-        foreach(GameObject g in witchTreeLeaveColliders)
-            Physics2D.IgnoreCollision(g.GetComponent<EdgeCollider2D>(), GetComponent<PolygonCollider2D>());
         damageDealer = gameObject.GetComponentInChildren<Damage_On_Collision>();
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Enemy"))
-            Physics2D.IgnoreCollision(g.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+            Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         onGround = false;
-        StartCoroutine("Disapear");
+        //StartCoroutine("Disapear");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*if(!onGround)
+        if(!onGround)
             transform.Rotate(new Vector3(0, 0, -(this.gameObject.transform.rotation.z + 5)));
-        if (onGround)
-            Destroy(damageDealer);*/
+        if (onGround || GameObject.FindGameObjectsWithTag("Enemy").Where(g => g.name == "WitchTree").FirstOrDefault() == null)
+            Destroy(damageDealer);
 
     }
 
@@ -33,10 +31,11 @@ public class WitchTreeAcorn : MonoBehaviour {
         if (col.collider.CompareTag("Ground") || col.collider.CompareTag("Projectile"))
             onGround = true;
     }
-
+    /*
     IEnumerator Disapear()
     {
         yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
+    */
 }

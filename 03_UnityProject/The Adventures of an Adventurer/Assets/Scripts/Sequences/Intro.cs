@@ -5,86 +5,69 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
-
+    public string id;
     public GameObject presentsText;
     public GameObject logo;
     public string levelToLoad;
     public float textSpeed;
-    public string[] germanDialoge;
-    public string[] englishDialoge;
 
-    private AudioSource playerTalking;
-    private string language;
-    private Textfield dialoge;
-    private Sprite playerSprite;
-    private bool CoRoutineStarted;
-    private string[] usedDialoge;
-    private Player_Movement movement;
-    private static GameObject player;
+    private GameObject player;
+    private DialogeHandler dHandler;
+    //private GameObject InventoryUI;
     public bool IntroEnd { get; set; }
 
     // Use this for initialization
     void Start()
     {
-        dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        dialoge.ChangeTalker(player.GetComponent<SpriteRenderer>().sprite);
-        playerTalking = player.GetComponentInChildren<AudioSource>();
-        playerSprite = player.GetComponent<SpriteRenderer>().sprite;
-        movement = player.GetComponent<Player_Movement>();
+        
         if (levelToLoad == null)
             levelToLoad = "0_Level_Tutorial";
-        if (textSpeed <= 0)
-            textSpeed = 0.05f;
-        CoRoutineStarted = false;
 
-        if (GameObject.FindGameObjectsWithTag("EventList").Length <= 0)
-            language = "english";
-        else
-            language = GameObject.FindGameObjectWithTag("EventList").GetComponentInChildren<LanguageReader>().Language;
+        GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().PlayerFoundEventHandler += Intro_PlayerFoundEventHandler;
+        GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>().DialogeDBFoundEventHandler += Intro_DialogeDBFoundEventHandler;
 
-        if (language == "german")
-            usedDialoge = germanDialoge;
-        else
-            usedDialoge = englishDialoge;
+        
+
+        /*if(GameObject.FindGameObjectsWithTag("InventoryUI").Length >= 0)
+            GameObject.FindGameObjectWithTag("InventoryUI").GetComponentInChildren<Inventory_Main>().InventoryDisabled = true;*/
 
 
-        CoRoutineStarted = true;
-        movement.MovementDisabled = true;
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        player.GetComponent<Player_Attack>().enabled = false;
-        dialoge.EnableText();
-        player.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        StartCoroutine("Conversation");
+    }
+
+    private void Intro_DialogeDBFoundEventHandler(object sender, System.EventArgs e)
+    {
+        LoadDialoge();
+    }
+
+    private void LoadDialoge()
+    {
+        dHandler = GameObject.FindGameObjectWithTag("DialogesDB").GetComponent<XMLReader>().GetDialougeHandlerByName(id).GetComponent<DialogeHandler>();
+        dHandler.DialogeEndedEventHandler += DHandler_DialogeEndedEventHandler;
+        dHandler.StartConversation();
+    }
+
+    private void DHandler_DialogeEndedEventHandler(object sender, System.EventArgs e)
+    {
+        StartCoroutine("DisplayLogosAndWalkTotrigger");
+    }
+
+    private void Intro_PlayerFoundEventHandler(object sender, System.EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Player_Movement>().MovementDisabled = true;
     }
 
     // Update is called once per frame
-    private IEnumerator Conversation()
+    private IEnumerator DisplayLogosAndWalkTotrigger()
     {
-        print(dialoge.enabled);
-        dialoge.ChangeTalker(playerSprite);
-        dialoge.ChangeTalkerName("Adventurer");
-        dialoge.PrintText(usedDialoge[0], textSpeed, playerTalking);
-        while (!Input.GetButtonDown("Interact"))
-        {
-            yield return null;
-        }
-        dialoge.StopPrintText();
         StartCoroutine("Logos");
         while (!IntroEnd)
         {
-            dialoge.DisableText();
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10f, 0));
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-50f, 0));
             yield return null;
         }
 
-
-        dialoge.StopPrintText();
-        dialoge.DisableText();
-        player.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         logo.SetActive(false);
-        SceneManager.LoadScene(levelToLoad);
     }
 
     private IEnumerator Logos()

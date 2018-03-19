@@ -1,0 +1,18 @@
+05.12.2017 (v0.0.2)
+- XML Reader for easier Dialouge editing
+- Second Attack for second Boss (WitchTree Bird Attack)
+- New Animations for the Multiplayer Boss + Implementation
+- 2 new Enemies which apair in second Level
+- Basic Implementation of second Level (Only Accessable through Debug Menu)
+- Fixed some Minor Bugs
+	- XML Reader Bugs (Display Dialouge, Call Methodes, Play Sound while Talking)
+	- Main Menu Language Options
+	- Throw Skript for Squirel
+23.01.18
+- Implementation of some Decoration for the second level
+	- Clouds which move from left to right on the Horizon
+	- A tent and a fireplace for the Adventurer
+	- A Forest, where the people from the city flee to
+- Drawed and added a new Background for the second level
+- Implementet an entrance to a cave
+	The entrance is hidden behind a dirthill, which vanishes if the player gets behind it, so that the entrance can be seen.

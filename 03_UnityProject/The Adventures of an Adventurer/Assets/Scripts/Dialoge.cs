@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,10 +26,15 @@ public class Dialoge : MonoBehaviour {
         this.germanDialoge = _geramDialoge;
         this.englishDialoge = _englishDialoge;
         dialoge = GameObject.FindGameObjectWithTag("TextFieldUI").GetComponent<Textfield>();
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        /*MULTIPLAYER_OWN
         player = GameObject.FindGameObjectWithTag("Player");
         Player_Talking = player.GetComponentInChildren<AudioSource>();
-        PlayerSprite = player.GetComponent<SpriteRenderer>().sprite;
-        movement = player.GetComponent<Player_Movement>();
+        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+        movement = player.GetComponent<Player_Movement>();*/
         if (textSpeed <= 0)
             textSpeed = 0.05f;
         coRoutineStarted = false;
@@ -65,5 +71,13 @@ public class Dialoge : MonoBehaviour {
     public void Conversation(int id, AudioSource talkerSound)
     {
         dialoge.PrintText(UsedDialoge[id], textSpeed, talkerSound);
+    }
+
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        Player_Talking = player.GetComponentInChildren<AudioSource>();
+        PlayerSprite = (Resources.Load("Player") as GameObject).GetComponent<SpriteRenderer>().sprite;
+        movement = player.GetComponent<Player_Movement>();
     }
 }

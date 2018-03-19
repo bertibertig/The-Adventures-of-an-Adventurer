@@ -18,6 +18,7 @@ public class Inventory_Database : MonoBehaviour {
         private int ID;
         private string name;
         private Sprite itemSymbol;
+        private string ressourcePath;
         private string whatToDo;
         private int price;
         private string itemType;
@@ -31,6 +32,7 @@ public class Inventory_Database : MonoBehaviour {
 
         public int GetID { get { return this.ID; } }
         public Sprite GetSprite{ get { return this.itemSymbol; }  }
+        public string GetRessourcePath { get { return this.ressourcePath; } }
         public int GetPrice { get { return this.price; } }
         public float X { get { return this.x; } }
         public float Y { get { return this.y; } }
@@ -42,11 +44,13 @@ public class Inventory_Database : MonoBehaviour {
         public object[] GetOptionalParams { get { return this.optionalParams; } }
 
 
-        public Item(int ID, string name, Sprite itemSymbol, string whatToDo, int price, string itemType, float x, float y, string descriptionEng, string descriptionGer, string function = "", string classString = "", object[] optionalParams = null)
+        public Item(int ID, string name, string ressourcePath, string whatToDo, int price, string itemType, float x, float y, string descriptionEng, string descriptionGer, string function = "", string classString = "", object[] optionalParams = null)
         {
             this.ID = ID;
             this.name = name;
-            this.itemSymbol = itemSymbol;
+            this.ressourcePath = ressourcePath;
+            if(ressourcePath != "")
+                this.itemSymbol = (Resources.Load(ressourcePath, typeof(GameObject)) as GameObject).GetComponent<SpriteRenderer>().sprite;
             this.whatToDo = whatToDo;
             this.price = price;
             this.itemType = itemType;
@@ -56,7 +60,7 @@ public class Inventory_Database : MonoBehaviour {
             this.descriptionGer = descriptionGer;
             this.function = function;
             this.classString = classString;
-            if(optionalParams != null)
+            if (optionalParams != null)
                 this.optionalParams = ((IEnumerable)optionalParams).Cast<object>().Select(s => s == null ? s : s.ToString()).ToArray();
         }
     }
@@ -72,10 +76,12 @@ public class Inventory_Database : MonoBehaviour {
     {
         //print(GameObject.FindGameObjectsWithTag("ItemSymbol")[0].ToString());
         //itemSymbols = GameObject.FindGameObjectsWithTag("ItemSymbol").OrderBy(go => go.name).ToArray();
-        itemList.Add(new Item(0, "Empty", null, "Nothing", 0, "Null", 0, 0, "", ""));
-        itemList.Add(new Item(1, "Axe", (Resources.Load("Items/Weapons/Axe_01", typeof(GameObject)) as GameObject).GetComponent<SpriteRenderer>().sprite, "Nothing", 1, "Weapon", 19, 35, "A Basic Wodden Axe.", "Eine normale Holzaxt.", "ItemFunction", "Axe"));
-        itemList.Add(new Item(2, "Battle Axe", (Resources.Load("Items/Weapons/Axe_02", typeof(GameObject)) as GameObject).GetComponent<SpriteRenderer>().sprite, "Shockwave", 100, "Weapon", 30, 43, "A enchanted steelaxe which can cast a shokwave.", "Eine verzauberte Stahlaxt welche eine Schockwelle beschwören kann."));
-        itemList.Add(new Item(3, "Health Potion", (Resources.Load("Items/Other/Health_Potion", typeof(GameObject)) as GameObject).GetComponent<SpriteRenderer>().sprite, "HealsHP", 50, "Other", 26, 32, "A potion which heals 20 HP of the player", "Ein Trank welcher 20 HP wiederherstellt", "ItemFunction", "HealthPotion", new object[] { "20" }));
+        itemList.Add(new Item(0, "Empty", "", "Nothing", 0, "Null", 0, 0, "", ""));
+        itemList.Add(new Item(1, "Axe", "Items/Weapons/Axe_01", "Nothing", 1, "Weapon", 19, 35, "A Basic Wodden Axe.", "Eine normale Holzaxt.", "ItemFunction", "Axe"));
+        itemList.Add(new Item(2, "Battle Axe", "Items/Weapons/Axe_02", "Shockwave", 100, "Weapon", 30, 43, "A enchanted steelaxe which can cast a shokwave.", "Eine verzauberte Stahlaxt welche eine Schockwelle beschwören kann."));
+        itemList.Add(new Item(3, "Health Potion", "Items/Other/Health_Potion", "HealsHP", 50, "Other", 26, 32, "A potion which heals 20 HP of the player", "Ein Trank welcher 20 HP wiederherstellt", "ItemFunction", "HealthPotion", new object[] { "20" }));
+        itemList.Add(new Item(4, "Wood", "Items/Other/Wood", "Burns", 5, "Other", 40, 40, "The remains of the witch disguised as wood", "Die überreste der Hexe, welche als Holz getarnt wurden"));
+        itemList.Add(new Item(5, "Stoneplate", "Items/Other/MultiplayerPlate", "Connect with other Player", 0, "Other", 27, 32, "A ghostly aura emerges from this plate", "Eine geisterhafte Aura umgiebt diese Steintafel", "ItemFunction", "MultiplayerPlate"));
         itemInfoLoaded = true;
 
     }

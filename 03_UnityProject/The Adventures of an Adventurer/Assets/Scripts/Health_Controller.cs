@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Health_Controller : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class Health_Controller : MonoBehaviour {
     private bool knockbackEnabled;
     private Animator anim;
     private Player_Movement player;
+	private GameObject damageSource;
     private bool isDead = false;
     private bool isInvincible = false;
 
@@ -22,11 +24,14 @@ public class Health_Controller : MonoBehaviour {
     public float Health { get { return this.health; } }
 
 	void Start () {
+
+        ResetPlayerPrefs();
+
         anim = GetComponent<Animator>();
         player = GetComponent<Player_Movement>();
         knockbackEnabled = true;
 
-        if (Application.loadedLevel == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             health = startHealth;
             maxHealth = startHealth;
@@ -36,15 +41,14 @@ public class Health_Controller : MonoBehaviour {
             health = PlayerPrefs.GetFloat("Health");
             maxHealth = PlayerPrefs.GetFloat("MaxHealth");
         }
-
         if (GameObject.FindGameObjectsWithTag("UI").Length >= 2)
         {
             Destroy(GameObject.FindGameObjectsWithTag("UI")[1]);
         }
         if (healthGUI == null)
-            healthGUI = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "Front").FirstOrDefault().GetComponentInChildren<Image>();
-        if(deathText == null)
-            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponentInChildren<Text>();
+            healthGUI = (GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "FrontPlayer").FirstOrDefault().GetComponentInChildren<Image>());
+        if (deathText == null)
+            deathText = GameObject.FindGameObjectsWithTag("healthGUI").Where(g => g.name == "DeathText").FirstOrDefault().GetComponent<Text>();
         deathText.enabled = false;
         deathText.text = "";
         UpdateGUI();
@@ -97,15 +101,15 @@ public class Health_Controller : MonoBehaviour {
 
     void Death()
     {
-        deathText.enabled = true;
+        deathText.GetComponent<Text>().enabled = true;
         anim.SetBool("isDying", true);
         player.enabled = false;
         UpdateGUI();
-        deathText.text = "You died...";
-        //Invoke("Respawn", 1);
+        deathText.text = "And thus ended the Adventurers story...";
+        ResetPlayerPrefs();
         Invoke("Respawn", 5);
     }
-		
+
     void Respawn()
     {
         deathText.enabled = false;
@@ -115,25 +119,20 @@ public class Health_Controller : MonoBehaviour {
         player.enabled = true;
 		UpdateGUI();
         Destroy(GameObject.FindGameObjectWithTag("Music"));
-		Application.LoadLevel(0);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //generate world and reset player
     }
 
-	/*
-    void Respawn()
-    {
-        Application.LoadLevel(0);
-    }
-	*/
+	//TODO: Respawn
 
     void Damage()
     {
         if (knockbackEnabled)
-            player.StartKnockback(0.02f, 350, player.transform.position);
+			player.StartKnockback(250f, player.transform.position, damageSource.transform.position);
         UpdateGUI();
     }
 
-    void OnDestroy()
+    void ResetPlayerPrefs()
     {
         PlayerPrefs.SetFloat("Health", health);
         PlayerPrefs.SetFloat("MaxHealth", maxHealth);
@@ -144,5 +143,13 @@ public class Health_Controller : MonoBehaviour {
         healthGUI.fillAmount = health / maxHealth;
     }
 
+	void SetEnemyPlayerGotHitBy(GameObject enemy)
+	{
+		this.damageSource = enemy;
+	}
 
+    public bool IsAtFullHealth()
+    {
+        return health == maxHealth;
+    }
 }

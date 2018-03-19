@@ -4,14 +4,13 @@ using System.Collections;
 public class IntroEndCollider : MonoBehaviour {
 
     private Intro intro;
-    public Vector3 positionOfEntrance;
 
     public GameObject player;
     void Start()
     {
         intro = GameObject.FindGameObjectWithTag("Intro").GetComponent<Intro>();
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("UI"));
+        //DontDestroyOnLoad(player);
+        //DontDestroyOnLoad(GameObject.FindGameObjectWithTag("UI"));
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -27,13 +26,7 @@ public class IntroEndCollider : MonoBehaviour {
             player.GetComponent<Player_Movement>().MovementDisabled = false;
             player.GetComponent<Player_Attack>().enabled = true;
             intro.IntroEnd = true;
+            gameObject.GetComponent<ChangeLevel>().LoadLevel();
         }
     }
-
-    void OnLevelWasLoaded(int level)
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(positionOfEntrance.x, positionOfEntrance.y, positionOfEntrance.z); ;
-    }
-
 }

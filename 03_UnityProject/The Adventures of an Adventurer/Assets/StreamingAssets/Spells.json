@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "name": "Fireball",
+    "desc": "Launches a ball of pure flames at an enemy.",
+    "learnLevel": 1,
+    "stats": {
+      "damage": 4,
+      "healing": 0,
+      "castTime": 1.5,
+      "cooldown": 1.0
+    },
+    "effect": true,
+    "slug": "fireball"
+  },
+  {
+    "id": 1,
+    "name": "Soulcharge",
+    "desc": "Release your gathered souls as a single devastating attack.",
+    "learnLevel": 7,
+    "stats": {
+      "damage": 3,
+      "healing": 0,
+      "castTime": 0.0,
+      "cooldown": 4.0
+    },
+    "effect": false,
+    "slug": "soulcharge"
+  },
+  {
+    "id": 2,
+    "name": "Zeus' Fury",
+    "desc": "Summon a holy lightning bolt out of the skies to strike your enemy.",
+    "learnLevel": 34,
+    "stats": {
+      "damage": 20,
+      "healing": 0,
+      "castTime": 2.0,
+      "cooldown": 25.0
+    },
+    "effect": true,
+    "slug": "zeus_fury"
+  }
+]

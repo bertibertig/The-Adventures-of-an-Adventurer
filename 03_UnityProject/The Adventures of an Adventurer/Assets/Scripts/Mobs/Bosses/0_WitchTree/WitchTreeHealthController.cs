@@ -26,7 +26,6 @@ public class WitchTreeHealthController : MonoBehaviour {
     private Canvas healthCanvas;
     private DropLoot dropLoot;
     private DropLoot loot;
-    private Tutorial_WitchtreeDefeated dialogeAfterWitchTreeDefeated;
 
     void Start()
     {
@@ -40,22 +39,26 @@ public class WitchTreeHealthController : MonoBehaviour {
             maxGoldDrop = 3;
         if (xp <= 0)
             xp = 10;
-        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+
+        SearchForGameObjects searchForPlayer = GameObject.FindGameObjectWithTag("EventList").GetComponent<SearchForGameObjects>();
+        searchForPlayer.PlayerFoundEventHandler += PlayerFound;
+
+        /*MULTIPLAYER_OWN
+        if (loot == null)
+            loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();*/
+
         eventList = GameObject.FindGameObjectWithTag("EventList").GetComponent<EventList>();
         healthCanvas = transform.GetComponentInChildren<Canvas>();
-        dialogeAfterWitchTreeDefeated = GameObject.FindGameObjectWithTag("EndSequenceHandler").GetComponent<Tutorial_WitchtreeDefeated>();
         healthCanvas.enabled = false;
         health = maxHealth;
         anim = GetComponent<Animator>();
         if (anim != null)
-            anim.SetFloat("Health", health);
-        print(anim.ToString());
-        UpdateGUI();
+			anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
+		UpdateGUI();
         if (eventList.GetEvent("Boss_01_Defeated") != null)
         {
             if (eventList.GetEvent("Boss_01_Defeated").HasHappened)
             {
-                //WitchTop.SetActive(true);
                 WitchBottom.SetActive(true);
                 Destroy(healthBar);
                 Destroy(this.gameObject);
@@ -63,9 +66,14 @@ public class WitchTreeHealthController : MonoBehaviour {
         }
     }
 
+    public void PlayerFound(object sender, EventArgs e)
+    {
+        loot = GameObject.FindGameObjectWithTag("Player").GetComponent<DropLoot>();
+    }
+
     void ApplyDamage(object[] attackData)
     {
-        anim.SetFloat("Health", health);
+		anim.SetFloat("HealthPercentage", ((health/maxHealth)*100));
         int damage = Convert.ToInt32(attackData[0]);
         bool isCrit = Convert.ToBoolean(attackData[1]);
 
@@ -83,10 +91,11 @@ public class WitchTreeHealthController : MonoBehaviour {
         if (health == 0)
         {
             loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
+            loot.EnemyDropItemByID(this.gameObject, 4);
             WitchTop.SetActive(true);
             WitchBottom.SetActive(true);
             eventList.AddEvent("Boss_01_Defeated", true, "Is true if the player defeated Boss_01, the witch tree");
-            dialogeAfterWitchTreeDefeated.StartSequence();
+            WitchBottom.GetComponent<Tutorial_WitchtreeDefeated>().StartSequence();
             Destroy(healthBar);
             Destroy(this.gameObject);
         }
@@ -135,6 +144,26 @@ public class WitchTreeHealthController : MonoBehaviour {
             dmgPref.GetComponent<Text>().text = dmg + "\nCritical!";
             dmgPref.GetComponent<Animator>().SetTrigger("Crit");
         }
+        Destroy(dmgPref.gameObject, 1.5f);
+    }
+
+    void InitTextPopup(string txt)
+    {
+        if (healthIsVisible == false)
+        {
+            healthCanvas.enabled = true;
+            healthIsVisible = true;
+        }
+
+        GameObject dmgPref = Instantiate(DamageNumberPrefab) as GameObject;
+        RectTransform rect = dmgPref.GetComponent<RectTransform>();
+        dmgPref.transform.SetParent(transform.FindChild("EnemyCanvas"));
+        rect.transform.localPosition = DamageNumberPrefab.transform.localPosition;
+        rect.transform.localScale = DamageNumberPrefab.transform.localScale;
+
+        dmgPref.GetComponent<Text>().text = txt;
+        dmgPref.GetComponent<Animator>().SetTrigger("Hit");
+
         Destroy(dmgPref.gameObject, 1.5f);
     }
 }
