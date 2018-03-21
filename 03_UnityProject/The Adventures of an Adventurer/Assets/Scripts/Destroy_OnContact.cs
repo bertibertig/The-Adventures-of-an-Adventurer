@@ -33,7 +33,7 @@ public class Destroy_OnContact : MonoBehaviour {
     private void Destroy()
     {
         if (destroyParticles != null)
-            Instantiate(destroyParticles, transform.position, Quaternion.identity);
+            Instantiate(destroyParticles, transform.position, Quaternion.identity).SetActive(true);
         Destroy(transform.parent.gameObject);
     }
 }

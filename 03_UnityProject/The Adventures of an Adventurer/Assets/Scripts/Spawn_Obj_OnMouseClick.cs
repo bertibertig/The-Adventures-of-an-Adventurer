@@ -52,13 +52,11 @@ public class Spawn_Obj_OnMouseClick : MonoBehaviour {
             print("Clicked Outside of Pannel");
         }
         if (facingCursor)
-            projectileClone = Instantiate(projectile, SpawnAtObject.transform.position, Quaternion.FromToRotation(Vector3.down, normalizedDirection));
+            projectileClone = Instantiate(projectile, transform.position, Quaternion.FromToRotation(Vector3.down, normalizedDirection));
         else
-            projectileClone = Instantiate(projectile, SpawnAtObject.transform.position, Quaternion.identity);
+            projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
 
         projectileClone.SetActive(true);
-        for(int i = 0; i < projectileClone.transform.childCount; i++)
-            projectileClone.transform.GetChild(i).gameObject.SetActive(true);
 
         if (projectileClone.GetComponent<Move_Indefinitely>() != null)
             projectileClone.GetComponent<Move_Indefinitely>().Move_To_Direction(normalizedDirection);

@@ -176,9 +176,9 @@ GameObject:
   - component: {fileID: 212890554700137664}
   - component: {fileID: 50863773012141486}
   - component: {fileID: 60992502052427606}
-  - component: {fileID: 114151933945706226}
   - component: {fileID: 114849742808659306}
-  - component: {fileID: 114000341232587724}
+  - component: {fileID: 114737072115936748}
+  - component: {fileID: 114014247259427624}
   m_Layer: 0
   m_Name: slime
   m_TagString: Enemy
@@ -219,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1949633956886376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.33, y: -6.41, z: 0}
+  m_LocalPosition: {x: 0.84470224, y: 1.6338854, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4186317044268118}
@@ -349,7 +349,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000341232587724
+--- !u!114 &114014247259427624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1949633956886376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d828e058b699a774ca40accdafd09180, type: 3}
+  m_Script: {fileID: 11500000, guid: c34ae8a99bae7d4408a6cbb18da2e1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114080213872791134
@@ -387,24 +387,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114151933945706226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1949633956886376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3077bb97e363ab4db32c9c91c8d5d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 0.1
-  speed: 70
-  maxWayX: 50
-  maxWayY: 20
-  movementTimeout: 2
-  jumpPower: 200
-  lerpStep: 0
 --- !u!114 &114217262699562274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,6 +508,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6ce7092d1944e478952c63035bef11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114737072115936748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949633956886376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de211551d0a15049b162a8ec724e72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 0.1
+  speed: 70
+  maxWayX: 50
+  maxWayY: 20
+  movementTimeout: 2
+  jumpPower: 200
+  lerpStep: 0
 --- !u!114 &114849742808659306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -557,7 +557,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1949633956886376}
-  player: {fileID: 0}
 --- !u!114 &114946223511522624
 MonoBehaviour:
   m_ObjectHideFlags: 1
