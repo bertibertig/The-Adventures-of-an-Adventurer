@@ -18,8 +18,7 @@ public class SpawnRunningVillagers : MonoBehaviour {
     public float minVillagerDelay = 5;
     public float maxVillagerDelay = 5;
 
-    [Header("Enable Spawning Multiple Villagers?")]
-    [Tooltip("Chance when a Couple or Tripple will spawn (Chance for Tripple is divided by 2)")]
+    [Header("Enable Spawning Multiple Villagers?"), Tooltip("Chance when a Couple or Tripple will spawn (Chance for Tripple is divided by 2)")]
     public int spawnChance = 10;
     public bool enableSpawnCouples = true;
     public bool enableSpawnTripple = false;
