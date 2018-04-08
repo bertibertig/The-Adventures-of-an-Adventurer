@@ -8,10 +8,12 @@ public class Spirit : Photon.MonoBehaviour {
     public float lerpStep = 0.5f;
     public bool offline = false;
     public bool StopFollowingCursor = false;
+    public float smoothMove = 0.5f;
 
     private Rigidbody2D rb2d;
     private Vector2 newPos;
     private GameObject player;
+    private Vector2 velocity;
 
 	// Use this for initialization
 	void Start () {
@@ -50,7 +52,16 @@ public class Spirit : Photon.MonoBehaviour {
         {
             Vector2 lerp = Vector2.Lerp(this.rb2d.position, newPos, lerpStep);
             rb2d.MovePosition(lerp);
-        }        
+        }
+
+        //Follow Player
+
+        if (player != null)
+        {
+            float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothMove);
+
+            transform.position = new Vector3(posx - 0.5f, transform.position.y, transform.position.z);
+        }
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

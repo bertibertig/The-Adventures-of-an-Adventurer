@@ -18,7 +18,10 @@ public class SelectSpell : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("Spirit") != null)
         {
             DeselectOldSpell();
-            GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritMagicController>().SelectedSlot = Spell.GetComponent<Spawn_Obj_OnMouseClick>();
+            if (Spell.GetComponent<Spawn_Obj_OnMouseClick>() != null)
+                GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritMagicController>().SelectedSlot = Spell.GetComponent<Spawn_Obj_OnMouseClick>();
+            /*else if (Spell.GetComponent<ReFormaSpell>() != null)
+                GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritMagicController>().SelectedSlot = Spell.GetComponent<ReFormaSpell>();*/
         }
     }
 
