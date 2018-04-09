@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4854070762330200}
-  - component: {fileID: 114870291038907218}
+  - component: {fileID: 114417701526685688}
   m_Layer: 0
   m_Name: FireballController
   m_TagString: Untagged
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4886005967917812}
-  - component: {fileID: 114155765824641700}
+  - component: {fileID: 114783228183722172}
   m_Layer: 0
   m_Name: HealSpellController
   m_TagString: Untagged
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114041721401476746}
   - component: {fileID: 114961652345792240}
   - component: {fileID: 114688258780464098}
+  - component: {fileID: 114836430711483650}
   m_Layer: 0
   m_Name: Spirit
   m_TagString: Spirit
@@ -72,7 +73,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4530127790644090}
-  - component: {fileID: 114213373253036194}
+  - component: {fileID: 114494921105668974}
   m_Layer: 0
   m_Name: PoisonSpellController
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931423671517268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.180751, y: -9.312111, z: -1.935617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.935617, y: 1.935617, z: 1.935617}
   m_Children: []
   m_Father: {fileID: 4712490781525146}
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1041527098047270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.180751, y: -9.312111, z: -1.935617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.935617, y: 1.935617, z: 1.935617}
   m_Children: []
   m_Father: {fileID: 4712490781525146}
@@ -129,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440272810830222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.180751, y: -9.312111, z: -1.935617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.935617, y: 1.935617, z: 1.935617}
   m_Children: []
   m_Father: {fileID: 4712490781525146}
@@ -167,40 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpStep: 0.1
-  offline: 0
-  StopFollowingCursor: 0
---- !u!114 &114155765824641700
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440272810830222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8007fb5b262f242bdd0375f6b39804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 0}
-  verticalOffset: 1
-  horizontalOffset: 0
-  objectLifespan: 1
-  selected: 0
---- !u!114 &114213373253036194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931423671517268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnAtObject: {fileID: 1694029958023458}
-  objLifespan: 5
-  facingCursor: 0
-  projectile: {fileID: 0}
-  selected: 0
+  offline: 1
+  StopFollowingCursor: 1
+  smoothMove: 0.5
 --- !u!114 &114246646127814958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +197,38 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114417701526685688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041527098047270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff1b913f23b11d4884dbb29917b5750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnAtObject: {fileID: 0}
+  objLifespan: 5
+  facingCursor: 1
+  projectile: {fileID: 0}
+  selected: 0
+--- !u!114 &114494921105668974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931423671517268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff1b913f23b11d4884dbb29917b5750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnAtObject: {fileID: 0}
+  objLifespan: 5
+  facingCursor: 0
+  projectile: {fileID: 0}
+  selected: 0
 --- !u!114 &114688258780464098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,21 +240,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15160ead2e9474b82ab59f68e596e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114870291038907218
+--- !u!114 &114783228183722172
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041527098047270}
+  m_GameObject: {fileID: 1440272810830222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8563cdd9d5dc14cb4043f31390a46b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3650dfa2397ba4e8a929967d3ff4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnAtObject: {fileID: 1694029958023458}
-  objLifespan: 5
-  facingCursor: 1
-  projectile: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  verticalOffset: 1
+  horizontalOffset: 0
+  objectLifespan: 1
+  selected: 0
+--- !u!114 &114836430711483650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694029958023458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbfc04b67905c34a89013cf5d1474ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   selected: 0
 --- !u!114 &114961652345792240
 MonoBehaviour:
@@ -297,6 +311,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a008fd0dbb466f344b18afdc653b9da3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_FlipX: 0
   m_FlipY: 0

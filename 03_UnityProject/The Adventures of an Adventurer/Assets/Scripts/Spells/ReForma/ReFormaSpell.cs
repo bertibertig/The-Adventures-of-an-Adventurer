@@ -8,6 +8,8 @@ public class ReFormaSpell : MonoBehaviour {
 
     public bool Selected { get { return selected; } set { selected = value; } }
 
+    public string CurrentElement { get; set; }
+
     // Use this for initialization
     void Start ()
     {
@@ -16,7 +18,8 @@ public class ReFormaSpell : MonoBehaviour {
 
     public void Transform(string element)
     {
-        switch(element)
+        CurrentElement = element;
+        switch (element)
         {
             case "fire":
                 GetComponent<SpriteRenderer>().color = new Color32(231, 122, 122, 255);

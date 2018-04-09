@@ -58,9 +58,14 @@ public class Spirit : Photon.MonoBehaviour {
 
         if (player != null)
         {
-            float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothMove);
+            float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x - 0.5f, ref velocity.x, smoothMove);
 
-            transform.position = new Vector3(posx - 0.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(posx, transform.position.y, transform.position.z);
+
+            if (player.transform.position.x <= transform.position.x)
+                transform.localScale = new Vector3(-0.5166311f, 0.5166311f, 0.5166311f);
+            else
+                transform.localScale = new Vector3(0.5166311f, 0.5166311f, 0.5166311f);
         }
     }
 
