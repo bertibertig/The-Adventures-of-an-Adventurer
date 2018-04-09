@@ -57,7 +57,8 @@ public class Enemy_Health_Controller : MonoBehaviour
     {
         if (health == 0)
         {
-            loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
+            if(loot != null)
+                loot.EnemyDropGold(this.gameObject, minGoldDrop, maxGoldDrop);
             Destroy(healthBar);
             Destroy(this.gameObject);
         }
