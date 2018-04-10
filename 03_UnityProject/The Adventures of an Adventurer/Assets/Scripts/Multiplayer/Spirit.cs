@@ -8,6 +8,7 @@ public class Spirit : Photon.MonoBehaviour {
     public float lerpStep = 0.5f;
     public bool offline = false;
     public bool StopFollowingCursor = false;
+    public bool beStatic = true;
     public float smoothMove = 0.5f;
 
     private Rigidbody2D rb2d;
@@ -56,7 +57,7 @@ public class Spirit : Photon.MonoBehaviour {
 
         //Follow Player
 
-        if (player != null)
+        if (player != null && !beStatic)
         {
             float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x - 0.5f, ref velocity.x, smoothMove);
 

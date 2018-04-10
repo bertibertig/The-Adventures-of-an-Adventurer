@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 58180691811231204}
   - component: {fileID: 114768872615825880}
   - component: {fileID: 114468913485962520}
-  - component: {fileID: 114156462295741506}
+  - component: {fileID: 114869002030691920}
   - component: {fileID: 114584552871264202}
   - component: {fileID: 114009201601753298}
   - component: {fileID: 114232719294441826}
@@ -366,18 +366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyInfo: {fileID: 0}
---- !u!114 &114156462295741506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022144057357642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53c1a56e39f7d1745b79bd69566a54e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTrigger: {fileID: 60481376838394828}
 --- !u!114 &114232719294441826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,6 +461,18 @@ MonoBehaviour:
   isAbleToJump: 1
   newVelocity: {x: 0, y: 0}
   newRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114869002030691920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022144057357642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774b71ec44d5eae4d9af7b9fd666be52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTrigger: {fileID: 60481376838394828}
 --- !u!114 &114966362565043846
 MonoBehaviour:
   m_ObjectHideFlags: 1

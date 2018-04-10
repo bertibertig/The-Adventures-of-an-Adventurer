@@ -77,7 +77,7 @@ public class Main_Menu_NetworkingNewBehaviourScript : Photon.MonoBehaviour {
     void OnJoinedRoom()
     {
         print("Joined");
-        PhotonNetwork.Instantiate("Spirit", new Vector2(-100, -100), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("Spirit", new Vector2(-3.51f, 3), Quaternion.identity, 0);
         print("Joined as Spirit");
         PhotonNetwork.LoadLevel("Level_T1_MP");
     }

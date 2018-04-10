@@ -16,7 +16,10 @@ public class ReFormaElement : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if(GameObject.FindGameObjectWithTag("Spirit").GetComponent< ReFormaSpell>().Selected)
-            GameObject.FindGameObjectWithTag("Spirit").GetComponent<ReFormaSpell>().Transform(element);
+        if (GameObject.FindGameObjectsWithTag("Spirit").Length > 0)
+        {
+            if (GameObject.FindGameObjectWithTag("Spirit").GetComponent<ReFormaSpell>().Selected)
+                GameObject.FindGameObjectWithTag("Spirit").GetComponent<ReFormaSpell>().Transform(element);
+        }
     }
 }
