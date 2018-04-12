@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpiritMagicController : MonoBehaviour {
 
-    public Spawn_Obj_OnMouseClick SelectedSlot { get; set; }
+    public GameObject SelectedSlot { get; set; }
 
     // Use this for initialization
     void Start () {

@@ -40,6 +40,7 @@ TagManager:
   - Spells
   - SequenceItems
   - PlayerButtons
+  - SpiritSpells
   layers:
   - Default
   - TransparentFX

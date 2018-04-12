@@ -16,8 +16,8 @@ public class Spirit : Photon.MonoBehaviour {
     private GameObject player;
     private Vector2 velocity;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rb2d = this.GetComponent<Rigidbody2D>();
         if (GameObject.FindGameObjectWithTag("EventList") != null)
         {

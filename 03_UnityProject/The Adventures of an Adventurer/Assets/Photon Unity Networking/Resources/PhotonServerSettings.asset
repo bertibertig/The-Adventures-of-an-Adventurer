@@ -38,4 +38,6 @@ MonoBehaviour:
   - RequestForPickupTimes
   - OnAttack
   - OnMovement
+  - SpawnProjectile
+  - SpawnProjectileRPC
   DisableAutoOpenWizard: 1
