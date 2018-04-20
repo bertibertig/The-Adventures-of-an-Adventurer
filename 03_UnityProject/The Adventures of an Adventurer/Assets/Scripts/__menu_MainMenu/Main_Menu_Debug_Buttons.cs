@@ -15,6 +15,11 @@ public class Main_Menu_Debug_Buttons : MonoBehaviour {
         SceneManager.LoadScene("Level_T1_MP");
     }
 
+    public void LoadWaterTest()
+    {
+        SceneManager.LoadScene("Water Test");
+    }
+
     public void BackButton()
     {
         SceneManager.LoadScene("Main_Menu");
