@@ -36,7 +36,7 @@ public class Player_Movement_MP : Photon.MonoBehaviour {
     public Quaternion newRotation;
 
     GameObject player;
-    Camera camera;
+    new Camera camera;
     private Vector2 playerScreenPosition;
     private Vector2 enemyScreenPosition;
 

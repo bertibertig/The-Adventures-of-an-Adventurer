@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Health_Controller : MonoBehaviour {
 
@@ -118,7 +119,7 @@ public class Health_Controller : MonoBehaviour {
         player.enabled = true;
 		UpdateGUI();
         Destroy(GameObject.FindGameObjectWithTag("Music"));
-		Application.LoadLevel(0);
+		SceneManager.LoadScene(0);
         //generate world and reset player
     }
 
